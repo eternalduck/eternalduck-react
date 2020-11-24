@@ -1,0 +1,7 @@
+node_modules/
+_public/
+*.DS_Store
+.idea
+.vscode
+desktop.ini
+/node_modules
