@@ -1,26 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Header from './components/header/Header'
 
-// import './scss/style.scss';//FAIL
-//ERROR in ./src/scss/style.scss
-// Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):
-// ReferenceError: document is not defined
+import css from './scss/main.scss'
 
-// works
-const displayName = () => {
-   console.log( 'Test' );
-   const button = document.createElement( 'button' );
-   button.textContent = 'Click me..';
-   document.body.appendChild( button )
-};
-displayName();
 
-//fails
-const title = 'React...';
 ReactDOM.render(
-  <App title={title} />,
+  <Header/>,
   document.getElementById('root')
-);
+)
 
-module.hot.accept();
+
+// tmp
+const displayName = () => {
+   const p = document.createElement( 'p' )
+   const h2 = document.createElement( 'h2' )
+   p.textContent = 'Index txt'
+   h2.textContent = 'Index Header'
+   document.body.appendChild( h2 )
+   document.body.appendChild( p )
+}
+displayName()
+// end tmp
+
+
+// module.hot.accept()

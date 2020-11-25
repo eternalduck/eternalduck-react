@@ -1,0 +1,28 @@
+Main package (required along with desired packs):
+https://github.com/iconify/iconify/tree/master/packages/react
+npm i -D @iconify/react
+import { Icon, InlineIcon } from "@iconify/react";
+
+========
+Packs:
+
+Clarity
+https://iconify.design/icon-sets/clarity/
+
+npm i -D @iconify/icons-clarity
+import homeLine from '@iconify/icons-clarity/home-line';<Icon icon={homeLine} />
+
+---
+OpenMoji
+https://iconify.design/icon-sets/openmoji/
+
+npm i -D @iconify/icons-openmoji
+import icon1stPlaceMedal from '@iconify/icons-openmoji/1st-place-medal';
+
+---
+Flat Color Icons
+https://iconify.design/icon-sets/flat-color-icons/
+
+npm i -D @iconify/icons-flat-color-icons
+import aboutIcon from '@iconify/icons-flat-color-icons/about';
+
