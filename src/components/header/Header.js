@@ -10,7 +10,7 @@ const title = 'Header React'
 const Header = ({
 		// title
 	}) => 
-	<header className={css.headerXXX}>
+	<header className={css.header}>
 		<h1 className={css.title}>{title} <InlineIcon icon={homeLine} className="icon"/></h1>
 		<Icon icon={aboutIcon} className="icon"/>
 		<p className={css.txt}>header txt</p>

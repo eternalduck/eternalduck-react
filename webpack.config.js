@@ -8,12 +8,6 @@ const copyPlugin = require('copy-webpack-plugin');
 const stylelintPlugin = require('stylelint-webpack-plugin');
 const env_prod = process.env.NODE_ENV === 'production'
 
-// if (process.env.NODE_ENV === 'production') {
-// 	require('cssnano')({
-// 		preset: 'default',
-// 	})
-// }
-
 module.exports = {
 	// context: path.resolve(__dirname),
 	entry: path.resolve(__dirname, './src/index.js'),
@@ -109,15 +103,15 @@ module.exports = {
 	},
 
 	devServer: {
+		port: 9900,
+		// publicPath: '/build/',
 		// contentBase: '/build/',
 		contentBase: path.resolve(__dirname, './build'),
-		// publicPath: '/build/',
 		watchContentBase: true,
-		port: 9900,
-		hot: false,
-		liveReload: true,
+		hot: true,//fail
+		// liveReload: true,//fail
 		inline: true,
-		// overlay: true,
+		overlay: true,
 		// watchOptions: {
 		//   poll: true
 		// }

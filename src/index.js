@@ -24,4 +24,4 @@ displayName()
 // end tmp
 
 
-// module.hot.accept()
+module.hot.accept()//fail
