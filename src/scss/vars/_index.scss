@@ -1,0 +1,103 @@
+@import "breakpoints";
+@import "media";
+@import "grid";
+
+$black: #000;
+$white: #fff;
+$almost-black: #333;
+$almost-white: #f7f7f7;
+$black-transparent: rgba(0, 0, 0, .2);
+$white-transparent: rgba(255, 255, 255, .6);
+
+$gray-lightest: #eeefee;
+$gray-mid: #6C6C6C;
+$gray-c: #ccc;
+
+$pink-saturated: #9a22a8;
+$tender-pink: #cfb5d4;
+$tender-pink-transp: rgba(207, 181, 212, .8);
+
+$blue-vio-tender: #99abdd;
+$blue-mid: #4396d7;
+$blue-vio-lite: #798dc3;
+$blue-vio-darkest: #262f47;
+
+$vio-saturated-transp: rgba(129, 21, 179, .8);
+$vio-saturated: #8115b3;
+$vio-mid: #695289;
+$vio-mid-transp: rgba(105, 82, 137, .8);
+$vio-eggplant: #482a52;
+$vio-dark: #372647;
+
+$blue-darkest: #08122c;
+$blue-dark-dust: #3e5b7c;
+
+$green-lightest: #e8f3e1;
+$green: #7ccf47;
+$green-dark: #0B3601;
+$green-darkest: #072601;
+
+// Helpers
+@mixin centered {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+// Structure
+
+
+// Styling
+
+@mixin hoverbg {
+	position: relative;
+	&:hover {
+		color: $white;
+	}
+	&:after {
+		content: "";
+		position: absolute;
+		top: -5px;
+		right: -8px;
+		bottom: -5px;
+		left: -8px;
+		z-index: -1;
+		transform: skewX(-1deg) skewY(-1deg);
+		transition: background .1s ease-in;
+		opacity: .5;
+	}
+	&:hover:after {
+		background: $tender-pink-transp;
+	}
+}
+
+
+
+
+
+
+
+
+//for use with a loop export for js, not convenient for use in scss
+// $theme: (
+// 	black: #333,
+// 	white: #FFF,
+// 	blue: cyan,
+// );
+
+// :export {
+// 	/* stylelint-disable property-no-unknown */
+// 	black: $black;
+// 	white: $white;
+// 	blue: $blue;
+// 	/* stylelint-enable */
+// }
+//automated export for js, var object shuold be used above
+// :export {
+// 	@each $key, $value in $theme {
+// 		#{unquote($key)}: $value;
+// 	}
+// }
+
+// zb
+// import vars from '../../scss/_vars-mixins.scss' // { anotherColor: "#FFF", someColor: "#000" }
+// import { someColor } from '../../scss/_vars-mixins.scss' // #000

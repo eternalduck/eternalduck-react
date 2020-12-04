@@ -6,12 +6,11 @@
 		"./_public/**/*.*",
 		"**/*.js"
 	],
-	"extends": "stylelint-config-recommended",
+	"plugins": [
+		"stylelint-scss"
+	],
 	"rules": {
 		"indentation": "tab",
-		"string-quotes": "double",
-		"selector-pseudo-class-no-unknown": [true, {
-			"ignorePseudoClasses": ["global"]
-		}]
+		"string-quotes": "double"
 	}
 }

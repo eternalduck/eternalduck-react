@@ -2,10 +2,12 @@ const isProductionMode = process.env.NODE_ENV === 'production';
 const path = require('path');
 const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
-const miniCssExtractPlugin = require('mini-css-extract-plugin');//fails, wait for upd or what?
+const miniCssExtractPlugin = require('mini-css-extract-plugin');
 const cssnano = require('cssnano');
 const copyPlugin = require('copy-webpack-plugin');
 const stylelintPlugin = require('stylelint-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
+
 const env_prod = process.env.NODE_ENV === 'production'
 
 module.exports = {
@@ -30,9 +32,13 @@ module.exports = {
 				exclude: /node_modules/,
 				// include: path.resolve(__dirname, './src/scss/'),
 				use: [
-					miniCssExtractPlugin.loader, 
-					// isProductionMode ? miniCssExtractPlugin.loader : 'style-loader',
-					// 'style-loader',//no need if miniCssExtractPlugin is used!!
+					// {
+					// 	loader: miniCssExtractPlugin.loader, 
+					// 	 options: {
+					// 		publicPath: path.resolve(__dirname, './src/public/')
+					// 	}
+					// },
+					'style-loader',//no need if miniCssExtractPlugin is used!!
 					{
 						loader: 'css-loader',
 						options: {
@@ -46,6 +52,7 @@ module.exports = {
 						loader: 'postcss-loader',
 						options: {
 							postcssOptions: {
+								publicPath: path.resolve(__dirname, './src/public/'),
 								plugins: [
 									'postcss-preset-env',
 									env_prod &&
@@ -78,6 +85,7 @@ module.exports = {
 
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
+		new ESLintPlugin(),
 		new htmlWebpackPlugin(
 			{template: './src/public/index.html'}
 		),
@@ -87,11 +95,15 @@ module.exports = {
 		),
 		new copyPlugin({
 			patterns: [
-				{//don't copy entire /public, index.html rewriting causes problems!
-					from: path.resolve(__dirname, './src/public/images'),
-					to: path.resolve(__dirname, './build/images') 
+				{//don't copy *html to avoid index.html rewriting
+					globOptions: {
+						// gitignore: true,
+						dot: true,
+						ignore: "**/*.html",
+					},
+					from: path.resolve(__dirname, './src/public/'),
+					to: path.resolve(__dirname, './build/')
 				},
-				// { from: 'other', to: 'public' },//if needed more
 			],
 		}),//copyPlugin
 	],//plugins
@@ -104,16 +116,13 @@ module.exports = {
 
 	devServer: {
 		port: 9900,
-		// publicPath: '/build/',
-		// contentBase: '/build/',
+		historyApiFallback: true,//!!!
 		contentBase: path.resolve(__dirname, './build'),
 		watchContentBase: true,
 		hot: true,//fail
+		// publicPath: '/build/',
 		// liveReload: true,//fail
 		inline: true,
 		overlay: true,
-		// watchOptions: {
-		//   poll: true
-		// }
 	},
 };

@@ -1,14 +1,15 @@
-$red: red;
+@import "../../scss/vars/index";
+@import "../menu/menu";
 
 .header {
-	outline: 1px dashed yellow;
-}
-.title {
-	color: $red
-}
-.txt {
-	font-size: 2em;
-	color: $red
+	@include content-width;
+	margin-bottom: 100px;
+	a {
+		color: $tender-pink;
+	}
+	&.dark a {
+		color: $black;
+	}
 }
 
 

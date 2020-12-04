@@ -1,0 +1,44 @@
+@import "../vars/index";
+.grid-content {
+	outline: 1px dashed magenta;
+}
+// header, footer {
+// 	outline: 1px dashed magenta;
+// 	& nav {
+// 		outline: 1px dashed #ccc;
+// 	}
+// }
+body:before {
+	position: fixed;
+	top: 5px;
+	right: 5px;
+	font-size: 14px;
+	z-index: 999999;
+}
+
+@mixin bodyInfo($br, $content, $color) {
+	@include breakUp($br) {
+		body:before {
+			content: $content;
+			color: $color;
+		}
+	}
+}
+
+body:before {
+	content: "XS (before 575)";
+	color: cyan;
+}
+
+@include breakOnly("xxs") {
+	body:before {
+		content: "XXS-only (max-width: 400)";
+		color: red;
+	}
+}
+@include bodyInfo(sm, "SM (min-width: 576)", red);
+@include bodyInfo(md, "MD (min-width: 750)", cyan);
+@include bodyInfo(lg, "LG (min-width: 992)", green);
+@include bodyInfo(xl, "XL (min-width: 1200)", lime);
+@include bodyInfo(xxl, "XXL (min-width: 1600)", magenta);
+

@@ -1,16 +1,27 @@
-$black: #333;
-$white: #fff;
-$blue: cyan;
+@import "vars/index";
+@import "utils/debug";
+@import "utils/reset";
 
 body {
-	background: $black;
-	color: $blue;
+	background: $vio-mid;//$black;
+	color: $white;
+	// color: map-get($theme, blue);
 }
 
 p {
 	font-size: 1em;
-	color: $blue;
+	color: $vio-mid;
 }
+
+canvas {
+	border:1px solid #999;
+}
+
+// Grid
+.contentWidth {
+	@include content-width;
+}
+
 //tmp
 :global .icon {
 	width: 50px;
