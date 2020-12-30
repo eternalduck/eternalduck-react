@@ -1,12 +1,12 @@
-const isProductionMode = process.env.NODE_ENV === 'production';
-const path = require('path');
-const webpack = require('webpack');
-const htmlWebpackPlugin = require('html-webpack-plugin');
-const miniCssExtractPlugin = require('mini-css-extract-plugin');
-const cssnano = require('cssnano');
-const copyPlugin = require('copy-webpack-plugin');
-const stylelintPlugin = require('stylelint-webpack-plugin');
-const ESLintPlugin = require('eslint-webpack-plugin');
+const isProductionMode = process.env.NODE_ENV === 'production'
+const path = require('path')
+const webpack = require('webpack')
+const htmlWebpackPlugin = require('html-webpack-plugin')
+const miniCssExtractPlugin = require('mini-css-extract-plugin')
+const cssnano = require('cssnano')
+const copyPlugin = require('copy-webpack-plugin')
+// const stylelintPlugin = require('stylelint-webpack-plugin')
+const ESLintPlugin = require('eslint-webpack-plugin')
 
 const env_prod = process.env.NODE_ENV === 'production'
 
@@ -22,51 +22,72 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						'presets': ['@babel/preset-env', '@babel/preset-react'],
-						// 'plugins': []
+						'presets': [
+							'@babel/preset-env',
+							'@babel/preset-react'
+						],
+						'plugins': [
+							//make readable classes
+							['babel-plugin-styled-components',
+								{
+									'displayName': true,
+									'fileName': false,
+									'ssr': true,
+									'transpileTemplateLiterals': true,
+									'preprocess': false,//experimental feature turned off explicitly
+								}
+							]
+						]
 					}
 				}
 			},//js
 			{
 				test: /\.(scss|css)$/,
 				exclude: /node_modules/,
-				// include: path.resolve(__dirname, './src/scss/'),
 				use: [
-					// {
-					// 	loader: miniCssExtractPlugin.loader, 
-					// 	 options: {
-					// 		publicPath: path.resolve(__dirname, './src/public/')
-					// 	}
-					// },
-					'style-loader',//no need if miniCssExtractPlugin is used!!
+					// 'style-loader',//no need if miniCssExtractPlugin is used!!
+					{
+						loader: miniCssExtractPlugin.loader,
+					},
 					{
 						loader: 'css-loader',
 						options: {
 							modules: {
-								localIdentName: '[name]_[local]__[hash:base64:3]',
+								localIdentName: '[name]_[local]-[hash:base64:3]',
+								exportLocalsConvention: 'camelCase',
 							},
+							url: false,//!!!
 							importLoaders: 2,//num of loaders after css-loader
 						},
 					},
-					{
-						loader: 'postcss-loader',
-						options: {
-							postcssOptions: {
-								publicPath: path.resolve(__dirname, './src/public/'),
-								plugins: [
-									'postcss-preset-env',
-									env_prod &&
-									new cssnano({
-										preset: 'default'
-									})
-								],
-								minimize: true
-							}//postcssOptions
-						}//options
-					},//postcss
+					// {
+					// 	loader: 'postcss-loader',
+					// 	options: {
+					// 		postcssOptions: {
+					// 			plugins: [
+					// 				'postcss-preset-env',
+					// 				env_prod &&
+					// 				new cssnano({
+					// 					preset: 'default'
+					// 				})
+					// 			],
+					// 			minimize: true
+					// 		}//postcssOptions
+					// 	}//options
+					// },//postcss
 					'sass-loader',//!
 				],//use
 			},//css
+			{
+				test: /\.(png|svg|jpg|jpeg|gif)$/i,
+				type: 'asset/resource',
+				// use: [
+				// 	{
+				// 		// loader: 'url-loader',
+				// 		loader: 'file-loader',
+				// 	},
+				// ],
+			},//img
 
 		],//rules
 	},//module
@@ -89,7 +110,7 @@ module.exports = {
 		new htmlWebpackPlugin(
 			{template: './src/public/index.html'}
 		),
-		new stylelintPlugin(),
+		// new stylelintPlugin(),
 		new miniCssExtractPlugin(
 			{filename: 'style.css',}
 		),

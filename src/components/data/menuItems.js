@@ -1,7 +1,8 @@
 export const menuItems =
 [
 	{
-		"txt": '<Icon icon={aboutIcon} className="icon"/>',
+		"txt": "home",
+		// "txt": '<Icon icon={aboutIcon} className="icon"/>',
 		"url": "/",
 		"id": "index"
 	},
@@ -12,15 +13,21 @@ export const menuItems =
 		"id": "sites"
 	},
 	{
-		"txt": "ux",
-		"url": "/work/ux",
-		"id": "ux"
-	},
-	{
 		"txt": "cv",
-		"url": "/work/cv",
+		"url": "/cv",
+		// "url": "/work/cv",
 		"id": "cv"
 	},
+	{
+		"txt": "test",
+		"url": "/test",
+		"id": "test"
+	},
+	// {
+	// 	"txt": "ux",
+	// 	"url": "/work/ux",
+	// 	"id": "ux"
+	// },
 	// {
 	// 	"txt": "art",
 	// 	"url": "/work/art",

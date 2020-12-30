@@ -4,10 +4,13 @@ import {Switch, Route} from "react-router-dom"
 
 import Header from './components/Header/Header'
 import Frontpage from './components/Frontpage/Frontpage'
-import Sites from './components/Sites/Sites'
+import SitesRouting from './components/Sites/Sites'
+import Cv from './components/Cv/Cv'
+import Page404 from './components/Page404/Page404'
+//tmp
 import TestPage from './components/TestPage/TestPage'
-
-import './scss/main.scss'// common styles
+//end tmp
+// import './scss/main.scss'// common styles
 
 export default function Root(props){
 	return(
@@ -15,16 +18,24 @@ export default function Root(props){
 			<Switch>
 				{/* <Route exact path="/" component={Frontpage}/> */}
 				<Route exact path="/">
-					<Header headerColor="dark"/>
+					<Header/>
 					<Frontpage/>
 				</Route>
 				<Route path="/sites">
 					<Header/>
-					<Sites/>
+					<SitesRouting/>
+				</Route>
+				<Route path="/cv">
+					<Header headerColor="dark"/>
+					<Cv/>
 				</Route>
 				<Route path="/test">
 					<Header/>
 					<TestPage/>
+				</Route>
+				<Route path="*">
+					<Header/>
+					<Page404/>
 				</Route>
 			</Switch>
 		</>

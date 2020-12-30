@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import cx from 'classnames'
 // import Header from '../Header/Header'
+import LayoutBase from '../Layout/LayoutBase'
 
 import css from '../../scss/main.scss'
 
@@ -9,17 +10,16 @@ import css from '../../scss/main.scss'
 const TestPage = (props) => {
 	useEffect(() => {
 		drawOnCanvas()
-		displayName()
 	})
 	return(
 	<>
 		{/* <Header headerColor={props.headerColor}/> */}
-		<main>
+		<LayoutBase>
 			<div className="contentWidth">
 				TestPage content-width
 				<canvas id="myCanvas" width="300" height="150"></canvas>
 			</div>
-		</main>
+		</LayoutBase>
 	</>
 	)
 }
@@ -44,18 +44,5 @@ const drawOnCanvas = () => {
 		if (ctr == endAngle) clearInterval(clr)
 	}, 10)
 }
-
-// tmp
-const displayName = () => {
-   const p = document.createElement('p')
-   const h2 = document.createElement('h2')
-   p.textContent = 'Index txt'
-   h2.textContent = 'Index Header'
-   document.body.appendChild(h2)
-   document.body.appendChild(p)
-}
-
-// end tmp
-
 
 export default TestPage

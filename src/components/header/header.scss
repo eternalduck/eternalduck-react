@@ -1,15 +1,9 @@
-@import "../../scss/vars/index";
-@import "../menu/menu";
+//@import "../../scss/vars/index";
+//@import "../Menu/menu";
 
-.header {
-	@include content-width;
-	margin-bottom: 100px;
-	a {
-		color: $tender-pink;
-	}
-	&.dark a {
-		color: $black;
-	}
-}
-
-
+//.header {
+//	// @include content-width;
+//	margin-top: 15px;
+//	margin-bottom: 100px;
+//	z-index: 100;
+//}
