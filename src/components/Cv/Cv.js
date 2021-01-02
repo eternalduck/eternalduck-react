@@ -8,7 +8,7 @@ import cssC from './cv.scss'
 
 const Cv = (props) => {
 	useEffect(() => {
-		document.body.className = cssC.cvPage
+		// document.body.className = cssC.cvPage
 	})
 	return(
 		<LayoutBase>

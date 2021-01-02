@@ -1,9 +1,9 @@
 import { css } from 'styled-components'
 import breakpoints from './_breakpoints'
-import allVars from './_vars'
+import colorVars from './_vars'
 
 //make vars exported from here for further convenience
-export const vars = allVars
+export const colors = colorVars
 
 // Index - TODO: revise:
 // 0. Includes
@@ -25,7 +25,7 @@ export const media = Object.keys(breakpoints).reduce((accumulator, label) => {
 
 // TMP
 export const mixinTest = css`
-	color: ${vars.pinkSaturated}
+	color: ${colors.pinkSaturated}
 `
 
 export const mixinTestBg = css`
@@ -47,26 +47,26 @@ export const mixinContentWidth = css`
 	margin-right: auto;
 	margin-left: auto;
 	width: 100%;
-	background: yellow;
+	//background: yellow;
 	${media.smUp`
 		max-width: 500px;
-		background: orange;
+		// background: orange;
 	`}
 	${media.mdUp`
 		max-width: 720px;
-		background: pink;
+		// background: pink;
 	`}
 	${media.lgUp`
 		max-width: 940px;
-		background: red;
+		// background: red;
 	`}
 	${media.xlUp`
 		max-width: 1100px;
-		background: blue;
+		// background: blue;
 	`}
 	${media.xxlUp`
 		max-width: 1400px;
-		background: green;
+		// background: green;
 	`}
 `
 
@@ -85,13 +85,13 @@ export const mixinCentered = css`
 `
 ///////////////////////
 // 4. Styling
-export const mixinBoxShadowSmall = (clr) => {return`
-	box-shadow: 3px 3px 8px 20px ${clr};
-`}
+export const mixinBoxShadowSmall = (clr) => css`
+	box-shadow: 3px 3px 8px 20px ${clr ? clr : "#777"};
+`
 
-export const mixinBoxShadowMid = (clr) => {return `
+export const mixinBoxShadowMid = (clr) => css`
 	box-shadow: 10px 10px 8px -7px ${clr};
-`}
+`
 
 export const mixinTxtShadow = css`
 	text-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
@@ -141,7 +141,7 @@ export const mixinNoUnderline = css`
 export const mixinHoverBg = css`
 	position: relative;
 	&:hover {
-		color: ${vars.white};
+		color: ${colors.white};
 	}
 	&:after {
 		content: "";
@@ -156,6 +156,6 @@ export const mixinHoverBg = css`
 		opacity: .5;
 	}
 	&:hover:after {
-		background: ${vars.tenderPinkTransp};
+		background: ${colors.tenderPinkTransp};
 	}
 `

@@ -1,49 +1,12 @@
-@import "../vars/index";
-.grid-container {
-	outline: 1px solid cyan;
-	width: 100%;
-	display: grid;
-	grid-template: ". content ." 1fr / 15px 1fr 15px;
-	@include breakUp("sm") {
-		outline: 1px solid red;
-	}
-	@include breakUp("md") {
-		outline: 1px solid cyan;
-	}
-	@include breakUp("lg") {
-		outline: 1px solid green;
-	}
-	@include breakUp("xl") {
-		outline: 1px solid lime;
-	}
-	@include breakUp("xxl") {
-		outline: 1px solid magenta;
-	}
-}
-.grid-content {
-	outline: 1px dashed cyan;
-	@include breakUp("sm") {
-		outline: 1px dashed red;
-	}
-	@include breakUp("md") {
-		outline: 1px dashed cyan;
-	}
-	@include breakUp("lg") {
-		outline: 1px dashed green;
-	}
-	@include breakUp("xl") {
-		outline: 1px dashed lime;
-	}
-	@include breakUp("xxl") {
-		outline: 1px dashed magenta;
-	}
-}
-// header, footer {
-// 	outline: 1px dashed magenta;
-// 	& nav {
-// 		outline: 1px dashed #ccc;
-// 	}
-// }
+$bodyTxt: (
+	[0, "XS", black],
+	[576px, "SM (min-width: 576)", red],
+	[750px, "MD (min-width: 750)", cyan],
+	[990px, "LG (min-width: 990)", blue],
+	[1200px, "XL (min-width: 1200)", lime],
+	[1600px, "XXL (min-width: 1600)", magenta],
+);
+
 body:before {
 	position: fixed;
 	top: 5px;
@@ -52,29 +15,11 @@ body:before {
 	z-index: 999999;
 }
 
-@mixin bodyInfo($br, $content, $color) {
-	@include breakUp($br) {
+@each $br, $txt, $clr in $bodyTxt {
+	@media (min-width: $br) {
 		body:before {
-			content: $content;
-			color: $color;
+			content: $txt;
+			color: $clr;
 		}
 	}
 }
-
-body:before {
-	content: "XS (before 575)";
-	color: cyan;
-}
-
-@include breakOnly("xxs") {
-	body:before {
-		content: "XXS-only (max-width: 400)";
-		color: red;
-	}
-}
-@include bodyInfo(sm, "SM (min-width: 576)", red);
-@include bodyInfo(md, "MD (min-width: 750)", cyan);
-@include bodyInfo(lg, "LG (min-width: 992)", green);
-@include bodyInfo(xl, "XL (min-width: 1200)", lime);
-@include bodyInfo(xxl, "XXL (min-width: 1600)", magenta);
-

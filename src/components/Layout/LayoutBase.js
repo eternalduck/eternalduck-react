@@ -1,16 +1,28 @@
 import React from 'react'
 // import ReactDOM from 'react-dom'
+import styled from 'styled-components'
 
-import css from '../../scss/main.scss'
+import {mixinContentWidth} from '../../scss/vars-mixins/_index'
 
 const LayoutBase = (props) => {
 	return (
-		<div className={css.gridContainer}>
-			<div className={css.gridContent}>
+		<GridContainer>
+			<GridContent>
 				{props.children}
-			</div>
-		</div>
+			</GridContent>
+		</GridContainer>
 	)
 }
+
+const GridContainer = styled.div`
+	//display: grid;
+	//grid-template: ". content ." 1fr / 15px 1fr 15px;
+	//justify-items: center;
+	width: 100%;
+`
+const GridContent = styled.div`
+	//grid-area: content;
+	${mixinContentWidth};
+`
 
 export default LayoutBase

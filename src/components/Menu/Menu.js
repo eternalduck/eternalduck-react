@@ -1,7 +1,7 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
 import styled from 'styled-components'
-import {vars, media, mixinContentWidth, mixinHoverBg, mixinNoUnderline} from '../../scss/vars/_index'
+import {colors, media, mixinContentWidth, mixinHoverBg, mixinNoUnderline, mixinBoxShadowMid} from '../../scss/vars-mixins/_index'
 
 
 import {menuItems} from '../data/menuItems'
@@ -19,8 +19,6 @@ const Menu = (props) => {
 		{menuItems.map(item => (
 			<NavLink key={item.id}
 				to={item.url}
-				// className={cssM.menuItem}
-				// activeClassName={cssM.active}
 				exact={true}
 				// id={item.id}
 				// dangerouslySetInnerHTML={{ __html: item.txt}}//icon fails
@@ -36,7 +34,7 @@ const MenuSC = styled.nav`
 	${mixinContentWidth};
 	a {
 		font-family: "Courier New", monospace;
-		color: ${vars.white};
+		color: ${colors.white};
 		position: relative;
 		margin: 0 30px 50px 0;
 		padding-bottom: 5px;
@@ -47,15 +45,16 @@ const MenuSC = styled.nav`
 		transition: color 0.3s ease-in;
 		${mixinNoUnderline};
 		${mixinHoverBg};
+		//${mixinBoxShadowMid()};
 		&.active {
 			cursor: default;
 			pointer-events: none;
 			&:after, &:hover:after {
-				background: ${vars.tenderPinkTransp};
+				background: ${colors.tenderPinkTransp};
 			}
 		}
 		header.dark & {
-			color: ${vars.vioDark};
+			color: ${colors.vioDark};
 		}
 	}
 `

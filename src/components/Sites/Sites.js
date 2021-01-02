@@ -15,6 +15,8 @@ import WorkItem from '../WorkItem/WorkItem'
 import SingleSite from '../SingleSite/SingleSite'
 import {sitesList} from '../data/sitesList'
 
+import {vars, media} from '../../scss/vars-mixins/_index'
+
 // import css from '../../scss/main.scss'
 // import cssS from './sites.scss'
 

@@ -5,9 +5,11 @@
 // 3. Grid & structure
 // 4. Helpers
 
-//@import "vars/index";
-//@import "utils/debug";
-//@import "utils/reset";
+//@import "vars-mixins/_index";
+@import "utils/debug";
+@import "utils/reset";
+//@import "vars-mixins/_index";
+
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap");
 // @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Roboto+Slab:wght@600;700&display=swap");
 
@@ -66,7 +68,7 @@ p {
 //}
 //.gridContent {
 //	grid-area: content;
-//	@include contentWidth;
+//	//@include contentWidth;
 //}
 //.contentWidth {
 //	@include contentWidth;

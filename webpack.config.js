@@ -45,7 +45,6 @@ module.exports = {
 				test: /\.(scss|css)$/,
 				exclude: /node_modules/,
 				use: [
-					// 'style-loader',//no need if miniCssExtractPlugin is used!!
 					{
 						loader: miniCssExtractPlugin.loader,
 					},
@@ -60,21 +59,6 @@ module.exports = {
 							importLoaders: 2,//num of loaders after css-loader
 						},
 					},
-					// {
-					// 	loader: 'postcss-loader',
-					// 	options: {
-					// 		postcssOptions: {
-					// 			plugins: [
-					// 				'postcss-preset-env',
-					// 				env_prod &&
-					// 				new cssnano({
-					// 					preset: 'default'
-					// 				})
-					// 			],
-					// 			minimize: true
-					// 		}//postcssOptions
-					// 	}//options
-					// },//postcss
 					'sass-loader',//!
 				],//use
 			},//css

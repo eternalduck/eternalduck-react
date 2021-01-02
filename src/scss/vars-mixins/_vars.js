@@ -1,5 +1,5 @@
 // 1. Vars
-const allVars = {
+const colorVars = {
 	black: "#000",
 	white: "#fff",
 	almostBlack: "#333",
@@ -36,4 +36,4 @@ const allVars = {
 	greenDarkest: "#072601",
 }
 
-export default allVars
+export default colorVars
