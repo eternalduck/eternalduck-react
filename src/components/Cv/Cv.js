@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 // import ReactDOM from 'react-dom'
 // import cx from 'classnames'
-import LayoutBase from '../Layout/LayoutBase'
+import ContentWidth from '../Layout/ContentWidth'
 
 import css from '../../scss/main.scss'
 import cssC from './cv.scss'
@@ -11,7 +11,7 @@ const Cv = (props) => {
 		// document.body.className = cssC.cvPage
 	})
 	return(
-		<LayoutBase>
+		<ContentWidth>
 			{/* <div className="lang__container lang__container_cv">
 				@@include("../../modules/lang-toggle/ru-toggle.html", {
 					"toggleClass": "lang__toggle_cv expand"
@@ -127,7 +127,7 @@ const Cv = (props) => {
 				I was born in 1984.
 				</p>
 			</div>{/* en */}
-		</LayoutBase>
+		</ContentWidth>
 	)
 }
 

@@ -8,14 +8,16 @@ import {
 	useRouteMatch,
 	useParams
 } from "react-router-dom"
-import cx from 'classnames'
+// import cx from 'classnames'
 
-import LayoutBase from '../Layout/LayoutBase'
+import Header from '../Header/Header'
+import ContentWide from '../Layout/ContentWide'
 import WorkItem from '../WorkItem/WorkItem'
 import SingleSite from '../SingleSite/SingleSite'
 import {sitesList} from '../data/sitesList'
 
-import {vars, media} from '../../scss/vars-mixins/_index'
+import styled from 'styled-components'
+import {colors, mixins, media} from '../../scss/vars-mixins/_index'
 
 // import css from '../../scss/main.scss'
 // import cssS from './sites.scss'
@@ -58,27 +60,21 @@ const SitesPage = (props) => {
 	})
 	let match = useRouteMatch()
 	return (
-		<LayoutBase>
-			{/*<div className={cssS.sitesPage__content}>*/}
-				{sitesList && sitesList.map(item =>
-					<WorkItem key={item.slug}
-					          item={item}
-					          match={match.path}
-					/>
-				)}
-			{/*</div>*/}
-		</LayoutBase>
+		//
+		<ContentWide bg={colors.blueVioDarkest}>
+			<Header/>
+			{sitesList && sitesList.map(item =>
+				<WorkItem key={item.slug}
+					item={item}
+					match={match.path}
+				/>
+			)}
+		</ContentWide>
 	)
 }
 // style
-// .sitesPage  {
-// 	background: $blueVioDarkest;
-// 	&__content {
-// 		@include breakUp("md") {
-// 			@include flexRow;
-// 		}
-// 	}
-// }
-// style
+// const Test = styled.div`
+// 	${mixins.testBg}
+// `
 
 // module.hot.accept()//fail

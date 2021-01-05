@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import LayoutBase from '../Layout/LayoutBase'
+import ContentWidth from '../Layout/ContentWidth'
 
 import css from '../../scss/main.scss'
 
@@ -10,9 +10,9 @@ const Page404 = (props) => {
 		document.body.className = cssP.page404
 	})
 	return(
-		<LayoutBase>
+		<ContentWidth>
 			<p>OH NO!..</p>
-		</LayoutBase>
+		</ContentWidth>
 	)
 }
 

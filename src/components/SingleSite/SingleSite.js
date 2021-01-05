@@ -8,7 +8,7 @@ import {
 	useRouteMatch,
 	useParams
 } from "react-router-dom"
-import LayoutBase from '../Layout/LayoutBase'
+import ContentWidth from '../Layout/ContentWidth'
 
 // import css from '../../scss/main.scss'
 // import cssS from './single-site.scss'
@@ -19,14 +19,14 @@ const SingleSite = (props) => {
 		// document.body.className = cssS.singleSite
 	})
 	return (
-		<LayoutBase>
+		<ContentWidth>
 			<h4>
 				{props.item.title}
 			</h4>
 			<p>{props.item.descr}</p>
 			{/*map these images*/}
 			{/*<img src={props.item.images.img} alt=""/>*/}
-		</LayoutBase>
+		</ContentWidth>
 	)
 }
 export default SingleSite

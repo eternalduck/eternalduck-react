@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import cx from 'classnames'
 // import Header from '../Header/Header'
-import LayoutBase from '../Layout/LayoutBase'
+import ContentWidth from '../Layout/ContentWidth'
 
 import css from '../../scss/main.scss'
 
@@ -14,12 +14,12 @@ const TestPage = (props) => {
 	return(
 	<>
 		{/* <Header headerColor={props.headerColor}/> */}
-		<LayoutBase>
+		<ContentWidth>
 			<div className="contentWidth">
 				TestPage content-width
 				<canvas id="myCanvas" width="300" height="150"></canvas>
 			</div>
-		</LayoutBase>
+		</ContentWidth>
 	</>
 	)
 }

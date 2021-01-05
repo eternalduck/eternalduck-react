@@ -1,7 +1,7 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
 import styled from 'styled-components'
-import {colors, media, mixinContentWidth, mixinHoverBg, mixinNoUnderline, mixinBoxShadowMid} from '../../scss/vars-mixins/_index'
+import {colors, mixins, media} from '../../scss/vars-mixins/_index'
 
 
 import {menuItems} from '../data/menuItems'
@@ -31,7 +31,7 @@ const Menu = (props) => {
 	)}
 
 const MenuSC = styled.nav`
-	${mixinContentWidth};
+	// ${mixins.contentWidth};
 	a {
 		font-family: "Courier New", monospace;
 		color: ${colors.white};
@@ -43,9 +43,9 @@ const MenuSC = styled.nav`
 		text-decoration: none;
 		z-index: 1;
 		transition: color 0.3s ease-in;
-		${mixinNoUnderline};
-		${mixinHoverBg};
-		//${mixinBoxShadowMid()};
+		${mixins.noUnderline};
+		${mixins.hoverBg};
+		// ${mixins.boxShadowMid()};
 		&.active {
 			cursor: default;
 			pointer-events: none;

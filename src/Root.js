@@ -12,29 +12,25 @@ import TestPage from './components/TestPage/TestPage'
 //end tmp
 // import './scss/main.scss'// common styles
 
+// TODO:  check router v6, replace Switch with Routes, Route (path, element) https://blog.logrocket.com/react-router-v6/
 export default function Root(props){
 	return(
 		<>
 			<Switch>
 				{/* <Route exact path="/" component={Frontpage}/> */}
 				<Route exact path="/">
-					<Header/>
 					<Frontpage/>
 				</Route>
 				<Route path="/sites">
-					<Header/>
 					<SitesRouting/>
 				</Route>
 				<Route path="/cv">
-					<Header headerColor="dark"/>
 					<Cv/>
 				</Route>
 				<Route path="/test">
-					<Header/>
 					<TestPage/>
 				</Route>
 				<Route path="*">
-					<Header/>
 					<Page404/>
 				</Route>
 			</Switch>

@@ -19,7 +19,7 @@ const Header = (props) => {
 // style
 const HeaderSC = styled.div`
 	margin-top: 15px;
-	margin-bottom: 100px;
+	margin-bottom: 70px;
 	z-index: 100;
 `
 // style

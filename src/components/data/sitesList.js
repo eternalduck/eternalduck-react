@@ -11,7 +11,7 @@ export const sitesList = [
 		"url": "https://nikatech.net",
 		"url2": "",
 		"keywords": "2020, wordpress, responsive, gulp",
-		"descr": "A Wordpress site for an animation studio.",
+		"descr": "",
 		"descrRu": "",
 		"nav": [
 			{//prev
