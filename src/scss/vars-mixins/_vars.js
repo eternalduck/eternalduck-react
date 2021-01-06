@@ -1,5 +1,13 @@
 // 1. Vars
-const colorVars = {
+export const dark = {
+	bodyClr: "red",
+	txtClr: "#fff",
+}
+export const light = {
+	bodyClr: "green",
+	txtClr: "#333",
+}
+export default {
 	black: "#000",
 	white: "#fff",
 	almostBlack: "#333",
@@ -35,5 +43,3 @@ const colorVars = {
 	greenDark: "#0B3601",
 	greenDarkest: "#072601",
 }
-
-export default colorVars

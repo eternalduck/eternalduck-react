@@ -6,16 +6,22 @@ import {mixins, media} from '../../scss/vars-mixins/_index'
 
 const ContentFullWidth = (props) => {
 	return (
-		<Content bg={props.bg}>
-			{props.children}
-		</Content>
+		// <Container bg={props.bg}>
+			<Content bg={props.bg}>
+				{props.children}
+			</Content>
+		// </Container>
 	)
 }
 
+// const Container = styled.div`
+// 	background: ${props => props.bg}
+// `
 const Content = styled.div`
-	background: ${props => props.bg};
+	${mixins.out("solid", "lime")}
+	background: ${props => props.bg}
 	width: 100%;
-	padding: 0 30px;
+	padding: 0 30px
 `
 
 export default ContentFullWidth

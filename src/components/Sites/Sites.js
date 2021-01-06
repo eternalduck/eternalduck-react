@@ -12,12 +12,13 @@ import {
 
 import Header from '../Header/Header'
 import ContentWide from '../Layout/ContentWide'
+import ContentWidth from '../Layout/ContentWidth'
 import WorkItem from '../WorkItem/WorkItem'
 import SingleSite from '../SingleSite/SingleSite'
 import {sitesList} from '../data/sitesList'
 
 import styled from 'styled-components'
-import {colors, mixins, media} from '../../scss/vars-mixins/_index'
+import {mixins, media} from '../../scss/vars-mixins/_index'
 
 // import css from '../../scss/main.scss'
 // import cssS from './sites.scss'
@@ -61,20 +62,22 @@ const SitesPage = (props) => {
 	let match = useRouteMatch()
 	return (
 		//
-		<ContentWide bg={colors.blueVioDarkest}>
+		<ContentWide bg={(props) => props.theme.bodyClr}>
 			<Header/>
 			{sitesList && sitesList.map(item =>
 				<WorkItem key={item.slug}
 					item={item}
-					match={match.path}
+					match={match.path }
 				/>
 			)}
 		</ContentWide>
 	)
 }
 // style
-// const Test = styled.div`
-// 	${mixins.testBg}
+// const Col = styled.div`
+// 	grid-area: ${props => props.area};
+// 	background: ${props => props.bg};
+// 	height: 50px;
 // `
 
 // module.hot.accept()//fail

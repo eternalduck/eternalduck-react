@@ -7,14 +7,9 @@ import styled from 'styled-components'
 
 const Header = (props) => {
 	return (
-	// <header className={`
-	// 	${cssH.header}
-	// 	${props.headerColor === 'dark' ? cssH.dark : ''}
-	// `}>
 		<HeaderSC>
 			<Menu/>
 		</HeaderSC>
-	// </header>
 	)}
 // style
 const HeaderSC = styled.div`

@@ -1,7 +1,7 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
 import styled from 'styled-components'
-import {colors, mixins, media} from '../../scss/vars-mixins/_index'
+import {mixins, media} from '../../scss/vars-mixins/_index'
 
 
 import {menuItems} from '../data/menuItems'
@@ -14,7 +14,6 @@ import aboutIcon from '@iconify/icons-flat-color-icons/about'
 
 const Menu = (props) => {
 	return (
-		// <nav className={cssM.menu}>
 		<MenuSC>
 		{menuItems.map(item => (
 			<NavLink key={item.id}
@@ -27,14 +26,13 @@ const Menu = (props) => {
 			</NavLink>
 		))}
 		</MenuSC>
-		// </nav>
 	)}
 
 const MenuSC = styled.nav`
 	// ${mixins.contentWidth};
 	a {
 		font-family: "Courier New", monospace;
-		color: ${colors.white};
+		//color: ${props => props.theme.white};
 		position: relative;
 		margin: 0 30px 50px 0;
 		padding-bottom: 5px;
@@ -49,13 +47,13 @@ const MenuSC = styled.nav`
 		&.active {
 			cursor: default;
 			pointer-events: none;
-			&:after, &:hover:after {
-				background: ${colors.tenderPinkTransp};
-			}
+			// &:after, &:hover:after {
+			// 	background: ${props => props.theme.tenderPinkTransp};
+			// }
 		}
-		header.dark & {
-			color: ${colors.vioDark};
-		}
+		// header.dark & {
+		// 	color: ${props => props.theme.vioDark};
+		// }
 	}
 `
 export default Menu

@@ -15,12 +15,12 @@ const ContentWide = (props) => {
 }
 
 const Container = styled.div`
-	background: ${props => props.bg};
+	background: ${props => props.bg}
 `
 
 const Content = styled.div`
+	${mixins.out("solid", "orange")}
 	${mixins.contentWide}
-	${mixins.out("solid", "yellow")}
+	${mixins.centered}
 `
-
 export default ContentWide

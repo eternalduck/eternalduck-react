@@ -15,16 +15,14 @@ const ContentWidth = (props) => {
 }
 
 const Container = styled.div`
-	background: ${props => props.bg};
-	width: 100%;
-	display: grid;
-	grid-template: ". content ." 1fr / 15px 1fr 15px;
-	justify-items: center;
-	align-items: center;
+	background: ${props => props.bg}
+	// ${mixins.gridContainer(". content .", "1fr", "15px 1fr 15px")}
 `
 const Content = styled.div`
-	${mixins.contentWidth};
-	grid-area: content;
+	${mixins.out("solid", "yellow")}
+	${mixins.contentWidth}
+	${mixins.centered}
+	//grid-area: content;
 `
 
 export default ContentWidth
