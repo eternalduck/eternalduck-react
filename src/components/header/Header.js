@@ -1,14 +1,22 @@
 import React from 'react'
 import Menu from '../Menu/Menu'
 import styled from 'styled-components'
+import ContentWidth from '../Layout/ContentWidth'
 
-// import css from '../../scss/main.scss'
-// import cssH from './header.scss'
 
 const Header = (props) => {
+	// Current theme state (light/dark);
+  // const [theme, setTheme] = useThemeSwitcher('theme', dark);
+  //
+  // const toggleTheme = () => {
+  //   setTheme(theme.title === 'dark' ? light : dark)
+  // }
+ // <ThemeSwitch toggleTheme={toggleTheme} />
 	return (
 		<HeaderSC>
-			<Menu/>
+			<ContentWidth>
+				<Menu/>
+			</ContentWidth>
 		</HeaderSC>
 	)}
 // style

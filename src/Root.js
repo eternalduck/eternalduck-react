@@ -1,16 +1,15 @@
 import React from "react"
-// import ReactDOM from "react-dom"
-import { ThemeProvider } from "styled-components"
+import ReactDOM from "react-dom"
+import styled, { ThemeProvider } from "styled-components"
 import {Switch, Route} from "react-router-dom"
 
-import Header from "./components/Header/Header"
 import Frontpage from "./components/Frontpage/Frontpage"
-import SitesRouting from "./components/Sites/Sites"
+import SitesRouting from "./components/Sites/SitesRouting"
 import Cv from "./components/Cv/Cv"
 import Page404 from "./components/Page404/Page404"
 //tmp
 import TestPage from "./components/TestPage/TestPage"
-import {theme} from './scss/vars-mixins/_index'
+import {darkTheme, lightTheme} from './scss/vars-mixins/_index'
 
 //end tmp
 // import "./scss/main.scss"// common styles
@@ -18,7 +17,8 @@ import {theme} from './scss/vars-mixins/_index'
 // TODO:  check router v6, replace Switch with Routes, Route (path, element) https://blog.logrocket.com/react-router-v6/
 export default function Root(props){
 	return(
-		<ThemeProvider theme={theme}>
+			// FAIL
+		<ThemeProvider theme={darkTheme}>
 			<Switch>
 				{/* <Route exact path="/" component={Frontpage}/> */}
 				<Route exact path="/">

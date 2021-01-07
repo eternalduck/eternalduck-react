@@ -1,10 +1,10 @@
 // 1. Vars
-export const dark = {
-	bodyClr: "red",
+export const darkTheme = {
+	bodyBg: "red",
 	txtClr: "#fff",
 }
-export const light = {
-	bodyClr: "green",
+export const lightTheme = {
+	bodyBg: "green",
 	txtClr: "#333",
 }
 export default {

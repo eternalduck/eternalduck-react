@@ -2,10 +2,7 @@ import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import styled from 'styled-components'
 import {colors, media} from '../../scss/vars-mixins/_index'
-
-// import cssF from './frontpage.scss'
-// import cx from 'classnames'
-
+import Header from '../Header/Header'
 
 const Frontpage = (props) => {
 	useEffect(() => {
@@ -13,11 +10,11 @@ const Frontpage = (props) => {
 	})
 	return(
 		<FrontpageSC>
-`			<h1>Heading One</h1>
+			<Header/>
+			<h1>Heading One</h1>
 			<h2>Heading Two</h2>
 			<h3>Heading Three</h3>
 		</FrontpageSC>
-		// <div className={cssF.frontpage}></div>
 	)
 }
 // style

@@ -2,17 +2,13 @@ import React from 'react'
 import {NavLink} from 'react-router-dom'
 import styled from 'styled-components'
 import {mixins, media} from '../../scss/vars-mixins/_index'
-
-
 import {menuItems} from '../data/menuItems'
 
-// import cssM from './menu.scss'
-
 //TODO home icon
-import { Icon, InlineIcon } from "@iconify/react"
-import aboutIcon from '@iconify/icons-flat-color-icons/about'
+// import { Icon, InlineIcon } from "@iconify/react"
+// import aboutIcon from '@iconify/icons-flat-color-icons/about'
 
-const Menu = (props) => {
+const Menu = (props, theme) => {
 	return (
 		<MenuSC>
 		{menuItems.map(item => (
@@ -29,10 +25,9 @@ const Menu = (props) => {
 	)}
 
 const MenuSC = styled.nav`
-	// ${mixins.contentWidth};
 	a {
 		font-family: "Courier New", monospace;
-		//color: ${props => props.theme.white};
+		color: #fff;//${props => props.theme.white};
 		position: relative;
 		margin: 0 30px 50px 0;
 		padding-bottom: 5px;

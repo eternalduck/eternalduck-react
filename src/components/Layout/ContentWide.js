@@ -1,16 +1,20 @@
 import React from 'react'
 // import ReactDOM from 'react-dom'
 import styled from 'styled-components'
+// import styled, { ThemeProvider } from 'styled-components'
+import {darkTheme, lightTheme} from '../../scss/vars-mixins/_index'
 
 import {mixins, media} from '../../scss/vars-mixins/_index'
 
 const ContentWide = (props) => {
 	return (
+		// <ThemeProvider theme={darkTheme}>
 		<Container bg={props.bg}>
 			<Content>
 				{props.children}
 			</Content>
 		</Container>
+		// </ThemeProvider>
 	)
 }
 
