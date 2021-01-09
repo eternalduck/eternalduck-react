@@ -8,15 +8,20 @@
 import { css } from 'styled-components'
 import {default as media} from './_media'
 export {default as media} from './_media'
-import {default as theme} from './_vars'
-export {default as theme} from './_vars'
+import {default as colors} from './_vars'
+export {default as colors} from './_vars'
+//
+// import darkTheme from './_vars'
+// export const dark = darkTheme
+
+
 
 export const mixins = {
 	// TMP
 	testBg: css`
 		background: green;
 		${media.smUp`
-			background: ${theme.pinkSaturated};
+			background: ${colors.pinkSaturated};
 		`}
 		${media.lgUp`
 			background: orange;
@@ -131,7 +136,7 @@ export const mixins = {
 	hoverBg: css`
 		position: relative;
 		&:hover {
-			color: ${theme.white};
+			color: ${colors.white};
 		}
 		&:after {
 			content: "";
@@ -146,7 +151,7 @@ export const mixins = {
 			opacity: .5;
 		}
 		&:hover:after {
-			background: ${theme.tenderPinkTransp};
+			background: ${colors.tenderPinkTransp};
 		}
 	`,
 

@@ -23,7 +23,7 @@ const Container = styled.div`
 `
 
 const Content = styled.div`
-	${mixins.out("solid", "orange")}
+	// ${mixins.out("solid", "orange")}
 	${mixins.contentWide}
 	${mixins.centered}
 `

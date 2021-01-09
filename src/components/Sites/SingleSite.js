@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
-// import ReactDOM from 'react-dom'
-import ContentWidth from '../Layout/ContentWidth'
-import Header from '../Header/Header'
+import React, { useState, useEffect } from "react"
+// import ReactDOM from "react-dom"
+import ContentWidth from "../Layout/ContentWidth"
+import Header from "../Header/Header"
 import {
 	BrowserRouter as Router,
 	Switch,

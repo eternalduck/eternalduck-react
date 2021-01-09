@@ -20,23 +20,24 @@ const WorkItem = (props) => {
 		<>
 		<div className="workItem">
 			<div className="workItem__inner">
-
-				<Link to={`${props.match}/${props.item.slug}`}>
+				<Link
+					to={`${props.match}/${props.item.slug}`}
+					style={{color: "#fff"}}
+				>
 					<h4>{props.item.title}</h4>
 				</Link>
 
 				{/*<Link to={`${props.match}/${props.item.slug}`}*/}
-				{/*	className=w"orkItem__imgWrap">*/}
 					<img
 						src={props.item.thumb}
 						alt=""
+						style={{width: 150}}
 					/>
 				{/*</Link>*/}
 
-				<p className="workItem__keywords">
-					{props.item.keywords}
-				</p>
-
+				{/*<p className="workItem__keywords">*/}
+				{/*	{props.item.keywords}*/}
+				{/*</p>*/}
 			</div>
 		</div>
 		</>

@@ -8,6 +8,7 @@ import {
 	useParams
 } from "react-router-dom"
 
+// import ContentWidth from "../Layout/ContentWidth"
 import SitesPage from "./SitesPage"
 import SingleSite from "./SingleSite"
 import {sitesList} from '../data/sitesList'
@@ -16,7 +17,7 @@ const SitesRouting = (props) => {
 	let match = useRouteMatch()
 	return (
 		// more specific routes MUST come first!!!
-		//Topic page has its own <Switch> with more routes that build on the /topics URL path.
+		// Topic page has its own <Switch> with more routes that build on the /topics URL path.
 		<Switch>
 			{sitesList && sitesList.map(item =>
 				<Route key={item.slug}

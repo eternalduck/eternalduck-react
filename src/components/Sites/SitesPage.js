@@ -1,62 +1,53 @@
-import React, {useState, useEffect} from 'react'
-import ReactDOM from 'react-dom'
-import styled, { ThemeProvider } from "styled-components"
+import React, {useState, useEffect} from "react"
+import ReactDOM from "react-dom"
 
 import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-	Link,
 	useRouteMatch,
 	useParams
 } from "react-router-dom"
-// import cx from 'classnames'
-
-import Header from '../Header/Header'
-import ContentWide from '../Layout/ContentWide'
-import WorkItem from '../WorkItem/WorkItem'
-import {sitesList} from '../data/sitesList'
-import {darkTheme, lightTheme} from '../../scss/vars-mixins/_index'
-
-import {mixins, media} from '../../scss/vars-mixins/_index'
-
-// import homeLine from '@iconify/icons-clarity/home-line'
-// import iconMedal from '@iconify/icons-openmoji/1st-place-medal'
-
-/* <h1 className={css.title}>{title} <InlineIcon icon={homeLine} className="icon"/></h1>
-<Icon icon={aboutIcon} className="icon"/> */
+import styled, {css, createGlobalStyle, useTheme } from "styled-components"
+import {mixins} from "../../scss/vars-mixins/_index"
+import Header from "../Header/Header"
+import ContentWide from "../Layout/ContentWide"
+import WorkItem from "../WorkItem/WorkItem"
+import {sitesList} from "../data/sitesList"
 
 const SitesPage = (props) => {
-	useEffect(() => {
-		// document.body.className = cssS.sitesPage
-		// console.info(sitesList)
-	})
-	console.info(this.props.theme)
-	// let currentTheme = darkTheme
-	// HI TAIF :)
+	const theme = useTheme()
 	let match = useRouteMatch()
+
+	//Hi Pedro :)
 	return (
-		//
-		// <ContentWide bg={(props) => props.theme.bodyClr}>
-		// <ThemeProvider theme={currentTheme}>//FAIL
-			<ContentWide>
-				<Header/>
-				{sitesList && sitesList.map(item =>
-					<WorkItem key={item.slug}
-						item={item}
-						match={match.path}
-					/>
-				)}
-			</ContentWide>
-		// </ThemeProvider>
+		<ContentWide bg={theme.bodyBg}>
+			<Header className={"red"}/>{/*fail*/}
+			<HeaderSc/>{/*fail*/}
+			<div className={"red"}>sample</div>{/*works*/}
+			<SitesWrap>
+			{sitesList && sitesList.map(item =>
+				<WorkItem key={item.slug}
+					item={item}
+					match={match.path}
+				/>
+			)}
+			</SitesWrap>
+			<GlobalStyle/>
+		</ContentWide>
 	)
 }
 // style
-// const Col = styled.div`
-// 	grid-area: ${props => props.area};
-// 	background: ${props => props.bg};
-// 	height: 50px;
-// `
+const GlobalStyle = createGlobalStyle`
+	.red {
+		background: red;
+		padding: 30px;
+	}
+`
+const HeaderSc = styled(Header).attrs({
+  className: css`
+    background: red;
+  `,
+})
 
-// module.hot.accept()//fail
+const SitesWrap = styled.div`
+	${mixins.flexRow}
+`
 export default SitesPage

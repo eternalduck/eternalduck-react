@@ -4,10 +4,11 @@ import styled from 'styled-components'
 import {colors, media} from '../../scss/vars-mixins/_index'
 import Header from '../Header/Header'
 
-const Frontpage = (props) => {
+const Frontpage = (props, theme) => {
 	useEffect(() => {
 		document.body.className = "FRONT-TMP"
 	})
+	console.info(theme.bodyClr)
 	return(
 		<FrontpageSC>
 			<Header/>
@@ -22,6 +23,7 @@ const FrontpageSC = styled.div`
 	position: absolute;
 	width: 100%;
 	height: 100%;
+	// background: ${(props) => props.theme.bodyClr};//fail
 	background: url("/images/table.jpg") center/cover no-repeat;
 	// ${media.smUp`//works
 	// 	background: ${colors.tenderPink};
