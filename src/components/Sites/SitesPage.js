@@ -16,38 +16,30 @@ const SitesPage = (props) => {
 	const theme = useTheme()
 	let match = useRouteMatch()
 
-	//Hi Pedro :)
 	return (
 		<ContentWide bg={theme.bodyBg}>
-			<Header className={"red"}/>{/*fail*/}
-			{/*<HeaderSc/>*/}
-			<div className={"red"}>sample</div>{/*works*/}
-			<SitesWrap>
-			{sitesList && sitesList.map(item =>
-				<WorkItem key={item.slug}
-					item={item}
-					match={match.path}
-				/>
-			)}
-			</SitesWrap>
+			<Header className={"header_test"}/>
+				<SitesWrap>
+				{sitesList && sitesList.map(item =>
+					<WorkItem key={item.slug}
+						item={item}
+						match={match.path}
+					/>
+				)}
+				</SitesWrap>
 			<GlobalStyle/>
 		</ContentWide>
 	)
-}
-// style
+}//SitesPage
+
 const GlobalStyle = createGlobalStyle`
-	.red {
+	.header_test {
 		background: red;
 		padding: 30px;
 	}
 `
-// const HeaderSc = styled(Header).attrs({
-//   className: css`
-//     background: red;
-//   `,
-// })
-
 const SitesWrap = styled.div`
 	${mixins.flexRow}
 `
+
 export default SitesPage

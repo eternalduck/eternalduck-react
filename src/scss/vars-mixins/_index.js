@@ -5,16 +5,16 @@
 // 1.2. Helpers
 // 1.3 Common Elements
 
+// create a single export point for theming:
 import { css } from 'styled-components'
 import {default as media} from './_media'
 export {default as media} from './_media'
 import {default as colors} from './_vars'
 export {default as colors} from './_vars'
-//
-// import darkTheme from './_vars'
-// export const dark = darkTheme
 
-
+export {darkTheme as darkTheme} from './_vars'
+export {lightTheme as lightTheme} from './_vars'
+// end export point
 
 export const mixins = {
 	// TMP

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react"
 import styled, {css, useTheme, ThemeProvider } from "styled-components"
+import {darkTheme, lightTheme} from "../../scss/vars-mixins/_index"
 
 const ToggleTheme = (props) => {
 	useEffect(() => {
 		// console.info(sitesList)
 	})
-	const theme = useTheme();
+	const theme = useTheme()
 
-	// Current theme state (light/dark);
 	  // const [theme, setTheme] = useThemeSwitcher('theme', dark);
 	  //
 	  // const toggleTheme = () => {
@@ -15,8 +15,8 @@ const ToggleTheme = (props) => {
 	  // }`
 
 	return (
-		<div>
-		{console.log('Current theme: ', this.props.theme)}
+		<div style={{color: "#fff"}}>
+		{`Current theme: ${props.theme}`}
 		</div>
 	)
 }

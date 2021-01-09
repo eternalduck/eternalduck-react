@@ -9,7 +9,7 @@ import Cv from "./components/Cv/Cv"
 import Page404 from "./components/Page404/Page404"
 //tmp
 import TestPage from "./components/TestPage/TestPage"
-import {darkTheme, lightTheme} from "./scss/vars-mixins/_vars"
+import {darkTheme, lightTheme} from "./scss/vars-mixins/_index"
 
 //end tmp
 // import "./scss/main.scss"// common styles
