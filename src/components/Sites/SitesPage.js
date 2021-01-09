@@ -20,7 +20,7 @@ const SitesPage = (props) => {
 	return (
 		<ContentWide bg={theme.bodyBg}>
 			<Header className={"red"}/>{/*fail*/}
-			<HeaderSc/>{/*fail*/}
+			{/*<HeaderSc/>*/}
 			<div className={"red"}>sample</div>{/*works*/}
 			<SitesWrap>
 			{sitesList && sitesList.map(item =>
@@ -41,11 +41,11 @@ const GlobalStyle = createGlobalStyle`
 		padding: 30px;
 	}
 `
-const HeaderSc = styled(Header).attrs({
-  className: css`
-    background: red;
-  `,
-})
+// const HeaderSc = styled(Header).attrs({
+//   className: css`
+//     background: red;
+//   `,
+// })
 
 const SitesWrap = styled.div`
 	${mixins.flexRow}
