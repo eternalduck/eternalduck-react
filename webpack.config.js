@@ -41,8 +41,9 @@ module.exports = {
 					}
 				}
 			},//js
-			{
-				test: /\.(scss|css)$/,
+			{//styled-components are used  + tiny css for fouc-fix
+				// test: /\.(scss|css)$/,
+				test: /\.(css)$/,
 				exclude: /node_modules/,
 				use: [
 					{
@@ -50,16 +51,16 @@ module.exports = {
 					},
 					{
 						loader: 'css-loader',
-						options: {
-							modules: {
-								localIdentName: '[name]_[local]-[hash:base64:3]',
-								exportLocalsConvention: 'camelCase',
-							},
-							url: false,//!!!
-							importLoaders: 2,//num of loaders after css-loader
-						},
+						// options: {
+						// 	modules: {
+						// 		localIdentName: '[name]_[local]-[hash:base64:3]',
+						// 		exportLocalsConvention: 'camelCase',
+						// 	},
+						// 	url: false,//!!!
+						// 	importLoaders: 1,//num of loaders after css-loader
+						// },
 					},
-					'sass-loader',//!
+					// 'sass-loader',//!
 				],//use
 			},//css
 			{

@@ -2,20 +2,14 @@ import React from "react"
 import Menu from "../Menu/Menu"
 import styled from "styled-components"
 import ContentWidth from "../Layout/ContentWidth"
-import ToggleTheme from "../ToggleTheme/ToggleTheme"
-
-// import homeLine from "@iconify/icons-clarity/home-line"
-// import iconMedal from "@iconify/icons-openmoji/1st-place-medal"
-
-/* <h1 className={css.title}>{title} <InlineIcon icon={homeLine} className="icon"/></h1>
-<Icon icon={aboutIcon} className="icon"/> */
+// import ToggleTheme from "../ToggleTheme/ToggleTheme"
 
 const Header = (props) => {
 	return (
-		<HeaderSC className={props.className}>
+		<HeaderSC>
 			<ContentWidth>
 				<Menu/>
-				<ToggleTheme/>
+				{/*<ToggleTheme/>*/}
 			</ContentWidth>
 		</HeaderSC>
 	)}

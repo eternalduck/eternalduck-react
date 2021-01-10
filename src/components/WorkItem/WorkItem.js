@@ -11,7 +11,7 @@ import {
 
 // import SingleSite from '../SingleSite/SingleSite'
 
-// import css from '../../scss/main.scss'
+// import css from '../../scss/--main.scss'
 // import cssW from './work-item.scss'
 
 const WorkItem = (props) => {

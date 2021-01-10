@@ -1,8 +1,8 @@
-import React from 'react'
-// import ReactDOM from 'react-dom'
-import styled from 'styled-components'
+import React from "react"
+// import ReactDOM from "react-dom"
+import styled from "styled-components"
 
-import {mixins, media} from '../../scss/vars-mixins/_index'
+import {mixins, media} from "../../style/vars-mixins/_index"
 
 const ContentFullWidth = (props) => {
 	return (

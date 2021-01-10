@@ -11,7 +11,7 @@ import {
 // import ContentWidth from "../Layout/ContentWidth"
 import SitesPage from "./SitesPage"
 import SingleSite from "./SingleSite"
-import {sitesList} from '../data/sitesList'
+import {sitesList} from "../data/sitesList"
 
 const SitesRouting = (props) => {
 	let match = useRouteMatch()
@@ -22,7 +22,7 @@ const SitesRouting = (props) => {
 			{sitesList && sitesList.map(item =>
 				<Route key={item.slug}
 					// path={`${match.path}/:item`}
-					   path={`${match.path}/${item.slug}`}
+					path={`${match.path}/${item.slug}`}
 				>
 					<SingleSite item={item}/>
 				</Route>

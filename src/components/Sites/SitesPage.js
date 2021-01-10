@@ -1,19 +1,21 @@
 import React, {useState, useEffect} from "react"
 import ReactDOM from "react-dom"
-
 import {
 	useRouteMatch,
 	useParams
 } from "react-router-dom"
-import styled, {css, createGlobalStyle, useTheme } from "styled-components"
-import {mixins} from "../../scss/vars-mixins/_index"
+import styled, {css, createGlobalStyle } from "styled-components"
+import {mixins} from "../../style/vars-mixins/_index"
 import Header from "../Header/Header"
 import ContentWide from "../Layout/ContentWide"
 import WorkItem from "../WorkItem/WorkItem"
 import {sitesList} from "../data/sitesList"
 
 const SitesPage = (props) => {
-	const theme = useTheme()
+	// console.info("SitesPage props: ")//debug
+	// console.info(props)//debug
+	const theme = useState()
+	// console.info(`sitesPage theme: ${theme}`)//debug
 	let match = useRouteMatch()
 
 	return (
@@ -34,7 +36,7 @@ const SitesPage = (props) => {
 
 const GlobalStyle = createGlobalStyle`
 	.header_test {
-		background: red;
+		//background: red;
 		padding: 30px;
 	}
 `

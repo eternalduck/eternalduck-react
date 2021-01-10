@@ -1,12 +1,19 @@
-import React from 'react'
-import {NavLink} from 'react-router-dom'
-import styled from 'styled-components'
-import {mixins, media} from '../../scss/vars-mixins/_index'
-import {menuItems} from '../data/menuItems'
+import React from "react"
+import {NavLink} from "react-router-dom"
+import styled from "styled-components"
+import {mixins, media} from "../../style/vars-mixins/_index"
+import {menuItems} from "../data/menuItems"
 
 //TODO home icon
 // import { Icon, InlineIcon } from "@iconify/react"
-// import aboutIcon from '@iconify/icons-flat-color-icons/about'
+// import aboutIcon from "@iconify/icons-flat-color-icons/about"
+
+// import homeLine from "@iconify/icons-clarity/home-line"
+// import iconMedal from "@iconify/icons-openmoji/1st-place-medal"
+
+/* <h1 className={css.title}>{title} <InlineIcon icon={homeLine} className="icon"/></h1>
+<Icon icon={aboutIcon} className="icon"/> */
+
 
 const Menu = (props, theme) => {
 	return (

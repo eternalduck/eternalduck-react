@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import ReactDOM from 'react-dom'
-import cx from 'classnames'
-// import Header from '../Header/Header'
-import ContentWidth from '../Layout/ContentWidth'
+import React, { useState, useEffect } from "react"
+import ReactDOM from "react-dom"
+import ContentWidth from "../Layout/ContentWidth"
 
-import css from '../../scss/main.scss'
 
 
 const TestPage = (props) => {
@@ -25,8 +22,8 @@ const TestPage = (props) => {
 }
 
 const drawOnCanvas = () => {
-	let canvas = document.getElementById('myCanvas')
-	let context = canvas.getContext('2d')
+	let canvas = document.getElementById("myCanvas")
+	let context = canvas.getContext("2d")
 	let x = canvas.width / 2
 	let y = canvas.height / 2
 	let radius = 50
@@ -46,3 +43,51 @@ const drawOnCanvas = () => {
 }
 
 export default TestPage
+
+//
+// canvas {
+// 	border:1px solid #999;
+// }
+// .circleParent {
+// 	position: relative;
+// 	height: 300px;
+// 	width: 300px;
+// }
+// .circle {
+// 	position: absolute;
+// 	top: 0;
+// 	left: 0;
+// 	width: 100%;
+// 	height: 100%;
+// 	background: transparent;
+// 	border: 1em solid;
+// 	border-radius: 50%;
+// }
+// .circle1 {
+// 	border-color: cyan;
+// 	// transform: rotate(-10deg);
+// 	z-index: 1;
+//
+// }
+// .circle2 {
+// 	outline: 1px dashed #fff;
+// 	border-color: transparent $black transparent transparent;
+// 	transform: rotate(0deg);
+// 	z-index: 10;
+// 	&:before, &:after {
+// 		content: "";
+// 		position: absolute;
+// 		border-radius: 50%;
+// 		width: 1em;
+// 		height: 1em;
+// 		right: 27px;
+// 		background: cyan;
+// 	}
+// 	&:before {
+// 		top: 25px;
+// 	}
+// 	&:after {
+// 		bottom: 25px;
+// 	}
+//
+// }

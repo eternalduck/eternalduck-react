@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import ContentWidth from '../Layout/ContentWidth'
 
-import css from '../../scss/main.scss'
-
-import cssP from './page404.scss'
-
 const Page404 = (props) => {
 	useEffect(() => {
-		document.body.className = cssP.page404
+		// document.body.className = cssP.page404
 	})
 	return(
 		<ContentWidth>
@@ -17,3 +13,11 @@ const Page404 = (props) => {
 }
 
 export default Page404
+// .page404 {
+// 	background: #9a22a8;
+// 	p {
+// 		color: #7ccf47;
+// 		font-size: 200px;
+// 		font-weight: 900;
+// 	}
+// }

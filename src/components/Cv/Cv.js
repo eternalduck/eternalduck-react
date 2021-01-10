@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
 // import ReactDOM from 'react-dom'
-// import cx from 'classnames'
 import ContentWidth from '../Layout/ContentWidth'
 
-import css from '../../scss/main.scss'
-import cssC from './cv.scss'
+// import css from '../../style/main.scss'
+// import cssC from './cv.scss'
 
 const Cv = (props) => {
 	useEffect(() => {

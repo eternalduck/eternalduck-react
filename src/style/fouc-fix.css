@@ -1,0 +1,9 @@
+body {
+    background: #333;
+}
+body div {
+    visibility: hidden;
+}
+body.loaded div {
+   visibility: visible;
+}
