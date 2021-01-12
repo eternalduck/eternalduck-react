@@ -12,8 +12,8 @@ export {default as media} from "./_media"
 import {default as colors} from "./_theme"
 export {default as colors} from "./_theme"
 
-export {darkTheme as darkTheme} from "./_theme"
-export {lightTheme as lightTheme} from "./_theme"
+export {dark as dark} from "./_theme"
+export {light as light} from "./_theme"
 // end export point
 
 export const mixins = {

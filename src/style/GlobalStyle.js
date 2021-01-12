@@ -9,14 +9,24 @@ const GlobalStyle = createGlobalStyle`
 	// font can be here or in index.html
 	//@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap");
 	body {
-		// background: {props => props.theme.bodyBg};
-		background: ${theme => theme.bodyBg};
+		 background: ${props => props.theme.bodyBg};
+		// background: {theme => theme.bodyBg};
 		// background: {useTheme(bodyBg)};
-		color: ${theme => theme.txtClr};
+		color: ${props => props.theme.txtClr};
+		// color: {theme => theme.txtClr};
 		font-family: "Open Sans", sans-serif;
 		font-weight: 300;
 		font-size: 16px;
 		line-height: 1.5;
+		&:after {
+			content: "${props => props.theme.name}";
+			display: block;
+			position: absolute;
+			top: 40%;
+			left: 5px;
+			font-size: 40px;
+			color: mediumvioletred;
+		}
 	}
 	// 2. Typography
 	h1, h2, h3, h4 {
@@ -48,7 +58,25 @@ const GlobalStyle = createGlobalStyle`
 		${mixins.borderUnderline}
 	}
 	// end typo
-
+	//Icons
+	// .icon {//fail
+	// 	// width: ${props => props.big ? "52px" : "32px"};
+	// 	// height: ${props => props.big ? "52px" : "32px"};
+	// 	width: 32px;
+	// 	height: 32px;
+	// 	${props => props.big && css`
+	// 		width: 55px;
+	// 		height: 55px;
+	// 	`}
+	// }
+	.icon {
+		width: 32px;
+		height: 32px;
+		&_big {
+			width: 52px;
+			height: 52px;
+		}
+	}
 `//createGlobalStyle
 
 export default GlobalStyle

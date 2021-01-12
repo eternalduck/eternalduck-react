@@ -1,15 +1,15 @@
-import React from "react"
+import React, {useEffect, useState, useContext} from "react"
 import Menu from "../Menu/Menu"
 import styled from "styled-components"
 import ContentWidth from "../Layout/ContentWidth"
-// import ToggleTheme from "../ToggleTheme/ToggleTheme"
+import ToggleTheme from "../ToggleTheme/ToggleTheme"
 
 const Header = (props) => {
 	return (
 		<HeaderSC>
 			<ContentWidth>
 				<Menu/>
-				{/*<ToggleTheme/>*/}
+				<ToggleTheme/>
 			</ContentWidth>
 		</HeaderSC>
 	)}
