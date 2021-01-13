@@ -135,9 +135,9 @@ export const mixins = {
 	`,
 	hoverBg: css`
 		position: relative;
-		&:hover {
-			color: ${colors.white};
-		}
+		// &:hover {
+		// 	color: ${colors.white};
+		// }
 		&:after {
 			content: "";
 			position: absolute;

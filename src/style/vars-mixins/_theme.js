@@ -3,11 +3,13 @@ export const dark = {
 	name: "dark",
 	bodyBg: "#333",
 	txtClr: "#fff",
+	linkClr: "#fff"
 }
 export const light = {
 	name: "light",
 	bodyBg: "#eeefee",
 	txtClr: "#333",
+	linkClr: "#333"
 }
 export default {
 	black: "#000",

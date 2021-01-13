@@ -1,3 +1,4 @@
+// TODO:  check router v6, replace Switch with Routes, Route (path, element) https://blog.logrocket.com/react-router-v6/
 import React, {useEffect, useState, createContext, useContext} from "react"
 import ReactDOM from "react-dom"
 import {Switch, Route} from "react-router-dom"
@@ -14,41 +15,65 @@ import SitesRouting from "./components/Sites/SitesRouting"
 import Cv from "./components/Cv/Cv"
 import Page404 from "./components/Page404/Page404"
 import TestPage from "./components/TestPage/TestPage"//tmp
-// import MainThemeProvider from "./components/ToggleTheme/ToggleTheme"
-import ThemeContext from "./components/ToggleTheme/ToggleTheme"
 
-// TODO:  check router v6, replace Switch with Routes, Route (path, element) https://blog.logrocket.com/react-router-v6/
-
-// export const ThemeContext = createContext()
-
+export const ThemeContext = createContext({
+	isLightTheme: false,
+	setLightTheme: () => {}
+})
 
 export default function Root(props){
-	// console.info("root props: ")//debug
-	// console.info(props)//debug
-	useEffect(() => {
-		//add class after loaded for fouc-fix
-		window.onload = () => {
-			document.body.className = "loaded"
-		}
-	})
-	const theme = useContext(ThemeContext)
-	console.info(theme)
+	// useEffect(() => {
+	// 	//add class after loaded for fouc-fix
+	// 	window.onload = () => {
+	// 		document.body.className = "loaded"
+	// 	}
+	// })
 
+//////////////////////////////
+	const [isLightTheme, setLightTheme] = useState(checkUserTheme())
+	useEffect(() => {
+		localStorage.setItem("isLight", isLightTheme)
+		// localStorage.setItem("isLight", JSON.stringify(isLightTheme))
+	}, [isLightTheme])
+
+	function checkUserTheme() {
+		const isReturningUser = "isLight" in localStorage
+		const userPrefersDark = () => {
+			if(!window.matchMedia) return
+			return window.matchMedia("(prefers-color-scheme: dark)").matches
+		}
+		if (isReturningUser) {
+			localStorage.getItem("isLight")// TODO: some fail with undefined at start
+			// JSON.parse(localStorage.getItem("isLight"))
+		} else if (userPrefersDark) {
+			return false
+		} else {
+			return false//default dark at first visit
+		}
+	}//checkUserTheme
+
+	const toggleTheme = () => {
+		setLightTheme(prev => !prev)
+		console.info(`isLight is ${isLightTheme}!`)
+	}
+//////////////////////////////
 	return(
-		<ThemeProvider theme={dark}>{/*tmp*/}
-			{/*{console.info(useContext(ThemeContext))}*/}
-			<GlobalStyle/>
-			<DebugStyle/>
-			{/*<Preloader/>*/}
-			<Switch>
-				<Route exact path="/" component={Frontpage}/>
-				<Route path="/sites" component={SitesRouting}/>
-				<Route path="/cv" component={Cv}/>
-				<Route path="/test" component={TestPage}/>
-				<Route path="*" component={Page404}/>
-			</Switch>
-		</ThemeProvider>
+		<ThemeContext.Provider value={{
+			isLightTheme: isLightTheme,
+			setLightTheme: toggleTheme
+		}}>
+			<ThemeProvider theme={isLightTheme ? light : dark}>{/*tmp*/}
+				<GlobalStyle/>
+				<DebugStyle/>
+				{/*<Preloader/>*/}
+				<Switch>
+					<Route exact path="/" component={Frontpage}/>
+					<Route path="/sites" component={SitesRouting}/>
+					<Route path="/cv" component={Cv}/>
+					<Route path="/test" component={TestPage}/>
+					<Route path="*" component={Page404}/>
+				</Switch>
+			</ThemeProvider>
+		</ThemeContext.Provider>
 	)
 }
-
-// module.hot.accept()//fail

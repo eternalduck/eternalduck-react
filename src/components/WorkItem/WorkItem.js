@@ -19,7 +19,7 @@ const WorkItem = (props) => {
 			<div className="workItem__inner">
 				<Link
 					to={`${props.match}/${props.item.slug}`}
-					style={{color: "#fff", display: "block"}}
+					style={{display: "block"}}
 				>
 					<h4>{props.item.title}</h4>
 				</Link>

@@ -2,7 +2,7 @@ body {
     background: #777;
 }
 body div {
-    visibility: hidden;
+    /*visibility: hidden;*/
 }
 body.loaded div {
    visibility: visible;

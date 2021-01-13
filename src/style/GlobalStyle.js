@@ -56,6 +56,7 @@ const GlobalStyle = createGlobalStyle`
 	}
 	a {
 		${mixins.borderUnderline}
+		color: ${props => props.theme.linkClr};
 	}
 	// end typo
 	//Icons

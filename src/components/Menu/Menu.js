@@ -34,7 +34,7 @@ const Menu = (props, theme) => {
 const MenuSC = styled.nav`
 	a {
 		font-family: "Courier New", monospace;
-		color: #fff;//${props => props.theme.white};
+		color: ${props => props.theme.linkClr};//TODO depending on page bg
 		position: relative;
 		margin: 0 30px 50px 0;
 		padding-bottom: 5px;
