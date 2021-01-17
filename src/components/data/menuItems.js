@@ -1,8 +1,14 @@
+import React from "react"
+import {Icon, InlineIcon} from "@iconify/react"
+import openFileFolder from "@iconify/icons-noto/open-file-folder"
+// some extra pack
+// import crescentMoon from '@iconify/icons-openmoji/crescent-moon';
+
 export const menuItems =
 [
 	{
-		"txt": "home",
-		// "txt": '<Icon icon={aboutIcon} className="icon"/>',
+		// "txt": "home",
+		"txt": <Icon icon={openFileFolder} className={'icon_big'}/>,
 		"url": "/",
 		"id": "index"
 	},

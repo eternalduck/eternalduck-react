@@ -2,9 +2,6 @@ import React, { useState, useEffect } from 'react'
 // import ReactDOM from 'react-dom'
 import ContentWidth from '../Layout/ContentWidth'
 
-// import css from '../../style/main.scss'
-// import cssC from './cv.scss'
-
 const Cv = (props) => {
 	useEffect(() => {
 		// document.body.className = cssC.cvPage
@@ -131,3 +128,96 @@ const Cv = (props) => {
 }
 
 export default Cv
+
+////@import "../../scss/vars-mixins/_index";
+//
+//.cvPage {
+//	background: $white;
+//	color: $almostBlack;
+//	&__content {
+//		@include breakUp("xl") {
+//			max-width: 800px;
+//			outline: 1px solid red;
+//		}
+//	}
+//	& a {
+//		color: $almostBlack;
+//	}
+//	& h1, & h2, & h3 {
+//		text-align: center;
+//	}
+//	& p {
+//		margin: 20px 0;
+//	}
+//	&__header {
+//		& p {
+//			margin: 10px 0;
+//		}
+//	}
+//	&__name {
+//		font-size: 140%;
+//		font-weight: 400;
+//	}
+//	&__list {
+//		list-style-type: disc;
+//		padding-left: 15px;
+//		margin-bottom: 40px;
+//		& li {
+//			padding-left: 5px;
+//			margin-bottom: 7px;
+//		}
+//	}
+//	&__plain-list {
+//		list-style-type: none;
+//		margin: 10px 0 50px;
+//		& li {
+//			text-indent: -10px;
+//			margin-bottom: 12px;
+//			&:before {
+//				content: "- ";
+//			}
+//		}
+//	}
+//	&__wrkplc {
+//		font-size: 19px;
+//		color: $black;
+//	}
+//	&__empl {
+//		font-size: 17px;
+//	}
+//	&__date {
+//		color: $grayMid;
+//		font-size: 15px;
+//	}
+//	&__extra {
+//		padding-left: 20px;
+//		font-style: italic;
+//	}
+//	& footer {
+//		background: $almostWhite;
+//	}
+//	@include print {
+//		font-size: 12px;
+//		line-height: 1.2;
+//		.work-page_cv__wrkplc,
+//		.work-page_cv__empl,
+//		.work-page_cv__date {
+//			font-size: 14px;
+//		}
+//		.work-page_cv__date {
+//			color: $gray;
+//			font-size: 11px;
+//		}
+//		.lang__container {
+//			border-bottom: none;
+//			padding-top: 0;
+//		}
+//		.work-page_cv__content {
+//			margin-top: 10px;
+//		}
+//		& header, & footer,
+//		& .lang__toggle {
+//			display: none;
+//		}
+//	}//print
+//}//cv-page

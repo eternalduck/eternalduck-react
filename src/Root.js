@@ -22,58 +22,59 @@ export const ThemeContext = createContext({
 })
 
 export default function Root(props){
-	// useEffect(() => {
-	// 	//add class after loaded for fouc-fix
-	// 	window.onload = () => {
-	// 		document.body.className = "loaded"
-	// 	}
-	// })
+	useEffect(() => {
+		//add class after loaded for fouc-fix
+		window.onload = () => {
+			document.body.className = "loaded"
+		}
+	})
 
 //////////////////////////////
-	const [isLightTheme, setLightTheme] = useState(checkUserTheme())
-	useEffect(() => {
-		localStorage.setItem("isLight", isLightTheme)
-		// localStorage.setItem("isLight", JSON.stringify(isLightTheme))
-	}, [isLightTheme])
-
-	function checkUserTheme() {
-		const isReturningUser = "isLight" in localStorage
-		const userPrefersDark = () => {
-			if(!window.matchMedia) return
-			return window.matchMedia("(prefers-color-scheme: dark)").matches
-		}
-		if (isReturningUser) {
-			localStorage.getItem("isLight")// TODO: some fail with undefined at start
-			// JSON.parse(localStorage.getItem("isLight"))
-		} else if (userPrefersDark) {
-			return false
-		} else {
-			return false//default dark at first visit
-		}
-	}//checkUserTheme
-
-	const toggleTheme = () => {
-		setLightTheme(prev => !prev)
-		console.info(`isLight is ${isLightTheme}!`)
-	}
+// 	const [isLightTheme, setLightTheme] = useState(checkUserTheme())
+// 	useEffect(() => {
+// 		localStorage.setItem("isLight", isLightTheme)
+// 		// localStorage.setItem("isLight", JSON.stringify(isLightTheme))
+// 	}, [isLightTheme])
+//
+// 	function checkUserTheme() {
+// 		const isReturningUser = "isLight" in localStorage
+// 		const userPrefersDark = () => {
+// 			if(!window.matchMedia) return
+// 			return window.matchMedia("(prefers-color-scheme: dark)").matches
+// 		}
+// 		if (isReturningUser) {
+// 			localStorage.getItem("isLight")// TODO: some fail with undefined at start
+// 			// JSON.parse(localStorage.getItem("isLight"))
+// 		} else if (userPrefersDark) {
+// 			return false
+// 		} else {
+// 			return false//default dark at first visit
+// 		}
+// 	}//checkUserTheme
+//
+// 	const toggleTheme = () => {
+// 		setLightTheme(prev => !prev)
+// 		console.info(`isLight is ${isLightTheme}!`)
+// 	}
 //////////////////////////////
 	return(
-		<ThemeContext.Provider value={{
-			isLightTheme: isLightTheme,
-			setLightTheme: toggleTheme
-		}}>
-			<ThemeProvider theme={isLightTheme ? light : dark}>{/*tmp*/}
-				<GlobalStyle/>
-				<DebugStyle/>
-				{/*<Preloader/>*/}
-				<Switch>
-					<Route exact path="/" component={Frontpage}/>
-					<Route path="/sites" component={SitesRouting}/>
-					<Route path="/cv" component={Cv}/>
-					<Route path="/test" component={TestPage}/>
-					<Route path="*" component={Page404}/>
-				</Switch>
-			</ThemeProvider>
-		</ThemeContext.Provider>
+	// <ThemeContext.Provider value={{
+	// 	isLightTheme: isLightTheme,
+	// 	setLightTheme: toggleTheme
+	// }}>
+	// 	<ThemeProvider theme={isLightTheme ? light : dark}>
+		<ThemeProvider theme={dark}>{/*tmp*/}
+			<GlobalStyle/>
+			<DebugStyle/>
+			{/*<Preloader/>*/}
+			<Switch>
+				<Route exact path="/" component={Frontpage}/>
+				<Route path="/sites" component={SitesRouting}/>
+				<Route path="/cv" component={Cv}/>
+				<Route path="/test" component={TestPage}/>
+				<Route path="*" component={Page404}/>
+			</Switch>
+		</ThemeProvider>
+	// </ThemeContext.Provider>
 	)
 }

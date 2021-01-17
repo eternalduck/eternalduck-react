@@ -13,7 +13,6 @@ import {
 
 
 const SingleSite = (props) => {
-
 	useEffect(() => {
 		// document.body.className = cssS.singleSite
 	})
@@ -24,7 +23,8 @@ const SingleSite = (props) => {
 			<h4>
 				{props.item.title}
 			</h4>
-			<p>{props.item.descr}</p>
+			{/*is descr needed here?*/}
+			{/*<p>{props.item.descr}</p>*/}
 			{/*map these images*/}
 			{/*<img src={props.item.images.img} alt=""/>*/}
 		</ContentWidth>

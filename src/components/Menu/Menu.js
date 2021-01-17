@@ -1,37 +1,67 @@
-import React from "react"
+import React, {useEffect, useState, useRef} from "react"
 import {NavLink} from "react-router-dom"
 import styled from "styled-components"
 import {mixins, media} from "../../style/vars-mixins/_index"
+import {Icon} from "@iconify/react"
+import hamburgerIcon from "@iconify/icons-openmoji/hamburger"
 import {menuItems} from "../data/menuItems"
 
-//TODO home icon
-// import { Icon, InlineIcon } from "@iconify/react"
-// import aboutIcon from "@iconify/icons-flat-color-icons/about"
 
-// import homeLine from "@iconify/icons-clarity/home-line"
-// import iconMedal from "@iconify/icons-openmoji/1st-place-medal"
-
-/* <h1 className={css.title}>{title} <InlineIcon icon={homeLine} className="icon"/></h1>
-<Icon icon={aboutIcon} className="icon"/> */
-
-
-const Menu = (props, theme) => {
+const GenerateMenu = (props) => {
 	return (
-		<MenuSC>
+		<>
 		{menuItems.map(item => (
 			<NavLink key={item.id}
 				to={item.url}
 				exact={true}
 				// id={item.id}
-				// dangerouslySetInnerHTML={{ __html: item.txt}}//icon fails
 			>
 				{item.txt}
 			</NavLink>
 		))}
-		</MenuSC>
-	)}
+		</>
+	)
+}
 
-const MenuSC = styled.nav`
+export const Menu = (props) => {
+	return (
+		<MenuSc>
+			<GenerateMenu/>
+		</MenuSc>
+	)
+}//Menu
+
+
+export const MobMenu = (props) => {
+	const [isMenuVisible, setMenuVisible] = useState(false)
+
+	const toggleMobMenu = () => {
+		setMenuVisible(prev => !prev)
+		console.log("toggleMobMenu: ")
+	}
+	return (
+		<>
+		<MobMenuToggle icon={hamburgerIcon} onClick={toggleMobMenu}/>
+		<MenuMob visible={isMenuVisible}>
+			<GenerateMenu/>
+		</MenuMob>
+		</>
+	)
+}//Menu
+
+
+const MobMenuToggle = styled(Icon)`
+	width: 60px;
+	height: 60px;
+	outline: 1px solid red;
+	// ${media.md`display: none`}
+`
+
+const MenuSc = styled.nav`
+	//position: absolute;
+	// ${media.md`
+	// 	position: relative;
+	// `}
 	a {
 		font-family: "Courier New", monospace;
 		color: ${props => props.theme.linkClr};//TODO depending on page bg
@@ -45,7 +75,6 @@ const MenuSC = styled.nav`
 		transition: color 0.3s ease-in;
 		${mixins.noUnderline};
 		${mixins.hoverBg};
-		// ${mixins.boxShadowMid()};
 		&.active {
 			cursor: default;
 			pointer-events: none;
@@ -58,4 +87,8 @@ const MenuSC = styled.nav`
 		// }
 	}
 `
-export default Menu
+const MenuMob = styled(MenuSc)`
+	outline: 3px dashed blueviolet;
+	display: ${props => props.visible ? "block" : "none"};
+
+`

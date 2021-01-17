@@ -1,9 +1,9 @@
 body {
-    background: #777;
+	background: #777;
 }
-body div {
-    /*visibility: hidden;*/
+#root {
+	visibility: hidden;
 }
-body.loaded div {
-   visibility: visible;
+body.loaded #root {
+    visibility: visible;
 }

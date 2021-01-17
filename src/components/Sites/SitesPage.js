@@ -8,8 +8,10 @@ import styled, {css, createGlobalStyle } from "styled-components"
 import {mixins} from "../../style/vars-mixins/_index"
 import Header from "../Header/Header"
 import ContentWide from "../Layout/ContentWide"
-import WorkItem from "../WorkItem/WorkItem"
+import SiteItem from "./SiteItem"
 import {sitesList} from "../data/sitesList"
+import {generateRandomBg} from "../helpers/generateRandomBg"
+
 
 const SitesPage = (props) => {
 	// console.info("SitesPage props: ")//debug
@@ -17,15 +19,18 @@ const SitesPage = (props) => {
 	const theme = useState()
 	// console.info(`sitesPage theme: ${theme}`)//debug
 	let match = useRouteMatch()
-
+	const {bg} = generateRandomBg(sitesList.length)
+	// useEffect(() => {
+	// }, [])
 	return (
 		<ContentWide bg={theme.bodyBg}>
 			<Header className={"header_test"}/>
 				<SitesWrap>
-				{sitesList && sitesList.map(item =>
-					<WorkItem key={item.slug}
+				{sitesList && sitesList.map((item, i) =>
+					<SiteItem key={item.slug}
 						item={item}
 						match={match.path}
+						bg={bg[i]}
 					/>
 				)}
 				</SitesWrap>

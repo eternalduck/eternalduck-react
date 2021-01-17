@@ -9,8 +9,8 @@
 import { css } from "styled-components"
 import {default as media} from "./_media"
 export {default as media} from "./_media"
-import {default as colors} from "./_theme"
-export {default as colors} from "./_theme"
+import {colors} from "./_theme"
+export {colors} from "./_theme"
 
 export {dark as dark} from "./_theme"
 export {light as light} from "./_theme"
@@ -20,13 +20,13 @@ export const mixins = {
 	// TMP
 	testBg: css`
 		background: green;
-		${media.smUp`
-			background: ${colors.pinkSaturated};
+		${media.sm`
+			background: ${colors.saturatedPink};
 		`}
-		${media.lgUp`
+		${media.lg`
 			background: orange;
 		`}
-		${media.xlUp`
+		${media.xl`
 			background: yellow;
 		`}
 	`,
@@ -41,23 +41,23 @@ export const mixins = {
 	contentWidth: css`
 		width: 100%;
 		//background: yellow;
-		${media.smUp`
+		${media.sm`
 			max-width: 500px;
 			// background: orange;
 		`}
-		${media.mdUp`
+		${media.md`
 			max-width: 720px;
 			// background: pink;
 		`}
-		${media.lgUp`
+		${media.lg`
 			max-width: 940px;
 			// background: red;
 		`}
-		${media.xlUp`
+		${media.xl`
 			max-width: 1100px;
 			// background: blue;
 		`}
-		${media.xxlUp`
+		${media.xxl`
 			max-width: 1400px;
 			// background: green;
 		`}
@@ -65,10 +65,17 @@ export const mixins = {
 	contentWide: css`
 		width: 100%;
 		padding: 0 15px;
-		max-width: 1200px;
-		${media.mdUp`
+		max-width: 1700px;
+		${media.md`
 			width: 90%;
 			padding: 0;
+		`}
+		${media.lg`
+			width: 96%;
+			padding: 0;
+		`}
+		${media.xxl`
+			max-width: 1500px;
 		`}
 	`,
 	flexRow: css`
@@ -87,15 +94,18 @@ export const mixins = {
 	`,
 //// 1.3 Common Elements
 	boxShadowSmall: (clr) => css`
-		box-shadow: 3px 3px 8px 20px ${clr || "#777"};
+		box-shadow: 0px 0px 14px -5px ${clr || "#333"};
 	`,
 	boxShadowMid: (clr) => css`
-		box-shadow: 10px 10px 8px -7px ${clr || "#777"};
+		box-shadow: 1px 1px 30px -5px  ${clr || "#333"};
+	`,
+	boxShadowBig: (clr) => css`
+		box-shadow: 5px 5px 18px 10px ${clr || "#333"};
 	`,
 	txtShadow: css`
 		text-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
 	`,
-	//added to a, it should contain a child txt element!
+	//added to <a> that should contain a span!
 	borderUnderline: css`
 		text-decoration: none;
 		&:hover {
@@ -151,7 +161,7 @@ export const mixins = {
 			opacity: .5;
 		}
 		&:hover:after {
-			background: ${colors.tenderPinkTransp};
+			background: ${colors.transpTenderPink};
 		}
 	`,
 

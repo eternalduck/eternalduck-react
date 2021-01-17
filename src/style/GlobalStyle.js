@@ -1,10 +1,10 @@
-import React, {useState} from "react"
+import React from "react"
 import { css, createGlobalStyle} from "styled-components"
 import {media, colors, mixins} from "./vars-mixins/_index"
-
+import {resetCss} from "./utils/_reset"
 
 const GlobalStyle = createGlobalStyle`
-	//@import "./utils/_reset.css";//TODO: fail
+	${resetCss}
 	// 1. General
 	// font can be here or in index.html
 	//@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap");
@@ -18,15 +18,15 @@ const GlobalStyle = createGlobalStyle`
 		font-weight: 300;
 		font-size: 16px;
 		line-height: 1.5;
-		&:after {
-			content: "${props => props.theme.name}";
-			display: block;
-			position: absolute;
-			top: 40%;
-			left: 5px;
-			font-size: 40px;
-			color: mediumvioletred;
-		}
+		// &:after {
+		// 	content: "${props => props.theme.name}";
+		// 	display: block;
+		// 	position: absolute;
+		// 	top: 40%;
+		// 	left: 5px;
+		// 	font-size: 40px;
+		// 	color: mediumvioletred;
+		// }
 	}
 	// 2. Typography
 	h1, h2, h3, h4 {

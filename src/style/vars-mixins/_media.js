@@ -2,11 +2,11 @@
 import { css } from 'styled-components'
 
 const breakpoints = {
-	smUp: "min-width: 576px",
-	mdUp: "min-width: 750px",
-	lgUp: "min-width: 990px",
-	xlUp: "min-width: 1200px",
-	xxlUp: "min-width: 1600px",
+	sm: "min-width: 576px",
+	md: "min-width: 750px",
+	lg: "min-width: 990px",
+	xl: "min-width: 1200px",
+	xxl: "min-width: 1600px",
 
 	smDown: "max-width: 575px",
 	mdDown: "max-width: 749px",
@@ -29,4 +29,4 @@ export default Object.keys(breakpoints).reduce((accumulator, label) => {
 	return accumulator
 }, {})
 // Usage:
-// ${media.smUp``}
+// ${media.sm``}

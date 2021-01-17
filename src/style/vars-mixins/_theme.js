@@ -1,4 +1,44 @@
-// 1. Vars
+// 2. General colors
+export const colors = {
+	black3: "#333",
+	almostBlack: "#222",
+	almostWhite: "#eeefee",
+
+	blueishBlack: "#27272C",
+	darkBlueBlack: "#08122C",
+	liteGray: "#A7A9B0",
+	midGray: "#6C6C6C",
+
+	bottleGreen: "#0B3601",
+	mintGreen: "#09D476",
+
+	yellow: "#FFCA08",
+	liteYellow: "#F9E28D",
+
+	eggplant: "#33111D",
+	darkVio: "#372647",
+	midVio: "#695289",
+	dustVio: "#917DB5",
+
+	darkDustBlue: "#262f47",
+	dustBlue: "#3e5b7c",
+	midBlue: "#01A9C7",
+
+	tenderPink: "#cfb5d4",
+	saturatedPink: "#9a22a8",
+
+	transpBlack: "rgba(0, 0, 0, .3)",
+	transpWhite: "rgba(255, 255, 255, .6)",
+	transpTenderPink: "rgba(207, 181, 212, .8)",
+
+	gradientYellows: "linear-gradient(90deg, #FFCA08 0%, #F9E18D 100%)",
+	gradientDustVioPink: "linear-gradient(90deg, #917DB5 0%, #CFB5D4 100%)",
+	gradientBlueMint: "linear-gradient(90deg, #07B464 0%, #018FA8 100%)",
+	gradientDarkBlueMint: "linear-gradient(90deg, #089F59 0%, #0496B0 100%)",
+	gradientBlue: "linear-gradient(180deg, #038097 0%, #01A9C7 100%)",
+
+}
+// 1. Theme-related colors
 export const dark = {
 	name: "dark",
 	bodyBg: "#333",
@@ -7,43 +47,7 @@ export const dark = {
 }
 export const light = {
 	name: "light",
-	bodyBg: "#eeefee",
+	bodyBg: colors.almostWhite,
 	txtClr: "#333",
 	linkClr: "#333"
-}
-export default {
-	black: "#000",
-	white: "#fff",
-	almostBlack: "#333",
-	almostWhite: "#f7f7f7",
-	blackTransparent: "rgba(0, 0, 0, .2)",
-	whiteTransparent: "rgba(255, 255, 255, .6)",
-
-	grayLightest: "#eeefee",
-	grayMid: "#6C6C6C",
-	gray: "#ccc",
-
-	pinkSaturated: "#9a22a8",
-	tenderPink: "#cfb5d4",
-	tenderPinkTransp: "rgba(207, 181, 212, .8)",
-
-	blueVioTender: "#99abdd",
-	blueMid: "#4396d7",
-	blueVioLite: "#798dc3",
-	blueVioDarkest: "#262f47",
-
-	vioSaturatedTransp: "rgba(129, 21, 179, .8)",
-	vioSaturated: "#8115b3",
-	vioMid: "#695289",
-	vioMidTransp: "rgba(105, 82, 137, .8)",
-	vioEggplant: "#482a52",
-	vioDark: "#372647",
-
-	blueDarkest: "#08122c",
-	blueDarkDust: "#3e5b7c",
-
-	greenLightest: "#e8f3e1",
-	green: "#7ccf47",
-	greenDark: "#0B3601",
-	greenDarkest: "#072601",
 }

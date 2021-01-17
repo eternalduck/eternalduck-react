@@ -10,23 +10,23 @@ const DebugStyle = createGlobalStyle`
 		right: 5px;
 		font-size: 14px;
 		z-index: 999999;
-		${media.smUp`
+		${media.sm`
 			content:"SM (min-width: 576)";
 			color: red;
 		`}
-		${media.mdUp`
+		${media.md`
 			content:"MD (min-width: 750)";
 			color: cyan;
 		`}
-		${media.lgUp`
+		${media.lg`
 			content:"LG (min-width: 990)";
-			color: blue;
+			color: orange;
 		`}
-		${media.xlUp`
+		${media.xl`
 			content:"XL (min-width: 1200)";
 			color: lime;
 		`}
-		${media.xxlUp`
+		${media.xxl`
 			content:"XXL (min-width: 1600)";
 			color: magenta;
 		`}

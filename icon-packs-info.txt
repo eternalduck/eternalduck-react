@@ -5,7 +5,14 @@ import { Icon, InlineIcon } from "@iconify/react";
 
 ========
 Packs:
+https://iconify.design/icon-sets/noto/
+https://iconify.design/icon-sets/openmoji/
 
+
+
+
+
+//unused///////////////////////
 Clarity
 https://iconify.design/icon-sets/clarity/
 
