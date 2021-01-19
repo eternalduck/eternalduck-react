@@ -12,18 +12,27 @@ import styled, {css, createGlobalStyle } from "styled-components"
 import {media, colors, mixins} from "../../style/vars-mixins/_index"
 import {ConditionalWrapper} from "../helpers/conditionalWrapper"
 import {isTablet} from "../helpers/responsive"
+// import {generateRandomBg} from "../helpers/generateRandomBg"
+
 
 const SiteItem = (props) => {
 	let match = useRouteMatch()
 	const {isTabl} = isTablet()
+	// const [bg, setBg] = useState(() => {
+	// 	generateRandomBg(10)
+	// })
+	// console.info(bg)
+
 	// useEffect(()=> {
 	//
 	// }, [])
 	return (
 		<ItemBase bg={props.bg}>
 			{isTabl ?
-				<p>tabl version</p>
-				: <>
+				//tablet version
+				<p bg={props.bg}>tabl version</p>
+				: //desk&mob version
+				<>
 				<ColorWrap bg={props.bg}>
 					<ConditionalWrapper
 						condition={props.item.hasSinglePage}
@@ -83,7 +92,8 @@ const ItemBase = styled.div`
 	width: 100%;
 	position: relative;
 	margin: 0 auto 40px;
-	background: ${colors.almostWhite};
+	background: #000;
+	//background: ${colors.almostWhite};
 	${mixins.boxShadowSmall(colors.almostBlack)};
 	${media.md`
 		margin: 0 0 50px;
@@ -143,7 +153,7 @@ const ImgWrap = styled.div`
 	display: block;
 	width: 100%;
 	text-align: center;
-	padding-bottom: 50px;
+	margin-bottom: 50px;
 	//height: 250px;
 	//overflow: hidden;//?
 	${mixins.noUnderline};
@@ -171,7 +181,8 @@ const Url = styled.a`
 `
 
 const Descr = styled.div`
-	color: ${colors.almostBlack};
+	color: #fff;
+	//color: ${colors.almostBlack};
 	padding: 30px 15px;
 	${media.md`
 		padding: 40px 30px;

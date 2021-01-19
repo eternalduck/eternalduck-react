@@ -391,31 +391,31 @@ export const sitesList = [
 		],
 	},
 
-	// {
-	// 	"slug": "31-splat",
-	// "hasSinglePage": false,
-	// 	"title": "Splat Products",
-	// 	"thumb": "/images/work/sites/thumbs/31-splat.jpg",
-	// 	"images": {
-	// 		"img": "/images/work/sites/31-splat.jpg"
-	// 	},
-	// 	"urlTxt": "splat.ru",
-	// 	"url": "https://splat.ru",
-	// 	"keywords": "2016, bitrix, content management",
-	// 	"descr": "Here I was working on some layout updates, bug fixes, cross-browser compatibility, products catalog rearrangement and content management.",
-	// 	"descrRu": "",
-	// 	"nav": [
-	// 		{
-	// 			"txt": "Gas Equipment",
-	// 			"link": "30-gas-eqipment"
-	// 		},
-	// 		{
-	// 			"txt": "1c Accounting Site",
-	// 			"link": "32-1vip"
-	// 		}
-	// 	],
-	// },
-	//
+	{
+		"slug": "31-splat",
+	"hasSinglePage": false,
+		"title": "Splat Products",
+		"thumb": "/images/work/sites/thumbs/31-splat.jpg",
+		"images": {
+			"img": "/images/work/sites/31-splat.jpg"
+		},
+		"urlTxt": "splat.ru",
+		"url": "https://splat.ru",
+		"keywords": "2016, bitrix, content management",
+		"descr": "Here I was working on some layout updates, bug fixes, cross-browser compatibility, products catalog rearrangement and content management.",
+		"descrRu": "",
+		"nav": [
+			{
+				"txt": "Gas Equipment",
+				"link": "30-gas-eqipment"
+			},
+			{
+				"txt": "1c Accounting Site",
+				"link": "32-1vip"
+			}
+		],
+	},
+
 	// {
 	// 	"slug": "30-ptfm",
 	// "hasSinglePage": false,

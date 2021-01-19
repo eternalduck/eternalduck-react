@@ -27,7 +27,7 @@ export const colors = {
 	tenderPink: "#cfb5d4",
 	saturatedPink: "#9a22a8",
 
-	transpBlack: "rgba(0, 0, 0, .3)",
+	transpBlack: "rgba(0, 0, 0, .6)",
 	transpWhite: "rgba(255, 255, 255, .6)",
 	transpTenderPink: "rgba(207, 181, 212, .8)",
 

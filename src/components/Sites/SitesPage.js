@@ -17,11 +17,11 @@ const SitesPage = (props) => {
 	// console.info("SitesPage props: ")//debug
 	// console.info(props)//debug
 	const theme = useState()
-	// console.info(`sitesPage theme: ${theme}`)//debug
 	let match = useRouteMatch()
-	const {bg} = generateRandomBg(sitesList.length)
-	// useEffect(() => {
-	// }, [])
+	const [bg, setBg] = useState("#eeefee")
+	useEffect(() => {
+		setBg(prev => generateRandomBg(sitesList.length))
+	}, [])
 	return (
 		<ContentWide bg={theme.bodyBg}>
 			<Header className={"header_test"}/>

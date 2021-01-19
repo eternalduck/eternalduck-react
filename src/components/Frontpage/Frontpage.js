@@ -14,14 +14,14 @@ const Frontpage = (props, theme) => {
 		</FrontpageSC>
 	)
 }
-// style
+
 const FrontpageSC = styled.div`
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	// background: ${(props) => props.theme.bodyClr};//fail
 	background: url("../../images/table.jpg") center/cover no-repeat;
 `
-// end style
 
 export default Frontpage
+
+

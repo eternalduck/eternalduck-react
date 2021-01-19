@@ -4,10 +4,10 @@ import crescentMoon from "@iconify/icons-noto/crescent-moon"
 import brightButton from "@iconify/icons-noto/bright-button"
 // import {ThemeContext} from "../../Root"
 
-const value = false
-const action = () => {}
 
 const ToggleTheme = (props) => {
+	const value = false
+	const action = () => {}
 	return (
 		// <ThemeContext.Consumer>
 		// TODO: make this look like a toggle switch, checked = light
