@@ -43,16 +43,25 @@ const GlobalStyle = createGlobalStyle`
 		margin-bottom: 18px;
 	}
 	h3 {
-		font-size: 160%;
-		margin-bottom: 16px;
+		margin-bottom: 15px;
+		font-size: 26px;
+		${media.md`
+			font-size: 28px;
+		`}
+		${media.lg`
+			font-size: 30px;
+		`}
 	}
 	h4 {
 		font-size: 130%;
-		margin-bottom: 14px;
+		margin-bottom: 12px;
 	}
 	p {
 		font-size: 100%;
 		margin: 0 0 8px;
+	}
+	b, strong {
+		font-weight: bold;
 	}
 	a {
 		${mixins.borderUnderline}

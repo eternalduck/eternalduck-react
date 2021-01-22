@@ -5,7 +5,7 @@ import {
 	useParams
 } from "react-router-dom"
 import styled, {css, createGlobalStyle } from "styled-components"
-import {mixins} from "../../style/vars-mixins/_index"
+import {colors, mixins} from "../../style/vars-mixins/_index"
 import Header from "../Header/Header"
 import ContentWide from "../Layout/ContentWide"
 import SiteItem from "./SiteItem"
@@ -23,7 +23,7 @@ const SitesPage = (props) => {
 		setBg(prev => generateRandomBg(sitesList.length))
 	}, [])
 	return (
-		<ContentWide bg={theme.bodyBg}>
+		<ContentWide bg={colors.blueishBlack}>
 			<Header className={"header_test"}/>
 				<SitesWrap>
 				{sitesList && sitesList.map((item, i) =>
@@ -46,7 +46,7 @@ const GlobalStyle = createGlobalStyle`
 	}
 `
 const SitesWrap = styled.div`
-	${mixins.flexRow}
+	margin: 50px 0;
 `
 
 export default SitesPage

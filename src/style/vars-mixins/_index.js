@@ -78,6 +78,12 @@ export const mixins = {
 			max-width: 1500px;
 		`}
 	`,
+	flexCenterContent: css`//used for a container with a single item, usually txt
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	`,
 	flexRow: css`
 		display: flex;
 		flex-flow: row wrap;
@@ -94,7 +100,7 @@ export const mixins = {
 	`,
 //// 1.3 Common Elements
 	boxShadowSmall: (clr) => css`
-		box-shadow: 0px 0px 14px -5px ${clr || "#333"};
+		box-shadow: 0 0 14px -5px ${clr || "#333"};
 	`,
 	boxShadowMid: (clr) => css`
 		box-shadow: 1px 1px 30px -5px  ${clr || "#333"};

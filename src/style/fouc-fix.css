@@ -1,9 +1,9 @@
 body {
-	background: #777;
+	background: #888;
 }
 #root {
 	visibility: hidden;
 }
 body.loaded #root {
-    visibility: visible;
+	visibility: visible;
 }
