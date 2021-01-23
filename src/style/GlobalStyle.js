@@ -34,6 +34,7 @@ const GlobalStyle = createGlobalStyle`
 		// font-family: "Roboto Slab", serif;
 		font-weight: 700;
 	}
+	//TODO
 	h1 {
 		font-size: 230%;
 		margin-bottom: 20px;
@@ -43,13 +44,14 @@ const GlobalStyle = createGlobalStyle`
 		margin-bottom: 18px;
 	}
 	h3 {
-		margin-bottom: 15px;
-		font-size: 26px;
+		font-size: 24px;
+		margin-bottom: 10px;
 		${media.md`
 			font-size: 28px;
 		`}
 		${media.lg`
 			font-size: 30px;
+			margin-bottom: 15px;
 		`}
 	}
 	h4 {
@@ -64,7 +66,6 @@ const GlobalStyle = createGlobalStyle`
 		font-weight: bold;
 	}
 	a {
-		${mixins.borderUnderline}
 		color: ${props => props.theme.linkClr};
 	}
 	// end typo
@@ -83,8 +84,8 @@ const GlobalStyle = createGlobalStyle`
 		width: 32px;
 		height: 32px;
 		&_big {
-			width: 52px;
-			height: 52px;
+			width: 42px;
+			height: 42px;
 		}
 	}
 `//createGlobalStyle

@@ -37,17 +37,19 @@ const SiteItem = (props) => {
 					</Link>
 					}
 				>
-					<h3>{props.item.title}</h3>
+					<Title>{props.item.title}</Title>
 				</ConditionalWrapper>
 				<>
 				{props.item.url &&
-					<Url href={props.item.url} target={"_blank"}>
-						<span>{props.item.urlTxt}</span>
-					</Url>
-				}
-				{props.item.url2 &&
-					<Url href={props.item.url2} target={"_blank"}>
-						<span>{props.item.urlTxt2}</span>
+					<Url>
+						<a href={props.item.url} target={"_blank"} rel={"noreferrer"}>
+							<span>{props.item.urlTxt}</span>
+						</a>
+						{props.item.url2 &&
+							<a href={props.item.url2} target={"_blank"} rel={"noreferrer"}>
+								<span>{props.item.urlTxt2}</span>
+							</a>
+						}
 					</Url>
 				}
 					<Info>
@@ -57,6 +59,9 @@ const SiteItem = (props) => {
 				</>
 			</Meta>
 			<Descr>
+				{props.item.icon &&
+					<p>{props.item.icon}</p>
+				}
 				<p>{props.item.descr}</p>
 				{props.item.descrRu &&
 					<p>{props.item.descrRu}</p>
@@ -88,12 +93,11 @@ const Item = styled.div`
 	display: flex;
 	flex-flow: column nowrap;
 	width: 100%;
-	max-width: 540px;
+	max-width: 500px;
 	position: relative;
 	margin: 0 auto 60px;
-	background: #fff;
+	background: #fff;//tmp?
 	// background: ${colors.almostWhite};
-	//background: #000;//tmp
 	${mixins.boxShadowSmall(colors.almostBlack)};
 	&:after {//small color stripe
 		content: "";
@@ -106,7 +110,7 @@ const Item = styled.div`
 		background: ${props => props.bg};
 	}
 	${media.md`
-		max-width: none;
+		max-width: 900px;
 		flex-flow: row wrap;
 		min-height: 560px;
 	`}
@@ -125,48 +129,68 @@ const Item = styled.div`
 const Meta = styled.div`
 	flex: 1;
 	background: ${props => props.bg};
-	padding: 30px 15px;
+	padding: 20px 15px;
 	color: #fff;
-	 ${mixins.boxShadowSmall()};
+	${mixins.boxShadowSmall()};
 	& a {color: #fff;}
-	${media.md`
+	${media.sm`
 		padding: 30px 20px;
+	`}
+	${media.md`
 		flex: 1 0 100%;
 	`}
 	${media.xl`
 		flex: 0 0 auto;
 		width: 320px;
-		// height: 100%;
 		display: flex;
 		flex-flow: column;
-		// align-content: flex-start;
 		justify-content: space-between;
 		padding: 50px 40px;
 	`}
 `
+const Title = styled.h3`
+	text-align: center;
+	${media.md`
+		text-align: left;
+	`}
+`
 
-// const Title = styled.h3`
-//
-// `
-const Url = styled.a`
-	display: block;
-	font-size: 18px;
+
+const Url = styled.p`
 	font-weight: bold;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	${mixins.borderUnderline};
+	font-size: 15px;
+	margin: 10px 0;
+	//text-align: center;
+	${media.md`
+		// text-align: left;
+		font-size: 18px;
+		margin: 20px 0;
+	`}
+	& a {
+		display: inline-block;
+		${mixins.borderUnderline};
+		&:first-child {
+			margin-right: 20px;
+		}
+	}
 `
 
 const Info = styled.div`
-	font-size: 15px;
+	font-size: 14px;
+	//text-align: center;
 	& p:first-child {
-		margin-bottom: 15px;
+		margin-bottom: 10px;
 	}
 	& p:last-child {
 		margin-bottom: 0;
 	}
 	${media.md`
+		// text-align: left;
+		font-size: 16px;
 		width: 45%;
+		& p:first-child {
+			margin-bottom: 15px;
+		}
 	`}
 	${media.xl`
 		width: auto;
@@ -176,11 +200,10 @@ const Info = styled.div`
 const Descr = styled.div`
 	flex: 1;
 	color: ${colors.almostBlack};
-	padding: 30px 15px;
-	${media.md`
+	padding: 20px 15px;
+	${media.sm`
 		padding: 30px 20px;
 	`}
-	//  
 	${media.xl`
 		${mixins.flexCenterContent};
 		padding: 30px;
@@ -189,21 +212,28 @@ const Descr = styled.div`
 
 const ImgWrap = styled.div`
 	//flex: 1;
-	width: 100%;
-	min-height: 350px;
+	width: 80%;
+	margin: 0 10% 15px;
+	//height: 200px;
+	//min-height: 300px;
 	overflow: hidden;
 	// ${mixins.noUnderline};
 	 ${mixins.boxShadowSmall()};
+	${media.sm`
+		width: 70%;
+		margin: 0 15% 20px;
+	`}
 	${media.md`
-		width: 367px;
-		height: 440px;
+		width: 333px;
+		height: 400px;
 		min-height: none;
 		margin: -120px 15px 30px 0;
 		${mixins.flexCenterContent};
 	`}
 	${media.lg`
-		width: 417px;
-		height: 500px;
+		width: 367px;
+		height: 440px;
+		
 	`}
 	${media.xl`
 		flex: 0 0 auto;

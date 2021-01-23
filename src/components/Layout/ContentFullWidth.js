@@ -18,7 +18,7 @@ const ContentFullWidth = (props) => {
 // 	background: ${props => props.bg}
 // `
 const Content = styled.div`
-	${mixins.out("solid", "lime")}
+	// ${mixins.out("solid", "lime")}
 	background: ${props => props.bg}
 	width: 100%;
 	padding: 0 30px

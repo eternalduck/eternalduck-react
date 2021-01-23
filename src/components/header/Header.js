@@ -26,33 +26,27 @@ const Header = (props) => {
 
 const HeaderSc = styled.div`
 	margin-top: 15px;
-	margin-bottom: 70px;
-	z-index: 100;
+	margin-bottom: 50px;
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: center;
-	align-items: flex-start;
-	${media.md`
-		justify-items: space-between;
-	`}
+	z-index: 100;
+	// ${media.md`
+	// 	justify-content: space-between;
+	// `}
 `
 
 const MenuWrap = styled.div`
-	outline: 1px dashed cyan;
-	flex: 1 0 50%;
-	${media.md`
-		flex: 0 1 70%;
-	`}
-	
+	//outline: 1px dashed cyan;
+	flex: 1;
 `
 
 const ToggleThemeWrap = styled.div`
-	outline: 1px dashed yellowgreen;
-	align-self: flex-end;
-	flex: 0 1 50%;
-	${media.md`
-		flex: 0 1 20%;
-	`}
+	//outline: 1px dashed yellowgreen;
+	display: flex;
+	align-content: center;
+	justify-content: flex-end;
+	flex: 1;
 `
 
 export default Header

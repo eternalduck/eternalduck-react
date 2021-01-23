@@ -7,7 +7,7 @@ import hamburgerIcon from "@iconify/icons-openmoji/hamburger"
 import {menuItems} from "../data/menuItems"
 
 
-const GenerateMenu = (props) => {
+const MenuItems = (props) => {
 	return (
 		<>
 		{menuItems.map(item => (
@@ -26,7 +26,7 @@ const GenerateMenu = (props) => {
 export const Menu = (props) => {
 	return (
 		<MenuSc>
-			<GenerateMenu/>
+			<MenuItems/>
 		</MenuSc>
 	)
 }//Menu
@@ -37,44 +37,41 @@ export const MobMenu = (props) => {
 
 	const toggleMobMenu = () => {
 		setMenuVisible(prev => !prev)
-		console.log("toggleMobMenu: ")
 	}
 	return (
 		<>
 		<MobMenuToggle icon={hamburgerIcon} onClick={toggleMobMenu}/>
 		<MenuMob visible={isMenuVisible}>
-			<GenerateMenu/>
+			<MenuItems/>
 		</MenuMob>
 		</>
 	)
 }//Menu
 
-
-const MobMenuToggle = styled(Icon)`
-	width: 60px;
-	height: 60px;
-	outline: 1px solid red;
-	// ${media.md`display: none`}
-`
-
 const MenuSc = styled.nav`
-	//position: absolute;
-	// ${media.md`
-	// 	position: relative;
-	// `}
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	${media.md`
+		flex-flow: row nowrap;
+	`}
 	a {
-		font-family: "Courier New", monospace;
-		color: ${props => props.theme.linkClr};//TODO depending on page bg
 		position: relative;
-		margin: 0 30px 50px 0;
-		padding-bottom: 5px;
-		font-weight: 600;
-		font-size: 2rem;
+		margin-bottom: 30px;
+		color: ${props => props.theme.linkClr};//TODO depending on page bg
+		font-family: "Courier New", monospace;
+		font-weight: bold;
+		font-size: 24px;
 		text-decoration: none;
 		z-index: 1;
 		transition: color 0.3s ease-in;
 		${mixins.noUnderline};
 		${mixins.hoverBg};
+		${media.md`
+			margin-right: 30px;
+			margin-bottom: 0;
+		`}
 		&.active {
 			cursor: default;
 			pointer-events: none;
@@ -82,13 +79,24 @@ const MenuSc = styled.nav`
 			// 	background: ${props => props.theme.tenderPinkTransp};
 			// }
 		}
-		// header.dark & {
-		// 	color: ${props => props.theme.vioDark};
-		// }
 	}
 `
+
+const MobMenuToggle = styled(Icon)`
+	position: relative;
+	width: 60px;
+	height: 60px;
+	z-index: 200;
+	margin-left: -20px;//compensate svg padding
+`
 const MenuMob = styled(MenuSc)`
-	outline: 3px dashed blueviolet;
-	display: ${props => props.visible ? "block" : "none"};
+	display: ${props => props.visible ? "flex" : "none"};
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 25px 0 5px;
+	background-color: ${props => props.theme.mobMenuBg};
+	z-index: 100;
 
 `

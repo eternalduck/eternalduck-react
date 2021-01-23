@@ -52,11 +52,13 @@ export const dark = {
 	name: "dark",
 	bodyBg: "#333",
 	txtClr: "#fff",
-	linkClr: "#fff"
+	linkClr: "#fff",
+	mobMenuBg: colors.blueishBlack,
 }
 export const light = {
 	name: "light",
 	bodyBg: colors.almostWhite,
 	txtClr: "#333",
-	linkClr: "#333"
+	linkClr: "#333",
+	mobMenuBg: colors.liteGray,
 }

@@ -40,27 +40,15 @@ export const mixins = {
 	`,
 	contentWidth: css`
 		width: 100%;
-		//background: yellow;
+		padding: 0 15px;
 		${media.sm`
 			max-width: 500px;
-			// background: orange;
+			padding: 0;
 		`}
-		${media.md`
-			max-width: 720px;
-			// background: pink;
-		`}
-		${media.lg`
-			max-width: 940px;
-			// background: red;
-		`}
-		${media.xl`
-			max-width: 1100px;
-			// background: blue;
-		`}
-		${media.xxl`
-			max-width: 1400px;
-			// background: green;
-		`}
+		${media.md`max-width: 720px;`}
+		${media.lg`max-width: 940px;`}
+		${media.xl`max-width: 1100px;`}
+		${media.xxl`max-width: 1400px;`}
 	`,
 	contentWide: css`
 		width: 100%;
@@ -126,7 +114,7 @@ export const mixins = {
 			}
 		}
 	`,
-	//added to a
+	//added to <a> that should contain a span!
 	borderUnderlineOnHover: css`
 		text-decoration: none;
 		&:hover {

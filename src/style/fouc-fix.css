@@ -1,9 +1,13 @@
+/* old good css loads before any styled-components */
 body {
-	background: #888;
+	background: #372647;
 }
 #root {
 	visibility: hidden;
+	opacity: 0;
+	transition: opacity .2s ease-in;
 }
 body.loaded #root {
 	visibility: visible;
+	opacity: 1;
 }

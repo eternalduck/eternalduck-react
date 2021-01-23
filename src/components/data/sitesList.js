@@ -1,4 +1,8 @@
 // do we need navPrevTxt, navPrev, navNextTxt, navNext??
+import React from "react"
+import {Icon, InlineIcon} from "@iconify/react"
+import crescentMoon from "@iconify/icons-noto/crescent-moon"
+
 
 export const sitesList = [
 	{
@@ -13,7 +17,8 @@ export const sitesList = [
 		"url": "https://github.com/eternalduck/eternalduck-react",
 		"keywords": "js, react, webpack, styled-components, responsive",
 		"year": "2021",
-		"descr": "TMP: It receives a function that will be called in the ConditionalWrapper component itself when the condition is true. There it will receive the implicit children as argument. And will return what it receives wrapped in whatever we want; in this case, a link. This small implementation is quite powerful and, though it might be a bit hard to read at first, fixes our problem of duplicate code.",
+		// "icon": <Icon icon={crescentMoon} className={"icon_big"}/>,
+		"descr": `{() => <Icon icon={crescentMoon} className={"icon_big"}/>} TMP: It receives a function that will be called in the ConditionalWrapper component itself when the condition is true. There it will receive the implicit children as argument. And will return what it receives wrapped in whatever we want; in this case, a link. This small implementation is quite powerful and, though it might be a bit hard to read at first, fixes our problem of duplicate code.`,
 		"descrRu": "",
 		"nav": [
 			{//prev
