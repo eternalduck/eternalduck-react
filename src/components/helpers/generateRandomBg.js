@@ -36,6 +36,6 @@ export const generateRandomBg = (itemsNum) => {
 		bg.push(bgrounds[randomIndex])
 	}
 
-	console.info(bg)
+	// console.info(bg)
 	return bg
 }

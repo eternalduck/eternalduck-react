@@ -7,11 +7,11 @@ import crescentMoon from "@iconify/icons-noto/crescent-moon"
 export const sitesList = [
 	// {
 	// 	"slug": "45-portfolio",
-	// 	"hasSinglePage": false,
-	// 	"title": "this.portfolio on React",
+	// 	"hasSinglePage": true,
+	// 	"title": "this portfolio on React",
 	// 	"thumb": "/images/work/sites/thumbs/45-portfolio.jpg",
 	// 	"images": [{
-	// 		"src": "/images/work/sites/45-portfolio.jpg",
+	// 		"src": "",//"/images/work/sites/45-portfolio.jpg",
 	// 		"title": "",
 	// 	}],
 	// 	"urlTxt": "Github",
@@ -19,7 +19,7 @@ export const sitesList = [
 	// 	"keywords": "js, react, webpack, styled-components, responsive",
 	// 	"year": "2021",
 	// 	// "icon": <Icon icon={crescentMoon} className={"icon_big"}/>,
-	// 	"description": `{() => <Icon icon={crescentMoon} className={"icon_big"}/>} TMP: It receives a function that will be called in the ConditionalWrapper component itself when the condition is true. There it will receive the implicit children as argument. And will return what it receives wrapped in whatever we want; in this case, a link. This small implementation is quite powerful and, though it might be a bit hard to read at first, fixes our problem of duplicate code.`,
+	// 	"description": `{"() => <Icon icon={crescentMoon} className={"icon_big"}/>}" TMP: this portfolio - It receives a function that will be called in the ConditionalWrapper component itself when the condition is true. There it will receive the implicit children as argument. And will return what it receives wrapped in whatever we want; in this case, a link. This small implementation is quite powerful and, though it might be a bit hard to read at first, fixes our problem of duplicate code.`,
 	// 	"descriptionRu": "",
 	// 	"nav": [
 	// 		{//prev
@@ -38,14 +38,14 @@ export const sitesList = [
 	// 	"title": "React Registration Module",
 	// 	"thumb": "/images/work/sites/thumbs/44-onboarding.jpg",
 	// 	"images": [{
-	// 		"src": "/images/work/sites/44-onboarding.jpg",
+	// 		"src": "",//"/images/work/sites/44-onboarding.jpg",
 	// 		"title": "",
 	// 	}],
 	// 	"urlTxt": "Github",
 	// 	"url": "https://github.com/eternalduck/prtfl-react-form",
 	// 	"keywords": "js, react, sass, webpack, responsive",
 	// 	"year": "2020",
-	// 	"description": "TMP: It receives a function that will be called in the ConditionalWrapper component itself when the condition is true. There it will receive the implicit children as argument. And will return what it receives wrapped in whatever we want; in this case, a link. This small implementation is quite powerful and, though it might be a bit hard to read at first, fixes our problem of duplicate code.",
+	// 	"description": "TMP: React Registration Module - It receives a function that will be called in the ConditionalWrapper component itself when the condition is true. There it will receive the implicit children as argument. And will return what it receives wrapped in whatever we want; in this case, a link. This small implementation is quite powerful and, though it might be a bit hard to read at first, fixes our problem of duplicate code.",
 	// 	"descriptionRu": "",
 	// 	"nav": [
 	// 		{//prev
@@ -60,7 +60,7 @@ export const sitesList = [
 	// },
 	// {
 	// 	"slug": "43-nikatech",
-	// 	"hasSinglePage": false,
+	// 	"hasSinglePage": true,
 	// 	"title": "Nika Tech Family",
 	// 	"thumb": "/images/work/sites/thumbs/43-nikatech.jpg",
 	// 	"images": [{
@@ -86,7 +86,7 @@ export const sitesList = [
 	// },
 	// {
 	// 	"slug": "42-propellers",
-	// 	"hasSinglePage": false,
+	// 	"hasSinglePage": true,
 	// 	"title": "Propellers Animation Studio",
 	// 	"thumb": "/images/work/sites/thumbs/42-propellers-pro.jpg",
 	// 	"images": [{

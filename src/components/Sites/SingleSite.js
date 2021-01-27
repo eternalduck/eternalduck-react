@@ -19,48 +19,46 @@ import Page404 from "../Page404/Page404"
 const SingleSite = (props) => {
 	let {path, url} = useRouteMatch()
 	const {itemSlug} = useParams()
-	const [itemData, setItemData] = useState({})
-	//get data for the current site, TODO: why too many times??
-	useEffect(() => {
-	// 	console.info(`itemSlug: ${itemSlug}`)
-		setItemData(prev => sitesList.find(item => item.slug === itemSlug))
-	}, [])
-console.info(itemData)
+	//get data for the current site, TODO: why called too many times, WTF?? put this to useEffect? how??
+	const dataAAA = (site) => sitesList.find(item => item.slug === site//FAIL!!!!!!!!!!!! takes only 1st item always
+	)
+	const data = dataAAA(itemSlug)
+	console.info(data)
+	// useEffect(() => {
+	//
+	// }, [])
 
 // Image changing tabs
-// 	const [mainImgSrc, setMainImgSrc] = useState("")
-// 	useEffect(() => {
-		// setMainImgSrc(itemData().images[0].src)
-	// }, [])
-// 	const [isCurrent, setIsCurrent] = useState(true)
-// 	// const mainImg = useRef()
-// 	useEffect(() => {
-// 		// setMainImgSrc(mainImg.current.src)
-// 		setIsCurrent(imgurl => imgurl === mainImgSrc ? true : false)
-// 		console.info(`isCurrent: ${isCurrent}`)
-// 	}, [mainImgSrc])
-// 	const replaceMainImg = (imgurl) => {
-// 		// mainImg.current.src = imgurl
-// 		// debugger
-// 		setMainImgSrc(imgurl)
-// 		console.info(`imgurl: ${imgurl}, mainImgSrc: ${mainImgSrc}`)
-//
-// 	}
+	const [mainImgSrc, setMainImgSrc] = useState("")
+	useEffect(() => {
+		setMainImgSrc(data.images[0].src)
+	}, [])
+	useEffect(() => {
+		isCurrent()
+	}, [mainImgSrc])
 
+	const replaceMainImg = (imgurl) => {
+		setMainImgSrc(imgurl)
+	}
+	function isCurrent (img) {
+		// console.info(`img: ${img}, mainImgSrc: ${mainImgSrc}`)
+		img === mainImgSrc
+		return
+	}
 //end Image changing tabs
+
 	return (
-		// itemData ?
+		data.title ?
 		<ContentWidth>
 			<Header/>
-			{/*{console.info(`isCurrent: ${isCurrent}}`)}*/}
-
-			<h1>{itemData.title}</h1>
-			{/*<p dangerouslySetInnerHTML={{__html: itemData.description}}></p>*/}
+			<h1>{data.title}</h1>
+			<p dangerouslySetInnerHTML={{__html: data.description}}></p>
 			<TabWrap>
-				{itemData.images.map(image =>
+				{data.images.map(image =>
 					<Tab key={image.title}
-						// onClick={() => replaceMainImg(image.src)}
-						// current={isCurrent}//FAIL
+						onClick={() => replaceMainImg(image.src)}
+						current={isCurrent(image.src)}//FAIL
+						className={isCurrent(image.src) ? "trueee" : "falseee"}
 					>
 						<span>{image.title}</span>
 					</Tab>
@@ -68,15 +66,13 @@ console.info(itemData)
 			</TabWrap>
 			<MainImgWrap>
 				<img //ref={mainImg}
-					src={"mainImgSrc"}
+					src={mainImgSrc}
 					alt={""}
 					// alt={itemData.images[0].title}
 				/>
 			</MainImgWrap>
 		</ContentWidth>
-		// :
-		// 	<p>HUi</p>
-		// {/*// <Page404/>*/}
+		: <Page404/>
 
 	)
 }
@@ -93,8 +89,8 @@ const Tab = styled.p`
 	//color: #fff;
 	font-size: 18px;
 	cursor: pointer;
-	${mixins.dashedUnderline};
-	// color: ${props => props.current ? "red" : "#fff"};//tmp
+	//${props => props.current && `${mixins.dashedUnderline}`};
+	color: ${props => props.current ? "red" : "#fff"};//tmp
 	// font-weight: ${props => props.current ? "bold" : "normal"};
 
 `

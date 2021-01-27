@@ -30,7 +30,7 @@ const SiteItem = (props) => {
 				<ConditionalWrapper
 					condition={props.item.hasSinglePage}
 					wrapper={children =>
-						<Link to={`${url}${props.item.slug}`}>
+						<Link to={`${url}/${props.item.slug}`}>
 							{children}
 						</Link>
 					}
@@ -63,7 +63,7 @@ const SiteItem = (props) => {
 				<ConditionalWrapper
 					condition={props.item.hasSinglePage}
 					wrapper={children =>
-						<Link to={`${url}${props.item.slug}`}>
+						<Link to={`${url}/${props.item.slug}`}>
 							{children}
 						</Link>}
 				>
