@@ -47,7 +47,7 @@ const Cv = (props) => {
 				<h3>Professional Experience</h3>
 				<ul className="cv-page__list">
 					<li><span className="cv-page__wrkplc">Frontend Developer &amp; UI/UX Designer:<br/><span className="cv-page__empl"><a href="https://propellers.pro" target="_blank" rel="noreferrer">Propellers</a> Animation Studio</span>
-						<span className="cv-page__date">(since April, 2019; remote)</span></span>
+						<span className="cv-page__date">(April, 2019 &mdash; December, 2020, remote)</span></span>
 						<ul className="cv-page__plain-list">
 							<li>interviewing users and composing flow charts and&nbsp;user stories for&nbsp;a&nbsp;new internal product;</li>
 							<li>drawing interactive prototypes in&nbsp;Figma;</li>

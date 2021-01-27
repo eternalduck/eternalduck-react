@@ -1,13 +1,13 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import {BrowserRouter} from "react-router-dom"
-import Root from './Root'
+import React from "react"
+import ReactDOM from "react-dom"
+import {BrowserRouter as Router} from "react-router-dom"
+import Root from "./Root"
 
 ReactDOM.render(
-	<BrowserRouter>
+	<Router>
 		<Root/>
-	</BrowserRouter>,
-	document.getElementById('root')
+	</Router>,
+	document.getElementById("root")
 )
 
 // module.hot.accept()//fail

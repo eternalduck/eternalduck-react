@@ -1,5 +1,5 @@
-import React from "react"
-import styled from "styled-components"
+import React, {useState, useEffect}  from "react"
+import styled, {css, keyframes} from "styled-components"
 import {media, colors, mixins} from "../../style/vars-mixins/_index"
 import {Icon, InlineIcon} from "@iconify/react"
 import crescentMoon from "@iconify/icons-noto/crescent-moon"
@@ -9,22 +9,23 @@ import smilingFaceWithSunglasses from "@iconify/icons-noto/smiling-face-with-sun
 
 
 const ToggleTheme = (props) => {
-	const value = false
-	const action = () => {}
+	// const checked = false
+	const [checked, setChecked] = useState(false)
+	const toggl = () => setChecked(prev => !prev)
 	return (
 		// <ThemeContext.Consumer>
-		// TODO: make this look like a toggle switch, checked = light
 			// {({isLightTheme, setLightTheme}) => (
 				<SwitchWrap htmlFor="theme-switch">
-					<IconSC icon={crescentMoon}/>
+					{/*TODO wtf .toString(), react had warning*/}
+					<IconSC icon={crescentMoon} shake={checked.toString()}/>
 						<Checkbox type="checkbox"
 							id="theme-switch"
-							// onChange={action}
-							// checked={value}SwitchWrap
+							onChange={toggl}
+							checked={checked}//SwitchWrap
 							// checked={isLightTheme ? true : false}// TODO: some fail with undefined at start
 						/>
 						<Switch/>
-					<IconSC icon={smilingFaceWithSunglasses}/>
+					<IconSC icon={smilingFaceWithSunglasses} shake={checked.toString()}/>
 				</SwitchWrap>
 			// )}
 		// </ThemeContext.Consumer>
@@ -72,11 +73,33 @@ const Switch = styled.div`
 	}
 	
 `
-const IconSC = styled(Icon)`
-	width: 24px;
-	height: 24px;
-`
 
 const Checkbox = styled.input`
 	display: none;
 `
+const shaking = keyframes`
+	0% {transform: translateX(0)}
+	25% {transform: translateX(1px) rotate(1deg) scale(.97)}
+	50% {transform: translateX(0) rotate(0)}
+	75% {transform: translateX(-1px) rotate(-1deg)}
+	100% {transform: translateX(0) rotate(0) scale(1)}
+`
+const IconSC = styled(Icon)`
+	width: 24px;
+	height: 24px;
+	transiton: transform .3s ease-in;
+	&:first-of-type {
+		${props => props.shake ? null 
+			: css`animation: ${shaking} .3s ease-in;
+				animation-iteration-count: 2;`
+		};
+	}
+	&:last-of-type {
+		${props => props.shake ?
+			css`animation: ${shaking} .3s ease-in;
+				animation-iteration-count: 2;`
+			: null
+		};
+	}
+`
+

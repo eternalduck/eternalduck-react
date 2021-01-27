@@ -117,7 +117,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, './build'),
 		filename: 'index.js',
-		// publicPath: '/build/',
+		publicPath: '/'//!!! react nested routes fail without it
 	},
 
 	devServer: {

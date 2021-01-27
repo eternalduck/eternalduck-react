@@ -13,28 +13,26 @@ import {media, colors, mixins} from "../../style/vars-mixins/_index"
 import {ConditionalWrapper} from "../helpers/conditionalWrapper"
 import {isDeskXL} from "../helpers/responsive"
 // import {generateRandomBg} from "../helpers/generateRandomBg"
-
+import SingleSite from "./SingleSite"
 
 const SiteItem = (props) => {
-	let match = useRouteMatch()
-	// const {isXL} = isDeskXL()
-	// const [bg, setBg] = useState(() => {
-	// 	generateRandomBg(10)
-	// })
-	// console.info(bg)
-
+	let {path, url} = useRouteMatch()
 	// useEffect(()=> {
 	//
 	// }, [])
+
+
+	//"/users/:userId". match.path would be "/users/:userId" while match.url would have the :userId value filled in, e.g. "users/5"
+
 	return (
 		<Item bg={props.bg}>
 			<Meta bg={props.bg}>
 				<ConditionalWrapper
 					condition={props.item.hasSinglePage}
 					wrapper={children =>
-						<Link to={`${props.match}/${props.item.slug}`}>
+						<Link to={`${url}${props.item.slug}`}>
 							{children}
-					</Link>
+						</Link>
 					}
 				>
 					<Title>{props.item.title}</Title>
@@ -59,29 +57,23 @@ const SiteItem = (props) => {
 				</>
 			</Meta>
 			<Descr>
-				{props.item.icon &&
-					<p>{props.item.icon}</p>
-				}
-				<p>{props.item.descr}</p>
-				{props.item.descrRu &&
-					<p>{props.item.descrRu}</p>
-				}
+				<p dangerouslySetInnerHTML={{__html: props.item.description}}></p>
 			</Descr>
 			<ImgWrap>
 				<ConditionalWrapper
 					condition={props.item.hasSinglePage}
 					wrapper={children =>
-						<Link to={`${props.match}/${props.item.slug}`}>
+						<Link to={`${url}${props.item.slug}`}>
 							{children}
-					</Link>
-					}
+						</Link>}
 				>
-						<Img
-							src={props.item.thumb}
-							alt={props.item.title}
-						/>
+					<Img
+						src={props.item.thumb}
+						alt={props.item.title}
+					/>
 				</ConditionalWrapper>
 			</ImgWrap>
+			{/*<Route path={`${path}/${props.item.slug}`} component={SingleSite}/>*/}
 		</Item>
 	)
 }
@@ -96,7 +88,7 @@ const Item = styled.div`
 	max-width: 500px;
 	position: relative;
 	margin: 0 auto 60px;
-	background: #fff;//tmp?
+	background: #000;//tmp
 	// background: ${colors.almostWhite};
 	${mixins.boxShadowSmall(colors.almostBlack)};
 	&:after {//small color stripe
@@ -199,7 +191,8 @@ const Info = styled.div`
 
 const Descr = styled.div`
 	flex: 1;
-	color: ${colors.almostBlack};
+	//color: ${colors.almostBlack};
+	color: ${colors.almostWhite};//tmp
 	padding: 20px 15px;
 	${media.sm`
 		padding: 30px 20px;
@@ -208,6 +201,7 @@ const Descr = styled.div`
 		${mixins.flexCenterContent};
 		padding: 30px;
 	`}
+	& a {color: darkred}//tmo
 `
 
 const ImgWrap = styled.div`
@@ -233,7 +227,7 @@ const ImgWrap = styled.div`
 	${media.lg`
 		width: 367px;
 		height: 440px;
-		
+
 	`}
 	${media.xl`
 		flex: 0 0 auto;

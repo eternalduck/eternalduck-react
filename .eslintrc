@@ -18,6 +18,7 @@
         "react"
     ],
     "rules": {
+        "no-debugger": "off",
         "react/prop-types": 0,
         "react/no-unescaped-entities": 0,
         "semi": ["warn", "never"],

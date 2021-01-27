@@ -66,6 +66,18 @@ export const mixins = {
 			max-width: 1500px;
 		`}
 	`,
+	strictContentWidth: css`
+		width: 100%;
+		padding: 0 15px;
+		${media.sm`
+			width: 500px;
+			padding: 0;
+		`}
+		${media.md`width: 720px;`}
+		${media.lg`width: 940px;`}
+		${media.xl`width: 1100px;`}
+		${media.xxl`width: 1400px;`}
+	`,
 	flexCenterContent: css`//used for a container with a single item, usually txt
 		display: flex;
 		flex-direction: column;
@@ -111,6 +123,20 @@ export const mixins = {
 			border-bottom: 1px solid;
 			&:hover {
 				border-bottom: 1px solid transparent;
+			}
+		}
+	`,
+	dashedUnderline: css`
+		text-decoration: none;
+		&:hover {
+			text-decoration: none;
+		}
+		& span, & h1, & h2, & h3, & h4 {
+			display: inline;
+			transition: border-bottom .1s ease-in;
+			border-bottom: 1px dashed;
+			&:hover {
+				border-bottom: 1px dashed transparent;
 			}
 		}
 	`,

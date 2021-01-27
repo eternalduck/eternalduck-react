@@ -2,7 +2,11 @@ import React, { useState, useEffect } from "react"
 import ReactDOM from "react-dom"
 import ContentWidth from "../Layout/ContentWidth"
 
+import {useParams} from "react-router-dom"//tmp
+
 const TestPage = (props) => {
+	// const {test} = useParams()
+
 	useEffect(() => {
 		drawOnCanvas()
 	})
@@ -12,6 +16,7 @@ const TestPage = (props) => {
 		<ContentWidth>
 			<div className="contentWidth">
 				TestPage content-width
+				{/*props.match.params.hh: {JSON.stringify(props.match.params.test)}*/}
 				<canvas id="myCanvas" width="300" height="150"></canvas>
 			</div>
 		</ContentWidth>

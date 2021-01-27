@@ -54,6 +54,7 @@ export const dark = {
 	txtClr: "#fff",
 	linkClr: "#fff",
 	mobMenuBg: colors.blueishBlack,
+	sitesPageBg: colors.blueishBlack,
 }
 export const light = {
 	name: "light",
@@ -61,4 +62,5 @@ export const light = {
 	txtClr: "#333",
 	linkClr: "#333",
 	mobMenuBg: colors.liteGray,
+	sitesPageBg: colors.liteYellow,
 }
