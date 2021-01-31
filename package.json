@@ -25,6 +25,7 @@
 		"@babel/core": "^7.12.7",
 		"@babel/preset-env": "^7.12.7",
 		"@babel/preset-react": "^7.12.7",
+		"@iconify/icons-flat-color-icons": "^1.1.0",
 		"@iconify/icons-noto": "^1.1.0",
 		"@iconify/icons-openmoji": "^1.1.2",
 		"@iconify/react": "^1.1.3",

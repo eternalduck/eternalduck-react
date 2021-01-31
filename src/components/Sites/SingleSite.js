@@ -1,62 +1,132 @@
 import React, { useState, useEffect, useRef } from "react"
 // import ReactDOM from "react-dom"
 import ContentWidth from "../Layout/ContentWidth"
-import Header from "../Header/Header"
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-	Link,
-	useRouteMatch,
-	useParams
-} from "react-router-dom"
+import Header from "../header-footer/Header"
+import {useParams} from "react-router-dom"
 import styled from "styled-components"
 import {colors, mixins} from "../../style/vars-mixins/_index"
 import {sitesList} from "../data/sitesList"
-import Page404 from "../Page404/Page404"
+import Preloader from "../service/Preloader"
+import Page404 from "../service/Page404"
+import Loading from "../service/Loading"
+import SitesNav from "./SitesNav"
 
 
 const SingleSite = (props) => {
-	let {path, url} = useRouteMatch()
 	const {itemSlug} = useParams()
-	//get data for the current site, TODO: why called too many times, WTF?? put this to useEffect? how??
-	const dataAAA = (site) => sitesList.find(item => item.slug === site//FAIL!!!!!!!!!!!! takes only 1st item always
-	)
-	const data = dataAAA(itemSlug)
-	console.info(data)
-	// useEffect(() => {
+	// Get data for the current site
+	const initial = () => sitesList.find(item => item.slug === itemSlug)
+	const [site, setSite] = useState(initial())
+	// Get prev/next for SitesNav
+	const [prev, setPrev] = useState({"slug": "", "title": ""})//tmp
+	const [next, setNext] = useState({"slug": "", "title": ""})
+
+	 // Get current site index & indices for prev/next nav
+	useEffect(() => {
+		const siteIndex = sitesList.indexOf(site)
+		const prevIndex = () => (siteIndex - 1) >= 0 ? siteIndex - 1 : ""
+		const nextIndex = () => (siteIndex + 1) < sitesList.length ? siteIndex + 1 : ""
+		//FAIL, undefined not caught
+		const prevSlug = () => sitesList[prevIndex].slug
+		const prevTitle = () => sitesList[prevIndex].title
+		setPrev({slug: prevSlug, title: prevTitle})
+
+		const nextSlug = () => sitesList[nextIndex].slug
+		const nextTitle = () => sitesList[nextIndex].title
+		setNext({slug: nextSlug, title: nextTitle})
+
+		console.info(`siteIndex: ${siteIndex}`)
+		console.info(`prevIndex: ${prevIndex()}`)
+		console.info(`nextIndex: ${nextIndex()}`)
+	}, [site])
+
+//////////////////TEST////////////////
+	useEffect(() => {
+		console.info(`site:`)
+		console.info(site)
+	}, [site])
+	// useEffect(() => {//tmp
+	// 	console.info(`prevIndex: ${prevIndex}`)
+	// 	console.info(`nextIndex: ${nextIndex}`)
+	// }, [prevIndex])
 	//
+	useEffect(() => {
+		console.info(`prev & next`)
+		console.info(prev)
+		console.info(next)
+	}, [prev, next])
+////////////////// end TEST////////////////
+
+	// useEffect(() => {
+	// 	setSite(() => sitesList.find(item => item.slug === itemSlug))
 	// }, [])
+
+	// const getPrevNextIndices = (siteIndex) => {
+	// 	setPrevIndex((siteIndex) => (siteIndex - 1) >= 0 ? siteIndex - 1 : null)
+	// 	setNextIndex((siteIndex) => (siteIndex + 1) < sitesList.length ? siteIndex + 1 : null)
+	// 	console.info(`siteIndex: ${siteIndex}`)
+	// 	console.info(`prevIndex: ${prevIndex}`)
+	// 	console.info(`nextIndex: ${nextIndex}`)
+	// }//getPrevNextIndices
+// end get prev/next
 
 // Image changing tabs
 	const [mainImgSrc, setMainImgSrc] = useState("")
+	const [mainImgTitle, setMainImgTitle] = useState("")
+	const isCurrent = img => img === mainImgSrc
+	// set main image on first page load
 	useEffect(() => {
-		setMainImgSrc(data.images[0].src)
-	}, [])
+		site && setMainImgSrc(site.images[0].src)
+		site && setMainImgTitle(site.images[0].title)
+	}, [site])
+
+	const replaceMainImg = (src, title) => {
+		setMainImgSrc(src)
+		setMainImgTitle(title)
+	}
+
 	useEffect(() => {
 		isCurrent()
 	}, [mainImgSrc])
 
-	const replaceMainImg = (imgurl) => {
-		setMainImgSrc(imgurl)
-	}
-	function isCurrent (img) {
-		// console.info(`img: ${img}, mainImgSrc: ${mainImgSrc}`)
-		img === mainImgSrc
-		return
-	}
 //end Image changing tabs
 
+	//  Load check for mainImg
+	let [imgLoaded, setImgLoaded] = useState(false)//FAIL works only on img change, not on initial page load, useEffect doesn't help
+	// reset img preloader state on tab switch
+	useEffect(() => {
+		setImgLoaded(false)
+	}, [mainImgSrc])
+
+	// useEffect(() => {
+	// 	setImgLoaded(false)
+	// }, [])
+
+// end load check
+
+////////////////////////// test /////////////
+// 	useEffect(() => {
+// 		console.info(`imgLoaded: ${imgLoaded}`)
+// 	}, [imgLoaded])
+	useEffect(() => {
+		console.info(`mainImgSrc: ${mainImgSrc}`)
+	}, [mainImgSrc])
+////////////////////// end test /////////////
 	return (
-		data.title ?
+		!site ?
+		<Page404/> :
+		<>
 		<ContentWidth>
 			<Header/>
-			<h1>{data.title}</h1>
-			<p dangerouslySetInnerHTML={{__html: data.description}}></p>
+			<h1>{site.title}</h1>
+			<p dangerouslySetInnerHTML={{__html: site.description}}></p>
+			<SitesNav prev={{prev}} next={{next}}/>
+			{/*{prev.slug || next.slug != "" && <SitesNav prev={prev} next={next}/>}*/}
+			<Tmp>{imgLoaded ? "loaded" : "still loading"}</Tmp>
 			<TabWrap>
-				{data.images.map(image =>
+				{site.images.map(image =>
 					<Tab key={image.title}
-						onClick={() => replaceMainImg(image.src)}
+						onClick={() => replaceMainImg(image.src, image.title)}
 						current={isCurrent(image.src)}//FAIL
 						className={isCurrent(image.src) ? "trueee" : "falseee"}
 					>
@@ -64,34 +134,41 @@ const SingleSite = (props) => {
 					</Tab>
 				)}{/*images.map*/}
 			</TabWrap>
-			<MainImgWrap>
-				<img //ref={mainImg}
-					src={mainImgSrc}
-					alt={""}
-					// alt={itemData.images[0].title}
-				/>
-			</MainImgWrap>
 		</ContentWidth>
-		: <Page404/>
-
+		<MainImgWrap>
+				<Loading loaded={imgLoaded}/>
+				<Img
+					src={mainImgSrc}
+					onLoad={() => setImgLoaded(true)}
+					loaded={imgLoaded}//for css
+					alt={mainImgTitle}
+				/>
+		</MainImgWrap>
+		</>
 	)
 }
 export default SingleSite
+
+
+const Tmp = styled.div`
+	color: red;
+	text-align: center;
+	font-size: 25px;
+`
+
 
 const TabWrap = styled.div`
 	display: flex;
 	justify-content: center;
 	column-gap: 30px;
-	margin: 50px 0;
+	margin: 50px 0 30px;
 `
 const Tab = styled.p`
 	flex: 0 1 auto;
-	//color: #fff;
-	font-size: 18px;
+	font-size: 20px;
 	cursor: pointer;
-	//${props => props.current && `${mixins.dashedUnderline}`};
-	color: ${props => props.current ? "red" : "#fff"};//tmp
-	// font-weight: ${props => props.current ? "bold" : "normal"};
+	${props => props.current && `${mixins.dashedUnderline}`};
+	font-weight: ${props => props.current ? "bold" : "normal"};
 
 `
 
@@ -99,8 +176,11 @@ const MainImgWrap = styled.div`
 	// ${mixins.strictContentWidth}
 	width: 100%;
 	text-align: center;
-	& img {
-		${mixins.boxShadowMid("#000")}//tmp color
-		max-width: 100%;
-	}
+	position: relative;
+`
+const Img = styled.img`
+	// outline: ${props => props.loaded ? "none" : "5px dashed red"};
+	 visibility: ${props => props.loaded ? "visible" : "hidden"};
+	${mixins.boxShadowMid("#000")}//tmp color
+	max-width: 100%;
 `

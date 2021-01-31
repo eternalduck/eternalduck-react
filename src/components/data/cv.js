@@ -1,3 +1,4 @@
+//TODO
 export const cv = {
 	"name": "Name Surname",
 	"email": "eternalduckie@gmail.com",

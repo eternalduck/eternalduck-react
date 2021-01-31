@@ -165,32 +165,32 @@ export const sitesList = [
 	// 		}
 	// 	],
 	// },
-	// {
-	// 	"slug": "39-kontur",
-	// 	"hasSinglePage": false,
-	// 	"title": "Kontur Doors Factory",
-	// 	"thumb": "/images/work/sites/thumbs/39-kontur.jpg",
-	// 	"images": [{
-	// 		"src": "/images/work/sites/39-kontur.jpg",
-	// 		"title": "",
-	// 	}],
-	// 	"urlTxt": "dveri-kontur.ru",
-	// 	"url": "https://dveri-kontur.ru/",
-	// 	"keywords": "html, jquery, sass, responsive, gulp",
-	// 	"year": "2018",
-	// 	"description": "",
-	// 	"descriptionRu": "",
-	// 	"nav": [
-	// 		{
-	// 			"txt": "Commercial Offers Landing",
-	// 			"link": "38-commercial-offers-landing"
-	// 		},
-	// 		{
-	// 			"txt": "Promet Doors Factory",
-	// 			"link": "40-promet-doors-factory"
-	// 		}
-	// 	],
-	// },
+	{
+		"slug": "39-kontur",
+		"hasSinglePage": true,
+		"title": "Kontur Doors Factory",
+		"thumb": "/images/work/sites/thumbs/39-kontur.jpg",
+		"images": [{
+			"src": "/images/work/sites/39-kontur.jpg",
+			"title": "",
+		}],
+		"urlTxt": "dveri-kontur.ru",
+		"url": "https://dveri-kontur.ru/",
+		"keywords": "html, jquery, sass, responsive, gulp",
+		"year": "2018",
+		"description": "TMP: descr",
+		"descriptionRu": "",
+		"nav": [
+			{
+				"txt": "Commercial Offers Landing",
+				"link": "38-commercial-offers-landing"
+			},
+			{
+				"txt": "Promet Doors Factory",
+				"link": "40-promet-doors-factory"
+			}
+		],
+	},
 	{
 		"slug": "38-salespilot",
 		"hasSinglePage": true,
@@ -199,7 +199,8 @@ export const sitesList = [
 		"thumb": "/images/work/sites/thumbs/38-kp-land.jpg",
 		"images": [
 			{
-				"src": "/images/work/sites/38-kp-land_desk.jpg",
+				"src": "/images/work/sites/38-kp-land_desk-TMP-HEAVY.jpg",
+				// "src": "/images/work/sites/38-kp-land_desk.jpg",
 				"title": "Desktop Version",
 			},
 			{

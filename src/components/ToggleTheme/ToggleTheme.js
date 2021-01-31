@@ -1,4 +1,4 @@
-import React, {useState, useEffect}  from "react"
+import React, {useState, useEffect} from "react"
 import styled, {css, keyframes} from "styled-components"
 import {media, colors, mixins} from "../../style/vars-mixins/_index"
 import {Icon, InlineIcon} from "@iconify/react"
@@ -85,11 +85,10 @@ const shaking = keyframes`
 	100% {transform: translateX(0) rotate(0) scale(1)}
 `
 const IconSC = styled(Icon)`
-	width: 24px;
-	height: 24px;
+	font-size: 24px;
 	transiton: transform .3s ease-in;
 	&:first-of-type {
-		${props => props.shake ? null 
+		${props => props.shake ? null
 			: css`animation: ${shaking} .3s ease-in;
 				animation-iteration-count: 2;`
 		};

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import ReactDOM from "react-dom"
 import styled from "styled-components"
 import {colors, media} from "../../style/vars-mixins/_index"
-import Header from "../Header/Header"
+import Header from "../header-footer/Header"
 
 const Frontpage = (props, theme) => {
 	// useEffect(() => {

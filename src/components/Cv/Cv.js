@@ -6,6 +6,7 @@ const Cv = (props) => {
 	useEffect(() => {
 		// document.body.className = cssC.cvPage
 	})
+//TODO move all content to data/cv.js
 	return(
 		<ContentWidth>
 			{/* <div className="lang__container lang__container_cv">
@@ -19,6 +20,7 @@ const Cv = (props) => {
 					"toggleClass": "lang__toggle_cv lang__toggle_bottom scrtop expand"
 				})
 			</div> */}
+
 
 			<div className="cv-page__content cv-page">
 				<div className="cv-page__header">

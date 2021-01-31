@@ -67,6 +67,7 @@ const GlobalStyle = createGlobalStyle`
 	}
 	a {
 		color: ${props => props.theme.linkClr};
+		text-decoration: none;
 	}
 	// end typo
 	//Icons
@@ -75,10 +76,6 @@ const GlobalStyle = createGlobalStyle`
 	// 	// height: ${props => props.big ? "52px" : "32px"};
 	// 	width: 32px;
 	// 	height: 32px;
-	// 	${props => props.big && css`
-	// 		width: 55px;
-	// 		height: 55px;
-	// 	`}
 	// }
 	.icon {
 		width: 32px;

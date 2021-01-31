@@ -1,26 +1,12 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect, useCallback} from "react"
 import ReactDOM from "react-dom"
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-	Link,
-	useRouteMatch,
-	useParams
-} from "react-router-dom"
-import styled, {css, createGlobalStyle } from "styled-components"
+import {Link, useRouteMatch} from "react-router-dom"
+import styled from "styled-components"
 import {media, colors, mixins} from "../../style/vars-mixins/_index"
 import {ConditionalWrapper} from "../helpers/conditionalWrapper"
-import {isDeskXL} from "../helpers/responsive"
-// import {generateRandomBg} from "../helpers/generateRandomBg"
-import SingleSite from "./SingleSite"
 
 const SiteItem = (props) => {
 	let {path, url} = useRouteMatch()
-	// useEffect(()=> {
-	//
-	// }, [])
-
 
 	//"/users/:userId". match.path would be "/users/:userId" while match.url would have the :userId value filled in, e.g. "users/5"
 
@@ -30,12 +16,12 @@ const SiteItem = (props) => {
 				<ConditionalWrapper
 					condition={props.item.hasSinglePage}
 					wrapper={children =>
-						<Link to={`${url}/${props.item.slug}`}>
+						<Link to={`${url}${props.item.slug}`}>
 							{children}
 						</Link>
 					}
 				>
-					<Title>{props.item.title}</Title>
+					<Title><span>{props.item.title}</span></Title>
 				</ConditionalWrapper>
 				<>
 				{props.item.url &&
@@ -63,7 +49,7 @@ const SiteItem = (props) => {
 				<ConditionalWrapper
 					condition={props.item.hasSinglePage}
 					wrapper={children =>
-						<Link to={`${url}/${props.item.slug}`}>
+						<Link to={`${url}${props.item.slug}`}>
 							{children}
 						</Link>}
 				>
@@ -73,14 +59,12 @@ const SiteItem = (props) => {
 					/>
 				</ConditionalWrapper>
 			</ImgWrap>
-			{/*<Route path={`${path}/${props.item.slug}`} component={SingleSite}/>*/}
 		</Item>
 	)
 }
 
 export default SiteItem
 
-//different layout & style on MD only!!
 const Item = styled.div`
 	display: flex;
 	flex-flow: column nowrap;
@@ -141,6 +125,7 @@ const Meta = styled.div`
 	`}
 `
 const Title = styled.h3`
+	${mixins.borderUnderline};
 	text-align: center;
 	${media.md`
 		text-align: left;
@@ -149,6 +134,7 @@ const Title = styled.h3`
 
 
 const Url = styled.p`
+	${mixins.borderUnderline};
 	font-weight: bold;
 	font-size: 15px;
 	margin: 10px 0;
@@ -160,7 +146,7 @@ const Url = styled.p`
 	`}
 	& a {
 		display: inline-block;
-		${mixins.borderUnderline};
+		// ${mixins.borderUnderline};
 		&:first-child {
 			margin-right: 20px;
 		}
