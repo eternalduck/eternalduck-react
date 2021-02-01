@@ -7,7 +7,7 @@ import { Icon, InlineIcon } from "@iconify/react";
 Packs:
 https://iconify.design/icon-sets/noto/
 https://iconify.design/icon-sets/openmoji/
-
+https://iconify.design/icon-sets/flat-color-icons/
 
 
 

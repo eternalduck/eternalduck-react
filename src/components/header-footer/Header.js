@@ -25,7 +25,7 @@ const Header = (props) => {
 }
 
 const HeaderSc = styled.div`
-	margin-bottom: 50px;
+	//margin-bottom: 50px;
 	padding-top: 15px;
 	display: flex;
 	flex-flow: row nowrap;

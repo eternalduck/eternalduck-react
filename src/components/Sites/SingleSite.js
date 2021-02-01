@@ -15,60 +15,50 @@ import SitesNav from "./SitesNav"
 const SingleSite = (props) => {
 	const {itemSlug} = useParams()
 	// Get data for the current site
-	const initial = () => sitesList.find(item => item.slug === itemSlug)
-	const [site, setSite] = useState(initial())
-	// Get prev/next for SitesNav
-	const [prev, setPrev] = useState({"slug": "", "title": ""})//tmp
-	const [next, setNext] = useState({"slug": "", "title": ""})
+	const initial = sitesList.find(item => item.slug === itemSlug)
+	const [site, setSite] = useState(initial)
 
-	 // Get current site index & indices for prev/next nav
+	 // Get data for prev/next nav based on current site index
+	const [navLinks, setNavLinks] = useState({prev: {slug: "", title: ""},next: {slug: "", title: ""}})
 	useEffect(() => {
-		const siteIndex = sitesList.indexOf(site)
-		const prevIndex = () => (siteIndex - 1) >= 0 ? siteIndex - 1 : ""
-		const nextIndex = () => (siteIndex + 1) < sitesList.length ? siteIndex + 1 : ""
-		//FAIL, undefined not caught
-		const prevSlug = () => sitesList[prevIndex].slug
-		const prevTitle = () => sitesList[prevIndex].title
-		setPrev({slug: prevSlug, title: prevTitle})
+		const populateNav = () => {
+			const siteIndex = sitesList.indexOf(site)
+			const prevIndex = (siteIndex - 1) >= 0 ? siteIndex - 1 : null
+			const nextIndex = (siteIndex + 1) < sitesList.length ? siteIndex + 1 : null
 
-		const nextSlug = () => sitesList[nextIndex].slug
-		const nextTitle = () => sitesList[nextIndex].title
-		setNext({slug: nextSlug, title: nextTitle})
+			const prevSlug = prevIndex != null ? sitesList[prevIndex].slug : ""
+			const prevTitle = prevIndex != null ? sitesList[prevIndex].title : ""
+			const nextSlug = nextIndex != null ? sitesList[nextIndex].slug : ""
+			const nextTitle = nextIndex != null ? sitesList[nextIndex].title : ""
 
-		console.info(`siteIndex: ${siteIndex}`)
-		console.info(`prevIndex: ${prevIndex()}`)
-		console.info(`nextIndex: ${nextIndex()}`)
+			// console.info(`populateNav fired`)
+
+			return {
+				prev: {slug: prevSlug, title: prevTitle},
+				next: {slug: nextSlug, title: nextTitle},
+			}
+			// console.info(`
+			// 	prevIndex: ${prevIndex}, nextIndex: ${nextIndex}
+			// 	prevSlug: ${prevSlug}, prevTitle: ${prevTitle};
+			// 	nextSlug: ${nextSlug}, nextTitle: ${nextTitle}
+			// `)
+		}//populateNav
+		setNavLinks(populateNav())
+		console.info(`useEffect[site] called`)
+
 	}, [site])
 
-//////////////////TEST////////////////
-	useEffect(() => {
-		console.info(`site:`)
-		console.info(site)
-	}, [site])
-	// useEffect(() => {//tmp
-	// 	console.info(`prevIndex: ${prevIndex}`)
-	// 	console.info(`nextIndex: ${nextIndex}`)
-	// }, [prevIndex])
-	//
-	useEffect(() => {
-		console.info(`prev & next`)
-		console.info(prev)
-		console.info(next)
-	}, [prev, next])
-////////////////// end TEST////////////////
+	//////////////////TEST////////////////
+	// 	useEffect(() => {
+	// 		//WTF called twice?? just find out why
+	// 		const {next: {slug}} = navLinks
+	// 		console.info(navLinks)
+	// 		console.info(`next: ${slug}`)//FAIL undefined for first time
+	// 		console.info(`useEffect[navLinks] called`)
+	// 	}, [navLinks])
+	////////////////// end TEST////////////////
 
-	// useEffect(() => {
-	// 	setSite(() => sitesList.find(item => item.slug === itemSlug))
-	// }, [])
-
-	// const getPrevNextIndices = (siteIndex) => {
-	// 	setPrevIndex((siteIndex) => (siteIndex - 1) >= 0 ? siteIndex - 1 : null)
-	// 	setNextIndex((siteIndex) => (siteIndex + 1) < sitesList.length ? siteIndex + 1 : null)
-	// 	console.info(`siteIndex: ${siteIndex}`)
-	// 	console.info(`prevIndex: ${prevIndex}`)
-	// 	console.info(`nextIndex: ${nextIndex}`)
-	// }//getPrevNextIndices
-// end get prev/next
+	// end get prev/next
 
 // Image changing tabs
 	const [mainImgSrc, setMainImgSrc] = useState("")
@@ -104,25 +94,16 @@ const SingleSite = (props) => {
 
 // end load check
 
-////////////////////////// test /////////////
-// 	useEffect(() => {
-// 		console.info(`imgLoaded: ${imgLoaded}`)
-// 	}, [imgLoaded])
-	useEffect(() => {
-		console.info(`mainImgSrc: ${mainImgSrc}`)
-	}, [mainImgSrc])
-////////////////////// end test /////////////
 	return (
 		!site ?
 		<Page404/> :
 		<>
 		<ContentWidth>
 			<Header/>
-			<h1>{site.title}</h1>
-			<p dangerouslySetInnerHTML={{__html: site.description}}></p>
-			<SitesNav prev={{prev}} next={{next}}/>
-			{/*{prev.slug || next.slug != "" && <SitesNav prev={prev} next={next}/>}*/}
-			<Tmp>{imgLoaded ? "loaded" : "still loading"}</Tmp>
+			<SitesNav nav={navLinks}/>
+			<Title>{site.title}</Title>
+			<Description dangerouslySetInnerHTML={{__html: site.description}}></Description>
+			<TMP>{imgLoaded ? "loaded" : "still loading"}</TMP>
 			<TabWrap>
 				{site.images.map(image =>
 					<Tab key={image.title}
@@ -136,27 +117,35 @@ const SingleSite = (props) => {
 			</TabWrap>
 		</ContentWidth>
 		<MainImgWrap>
-				<Loading loaded={imgLoaded}/>
-				<Img
-					src={mainImgSrc}
-					onLoad={() => setImgLoaded(true)}
-					loaded={imgLoaded}//for css
-					alt={mainImgTitle}
-				/>
+			<Loading loaded={imgLoaded}/>
+			<Img
+				src={mainImgSrc}
+				onLoad={() => setImgLoaded(true)}
+				loaded={imgLoaded}//for css
+				alt={mainImgTitle}
+			/>
 		</MainImgWrap>
+		<ContentWidth>
+			<SitesNav nav={navLinks}/>
+		</ContentWidth>
 		</>
 	)
 }
 export default SingleSite
 
-
-const Tmp = styled.div`
+const TMP = styled.div`
 	color: red;
 	text-align: center;
 	font-size: 25px;
 `
-
-
+const Title = styled.h1`
+	text-align: center;
+`
+const Description = styled.p`
+	max-width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+`
 const TabWrap = styled.div`
 	display: flex;
 	justify-content: center;
@@ -169,9 +158,7 @@ const Tab = styled.p`
 	cursor: pointer;
 	${props => props.current && `${mixins.dashedUnderline}`};
 	font-weight: ${props => props.current ? "bold" : "normal"};
-
 `
-
 const MainImgWrap = styled.div`
 	// ${mixins.strictContentWidth}
 	width: 100%;
