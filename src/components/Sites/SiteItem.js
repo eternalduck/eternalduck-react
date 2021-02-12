@@ -42,9 +42,8 @@ const SiteItem = (props) => {
 					</Info>
 				</>
 			</Meta>
-			<Descr>
-				<p dangerouslySetInnerHTML={{__html: props.item.description}}></p>
-			</Descr>
+			{/*<Descr><>{props.item.description}</></Descr>*/}
+			<Descr dangerouslySetInnerHTML={{__html: props.item.description}}/>
 			<ImgWrap>
 				<ConditionalWrapper
 					condition={props.item.hasSinglePage}
@@ -66,87 +65,67 @@ const SiteItem = (props) => {
 export default SiteItem
 
 const Item = styled.div`
-	display: flex;
-	flex-flow: column nowrap;
 	width: 100%;
 	max-width: 500px;
 	position: relative;
 	margin: 0 auto 60px;
-	background: #000;//tmp
-	// background: ${colors.almostWhite};
+	padding-bottom: 10px;//space for color stripe
+	background: ${colors.almostWhite};
 	${mixins.boxShadowSmall(colors.almostBlack)};
+	${media.md`
+		display: flex;
+		flex-flow: row wrap;
+		max-width: 900px;
+	`}
 	&:after {//small color stripe
-		content: "";
-		display: block;
-		position: absolute;
-		height: 10px;
-		left: 0;
-		right: 0;
+		${mixins.defaultPseudo("100%", "10px")};
+		top: auto;
 		bottom: -10px;
 		background: ${props => props.bg};
 	}
-	${media.md`
-		max-width: 900px;
-		flex-flow: row wrap;
-		min-height: 560px;
-	`}
-	${media.xl`
-		max-width: 1100px;
-		min-height: 480px;
-		flex-flow: row nowrap;
-		align-items: stretch;
-		margin: 0 auto 70px;
-		&:after {
-			display: none
-		}
-	`}
 `
 
 const Meta = styled.div`
-	flex: 1;
-	background: ${props => props.bg};
-	padding: 20px 15px;
-	color: #fff;
 	${mixins.boxShadowSmall()};
-	& a {color: #fff;}
-	${media.sm`
-		padding: 30px 20px;
-	`}
+	position: relative;
+	background: ${props => props.bg};
+	padding: 20px;
+	color: #fff;
 	${media.md`
+		flex: 1;
+		padding: 25px;
 		flex: 1 0 100%;
 	`}
-	${media.xl`
-		flex: 0 0 auto;
-		width: 320px;
-		display: flex;
-		flex-flow: column;
-		justify-content: space-between;
-		padding: 50px 40px;
+	${media.lg`
+		padding: 30px;
 	`}
+	& a {color: #fff;}
+	// &:before {//overlay
+	// 	${mixins.defaultPseudo()};
+	// 	background: ${colors.transpBlack};
+	// 	z-index: 0;
+	// }
 `
 const Title = styled.h3`
 	${mixins.borderUnderline};
-	text-align: center;
-	${media.md`
-		text-align: left;
-	`}
+	//position: relative;
+	//z-index: 5;
 `
-
 
 const Url = styled.p`
 	${mixins.borderUnderline};
 	font-weight: bold;
 	font-size: 15px;
 	margin: 10px 0;
-	//text-align: center;
+	//position: relative;
+	//z-index: 5;
 	${media.md`
-		// text-align: left;
 		font-size: 18px;
 		margin: 20px 0;
+		width: 55%;
 	`}
 	& a {
 		display: inline-block;
-		// ${mixins.borderUnderline};
 		&:first-child {
 			margin-right: 20px;
 		}
@@ -155,7 +134,8 @@ const Url = styled.p`
 
 const Info = styled.div`
 	font-size: 14px;
-	//text-align: center;
+	//position: relative;
+	//z-index: 5;
 	& p:first-child {
 		margin-bottom: 10px;
 	}
@@ -163,78 +143,67 @@ const Info = styled.div`
 		margin-bottom: 0;
 	}
 	${media.md`
-		// text-align: left;
 		font-size: 16px;
-		width: 45%;
+		width: 55%;
 		& p:first-child {
 			margin-bottom: 15px;
 		}
-	`}
-	${media.xl`
-		width: auto;
 	`}
 `
 
 const Descr = styled.div`
 	flex: 1;
-	//color: ${colors.almostBlack};
-	color: ${colors.almostWhite};//tmp
-	padding: 20px 15px;
-	${media.sm`
-		padding: 30px 20px;
+	color: ${colors.almostBlack};
+	padding: 20px;
+	${media.md`
+		flex: 0 1 60%;
+		padding: 25px;
 	`}
-	${media.xl`
-		${mixins.flexCenterContent};
+	${media.lg`
 		padding: 30px;
+		${mixins.flexCenterContentVertically};
 	`}
-	& a {color: darkred}//tmo
 `
 
 const ImgWrap = styled.div`
-	//flex: 1;
+	//outline: 2px solid red;
+	position: relative;
 	width: 80%;
-	margin: 0 10% 15px;
-	//height: 200px;
-	//min-height: 300px;
-	overflow: hidden;
-	// ${mixins.noUnderline};
-	 ${mixins.boxShadowSmall()};
+	margin: 0 auto 20px;
 	${media.sm`
 		width: 70%;
-		margin: 0 15% 20px;
 	`}
 	${media.md`
-		width: 333px;
-		height: 400px;
-		min-height: none;
-		margin: -120px 15px 30px 0;
-		${mixins.flexCenterContent};
+		width: calc(40% - 21px);
+		// min-height: 200px;
+		margin: -120px 20px 0 0;
+		// margin: 0 20px 20px 0;
+		align-self: flex-end;
 	`}
 	${media.lg`
-		width: 367px;
-		height: 440px;
-
+		// height: 250px;
+		margin: -150px 20px 0 0;
 	`}
-	${media.xl`
-		flex: 0 0 auto;
-		width: 400px;
-		height: 100%;
-		margin: 0;
-	`}
-	& a {//fail
+	& a {
 		transition: opacity .2s ease-in;
 		&:hover {
+			
 			opacity: .95;
 		}
 	}
 `
 
 const Img = styled.img`
-	object-fit: cover;
+	//outline: 1px dashed orange;
+	${mixins.boxShadowSmall()};
+	object-fit: contain;
+	object-position: center bottom;
 	width: 100%;
-	display: block;
-	${media.xl`
-		object-fit: center;
-	`}
+	// ${media.md`
+	// 	position: absolute;
+	// 	bottom: 0;
+	// 	right: 0;
+	// 	height: 170%;
+	// `}
 `
 

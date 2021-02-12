@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useRef} from "react"
 import {NavLink} from "react-router-dom"
 import styled from "styled-components"
-import {mixins, media} from "../../style/vars-mixins/_index"
+import {colors, mixins, media} from "../../style/vars-mixins/_index"
 import {Icon} from "@iconify/react"
 import hamburgerIcon from "@iconify/icons-openmoji/hamburger"
 import {menuItems} from "../data/menuItems"
@@ -75,9 +75,9 @@ const MenuSc = styled.nav`
 		&.active {
 			cursor: default;
 			pointer-events: none;
-			// &:after, &:hover:after {
-			// 	background: ${props => props.theme.tenderPinkTransp};
-			// }
+			&:after {
+				background: ${colors.transpTenderPink};
+			}
 		}
 	}
 `

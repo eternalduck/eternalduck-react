@@ -8,9 +8,11 @@ const Frontpage = (props, theme) => {
 	// useEffect(() => {
 	// 	document.body.className = "FRONT-TMP"
 	// })
+	//TODO make random song search
+	//https://medium.com/@perryjanssen/getting-random-tracks-using-the-spotify-api-61889b0c0c27
 	return(
 		<FrontpageSC>
-			<Header/>
+			<Header isFront={true}/>
 		</FrontpageSC>
 	)
 }

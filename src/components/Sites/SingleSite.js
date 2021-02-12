@@ -16,16 +16,18 @@ const SingleSite = (props) => {
 	const {itemSlug} = useParams()
 	// Get data for the current site
 	const initial = sitesList.find(item => item.slug === itemSlug)
-	const [site, setSite] = useState(initial)
+	const [site, setSite] = useState(s => s = initial)
 
 	 // Get data for prev/next nav based on current site index
-	const [navLinks, setNavLinks] = useState({prev: {slug: "", title: ""},next: {slug: "", title: ""}})
+	const [navLinks, setNavLinks] = useState({prev: {slug: "", title: ""}, next: {slug: "", title: ""}})
 	useEffect(() => {
 		const populateNav = () => {
+			// TODO skip pages with hasSinglePage: false
+			// TODO move this logic to sitesNav
+			//const sitesWithSinglePages = sitesList.filter()//todo
 			const siteIndex = sitesList.indexOf(site)
 			const prevIndex = (siteIndex - 1) >= 0 ? siteIndex - 1 : null
 			const nextIndex = (siteIndex + 1) < sitesList.length ? siteIndex + 1 : null
-
 			const prevSlug = prevIndex != null ? sitesList[prevIndex].slug : ""
 			const prevTitle = prevIndex != null ? sitesList[prevIndex].title : ""
 			const nextSlug = nextIndex != null ? sitesList[nextIndex].slug : ""
@@ -43,19 +45,18 @@ const SingleSite = (props) => {
 			// 	nextSlug: ${nextSlug}, nextTitle: ${nextTitle}
 			// `)
 		}//populateNav
-		setNavLinks(populateNav())
+		setNavLinks(n => n = populateNav())
 		console.info(`useEffect[site] called`)
-
 	}, [site])
 
 	//////////////////TEST////////////////
-	// 	useEffect(() => {
-	// 		//WTF called twice?? just find out why
-	// 		const {next: {slug}} = navLinks
-	// 		console.info(navLinks)
-	// 		console.info(`next: ${slug}`)//FAIL undefined for first time
-	// 		console.info(`useEffect[navLinks] called`)
-	// 	}, [navLinks])
+		useEffect(() => {
+			//WTF called twice?? just find out why
+			const {next: {slug}} = navLinks
+			console.info(navLinks)
+			console.info(`next: ${slug}`)//FAIL undefined for first time
+			console.info(`useEffect[navLinks] called`)
+		}, [navLinks])
 	////////////////// end TEST////////////////
 
 	// end get prev/next
@@ -97,38 +98,39 @@ const SingleSite = (props) => {
 	return (
 		!site ?
 		<Page404/> :
-		<>
-		<ContentWidth>
-			<Header/>
-			<SitesNav nav={navLinks}/>
-			<Title>{site.title}</Title>
-			<Description dangerouslySetInnerHTML={{__html: site.description}}></Description>
-			<TMP>{imgLoaded ? "loaded" : "still loading"}</TMP>
-			<TabWrap>
-				{site.images.map(image =>
-					<Tab key={image.title}
-						onClick={() => replaceMainImg(image.src, image.title)}
-						current={isCurrent(image.src)}//FAIL
-						className={isCurrent(image.src) ? "trueee" : "falseee"}
-					>
-						<span>{image.title}</span>
-					</Tab>
-				)}{/*images.map*/}
-			</TabWrap>
-		</ContentWidth>
-		<MainImgWrap>
-			<Loading loaded={imgLoaded}/>
-			<Img
-				src={mainImgSrc}
-				onLoad={() => setImgLoaded(true)}
-				loaded={imgLoaded}//for css
-				alt={mainImgTitle}
-			/>
-		</MainImgWrap>
-		<ContentWidth>
-			<SitesNav nav={navLinks}/>
-		</ContentWidth>
-		</>
+		<Site>
+			<ContentWidth>
+				<Header/>
+				<SitesNav nav={navLinks}/>
+				<Title>{site.title}</Title>
+				<Description dangerouslySetInnerHTML={{__html: site.description}}></Description>
+				<TMP>{imgLoaded ? "loaded" : "still loading"}</TMP>
+				<TabWrap>
+					{site.images.map(image =>
+						<Tab key={image.title}
+							onClick={() => replaceMainImg(image.src, image.title)}
+							current={isCurrent(image.src)}//FAIL
+							className={isCurrent(image.src) ? "trueee" : "falseee"}
+						>
+							<span>{image.title}</span>
+						</Tab>
+					)}{/*images.map*/}
+				</TabWrap>
+			</ContentWidth>
+
+			<MainImgWrap bg={props => props.theme.singleSiteBg}>
+				<Loading loaded={imgLoaded}/>
+				<Img
+					src={mainImgSrc}
+					onLoad={() => setImgLoaded(true)}
+					loaded={imgLoaded}//for css
+					alt={mainImgTitle}
+				/>
+			</MainImgWrap>
+			<ContentWidth>
+				<SitesNav nav={navLinks}/>
+			</ContentWidth>
+		</Site>
 	)
 }
 export default SingleSite
@@ -138,6 +140,12 @@ const TMP = styled.div`
 	text-align: center;
 	font-size: 25px;
 `
+const Site = styled.div`
+	background: ${props => props.theme.singleSiteBg};
+	color: ${props => props.theme.txtClr};
+`
+
+
 const Title = styled.h1`
 	text-align: center;
 `
@@ -150,9 +158,11 @@ const TabWrap = styled.div`
 	display: flex;
 	justify-content: center;
 	column-gap: 30px;
-	margin: 50px 0 30px;
+	padding: 50px 0 30px;
 `
 const Tab = styled.p`
+	//padding: 2px 8px;
+	//background: ${colors.transpWhite};
 	flex: 0 1 auto;
 	font-size: 20px;
 	cursor: pointer;
@@ -161,6 +171,7 @@ const Tab = styled.p`
 `
 const MainImgWrap = styled.div`
 	// ${mixins.strictContentWidth}
+	background: ${props => props.bg};
 	width: 100%;
 	text-align: center;
 	position: relative;

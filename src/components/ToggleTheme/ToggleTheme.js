@@ -9,26 +9,21 @@ import smilingFaceWithSunglasses from "@iconify/icons-noto/smiling-face-with-sun
 
 
 const ToggleTheme = (props) => {
-	// const checked = false
 	const [checked, setChecked] = useState(false)
-	const toggl = () => setChecked(prev => !prev)
+	const toggle = () => setChecked(prev => !prev)
 	return (
-		// <ThemeContext.Consumer>
-			// {({isLightTheme, setLightTheme}) => (
-				<SwitchWrap htmlFor="theme-switch">
-					{/*TODO wtf .toString(), react had warning*/}
-					<IconSC icon={crescentMoon} shake={checked.toString()}/>
-						<Checkbox type="checkbox"
-							id="theme-switch"
-							onChange={toggl}
-							checked={checked}//SwitchWrap
-							// checked={isLightTheme ? true : false}// TODO: some fail with undefined at start
-						/>
-						<Switch/>
-					<IconSC icon={smilingFaceWithSunglasses} shake={checked.toString()}/>
-				</SwitchWrap>
-			// )}
-		// </ThemeContext.Consumer>
+		<SwitchWrap htmlFor="theme-switch">
+			<IconSC icon={crescentMoon} $shake={!checked}/>
+				<Checkbox type="checkbox"
+					id="theme-switch"
+					onChange={toggle}
+					checked={checked}//SwitchWrap
+					// FAIL isLightTheme undefined at start
+					// checked={isLightTheme ? true : false}
+				/>
+				<Switch/>
+			<IconSC icon={smilingFaceWithSunglasses} $shake={checked}/>
+		</SwitchWrap>
 	)
 }
 
@@ -40,8 +35,6 @@ const SwitchWrap = styled.label`
 	align-items: center;
 	justify-content: space-between;
 `
-
-
 const Switch = styled.div`
 	position: relative;
 	width: 45px;
@@ -64,16 +57,15 @@ const Switch = styled.div`
 		box-shadow: 1px 1px 2px rgba(0, 0, 0, .35);
 		transition: transform .3s ease-in, background-color .3s ease-in;
 	}
-	input:checked + & {
-		background-color: ${colors.liteGray};
+	input:checked + & {//at light theme
+		background-color: ${colors.litestGray};
 		&:before {
-			background-color: ${colors.midGray};
+			background-color: ${colors.liteGray};
 			transform: translate(18px);
 		}
 	}
 	
 `
-
 const Checkbox = styled.input`
 	display: none;
 `
@@ -87,18 +79,10 @@ const shaking = keyframes`
 const IconSC = styled(Icon)`
 	font-size: 24px;
 	transiton: transform .3s ease-in;
-	&:first-of-type {
-		${props => props.shake ? null
-			: css`animation: ${shaking} .3s ease-in;
-				animation-iteration-count: 2;`
-		};
-	}
-	&:last-of-type {
-		${props => props.shake ?
-			css`animation: ${shaking} .3s ease-in;
-				animation-iteration-count: 2;`
-			: null
-		};
-	}
+	${props => props.$shake ?//$shake is sc transient prop
+		css`animation: ${shaking} .3s ease-in;
+			animation-iteration-count: 2;`
+		: null
+	};
 `
 

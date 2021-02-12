@@ -15,7 +15,7 @@ import SitesPage from "./components/Sites/SitesPage"
 import SingleSite from "./components/Sites/SingleSite"
 import {sitesList} from "./components/data/sitesList"
 
-import Cv from "./components/Cv/Cv"
+import CvPage from "./components/Cv/CvPage"
 import Page404 from "./components/service/Page404"
 import TestPage from "./components/service/TestPage"
 
@@ -68,7 +68,7 @@ export default function Root(props){
 	// 	setLightTheme: toggleTheme
 	// }}>
 	// 	<ThemeProvider theme={isLightTheme ? light : dark}>
-		<ThemeProvider theme={dark}>{/*tmp*/}
+		<ThemeProvider theme={dark}>{/*tmp hardcoded, FAIL theme undefined in children*/}
 			<GlobalStyle/>
 			<DebugStyle/>
 			{/*<Preloader/>*/}
@@ -88,9 +88,9 @@ export default function Root(props){
 						{/*<Route path={`${path}/*`} component={Page404}/>*/}
 					</Switch>
 				</Route>
-				<Route path="/cv" component={Cv}/>
+				<Route path="/cv" component={CvPage}/>
 				<Route path="/test" component={TestPage}/>
-				<Route  component={Page404}/>
+				<Route component={Page404}/>
 			</Switch>
 		</ThemeProvider>
 	// </ThemeContext.Provider>

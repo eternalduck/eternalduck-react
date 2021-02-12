@@ -2,16 +2,18 @@
 import { css } from 'styled-components'
 
 const breakpoints = {
+	// print: "print",
 	sm: "min-width: 576px",
 	md: "min-width: 750px",
 	lg: "min-width: 990px",
 	xl: "min-width: 1200px",
 	xxl: "min-width: 1600px",
 
-	smDown: "max-width: 575px",
-	mdDown: "max-width: 749px",
-	lgDown: "max-width: 989px",
-	xlDown: "max-width: 1199px",
+	xsDown: "max-width: 575px",
+	smDown: "max-width: 749px",
+	mdDown: "max-width: 989px",
+	lgDown: "max-width: 1199px",
+	xlDown: "maxwidth: 1599px",
 
 	xxsOnly: "max-width: 400px",
 	xsOnly: "max-width: 575px",

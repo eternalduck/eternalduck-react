@@ -17,25 +17,11 @@ export const generateRandomBg = (itemsNum) => {
 		colors.gradientOrangeTurq,
 		colors.gradientCrimsonTurq,
 		colors.gradientTurgGreen,
-
 	]
-	// const bgrounds = [
-	// 	colors.bottleGreen,
-	// 	colors.mintGreen,
-	// 	colors.eggplant,
-	// 	colors.darkVio,
-	// 	colors.midVio,
-	// 	colors.dustVio,
-	// 	colors.darkDustBlue,
-	// 	colors.dustBlue,
-	// 	colors.midBlue
-	// ]
 	const bg = []
 	for(let i = 0; i < itemsNum; i++) {
 		const randomIndex = Math.floor(Math.random() * bgrounds.length)
 		bg.push(bgrounds[randomIndex])
 	}
-
-	// console.info(bg)
 	return bg
 }

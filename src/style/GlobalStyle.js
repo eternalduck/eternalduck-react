@@ -9,11 +9,8 @@ const GlobalStyle = createGlobalStyle`
 	// font can be here or in index.html
 	//@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap");
 	body {
-		 background: ${props => props.theme.bodyBg};
-		// background: {theme => theme.bodyBg};
-		// background: {useTheme(bodyBg)};
+		background: ${props => props.theme.bodyBg};
 		color: ${props => props.theme.txtClr};
-		// color: {theme => theme.txtClr};
 		font-family: "Open Sans", sans-serif;
 		font-weight: 300;
 		font-size: 16px;
@@ -36,16 +33,33 @@ const GlobalStyle = createGlobalStyle`
 	}
 	//TODO
 	h1 {
-		font-size: 230%;
-		margin-bottom: 20px;
+		font-size: 30px;
+		margin-bottom: 15px;
+		line-height: 1.4;
+		${media.md`
+			font-size: 40px;
+		`}
+		${media.lg`
+			font-size: 44px;
+			margin-bottom: 20px;
+		`}
 	}
 	h2 {
-		font-size: 190%;
-		margin-bottom: 18px;
+		font-size: 26px;
+		margin-bottom: 12px;
+		line-height: 1.3;
+		${media.md`
+			font-size: 32px;
+		`}
+		${media.lg`
+			font-size: 36px;
+			margin-bottom: 18px;
+		`}
 	}
 	h3 {
 		font-size: 24px;
 		margin-bottom: 10px;
+		line-height: 1.3;
 		${media.md`
 			font-size: 28px;
 		`}
@@ -53,10 +67,6 @@ const GlobalStyle = createGlobalStyle`
 			font-size: 30px;
 			margin-bottom: 15px;
 		`}
-	}
-	h4 {
-		font-size: 130%;
-		margin-bottom: 12px;
 	}
 	p {
 		font-size: 100%;
@@ -68,6 +78,26 @@ const GlobalStyle = createGlobalStyle`
 	a {
 		color: ${props => props.theme.linkClr};
 		text-decoration: none;
+	}
+	.txt {
+		&_tiny {
+			font-size: 11px;
+		}
+		&_small {
+			font-size: 14px;
+		}
+		&_mid {
+			font-size: 18px;
+		}
+		&_big {
+			font-size: 20px;
+		}
+		&_extra {
+			font-size: 24px;
+		}
+		&_bold {
+			font-weight: bold;
+		}
 	}
 	// end typo
 	//Icons

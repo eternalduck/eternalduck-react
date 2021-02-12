@@ -16,37 +16,45 @@ const Header = (props) => {
 				<MenuWrap>
 					{isMob ? <MobMenu/> : <Menu/>}
 				</MenuWrap>
-				<ToggleThemeWrap>
-					<ToggleTheme/>
-				</ToggleThemeWrap>
+				{props.children &&
+				<Extra>{props.children}</Extra>
+				}
+				{!props.isFront &&
+					<ToggleThemeWrap>
+						<ToggleTheme/>
+					</ToggleThemeWrap>
+				}
 			</HeaderSc>
 		</ContentWidth>
 	)
 }
 
 const HeaderSc = styled.div`
-	//margin-bottom: 50px;
+	margin-bottom: 50px;
 	padding-top: 15px;
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: center;
+	align-items: center;
 	z-index: 100;
-	// ${media.md`
-	// 	justify-content: space-between;
-	// `}
+	${mixins.printHidden}
+`
+const Extra = styled.div`
+	//outline: 1px dashed cyan;
+	flex: 5;
 `
 
 const MenuWrap = styled.div`
-	//outline: 1px dashed cyan;
-	flex: 1;
+	//outline: 1px dashed orange;
+	flex: 5;
 `
 
 const ToggleThemeWrap = styled.div`
 	//outline: 1px dashed yellowgreen;
+	flex: 2;
 	display: flex;
 	align-content: center;
 	justify-content: flex-end;
-	flex: 1;
 `
 
 export default Header

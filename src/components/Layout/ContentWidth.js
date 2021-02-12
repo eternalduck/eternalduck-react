@@ -1,12 +1,11 @@
 import React from "react"
-// import ReactDOM from "react-dom"
 import styled from "styled-components"
 
 import {mixins} from "../../style/vars-mixins/_index"
 
 const ContentWidth = (props) => {
 	return (
-		<Container bg={props.bg}>
+		<Container>
 			<Content>
 				{props.children}
 			</Content>
@@ -15,14 +14,11 @@ const ContentWidth = (props) => {
 }
 
 const Container = styled.div`
-	background: ${props => props.bg}
-	// ${mixins.gridContainer(". content .", "1fr", "15px 1fr 15px")}
+	width: 100%;
+	position: relative;
 `
 const Content = styled.div`
-	// ${mixins.out("solid", "yellow")}
 	${mixins.contentWidth}
-	${mixins.centered}
-	//grid-area: content;
 `
 
 export default ContentWidth

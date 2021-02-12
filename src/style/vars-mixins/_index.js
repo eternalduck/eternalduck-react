@@ -32,15 +32,17 @@ export const mixins = {
 	`,
 	// end TMP
 //// 1.1 Grid & structure
-	gridContainer: (areas, rows, cols, alignItems, justifyItems) => css`
-		display: grid;
-		grid-template: "${areas}" 
-			${rows || "1fr"} / ${cols || "1fr"};
-		place-items: ${alignItems || "center"} ${justifyItems || "center"};
-	`,
+// 	gridContainer: (areas, rows, cols, alignItems, justifyItems) => css`
+// 		display: grid;
+// 		grid-template: '${areas}'
+// 			${rows || "1fr"} / ${cols || "1fr"};
+// 		place-items: ${alignItems || "center"} ${justifyItems || "center"};
+// 	`,
 	contentWidth: css`
 		width: 100%;
 		padding: 0 15px;
+		margin-right: auto;
+		margin-left: auto;
 		${media.sm`
 			max-width: 500px;
 			padding: 0;
@@ -50,10 +52,19 @@ export const mixins = {
 		${media.xl`max-width: 1100px;`}
 		${media.xxl`max-width: 1400px;`}
 	`,
+	contentLimitedWidth: css`
+		width: 100%;
+		padding: 0 15px;
+		max-width: 850px;
+		margin-right: auto;
+		margin-left: auto;
+	`,
 	contentWide: css`
 		width: 100%;
 		padding: 0 15px;
 		max-width: 1700px;
+		margin-right: auto;
+		margin-left: auto;
 		${media.md`
 			width: 90%;
 			padding: 0;
@@ -84,6 +95,12 @@ export const mixins = {
 		justify-content: center;
 		align-items: center;
 	`,
+	flexCenterContentVertically: css`//used for a container with a single item, usually txt
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+	`,
 	flexRow: css`
 		display: flex;
 		flex-flow: row wrap;
@@ -98,7 +115,19 @@ export const mixins = {
 		margin-right: auto;
 		margin-left: auto;
 	`,
+	printHidden: css`
+		@media print {display: none;}
+	`,
 //// 1.3 Common Elements
+	defaultPseudo: (width, height) => css`
+		content: "";
+		display: block;
+		position: absolute;
+		width: ${width || "100%"};
+		height: ${height || "100%"};
+		top: 0;
+		left: 0;
+	`,
 	boxShadowSmall: (clr) => css`
 		box-shadow: 0 0 14px -5px ${clr || "#333"};
 	`,

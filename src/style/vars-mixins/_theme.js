@@ -6,7 +6,8 @@ export const colors = {
 
 	blueishBlack: "#27272C",
 	darkBlueBlack: "#08122C",
-	liteGray: "#A7A9B0",
+	litestGray: "#C5C8D0",
+	liteGray: "#909399",
 	midGray: "#6C6C6C",
 
 	bottleGreen: "#0B3601",
@@ -55,6 +56,8 @@ export const dark = {
 	linkClr: "#fff",
 	mobMenuBg: colors.blueishBlack,
 	sitesPageBg: colors.blueishBlack,
+	singleSiteBg: colors.black3,
+	cvBg: colors.almostBlack,
 }
 export const light = {
 	name: "light",
@@ -63,4 +66,6 @@ export const light = {
 	linkClr: "#333",
 	mobMenuBg: colors.liteGray,
 	sitesPageBg: colors.liteYellow,
+	singleSiteBg: colors.tenderPink,
+	cvBg: colors.almostWhite,
 }

@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 
-import {mixins, media} from "../../style/vars-mixins/_index"
+import {mixins} from "../../style/vars-mixins/_index"
 
-const ContentWide = (props) => {
+const ContentLimitedWidth = (props) => {
 	return (
 		<Container>
 			<Content>
@@ -18,6 +18,7 @@ const Container = styled.div`
 	position: relative;
 `
 const Content = styled.div`
-	${mixins.contentWide}
+	${mixins.contentLimitedWidth};
 `
-export default ContentWide
+
+export default ContentLimitedWidth

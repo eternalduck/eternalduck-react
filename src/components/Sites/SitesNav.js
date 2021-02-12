@@ -13,7 +13,6 @@ import nextIcon from "@iconify/icons-flat-color-icons/next"
 // 	next: {"slug": "", "title": ""}}
 
 const SitesNav = (props) => {
-
 	// useEffect(() => {//WTF called twice, works but just find out why
 	// 	console.info(`useEffect[props.nav] called`)
 	// }, [props.nav])

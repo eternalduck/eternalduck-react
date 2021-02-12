@@ -21,7 +21,7 @@ export const menuItems =
 	{
 		"txt": "cv",
 		"url": "/cv",
-		// "url": "/work/cv",
+		// "url": "/work/cvTxt",
 		"id": "cv"
 	},
 	{
