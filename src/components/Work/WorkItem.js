@@ -5,24 +5,23 @@ import styled from "styled-components"
 import {media, colors, mixins} from "../../style/vars-mixins/_index"
 import {ConditionalWrapper} from "../helpers/conditionalWrapper"
 
-const SiteItem = (props) => {
+const WorkItem = (props) => {
 	let {path, url} = useRouteMatch()
 
 	//"/users/:userId". match.path would be "/users/:userId" while match.url would have the :userId value filled in, e.g. "users/5"
 
 	return (
 		<Item bg={props.bg}>
-			<Meta bg={props.bg}>
-				<ConditionalWrapper
-					condition={props.item.hasSinglePage}
-					wrapper={children =>
-						<Link to={`${url}/${props.item.slug}`}>
-							{children}
-						</Link>
-					}
-				>
-					<Title><span>{props.item.title}</span></Title>
-				</ConditionalWrapper>
+			<Txt>
+				<Title>
+					<ConditionalWrapper
+						condition={props.item.hasSinglePage}
+						wrapper={children =>
+							<Link to={`${url}/${props.item.slug}`}>
+								<span>{children}</span>
+							</Link>
+					}>{props.item.title}</ConditionalWrapper>
+				</Title>
 				<>
 				{props.item.url &&
 					<Url>
@@ -41,9 +40,8 @@ const SiteItem = (props) => {
 						<p><b>{props.item.year}</b></p>
 					</Info>
 				</>
-			</Meta>
-			{/*<Descr><>{props.item.description}</></Descr>*/}
 			<Descr dangerouslySetInnerHTML={{__html: props.item.description}}/>
+			</Txt>
 			<ImgWrap>
 				<ConditionalWrapper
 					condition={props.item.hasSinglePage}
@@ -62,69 +60,60 @@ const SiteItem = (props) => {
 	)
 }
 
-export default SiteItem
+export default WorkItem
 
 const Item = styled.div`
 	width: 100%;
 	max-width: 500px;
 	position: relative;
 	margin: 0 auto 60px;
-	padding-bottom: 10px;//space for color stripe
+	padding: 30px 20px 20px 35px;
 	background: ${colors.almostWhite};
 	${mixins.boxShadowSmall(colors.almostBlack)};
-	${media.md`
-		display: flex;
-		flex-flow: row wrap;
-		max-width: 900px;
-	`}
 	&:after {//small color stripe
-		${mixins.defaultPseudo("100%", "10px")};
-		top: auto;
-		bottom: -10px;
+		${mixins.defaultPseudo("15px", "100%")};
 		background: ${props => props.bg};
 	}
-`
-
-const Meta = styled.div`
-	${mixins.boxShadowSmall()};
-	position: relative;
-	background: ${props => props.bg};
-	padding: 20px;
-	color: #fff;
 	${media.md`
-		flex: 1;
-		padding: 25px;
-		flex: 1 0 100%;
+		max-width: 800px;
+		display: grid;
+		grid-template: "txt img" auto / 1fr 1fr;
+		padding: 40px 30px 30px 40px;
+		&:after {
+			${mixins.defaultPseudo("20px", "100%")};
+		}
 	`}
 	${media.lg`
-		padding: 30px;
+		grid-template-columns: 3fr 2fr;
 	`}
-	& a {color: #fff;}
-	// &:before {//overlay
-	// 	${mixins.defaultPseudo()};
-	// 	background: ${colors.transpBlack};
-	// 	z-index: 0;
-	// }
+`
+
+const Txt = styled.div`
+	//outline: 2px dashed orange;
+	color: ${colors.almostBlack};
+	margin-bottom: 15px;
+	${media.md`
+		grid-area: txt;
+		margin-bottom: 0;
+	`}
+	& a {color: ${colors.almostBlack};
+
 `
 const Title = styled.h3`
 	${mixins.borderUnderline};
-	//position: relative;
-	//z-index: 5;
+	margin-bottom: 15px;
 `
 
 const Url = styled.p`
 	${mixins.borderUnderline};
 	font-weight: bold;
-	font-size: 15px;
-	margin: 10px 0;
-	//position: relative;
-	//z-index: 5;
+	font-size: 18px;
+	margin-bottom: 15px;
 	${media.md`
-		font-size: 18px;
 		margin: 20px 0;
-		width: 55%;
 	`}
 	& a {
+		color: ${colors.dustBlue};
 		display: inline-block;
 		&:first-child {
 			margin-right: 20px;
@@ -133,77 +122,42 @@ const Url = styled.p`
 `
 
 const Info = styled.div`
-	font-size: 14px;
-	//position: relative;
-	//z-index: 5;
-	& p:first-child {
-		margin-bottom: 10px;
-	}
-	& p:last-child {
-		margin-bottom: 0;
-	}
-	${media.md`
-		font-size: 16px;
-		width: 55%;
-		& p:first-child {
-			margin-bottom: 15px;
-		}
-	`}
+	font-size: 15px;
+	color: ${colors.dustBlue};
+	margin-bottom: 20px;
 `
 
 const Descr = styled.div`
-	flex: 1;
+	//outline: 1px dashed magenta;
 	color: ${colors.almostBlack};
-	padding: 20px;
+	margin-bottom: 20px;
 	${media.md`
-		flex: 0 1 60%;
-		padding: 25px;
-	`}
-	${media.lg`
-		padding: 30px;
-		${mixins.flexCenterContentVertically};
+		margin-bottom: 0;
 	`}
 `
 
 const ImgWrap = styled.div`
-	//outline: 2px solid red;
-	position: relative;
-	width: 80%;
-	margin: 0 auto 20px;
+	//outline: 2px dotted red;
+	width: 70%;
+	margin: 0 auto;
 	${media.sm`
-		width: 70%;
+		width: 60%;
 	`}
 	${media.md`
-		width: calc(40% - 21px);
-		// min-height: 200px;
-		margin: -120px 20px 0 0;
-		// margin: 0 20px 20px 0;
-		align-self: flex-end;
-	`}
-	${media.lg`
-		// height: 250px;
-		margin: -150px 20px 0 0;
+		grid-area: img;
+		width: calc(100% - 30px);
+		margin: 0 0 0 30px;
+		${mixins.flexCenterContentVertically};
 	`}
 	& a {
-		transition: opacity .2s ease-in;
-		&:hover {
-			
-			opacity: .95;
-		}
+		${mixins.hoverOpacity};
 	}
 `
 
 const Img = styled.img`
-	//outline: 1px dashed orange;
 	${mixins.boxShadowSmall()};
 	object-fit: contain;
 	object-position: center bottom;
 	width: 100%;
-	// ${media.md`
-	// 	position: absolute;
-	// 	bottom: 0;
-	// 	right: 0;
-	// 	height: 170%;
-	// `}
 `
 

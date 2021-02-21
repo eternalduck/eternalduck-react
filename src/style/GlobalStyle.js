@@ -1,5 +1,5 @@
 import React from "react"
-import { css, createGlobalStyle} from "styled-components"
+import {css, createGlobalStyle} from "styled-components"
 import {media, colors, mixins} from "./vars-mixins/_index"
 import {resetCss} from "./utils/_reset"
 
@@ -30,12 +30,12 @@ const GlobalStyle = createGlobalStyle`
 		font-family: "Courier New", monospace;
 		// font-family: "Roboto Slab", serif;
 		font-weight: 700;
+		line-height: 1.2;
 	}
 	//TODO
 	h1 {
 		font-size: 30px;
 		margin-bottom: 15px;
-		line-height: 1.4;
 		${media.md`
 			font-size: 40px;
 		`}
@@ -47,7 +47,6 @@ const GlobalStyle = createGlobalStyle`
 	h2 {
 		font-size: 26px;
 		margin-bottom: 12px;
-		line-height: 1.3;
 		${media.md`
 			font-size: 32px;
 		`}
@@ -59,7 +58,6 @@ const GlobalStyle = createGlobalStyle`
 	h3 {
 		font-size: 24px;
 		margin-bottom: 10px;
-		line-height: 1.3;
 		${media.md`
 			font-size: 28px;
 		`}

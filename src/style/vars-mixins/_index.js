@@ -118,6 +118,15 @@ export const mixins = {
 	printHidden: css`
 		@media print {display: none;}
 	`,
+	biggerFont: css`//bigger body font on desk
+		font-size: 16px;
+		${media.md`
+			font-size: 17px;
+		`}
+		${media.lg`
+			font-size: 18px;
+		`}
+	`,
 //// 1.3 Common Elements
 	defaultPseudo: (width, height) => css`
 		content: "";
@@ -194,9 +203,6 @@ export const mixins = {
 	`,
 	hoverBg: css`
 		position: relative;
-		// &:hover {
-		// 	color: ${colors.white};
-		// }
 		&:after {
 			content: "";
 			position: absolute;
@@ -205,13 +211,17 @@ export const mixins = {
 			bottom: -5px;
 			left: -8px;
 			z-index: -1;
-			transform: skewX(-1deg) skewY(-1deg);
+			//transform: skewX(-1deg) skewY(-1deg);
 			transition: background .1s ease-in;
-			opacity: .5;
+			opacity: .5;//additional opacity
 		}
 		&:hover:after {
-			background: ${colors.transpTenderPink};
+			background: ${props => props.theme.menuActiveItemBg};
 		}
+	`,
+	hoverOpacity: css`
+		transition: opacity .2s ease-in;
+		&:hover {opacity: .9}
 	`,
 
 }//mixins

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-import styled, {css, keyframes} from "styled-components"
+import styled, {css, keyframes, createGlobalStyle} from "styled-components"
 import {media, colors, mixins} from "../../style/vars-mixins/_index"
 import {Icon, InlineIcon} from "@iconify/react"
 import crescentMoon from "@iconify/icons-noto/crescent-moon"
@@ -38,20 +38,21 @@ const SwitchWrap = styled.label`
 const Switch = styled.div`
 	position: relative;
 	width: 45px;
-	height: 24px;
+	height: 22px;
 	background-color: ${colors.midGray};
 	border-radius: 15px;
 	cursor: pointer;
-	transition: background-color .3s ease-in;
+	opacity: .9;
+	transition: background-color .3s ease-in, opacity .3s ease-in;
+	&:hover {opacity: 1;}
 	&:before {//handle
 		content: "";
 		display: block;
 		position: absolute;
-		left: 3px;
-		top: 50%;
-		margin-top: -10px;
-		width: 20px;
-		height: 20px;
+		left: 2px;
+		top: 2px;
+		width: 18px;
+		height: 18px;
 		border-radius: 10px;
 		background-color: ${colors.black3};
 		box-shadow: 1px 1px 2px rgba(0, 0, 0, .35);
@@ -59,9 +60,9 @@ const Switch = styled.div`
 	}
 	input:checked + & {//at light theme
 		background-color: ${colors.litestGray};
-		&:before {
+		&:before {//handle
 			background-color: ${colors.liteGray};
-			transform: translate(18px);
+			transform: translate(20px);
 		}
 	}
 	
@@ -79,6 +80,8 @@ const shaking = keyframes`
 const IconSC = styled(Icon)`
 	font-size: 24px;
 	transiton: transform .3s ease-in;
+	cursor: pointer;
+	${mixins.hoverOpacity};
 	${props => props.$shake ?//$shake is sc transient prop
 		css`animation: ${shaking} .3s ease-in;
 			animation-iteration-count: 2;`

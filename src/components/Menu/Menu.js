@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useRef} from "react"
 import {NavLink} from "react-router-dom"
-import styled from "styled-components"
+import styled, {createGlobalStyle} from "styled-components"
 import {colors, mixins, media} from "../../style/vars-mixins/_index"
 import {Icon} from "@iconify/react"
 import hamburgerIcon from "@iconify/icons-openmoji/hamburger"
@@ -27,6 +27,7 @@ export const Menu = (props) => {
 	return (
 		<MenuSc>
 			<MenuItems/>
+			<Logo/>
 		</MenuSc>
 	)
 }//Menu
@@ -43,10 +44,24 @@ export const MobMenu = (props) => {
 		<MobMenuToggle icon={hamburgerIcon} onClick={toggleMobMenu}/>
 		<MenuMob visible={isMenuVisible}>
 			<MenuItems/>
+			<Logo/>
 		</MenuMob>
 		</>
 	)
 }//Menu
+const Logo = createGlobalStyle`
+	.logo {
+		background: url("/images/logo-sprite.png") 0 0 no-repeat;
+		background-size: 100%;
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+		${mixins.boxShadowMid()};
+		&:hover {
+			background-position: 0 -60px;
+		}
+	}
+`
 
 const MenuSc = styled.nav`
 	display: flex;
@@ -56,10 +71,10 @@ const MenuSc = styled.nav`
 	${media.md`
 		flex-flow: row nowrap;
 	`}
-	a {
+	a {//item
 		position: relative;
 		margin-bottom: 30px;
-		color: ${props => props.theme.linkClr};//TODO depending on page bg
+		color: ${props => props.theme.linkClr};
 		font-family: "Courier New", monospace;
 		font-weight: bold;
 		font-size: 24px;
@@ -69,16 +84,19 @@ const MenuSc = styled.nav`
 		${mixins.noUnderline};
 		${mixins.hoverBg};
 		${media.md`
-			margin-right: 30px;
+			margin-right: 45px;
 			margin-bottom: 0;
 		`}
 		&.active {
 			cursor: default;
 			pointer-events: none;
 			&:after {
-				background: ${colors.transpTenderPink};
+				background: ${props => props.theme.menuActiveItemBg};
 			}
 		}
+		//hide logo item bg
+		&:first-child.active:after,
+		&:first-child:hover:after {display: none;}
 	}
 `
 

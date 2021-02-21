@@ -11,13 +11,13 @@ import "./style/fouc-fix.css"
 
 import Preloader from "./components/service/Preloader"
 import Frontpage from "./components/Frontpage/Frontpage"
-import SitesPage from "./components/Sites/SitesPage"
-import SingleSite from "./components/Sites/SingleSite"
-import {sitesList} from "./components/data/sitesList"
-
+import WorksPage from "./components/Work/WorksPage"
+import SingleWork from "./components/Work/SingleWork"
 import CvPage from "./components/Cv/CvPage"
 import Page404 from "./components/service/Page404"
 import TestPage from "./components/service/TestPage"
+import {sitesList} from "./components/data/sitesList"
+import {uxList} from "./components/data/uxList"
 
 export const ThemeContext = createContext({
 	isLightTheme: false,
@@ -68,24 +68,35 @@ export default function Root(props){
 	// 	setLightTheme: toggleTheme
 	// }}>
 	// 	<ThemeProvider theme={isLightTheme ? light : dark}>
-		<ThemeProvider theme={dark}>{/*tmp hardcoded, FAIL theme undefined in children*/}
+		<ThemeProvider theme={dark}>{/*tmp hardcoded*/}
 			<GlobalStyle/>
 			<DebugStyle/>
 			{/*<Preloader/>*/}
 			{/* TODO wait for router v6 https://blog.logrocket.com/react-router-v6*/}
 			<Switch>
 				<Route exact path="/" component={Frontpage}/>
-				{/*<Route path="/sites" component={SitesRouting}/>*/}
-				{/*<Route path="/sites" component={SitesPage}/>*/}
 				<Route path="/sites">
 					<Switch>
 						<Route exact path="/sites">
-							<SitesPage/>
+							<WorksPage data={sitesList}
+								bg={props => props.theme.sitesPageBg}/>
 						</Route>
 						<Route path={`/sites/:itemSlug`}>
-							<SingleSite/>
+							<SingleWork data={sitesList}
+								bg={props => props.theme.singleSiteBg}/>
 						</Route>
-						{/*<Route path={`${path}/*`} component={Page404}/>*/}
+					</Switch>
+				</Route>
+				<Route path="/ux">
+					<Switch>
+						<Route exact path="/ux">
+							<WorksPage data={uxList}
+								bg={props => props.theme.uxPageBg}/>
+						</Route>
+						<Route path={`/ux/:itemSlug`}>
+							<SingleWork data={uxList}
+								bg={props => props.theme.singleUxBg}/>
+						</Route>
 					</Switch>
 				</Route>
 				<Route path="/cv" component={CvPage}/>

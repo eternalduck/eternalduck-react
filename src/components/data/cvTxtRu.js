@@ -4,7 +4,7 @@ export const cvTxtRu = {
 	"email": "eternalduckie@gmail.com",
 	"tg": "telegram: @eternalduck",
 	"gitUrl": "https://github.com/eternalduck?tab=repositories",
-	"title": `Frontend-разработчик<br/>Начинающий React-разработчик<br/>HTML-верстальщик`,
+	"title": `Frontend-разработчик<br/>Начинающий React-разработчик`,
 	"skillsTitle": "Профессиональные навыки",
 	"skillsList": [
 		"создаю сайты, пишу стройный и валидный код, люблю адаптивную кроссбраузерную вёрстку;",

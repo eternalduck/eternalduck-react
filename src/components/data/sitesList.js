@@ -58,9 +58,9 @@ export const sitesList = [
 		"slug": "42-propellers",
 		"hasSinglePage": true,
 		"title": "Propellers Animation Studio",
-		"thumb": "/images/work/sites/thumbs/42-propellers-pro.jpg",
+		"thumb": "/images/work/sites/thumbs/42-propellers.jpg",
 		"images": [{
-			"src": "/images/work/sites/42-propellers-pro.jpg",
+			"src": "/images/work/sites/42-propellers.jpg",
 			"title": "",
 		}],
 		"url": "https://propellers.pro",
@@ -85,7 +85,7 @@ export const sitesList = [
 		"urlTxt2": "Behance",
 		"txt2": "Behance",
 		"keywords": "html, sass, js, responsive, gulp",
-		"year": "2018",
+		"year": "2019",//2018?
 		"description": `<p>A third site for a door factory that year :) I've done all html layout and js effects including door design selection.</p><p>All that then was adapted for Birtix CMS by a backend team.</p>`,
 		"descriptionRu": "",
 	},

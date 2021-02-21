@@ -8,13 +8,16 @@ export const colors = {
 	darkBlueBlack: "#08122C",
 	litestGray: "#C5C8D0",
 	liteGray: "#909399",
-	midGray: "#6C6C6C",
+	midGray: "#7B7A7A",
 
 	bottleGreen: "#0B3601",
+	pastelMint: "#9FFFD3",
 	mintGreen: "#09D476",
+	darkMintGreen: "#12887A",
 
+	darkYellow: "#A78300",
 	yellow: "#FFCA08",
-	liteYellow: "#F9E28D",
+	pastelYellow: "#F9E28D",
 
 	eggplant: "#33111D",
 	darkVio: "#372647",
@@ -25,12 +28,15 @@ export const colors = {
 	dustBlue: "#3e5b7c",
 	midBlue: "#01A9C7",
 
-	tenderPink: "#cfb5d4",
+	pastelPink: "#cfb5d4",
 	saturatedPink: "#9a22a8",
+	pinkyGray: "#746874",
+	darkPinkyGray: "#463D46",
 
 	transpBlack: "rgba(0, 0, 0, .5)",
 	transpWhite: "rgba(255, 255, 255, .6)",
-	transpTenderPink: "rgba(207, 181, 212, .8)",
+	transpPastelPink: "rgba(207, 181, 212, .5)",
+	transpPastelBlue: "rgba(1, 170, 200, .5)",
 
 	// gradientBlueMint: "linear-gradient(90deg, #07B464 0%, #018FA8 100%)",
 	gradientBlueMint: "linear-gradient(117.84deg, rgba(9, 134, 76, 0.5) 9.43%, rgba(8, 106, 123, 0.5) 73.34%), linear-gradient(66.13deg, rgba(33, 157, 100, 0.7) 34.33%, rgba(7, 96, 112, 0.7) 89.83%), radial-gradient(48.54% 63.75% at 53.2% 82.5%, #000000 0%, rgba(0, 0, 0, 0) 100%)",
@@ -54,9 +60,12 @@ export const dark = {
 	bodyBg: "#333",
 	txtClr: "#fff",
 	linkClr: "#fff",
+	menuActiveItemBg: colors.transpWhite,
 	mobMenuBg: colors.blueishBlack,
-	sitesPageBg: colors.blueishBlack,
+	sitesPageBg: colors.darkPinkyGray,
 	singleSiteBg: colors.black3,
+	uxPageBg: colors.blueishBlack,
+	singleUxBg: colors.blueishBlack,
 	cvBg: colors.almostBlack,
 }
 export const light = {
@@ -64,8 +73,11 @@ export const light = {
 	bodyBg: colors.almostWhite,
 	txtClr: "#333",
 	linkClr: "#333",
+	menuActiveItemBg: colors.transpBlack,
 	mobMenuBg: colors.liteGray,
-	sitesPageBg: colors.liteYellow,
-	singleSiteBg: colors.tenderPink,
+	sitesPageBg: colors.pinkyGray,
+	singleSiteBg: colors.pastelPink,
+	uxPageBg: colors.pastelYellow,
+	singleUxBg: colors.pastelYellow,
 	cvBg: colors.almostWhite,
 }

@@ -21,7 +21,10 @@ const FrontpageSC = styled.div`
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background: url("../../images/table.jpg") center/cover no-repeat;
+	background: #33424d url("../../images/table02.jpg") center bottom/contain no-repeat;
+	${media.mdDown`
+		background-size: cover;
+	`}
 `
 
 export default Frontpage
