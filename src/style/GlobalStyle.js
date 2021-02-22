@@ -32,7 +32,6 @@ const GlobalStyle = createGlobalStyle`
 		font-weight: 700;
 		line-height: 1.2;
 	}
-	//TODO
 	h1 {
 		font-size: 30px;
 		margin-bottom: 15px;

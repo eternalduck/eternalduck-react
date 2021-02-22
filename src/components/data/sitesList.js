@@ -1,17 +1,10 @@
-import React from "react"
-import {Icon, InlineIcon} from "@iconify/react"
-import crescentMoon from "@iconify/icons-noto/crescent-moon"
-////
-const moon = <InlineIcon icon={crescentMoon} className={"icon_big"}/>
-////
 export const sitesList = [
 	{
 		"slug": "45-portfolio",
-		"hasSinglePage": false,
 		"title": "this portfolio on React",
 		"thumb": "/images/work/sites/thumbs/45-portfolio.jpg",
 		"images": [{
-			"src": "", //"/images/work/sites/45-portfolio.jpg",
+			"src": "/images/work/sites/45-portfolio.jpg",
 			"title": "",
 		}],
 		"url": "https://github.com/eternalduck/eternalduck-react",
@@ -24,7 +17,6 @@ export const sitesList = [
 	},
 	{
 		"slug": "44-onboarding",
-		"hasSinglePage": true,
 		"title": "React Registration Module",
 		"thumb": "/images/work/sites/thumbs/44-onboarding.jpg",
 		"images": [{
@@ -40,7 +32,6 @@ export const sitesList = [
 	},
 	{
 		"slug": "43-nikatech",
-		"hasSinglePage": true,
 		"title": "Nika Tech Family",
 		"thumb": "/images/work/sites/thumbs/43-nikatech.jpg",
 		"images": [{
@@ -56,7 +47,6 @@ export const sitesList = [
 	},
 	{
 		"slug": "42-propellers",
-		"hasSinglePage": true,
 		"title": "Propellers Animation Studio",
 		"thumb": "/images/work/sites/thumbs/42-propellers.jpg",
 		"images": [{
@@ -72,7 +62,6 @@ export const sitesList = [
 	},
 	{
 		"slug": "41-torex",
-		"hasSinglePage": false,
 		"title": "Torex Doors Factory",
 		"thumb": "/images/work/sites/thumbs/41-torexdoors.jpg",
 		"images": [{
@@ -91,7 +80,6 @@ export const sitesList = [
 	},
 		{
 		"slug": "38-salespilot",
-		"hasSinglePage": true,
 		"title": "Commercial Offers Landing",
 		"thumb": "/images/work/sites/thumbs/38-kp-land.jpg",
 		"images": [
@@ -118,7 +106,6 @@ export const sitesList = [
 	},
 	{
 		"slug": "40-promet",
-		"hasSinglePage": false,
 		"title": "Promet Doors Factory",
 		"thumb": "/images/work/sites/thumbs/40-prometdoors.jpg",
 		"images": [{
@@ -134,7 +121,6 @@ export const sitesList = [
 	},
 	{
 		"slug": "39-kontur",
-		"hasSinglePage": true,
 		"title": "Kontur Doors Factory",
 		"thumb": "/images/work/sites/thumbs/39-kontur.jpg",
 		"images": [{
@@ -150,7 +136,6 @@ export const sitesList = [
 	},
 	{
 		"slug": "37-banks",
-		"hasSinglePage": true,
 		"title": "Banks Research Landing",
 		"thumb": "/images/work/sites/thumbs/37-banks.jpg",
 		"images": [{
@@ -170,7 +155,6 @@ export const sitesList = [
 	},
 	{
 		"slug": "36-cxz",
-		"hasSinglePage": false,
 		"title": "Stupino Chemical Plant",
 		"thumb": "/images/work/sites/thumbs/36-cxz.jpg",
 		"images": [{
@@ -190,7 +174,6 @@ export const sitesList = [
 
 	{
 		"slug": "35-old-php",
-		"hasSinglePage": true,
 		"title": "Commercial Offers System",
 		"thumb": "/images/work/sites/thumbs/35-completo-kp.jpg",
 		"images": [
@@ -212,7 +195,6 @@ export const sitesList = [
 
 	{
 		"slug": "34-noradrugan",
-		"hasSinglePage": false,
 		"title": "Photographer's Gallery",
 		"thumb": "/images/work/sites/thumbs/34-noradrugan.jpg",
 		"images": [{
@@ -226,7 +208,6 @@ export const sitesList = [
 	},
 	{
 		"slug": "33-kids",
-		"hasSinglePage": false,
 		"title": "Kids' Education",
 		"thumb": "/images/work/sites/thumbs/33-postupi.jpg",
 		"images": [{
@@ -242,7 +223,6 @@ export const sitesList = [
 	},
 	{
 		"slug": "32-1vip",
-		"hasSinglePage": false,
 		"title": "1c Accounting Site",
 		"thumb": "/images/work/sites/thumbs/32-1vip.jpg",
 		"images": [
@@ -269,7 +249,6 @@ export const sitesList = [
 
 	{
 		"slug": "31-splat",
-	"hasSinglePage": false,
 		"title": "Splat Products",
 		"thumb": "/images/work/sites/thumbs/31-splat.jpg",
 		"images": [{
@@ -286,7 +265,6 @@ export const sitesList = [
 
 	{
 		"slug": "30-ptfm",
-		"hasSinglePage": false,
 		"title": "Gas Equipment",
 		"thumb": "/images/work/sites/thumbs/30-ptfm.jpg",
 		"images": [{
@@ -303,7 +281,6 @@ export const sitesList = [
 
 	{
 		"slug": "28-moroni",
-		"hasSinglePage": false,
 		"title": "Moroni Cleaning",
 		"thumb": "/images/work/sites/thumbs/28-moroniclean.jpg",
 		"images": [{
@@ -319,7 +296,6 @@ export const sitesList = [
 	},
 	{
 		"slug": "27-maru",
-		"hasSinglePage": false,
 		"title": "Designer's Homepage",
 		"thumb": "/images/work/sites/thumbs/27-maru.jpg",
 		"images": [{
@@ -333,7 +309,6 @@ export const sitesList = [
 	},
 	{
 		"slug": "25-bloganastasiadate",
-		"hasSinglePage": false,
 		"title": "AnastasiaDate's Blog",
 		"thumb": "/images/work/sites/thumbs/25-bloganastasiadate.jpg",
 		"images": [{
@@ -349,7 +324,6 @@ export const sitesList = [
 	},
 	{
 		"slug": "23-rallybabes",
-		"hasSinglePage": false,
 		"title": "Rally Promo Site",
 		"thumb": "/images/work/sites/thumbs/23-rallybabes.jpg",
 		"images": [{
@@ -364,7 +338,6 @@ export const sitesList = [
 
 	{
 		"slug": "22-partners",
-		"hasSinglePage": false,
 		"title": "Dating Partners Network",
 		"thumb": "/images/work/sites/thumbs/22-global-companions.jpg",
 		"images": [{
@@ -380,7 +353,6 @@ export const sitesList = [
 	},
 	{
 		"slug": "24-asiantravelmates",
-		"hasSinglePage": false,
 		"title": "Travel Mates Landing",
 		"thumb": "/images/work/sites/thumbs/24-asiantravelmates.jpg",
 		"images": [{
@@ -396,7 +368,6 @@ export const sitesList = [
 	},
 	{
 		"slug": "13-marryasianbride",
-		"hasSinglePage": false,
 		"title": "Dating Landing",
 		"thumb": "/images/work/sites/thumbs/13-marryasianbride.jpg",
 		"images": [{
@@ -411,7 +382,6 @@ export const sitesList = [
 	},
 	{
 		"slug": "04-auto2000",
-		"hasSinglePage": false,
 		"title": "Drivers Training Center",
 		"thumb": "/images/work/sites/thumbs/04-auto2000.jpg",
 		"images": [{
@@ -425,25 +395,23 @@ export const sitesList = [
 		"description": `<p>Drivers' school site on Drupal with slightly customized standard template. I supported the existing site and added some pages and made design changes.<p>`,
 		"descriptionRu": "",
 	},
-	// {
-	// 	"slug": "03-clinic",
-	// 	"hasSinglePage": false,
-	// 	"title": "Medical Center",
-	// 	"thumb": "/images/work/sites/thumbs/03-clinic-cs.jpg",
-	// 	"images": [{
-	// 		"src": "/images/work/sites/03-clinic-cs.jpg",
-	// 		"title": "",
-	// 	}],
-	// 	"url": "https://clinic-cs.ru",
-	// 	"urlTxt": "clinic-cs.ru",
-	// 	"keywords": "html, css, joomla",
-	// 	"year": "2011",
-	// 	"description": `<p>The site for a medical institution on a customized template. Moved ffrom an old Joomla installation to a new one with some design tweaks.</p>`,
-	// 	"descriptionRu": "",
-	// },
+	{
+		"slug": "03-clinic",
+		"title": "Medical Center",
+		"thumb": "/images/work/sites/thumbs/03-clinic-cs.jpg",
+		"images": [{
+			"src": "/images/work/sites/03-clinic-cs.jpg",
+			"title": "",
+		}],
+		"url": "https://clinic-cs.ru",
+		"urlTxt": "clinic-cs.ru",
+		"keywords": "html, css, joomla",
+		"year": "2011",
+		"description": `<p>The site for a medical institution on a customized template. Migrated from an old Joomla installation to a new one with some design tweaks.</p>`,
+		"descriptionRu": "",
+	},
 	{
 		"slug": "02-ronikon",
-		"hasSinglePage": false,
 		"title": "Furniture Factory",
 		"thumb": "/images/work/sites/thumbs/02-ronikon.jpg",
 		"images": [{
@@ -459,7 +427,6 @@ export const sitesList = [
 	},
 	{
 		"slug": "01-hospital",
-		"hasSinglePage": false,
 		"title": "CS Hospital",
 		"thumb": "/images/work/sites/thumbs/01-hospital-cs.jpg",
 		"images": [{

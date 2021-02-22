@@ -21,15 +21,15 @@ const WorksPage = (props) => {
 	return (
 		<Works bg={props.bg}>
 			<ContentWidth>
-				<Header className={"header_test"}/>
-					<WorksWrap>
-						{worksList && worksList.map((item, i) =>
-							<WorkItem key={item.slug}
-								item={item}
-								bg={bg[i]}
-							/>
-						)}
-					</WorksWrap>
+				<Header/>
+				<WorksWrap>
+					{worksList && worksList.map((item, i) =>
+						<WorkItem key={item.slug}
+							item={item}
+							bg={bg[i]}
+						/>
+					)}
+				</WorksWrap>
 			</ContentWidth>
 		</Works>
 	)

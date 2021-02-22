@@ -39,7 +39,7 @@ const Switch = styled.div`
 	position: relative;
 	width: 45px;
 	height: 22px;
-	background-color: ${colors.midGray};
+	background-color: ${props => props.theme.name === "dark" ? colors.midGray : colors.litestGray}; 
 	border-radius: 15px;
 	cursor: pointer;
 	opacity: .9;
@@ -54,16 +54,12 @@ const Switch = styled.div`
 		width: 18px;
 		height: 18px;
 		border-radius: 10px;
-		background-color: ${colors.black3};
+		background-color: ${props => props.theme.name === "dark" ? colors.black3 : colors.liteGray};
 		box-shadow: 1px 1px 2px rgba(0, 0, 0, .35);
 		transition: transform .3s ease-in, background-color .3s ease-in;
 	}
-	input:checked + & {//at light theme
-		background-color: ${colors.litestGray};
-		&:before {//handle
-			background-color: ${colors.liteGray};
-			transform: translate(20px);
-		}
+	input:checked + &:before {
+		transform: translate(20px);
 	}
 	
 `

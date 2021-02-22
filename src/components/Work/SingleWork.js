@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"
-// import ReactDOM from "react-dom"
 import ContentWidth from "../Layout/ContentWidth"
+import ContentWide from "../Layout/ContentWide"
 import Header from "../header-footer/Header"
 import {useParams} from "react-router-dom"
 import styled from "styled-components"
@@ -8,58 +8,32 @@ import {colors, mixins} from "../../style/vars-mixins/_index"
 import Page404 from "../service/Page404"
 import Loading from "../service/Loading"
 import WorksNav from "./WorksNav"
-
+import {Icon, InlineIcon} from "@iconify/react"
+import exiticon from "@iconify/icons-openmoji/exit"
 
 const SingleWork = (props) => {
-	const worksList = props.data//sitesList or uxList expected, TODO add check
+	const worksList = props.data//sitesList or uxList expected
 	const {itemSlug} = useParams()
 	// Get data for the current work
-	const initial = worksList.find(item => item.slug === itemSlug)
-	const [work, setWork] = useState(w => w = initial)
-
-	// Get data for prev/next nav based on current work index
-	const [navLinks, setNavLinks] = useState({prev: {slug: "", title: ""}, next: {slug: "", title: ""}})
-	useEffect(() => {
-		const populateNav = () => {
-			// TODO skip pages with hasSinglePage: false
-			//const worksWithSinglePages = worksList.filter()
-			// TODO move this logic to worksNav!!!!!
-			const workIndex = worksList.indexOf(work)
-			const prevIndex = (workIndex - 1) >= 0 ? workIndex - 1 : null
-			const nextIndex = (workIndex + 1) < worksList.length ? workIndex + 1 : null
-			const prevSlug = prevIndex != null ? worksList[prevIndex].slug : ""
-			const prevTitle = prevIndex != null ? worksList[prevIndex].title : ""
-			const nextSlug = nextIndex != null ? worksList[nextIndex].slug : ""
-			const nextTitle = nextIndex != null ? worksList[nextIndex].title : ""
-			return {
-				prev: {slug: prevSlug, title: prevTitle},
-				next: {slug: nextSlug, title: nextTitle},
-			}
-		}//populateNav
-
-		setNavLinks(n => n = populateNav())
-	}, [work])
-	// end get prev/next
+	const currentWork = worksList.find(item => item.slug === itemSlug)
+	const [work, setWork] = useState(w => w = currentWork)
 
 	// Image changing tabs
 	const [mainImgSrc, setMainImgSrc] = useState("")
 	const [mainImgTitle, setMainImgTitle] = useState("")
-	const isCurrent = img => img === mainImgSrc
 	// set main image on first page load
 	useEffect(() => {
 		work && setMainImgSrc(work.images[0].src)
 		work && setMainImgTitle(work.images[0].title)
 	}, [work])
-
 	const replaceMainImg = (src, title) => {
 		setMainImgSrc(src)
 		setMainImgTitle(title)
 	}
-
+	const isCurrent = img => img === mainImgSrc
 	useEffect(() => {
 		isCurrent()
 	}, [mainImgSrc])
-
 	//end Image changing tabs
 
 	// Load check for mainImg
@@ -77,10 +51,18 @@ const SingleWork = (props) => {
 		!work ?
 		<Page404/> :
 		<Work bg={props.bg}>
+			<Header/>
+			<WorksNav worksList={worksList} work={work}/>
+
 			<ContentWidth>
-				<Header/>
-				<WorksNav nav={navLinks}/>
 				<Title>{work.title}</Title>
+				<Info>
+					<p><b>{work.year}</b></p>
+					<Url href={work.url} target="_blank">
+						<span>{work.urlTxt}</span>
+						<IconSc icon={exiticon}/>
+					</Url>
+				</Info>
 				<Description dangerouslySetInnerHTML={{__html: work.description}}></Description>
 				<TabWrap>
 					{work.images.map(image =>
@@ -95,18 +77,19 @@ const SingleWork = (props) => {
 				</TabWrap>
 			</ContentWidth>
 
-			<MainImgWrap>
-				<Loading loaded={imgLoaded}/>
-				<Img
-					src={mainImgSrc}
-					onLoad={() => setImgLoaded(true)}
-					loaded={imgLoaded}
-					alt={mainImgTitle}
-				/>
-			</MainImgWrap>
-			<ContentWidth>
-				<WorksNav nav={navLinks}/>
-			</ContentWidth>
+			<ContentWide>
+				<MainImgWrap>
+					<Loading loaded={imgLoaded}/>
+					<Img
+						src={mainImgSrc}
+						onLoad={() => setImgLoaded(true)}
+						loaded={imgLoaded}
+						alt={mainImgTitle}
+					/>
+				</MainImgWrap>
+			</ContentWide>
+
+			<WorksNav worksList={worksList} work={work} bottom/>
 		</Work>
 	)
 }
@@ -120,16 +103,30 @@ const Work = styled.div`
 const Title = styled.h1`
 	text-align: center;
 `
+const Info = styled.div`
+	text-align: center;
+	margin-bottom: 20px;
+	// color: ${props => props.theme.name === "dark" ? colors.pastelPink : colors.dustBlue};
+`
+const Url = styled.a`//TODO add external link icon
+	display: block;
+	font-size: 18px;
+	${mixins.borderUnderline};
+	color: ${props => props.theme.name === "dark" ? colors.mintGreen : colors.darkMintGreen};
+`
+const IconSc = styled(Icon)`
+	font-size: 20px;
+	margin-bottom: -4px;
+`
 const Description = styled.p`
 	max-width: 700px;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 0 auto 30px;
 `
 const TabWrap = styled.div`
 	display: flex;
 	justify-content: center;
 	column-gap: 30px;
-	padding: 50px 0 30px;
+	//padding: 50px 0 30px;
 `
 const Tab = styled.p`
 	flex: 0 1 auto;
@@ -142,6 +139,7 @@ const MainImgWrap = styled.div`
 	width: 100%;
 	text-align: center;
 	position: relative;
+	margin: 30px 0 50px;
 `
 const Img = styled.img`
 	visibility: ${props => props.loaded ? "visible" : "hidden"};

@@ -1,32 +1,26 @@
 import React, {useState, useEffect, useCallback} from "react"
-import ReactDOM from "react-dom"
 import {Link, useRouteMatch} from "react-router-dom"
 import styled from "styled-components"
 import {media, colors, mixins} from "../../style/vars-mixins/_index"
-import {ConditionalWrapper} from "../helpers/conditionalWrapper"
+import {Icon, InlineIcon} from "@iconify/react"
+import exiticon from "@iconify/icons-openmoji/exit"
 
 const WorkItem = (props) => {
-	let {path, url} = useRouteMatch()
-
-	//"/users/:userId". match.path would be "/users/:userId" while match.url would have the :userId value filled in, e.g. "users/5"
-
+	let {url} = useRouteMatch()
 	return (
 		<Item bg={props.bg}>
 			<Txt>
 				<Title>
-					<ConditionalWrapper
-						condition={props.item.hasSinglePage}
-						wrapper={children =>
-							<Link to={`${url}/${props.item.slug}`}>
-								<span>{children}</span>
-							</Link>
-					}>{props.item.title}</ConditionalWrapper>
+					<Link to={`${url}/${props.item.slug}`}>
+						<span>{props.item.title}</span>
+					</Link>
 				</Title>
 				<>
 				{props.item.url &&
 					<Url>
 						<a href={props.item.url} target={"_blank"} rel={"noreferrer"}>
 							<span>{props.item.urlTxt}</span>
+							<IconSc icon={exiticon}/>
 						</a>
 						{props.item.url2 &&
 							<a href={props.item.url2} target={"_blank"} rel={"noreferrer"}>
@@ -43,18 +37,9 @@ const WorkItem = (props) => {
 			<Descr dangerouslySetInnerHTML={{__html: props.item.description}}/>
 			</Txt>
 			<ImgWrap>
-				<ConditionalWrapper
-					condition={props.item.hasSinglePage}
-					wrapper={children =>
-						<Link to={`${url}/${props.item.slug}`}>
-							{children}
-						</Link>}
-				>
-					<Img
-						src={props.item.thumb}
-						alt={props.item.title}
-					/>
-				</ConditionalWrapper>
+				<Link to={`${url}/${props.item.slug}`}>
+					<Img src={props.item.thumb} alt={props.item.title}/>
+				</Link>
 			</ImgWrap>
 		</Item>
 	)
@@ -120,7 +105,11 @@ const Url = styled.p`
 		}
 	}
 `
-
+const IconSc = styled(Icon)`
+	font-size: 20px;
+	margin-bottom: -5px;
+	margin-left: 3px;
+`
 const Info = styled.div`
 	font-size: 15px;
 	color: ${colors.dustBlue};

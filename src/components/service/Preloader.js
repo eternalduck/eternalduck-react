@@ -7,7 +7,6 @@ const Preloader = (props) => {
 		<Slide/>
 	)
 }
-//TODO: normal animation
 const slide = keyframes`
 	0% {
 		height: 0;

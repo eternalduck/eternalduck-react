@@ -1,7 +1,6 @@
 export const uxList = [
 	{
 		"slug": "03-bathelp",
-		"hasSinglePage": true,
 		"title": "BatHelp App for a Contest",
 		"thumb": "/images/work/ux/thumbs/03-bathelp.jpg",
 		"images": [{
@@ -19,7 +18,6 @@ export const uxList = [
 	},
 	{
 		"slug": "02-mapletters",
-		"hasSinglePage": true,
 		"title": "Messages in Range App",
 		"thumb": "/images/work/ux/thumbs/02-mapletters.jpg",
 		"images": [{
@@ -35,7 +33,6 @@ export const uxList = [
 	},
 	{
 		"slug": "01-moodtracker",
-		"hasSinglePage": true,
 		"title": "Mood Tracker App for UX Course",
 		"thumb": "/images/work/ux/thumbs/01-moodtracker.jpg",
 		"images": [{

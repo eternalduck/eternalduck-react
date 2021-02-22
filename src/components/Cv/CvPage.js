@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react"
-// import ReactDOM from "react-dom"
 import styled from "styled-components"
 import {media, colors, mixins} from "../../style/vars-mixins/_index"
 import Header from "../header-footer/Header"
 import ContentLimitedWidth from "../Layout/ContentLimitedWidth"
 import ContentWidth from "../Layout/ContentWidth"
-import {cvTxt} from "../data/cvTxt"
-import {cvTxtRu} from "../data/cvTxtRu"
-import {Icon, InlineIcon} from "@iconify/react"
+import {cvTxt, cvTxtRu} from "../data/cvTxt"
+import {InlineIcon} from "@iconify/react"
 import globeShowingAmericas from "@iconify/icons-openmoji/globe-showing-americas"
 
 const CvPage = (props) => {
@@ -55,8 +53,9 @@ const CvPage = (props) => {
 				{data.jobsList.map(
 					(job, i) =>
 				<li key={i}>
-					<p>
-						<span className={"txt_big txt_bold"} dangerouslySetInnerHTML={{__html: job.position}}></span>
+					<p className={"txt_big txt_bold"}>
+						<Iconpic>{job.icon}</Iconpic>
+						<span dangerouslySetInnerHTML={{__html: job.position}}></span>
 					{job.url
 						? <a href={job.url}
 						target={"_blank"}
@@ -77,7 +76,7 @@ const CvPage = (props) => {
 				)}
 			</JobList>
 			<ToggleLastItems onClick={() => setIsLastJobsShown(prev => !prev)}>
-				&bull; <span>show {isLastJobsShown ? "less" : "more"} experience</span>
+				<span>{isLastJobsShown ? data.showLess : data.showMore}</span>
 			</ToggleLastItems>
 
 			<h3>{data.eduTitle}</h3>
@@ -119,7 +118,7 @@ const LangSwitch = styled.div`
 		margin-right: 30px;
 	`}
 `
-const IconSc = styled(Icon)`
+const IconSc = styled(InlineIcon)`
 	font-size: 32px;
 	margin-left: 5px;
 	${mixins.hoverOpacity};
@@ -141,7 +140,7 @@ const Cv = styled.div`
 		 color: ${props => props.theme.name === "dark" ? colors.yellow : colors.midVio};
 	}
 	& h3 {
-		 color: ${props => props.theme.name === "dark" ? colors.pastelYellow : colors.pinkyGray};
+		 color: ${props => props.theme.name === "dark" ? colors.pastelYellow : colors.darkPinkyGray};
 	}
 	@media print {
 		background: #fff;
@@ -169,7 +168,7 @@ const Top = styled.div`
 const List = styled.ul`
 	list-style-type: disc;
 	padding-left: 15px;
-	margin-bottom: 40px;
+	margin-bottom: 45px;
 	li {
 		padding-left: 5px;
 		margin-bottom: 7px;
@@ -190,9 +189,9 @@ const SubList = styled.ul`
 const Date = styled.span`
 	color: ${props => props.theme.name === "dark" ? colors.litestGray : colors.midGray};
 `
-//hide several bottom job entries
 const JobList = styled(List)`
-	& > li:nth-last-child(-n+3) {
+	list-style-type: none;
+	& > li:nth-last-child(-n+3) {//hide several bottom job entries
 		transition: opacity .2s ease-in;
 		${props => props.lastJobsShown
 			? `display: block; opacity: 1;`
@@ -202,9 +201,14 @@ const JobList = styled(List)`
 		& > li:nth-last-child(-n+3) {display: block;}
 	}
 `
+const Iconpic = styled.span`
+	display: inline-block;
+	font-size: 32px;
+	margin-right: 5px;
+	margin-left: -38px;
+`
 const ToggleLastItems = styled.p`
 	color: ${props => props.theme.name === "dark" ? colors.pastelPink : colors.midVio};
-	//color: ${props => props.theme.name === "dark" ? colors.transpPastelPink : colors.transpPastelBlue};
 	font-size: 20px;
 	font-weight: bold;
 	margin-top: -25px;

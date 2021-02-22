@@ -1,11 +1,11 @@
-import React, {useEffect, useState, useRef} from "react"
-import {NavLink} from "react-router-dom"
-import styled, {createGlobalStyle} from "styled-components"
+import React, {useState} from "react"
+import {Link, NavLink} from "react-router-dom"
+import styled from "styled-components"
 import {colors, mixins, media} from "../../style/vars-mixins/_index"
 import {Icon} from "@iconify/react"
 import hamburgerIcon from "@iconify/icons-openmoji/hamburger"
+import multiplyIcon from "@iconify/icons-openmoji/multiply"
 import {menuItems} from "../data/menuItems"
-
 
 const MenuItems = (props) => {
 	return (
@@ -14,7 +14,6 @@ const MenuItems = (props) => {
 			<NavLink key={item.id}
 				to={item.url}
 				exact={true}
-				// id={item.id}
 			>
 				{item.txt}
 			</NavLink>
@@ -27,7 +26,6 @@ export const Menu = (props) => {
 	return (
 		<MenuSc>
 			<MenuItems/>
-			<Logo/>
 		</MenuSc>
 	)
 }//Menu
@@ -41,27 +39,18 @@ export const MobMenu = (props) => {
 	}
 	return (
 		<>
-		<MobMenuToggle icon={hamburgerIcon} onClick={toggleMobMenu}/>
+			<MobMenuToggle onClick={toggleMobMenu}>
+				{isMenuVisible
+					? <Icon icon={multiplyIcon}/>
+					: <Icon icon={hamburgerIcon}/>
+				}
+			</MobMenuToggle>
 		<MenuMob visible={isMenuVisible}>
 			<MenuItems/>
-			<Logo/>
 		</MenuMob>
 		</>
 	)
 }//Menu
-const Logo = createGlobalStyle`
-	.logo {
-		background: url("/images/logo-sprite.png") 0 0 no-repeat;
-		background-size: 100%;
-		width: 60px;
-		height: 60px;
-		border-radius: 50%;
-		${mixins.boxShadowMid()};
-		&:hover {
-			background-position: 0 -60px;
-		}
-	}
-`
 
 const MenuSc = styled.nav`
 	display: flex;
@@ -94,20 +83,10 @@ const MenuSc = styled.nav`
 				background: ${props => props.theme.menuActiveItemBg};
 			}
 		}
-		//hide logo item bg
-		&:first-child.active:after,
-		&:first-child:hover:after {display: none;}
 	}
 `
-
-const MobMenuToggle = styled(Icon)`
-	position: relative;
-	width: 60px;
-	height: 60px;
-	z-index: 200;
-	margin-left: -20px;//compensate svg padding
-`
 const MenuMob = styled(MenuSc)`
+	outline: 1px dashed magenta;
 	display: ${props => props.visible ? "flex" : "none"};
 	position: fixed;
 	top: 0;
@@ -116,5 +95,13 @@ const MenuMob = styled(MenuSc)`
 	padding: 25px 0 5px;
 	background-color: ${props => props.theme.mobMenuBg};
 	z-index: 100;
-
+`
+const MobMenuToggle = styled.div`
+	position: relative;
+	z-index: 200;
+	cursor: pointer;
+	& svg {
+		width: 48px;
+		height: 48px;
+	}
 `

@@ -1,7 +1,5 @@
-// TODO:  check router v6, replace Switch with Routes, Route (path, element) https://blog.logrocket.com/react-router-v6/
 import React, {useEffect, useState, createContext, useContext} from "react"
-import ReactDOM from "react-dom"
-import {BrowserRouter as Router, Switch, Route, useRouteMatch, useParams} from "react-router-dom"
+import {Switch, Route, useRouteMatch} from "react-router-dom"
 import {ThemeProvider, useTheme} from "styled-components"
 
 import {dark, light} from "./style/vars-mixins/_index"
@@ -72,7 +70,7 @@ export default function Root(props){
 			<GlobalStyle/>
 			<DebugStyle/>
 			{/*<Preloader/>*/}
-			{/* TODO wait for router v6 https://blog.logrocket.com/react-router-v6*/}
+			{/* TODO wait for router v6 https://blog.logrocket.com/react-router-v6, replace Switch with Routes, Route (path, element)*/}
 			<Switch>
 				<Route exact path="/" component={Frontpage}/>
 				<Route path="/sites">
