@@ -9,6 +9,34 @@ import smilingFaceWithSunglasses from "@iconify/icons-noto/smiling-face-with-sun
 
 
 const ToggleTheme = (props) => {
+	// 	const [isLightTheme, setLightTheme] = useState(checkUserTheme())
+// 	useEffect(() => {
+// 		localStorage.setItem("isLight", isLightTheme)
+// 		// localStorage.setItem("isLight", JSON.stringify(isLightTheme))
+// 	}, [isLightTheme])
+//
+// 	function checkUserTheme() {
+// 		const isReturningUser = "isLight" in localStorage
+// 		const userPrefersDark = () => {
+// 			if(!window.matchMedia) return
+// 			return window.matchMedia("(prefers-color-scheme: dark)").matches
+// 		}
+// 		if (isReturningUser) {
+// 			localStorage.getItem("isLight")// TODO: some fail with undefined at start
+// 			// JSON.parse(localStorage.getItem("isLight"))
+// 		} else if (userPrefersDark) {
+// 			return false
+// 		} else {
+// 			return false//default dark at first visit
+// 		}
+// 	}//checkUserTheme
+//
+// 	const toggleTheme = () => {
+// 		setLightTheme(prev => !prev)
+// 		console.info(`isLight is ${isLightTheme}!`)
+// 	}
+//////////////////////////////
+	//controlled checkbox
 	const [checked, setChecked] = useState(false)
 	const toggle = () => setChecked(prev => !prev)
 	return (
@@ -66,6 +94,7 @@ const Switch = styled.div`
 const Checkbox = styled.input`
 	display: none;
 `
+//TODO disable shake on page load
 const shaking = keyframes`
 	0% {transform: translateX(0)}
 	25% {transform: translateX(1px) rotate(1deg) scale(.97)}

@@ -8,7 +8,7 @@ import {colors, mixins} from "../../style/vars-mixins/_index"
 import Page404 from "../service/Page404"
 import Loading from "../service/Loading"
 import WorksNav from "./WorksNav"
-import {Icon, InlineIcon} from "@iconify/react"
+import {InlineIcon} from "@iconify/react"
 import exiticon from "@iconify/icons-openmoji/exit"
 
 const SingleWork = (props) => {
@@ -60,7 +60,7 @@ const SingleWork = (props) => {
 					<p><b>{work.year}</b></p>
 					<Url href={work.url} target="_blank">
 						<span>{work.urlTxt}</span>
-						<IconSc icon={exiticon}/>
+						{/*<InlineIcon icon={exiticon}/>*/}
 					</Url>
 				</Info>
 				<Description dangerouslySetInnerHTML={{__html: work.description}}></Description>
@@ -89,7 +89,7 @@ const SingleWork = (props) => {
 				</MainImgWrap>
 			</ContentWide>
 
-			<WorksNav worksList={worksList} work={work} bottom/>
+			<WorksNav worksList={worksList} work={work}/>
 		</Work>
 	)
 }
@@ -113,10 +113,11 @@ const Url = styled.a`//TODO add external link icon
 	font-size: 18px;
 	${mixins.borderUnderline};
 	color: ${props => props.theme.name === "dark" ? colors.mintGreen : colors.darkMintGreen};
-`
-const IconSc = styled(Icon)`
-	font-size: 20px;
-	margin-bottom: -4px;
+	// & svg {
+	// 	font-size: 20px;
+	// 	margin-bottom: -4px;
+	// 	& path {fill:  ${colors.almostWhite};}
+	// }
 `
 const Description = styled.p`
 	max-width: 700px;
@@ -143,6 +144,7 @@ const MainImgWrap = styled.div`
 `
 const Img = styled.img`
 	visibility: ${props => props.loaded ? "visible" : "hidden"};
-	${mixins.boxShadowMid("#000")}
 	max-width: 100%;
+	height: ${props => props.loaded ? "auto" : "150px"};
+	${mixins.boxShadowMid("#000")}
 `

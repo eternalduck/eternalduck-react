@@ -23,43 +23,17 @@ export const ThemeContext = createContext({
 })
 
 export default function Root(props){
-	let {path, url} = useRouteMatch()
+	// let {path, url} = useRouteMatch()
 
 	useEffect(() => {
-		//add class after loaded for fouc-fix
+		//class for fouc-fix
 		window.onload = () => {
 			document.body.className = "loaded"
 		}
 	})
 
-//////////////////////////////
-// 	const [isLightTheme, setLightTheme] = useState(checkUserTheme())
-// 	useEffect(() => {
-// 		localStorage.setItem("isLight", isLightTheme)
-// 		// localStorage.setItem("isLight", JSON.stringify(isLightTheme))
-// 	}, [isLightTheme])
-//
-// 	function checkUserTheme() {
-// 		const isReturningUser = "isLight" in localStorage
-// 		const userPrefersDark = () => {
-// 			if(!window.matchMedia) return
-// 			return window.matchMedia("(prefers-color-scheme: dark)").matches
-// 		}
-// 		if (isReturningUser) {
-// 			localStorage.getItem("isLight")// TODO: some fail with undefined at start
-// 			// JSON.parse(localStorage.getItem("isLight"))
-// 		} else if (userPrefersDark) {
-// 			return false
-// 		} else {
-// 			return false//default dark at first visit
-// 		}
-// 	}//checkUserTheme
-//
-// 	const toggleTheme = () => {
-// 		setLightTheme(prev => !prev)
-// 		console.info(`isLight is ${isLightTheme}!`)
-// 	}
-//////////////////////////////
+//// toggleTheme logic was here
+
 	return(
 	// <ThemeContext.Provider value={{
 	// 	isLightTheme: isLightTheme,
@@ -77,11 +51,13 @@ export default function Root(props){
 					<Switch>
 						<Route exact path="/sites">
 							<WorksPage data={sitesList}
-								bg={props => props.theme.sitesPageBg}/>
+								bg={props => props.theme.sitesPageBg}
+							/>
 						</Route>
-						<Route path={`/sites/:itemSlug`}>
+						<Route exact path={`/sites/:itemSlug`}>
 							<SingleWork data={sitesList}
-								bg={props => props.theme.singleSiteBg}/>
+								bg={props => props.theme.singleSiteBg}
+							/>
 						</Route>
 					</Switch>
 				</Route>
@@ -89,11 +65,13 @@ export default function Root(props){
 					<Switch>
 						<Route exact path="/ux">
 							<WorksPage data={uxList}
-								bg={props => props.theme.uxPageBg}/>
+								bg={props => props.theme.uxPageBg}
+							/>
 						</Route>
-						<Route path={`/ux/:itemSlug`}>
+						<Route exact path={`/ux/:itemSlug`}>
 							<SingleWork data={uxList}
-								bg={props => props.theme.singleUxBg}/>
+								bg={props => props.theme.singleUxBg}
+							/>
 						</Route>
 					</Switch>
 				</Route>

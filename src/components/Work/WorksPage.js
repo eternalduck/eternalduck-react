@@ -5,7 +5,6 @@ import Header from "../header-footer/Header"
 import ContentWidth from "../Layout/ContentWidth"
 import WorkItem from "./WorkItem"
 import {generateRandomBg} from "../helpers/generateRandomBg"
-import Loading from "../service/Loading"
 
 
 const WorksPage = (props) => {
@@ -36,7 +35,7 @@ const WorksPage = (props) => {
 }//WorksPage
 
 const Works = styled.div`
-	background: ${props => props.bg} url("images/circle.png") right bottom no-repeat;
+	background: ${props => props.bg} url("/images/circle.png") right bottom no-repeat;
 `
 const WorksWrap = styled.div`
 	margin-top: 50px;
