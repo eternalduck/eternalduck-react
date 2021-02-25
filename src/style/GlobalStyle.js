@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
 	${resetCss}
 	// 1. General
 	// font can be here or in index.html
-	//@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap");
+	//@import url('https://fonts.googleapis.com/css2?family=Cousine:wght@400;700&family=Open+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap');
 	body {
 		background: ${props => props.theme.bodyBg};
 		color: ${props => props.theme.txtClr};
@@ -27,42 +27,45 @@ const GlobalStyle = createGlobalStyle`
 	}
 	// 2. Typography
 	h1, h2, h3, h4 {
-		font-family: "Courier New", monospace;
+		font-family: "Cousine", monospace;
 		// font-family: "Roboto Slab", serif;
 		font-weight: 700;
 		line-height: 1.2;
 	}
 	h1 {
-		font-size: 30px;
-		margin-bottom: 15px;
+		font-size: 28px;
+		margin-bottom: 20px;
+		&:lang(ru) {
+			font-size: 24px;
+		}
 		${media.md`
-			font-size: 40px;
+			font-size: 38px;
 		`}
 		${media.lg`
-			font-size: 44px;
-			margin-bottom: 20px;
+			font-size: 42px;
+			margin-bottom: 25px;
 		`}
 	}
 	h2 {
 		font-size: 26px;
-		margin-bottom: 12px;
+		margin-bottom: 15px;
 		${media.md`
 			font-size: 32px;
 		`}
 		${media.lg`
 			font-size: 36px;
-			margin-bottom: 18px;
+			margin-bottom: 20px;
 		`}
 	}
 	h3 {
 		font-size: 24px;
-		margin-bottom: 10px;
+		margin-bottom: 15px;
 		${media.md`
 			font-size: 28px;
 		`}
 		${media.lg`
 			font-size: 30px;
-			margin-bottom: 15px;
+			margin-bottom: 20px;
 		`}
 	}
 	p {

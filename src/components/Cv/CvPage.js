@@ -3,7 +3,6 @@ import styled from "styled-components"
 import {media, colors, mixins} from "../../style/vars-mixins/_index"
 import Header from "../header-footer/Header"
 import ContentLimitedWidth from "../Layout/ContentLimitedWidth"
-import ContentWidth from "../Layout/ContentWidth"
 import {cvTxt, cvTxtRu} from "../data/cvTxt"
 import {InlineIcon} from "@iconify/react"
 import globeShowingAmericas from "@iconify/icons-openmoji/globe-showing-americas"
@@ -14,14 +13,12 @@ const CvPage = (props) => {
 	const [isLastJobsShown, setIsLastJobsShown] = useState(false)
 	return(
 		<Cv>
-		<ContentWidth>
-			<Header>
-				<LangSwitch onClick={switchLang}>
-					<span>{data.lang === "en" ? "Ru" : "En"}</span>
-					<IconSc icon={globeShowingAmericas}/>
-				</LangSwitch>
-			</Header>
-		</ContentWidth>
+		<Header>
+			<LangSwitch onClick={switchLang}>
+				<span>{data.lang === "en" ? "Ru" : "En"}</span>
+				<InlineIcon icon={globeShowingAmericas}/>
+			</LangSwitch>
+		</Header>
 
 		<ContentLimitedWidth>
 			<Top>
@@ -106,7 +103,6 @@ export default CvPage
 
 const LangSwitch = styled.div`
 	//outline: 1px dashed navajowhite;
-	//font-size: 16px;
 	text-align: right;
 	cursor: pointer;
 	display: flex;
@@ -117,13 +113,15 @@ const LangSwitch = styled.div`
 	${media.mdDown`
 		margin-right: 30px;
 	`}
+	& svg {//icon
+		${mixins.hoverOpacity};
+		margin-left: 5px;
+		font-size: 22px;
+		${media.md`
+			font-size: 24px;
+		`}
+	}
 `
-const IconSc = styled(InlineIcon)`
-	font-size: 32px;
-	margin-left: 5px;
-	${mixins.hoverOpacity};
-`
-
 const Cv = styled.div`
 	background: ${props => props.theme.cvBg};
 	color: ${props => props.theme.txtClr};
@@ -133,7 +131,7 @@ const Cv = styled.div`
 		color: ${theme => theme.txtClr};
 		${mixins.borderUnderline};
 	}
-	& h1, & h3 {
+	& h3 {
 		text-align: center;
 	}
 	& h1 {
@@ -204,14 +202,13 @@ const JobList = styled(List)`
 const Iconpic = styled.span`
 	display: inline-block;
 	font-size: 32px;
-	margin-right: 5px;
-	margin-left: -38px;
+	margin: 0 5px 0 -35px;
+	transform: translateY(5px);
 `
 const ToggleLastItems = styled.p`
 	color: ${props => props.theme.name === "dark" ? colors.pastelPink : colors.midVio};
-	font-size: 20px;
-	font-weight: bold;
-	margin-top: -25px;
+	font-size: 18px;
+	margin: -25px 0 45px 25px;
 	cursor: pointer;
 	${mixins.dashedUnderline};
 `

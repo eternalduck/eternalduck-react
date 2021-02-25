@@ -19,8 +19,8 @@ const WorksPage = (props) => {
 
 	return (
 		<Works bg={props.bg}>
+			<Header/>
 			<ContentWidth>
-				<Header/>
 				<WorksWrap>
 					{worksList && worksList.map((item, i) =>
 						<WorkItem key={item.slug}

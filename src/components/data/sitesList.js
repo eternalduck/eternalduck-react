@@ -86,15 +86,15 @@ export const sitesList = [
 			{
 				"src": "/images/work/sites/38-kp-land_desk-TMP-HEAVY.jpg",
 				// "src": "/images/work/sites/38-kp-land_desk.jpg",
-				"title": "Desktop Version",
+				"title": "Desktop",
 			},
 			{
 				"src": "/images/work/sites/38-kp-land_tabl.jpg",
-				"title": "Tablet Version",
+				"title": "Tablet",
 			},
 			{
 				"src": "/images/work/sites/38-kp-land_mob.jpg",
-				"title": "Mobile Version",
+				"title": "Mobile",
 			},
 		],
 		"url": "https://salespilot.ru",

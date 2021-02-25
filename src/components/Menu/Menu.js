@@ -86,22 +86,21 @@ const MenuSc = styled.nav`
 	}
 `
 const MenuMob = styled(MenuSc)`
-	outline: 1px dashed magenta;
-	display: ${props => props.visible ? "flex" : "none"};
+	transform: ${props => props.visible ? "translateY(0)" : "translateY(-100%)"};
+	transition: transform .3s ease-in;
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	padding: 25px 0 5px;
 	background-color: ${props => props.theme.mobMenuBg};
-	z-index: 100;
+	z-index: 200;
 `
 const MobMenuToggle = styled.div`
 	position: relative;
-	z-index: 200;
 	cursor: pointer;
+	z-index: 300;
 	& svg {
-		width: 48px;
-		height: 48px;
+		font-size: 46px;
 	}
 `

@@ -41,7 +41,7 @@ const ToggleTheme = (props) => {
 	const toggle = () => setChecked(prev => !prev)
 	return (
 		<SwitchWrap htmlFor="theme-switch">
-			<IconSC icon={crescentMoon} $shake={!checked}/>
+			<Icon icon={crescentMoon} $shake={!checked}/>
 				<Checkbox type="checkbox"
 					id="theme-switch"
 					onChange={toggle}
@@ -50,7 +50,7 @@ const ToggleTheme = (props) => {
 					// checked={isLightTheme ? true : false}
 				/>
 				<Switch/>
-			<IconSC icon={smilingFaceWithSunglasses} $shake={checked}/>
+			<Icon icon={smilingFaceWithSunglasses} $shake={checked}/>
 		</SwitchWrap>
 	)
 }
@@ -62,6 +62,20 @@ const SwitchWrap = styled.label`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	& svg {//icons
+		font-size: 22px;
+		transiton: transform .3s ease-in;
+		cursor: pointer;
+		${mixins.hoverOpacity};
+		${props => props.$shake ?//$shake is sc transient prop
+			css`animation: ${shaking} .3s ease-in;
+				animation-iteration-count: 2;`
+			: null
+		};
+		${media.md`
+			font-size: 24px;
+		`}
+	}//icons
 `
 const Switch = styled.div`
 	position: relative;
@@ -102,15 +116,18 @@ const shaking = keyframes`
 	75% {transform: translateX(-1px) rotate(-1deg)}
 	100% {transform: translateX(0) rotate(0) scale(1)}
 `
-const IconSC = styled(Icon)`
-	font-size: 24px;
-	transiton: transform .3s ease-in;
-	cursor: pointer;
-	${mixins.hoverOpacity};
-	${props => props.$shake ?//$shake is sc transient prop
-		css`animation: ${shaking} .3s ease-in;
-			animation-iteration-count: 2;`
-		: null
-	};
-`
+// const IconSC = styled(Icon)`
+// 	font-size: 20px;
+// 	transiton: transform .3s ease-in;
+// 	cursor: pointer;
+// 	${mixins.hoverOpacity};
+// 	${props => props.$shake ?//$shake is sc transient prop
+// 		css`animation: ${shaking} .3s ease-in;
+// 			animation-iteration-count: 2;`
+// 		: null
+// 	};
+// 	${media.md`
+// 		font-size: 24px;
+// 	`}
+// `
 
