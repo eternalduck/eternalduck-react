@@ -27,19 +27,16 @@ const GlobalStyle = createGlobalStyle`
 	}
 	// 2. Typography
 	h1, h2, h3, h4 {
-		font-family: "Cousine", monospace;
 		// font-family: "Roboto Slab", serif;
+		font-family: "Cousine", monospace;
 		font-weight: 700;
-		line-height: 1.2;
 	}
 	h1 {
-		font-size: 28px;
+		font-size: 26px;
+		line-height: 1.3;
 		margin-bottom: 20px;
-		&:lang(ru) {
-			font-size: 24px;
-		}
 		${media.md`
-			font-size: 38px;
+			font-size: 36px;
 		`}
 		${media.lg`
 			font-size: 42px;
@@ -47,10 +44,11 @@ const GlobalStyle = createGlobalStyle`
 		`}
 	}
 	h2 {
-		font-size: 26px;
+		font-size: 24px;
+		line-height: 1.5;
 		margin-bottom: 15px;
 		${media.md`
-			font-size: 32px;
+			font-size: 30px;
 		`}
 		${media.lg`
 			font-size: 36px;
@@ -58,10 +56,11 @@ const GlobalStyle = createGlobalStyle`
 		`}
 	}
 	h3 {
-		font-size: 24px;
+		font-size: 22px;
+		line-height: 1.5;
 		margin-bottom: 15px;
 		${media.md`
-			font-size: 28px;
+			font-size: 26px;
 		`}
 		${media.lg`
 			font-size: 30px;

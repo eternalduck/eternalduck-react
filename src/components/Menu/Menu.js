@@ -45,7 +45,7 @@ export const MobMenu = (props) => {
 					: <Icon icon={hamburgerIcon}/>
 				}
 			</MobMenuToggle>
-		<MenuMob visible={isMenuVisible}>
+		<MenuMob visible={isMenuVisible} onClick={toggleMobMenu}>
 			<MenuItems/>
 		</MenuMob>
 		</>

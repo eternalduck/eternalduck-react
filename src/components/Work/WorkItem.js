@@ -20,7 +20,7 @@ const WorkItem = (props) => {
 					<Url>
 						<a href={props.item.url} target={"_blank"} rel={"noreferrer"}>
 							<span>{props.item.urlTxt}</span>
-							<IconSc icon={exiticon}/>
+							{/*<Icon icon={exiticon}/>*/}
 						</a>
 						{props.item.url2 &&
 							<a href={props.item.url2} target={"_blank"} rel={"noreferrer"}>
@@ -30,8 +30,8 @@ const WorkItem = (props) => {
 					</Url>
 				}
 					<Info>
-						<p>{props.item.keywords}</p>
 						<p><b>{props.item.year}</b></p>
+						<p>{props.item.keywords}</p>
 					</Info>
 				</>
 			<Descr dangerouslySetInnerHTML={{__html: props.item.description}}/>
@@ -52,8 +52,9 @@ const Item = styled.div`
 	max-width: 500px;
 	position: relative;
 	margin: 0 auto 60px;
-	padding: 30px 20px 20px 35px;
+	padding: 20px 15px 15px 25px;
 	background: ${colors.almostWhite};
+	border-radius: 2px;
 	${mixins.boxShadowSmall(colors.almostBlack)};
 	&:after {//small color stripe
 		${mixins.defaultPseudo("15px", "100%")};
@@ -72,17 +73,15 @@ const Item = styled.div`
 		grid-template-columns: 3fr 2fr;
 	`}
 `
-
 const Txt = styled.div`
-	//outline: 2px dashed orange;
+	//outline: 1px dashed orange;
 	color: ${colors.almostBlack};
-	margin-bottom: 15px;
+	margin-bottom: 12px;
 	${media.md`
 		grid-area: txt;
 		margin-bottom: 0;
 	`}
 	& a {color: ${colors.almostBlack};
-
 `
 const Title = styled.h3`
 	${mixins.borderUnderline};
@@ -92,10 +91,10 @@ const Title = styled.h3`
 const Url = styled.p`
 	${mixins.borderUnderline};
 	font-weight: bold;
-	font-size: 18px;
 	margin-bottom: 15px;
 	${media.md`
 		margin: 20px 0;
+		font-size: 18px;
 	`}
 	& a {
 		color: ${colors.dustBlue};
@@ -104,34 +103,33 @@ const Url = styled.p`
 			margin-right: 20px;
 		}
 	}
-`
-const IconSc = styled(Icon)`
-	font-size: 20px;
-	margin-bottom: -5px;
-	margin-left: 3px;
+	& svg {//icon
+		font-size: 20px;
+		margin-bottom: -5px;
+		margin-left: 3px;
+		
+	}
 `
 const Info = styled.div`
 	font-size: 15px;
 	color: ${colors.dustBlue};
-	margin-bottom: 20px;
+	margin-bottom: 15px;
+	${media.md`
+		margin-bottom: 20px;
+	`}
 `
-
 const Descr = styled.div`
 	//outline: 1px dashed magenta;
 	color: ${colors.almostBlack};
-	margin-bottom: 20px;
+	margin-bottom: 15px;
 	${media.md`
 		margin-bottom: 0;
 	`}
 `
-
 const ImgWrap = styled.div`
-	//outline: 2px dotted red;
-	width: 70%;
+	//outline: 1px dotted red;
+	width: 60%;
 	margin: 0 auto;
-	${media.sm`
-		width: 60%;
-	`}
 	${media.md`
 		grid-area: img;
 		width: calc(100% - 30px);
@@ -142,11 +140,9 @@ const ImgWrap = styled.div`
 		${mixins.hoverOpacity};
 	}
 `
-
 const Img = styled.img`
 	${mixins.boxShadowSmall()};
 	object-fit: contain;
 	object-position: center bottom;
 	width: 100%;
 `
-
