@@ -1,6 +1,6 @@
 import React, {useEffect, useState, createContext, useContext} from "react"
 import {Switch, Route, useRouteMatch} from "react-router-dom"
-import {ThemeProvider, useTheme} from "styled-components"
+import styled,{ThemeProvider, useTheme} from "styled-components"
 
 import {dark, light} from "./style/vars-mixins/_index"
 import GlobalStyle from "./style/GlobalStyle"
@@ -26,11 +26,9 @@ export default function Root(props){
 	// let {path, url} = useRouteMatch()
 
 	useEffect(() => {
-		//class for fouc-fix
-		window.onload = () => {
-			document.body.className = "loaded"
-		}
-	})
+		//class for fouc-fix.css
+		document.body.className = "loaded"
+	}, [])
 
 //// toggleTheme logic was here
 
@@ -83,3 +81,8 @@ export default function Root(props){
 	// </ThemeContext.Provider>
 	)
 }
+const Anchor = styled.a.attrs(
+	props => ({className: "primary"})
+)`
+	color: red;
+`

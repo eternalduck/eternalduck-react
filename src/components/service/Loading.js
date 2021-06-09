@@ -19,12 +19,13 @@ const bounce = keyframes`
 	50% {transform: scale(.7); opacity: .7}
 `
 const LoadingContainer = styled.div`//should sit in relative container!
-	position: absolute;
+	position: absolute;//FAIL overlaps with bottom nav due to absolute
 	top: 50px;//override in parent if needed
 	left: 0;
 	width: 100%;
 	display: flex;
 	padding: 30px;
+	//margin: 50px 0;//?
 	z-index: 9999;
 `
 const Ball = styled.div`

@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-
 import {mixins} from "../../style/vars-mixins/_index"
 
 const ContentWidth = (props) => {

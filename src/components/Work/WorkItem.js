@@ -74,7 +74,6 @@ const Item = styled.div`
 	`}
 `
 const Txt = styled.div`
-	//outline: 1px dashed orange;
 	color: ${colors.almostBlack};
 	margin-bottom: 12px;
 	${media.md`

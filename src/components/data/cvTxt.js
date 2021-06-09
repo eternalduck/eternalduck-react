@@ -18,7 +18,7 @@ export const cvTxt = {
 	"email": "eternalduckie@gmail.com",
 	// "tg": "telegram: @eternalduck",
 	"gitUrl": "https://github.com/eternalduck?tab=repositories",
-	"title": `Front-end Developer<br/>Junior React Developer`,
+	"title": `UI Developer<br/>Junior Front-end Developer (React)`,
 	"skillsTitle": "Skills",
 	"skillsList": [
 		"Extensive knowledge of HTML/CSS: clean, valid and well-commented code, I turn designers' prototypes into valid cross-browser interactive pages;",
@@ -36,13 +36,13 @@ export const cvTxt = {
 		"good color taste and feel for fine typography and composition;",
 		"knowledge of basic web marketing and sales principles;",
 		"domain registration and hosting; understanding web services operation principles;",
-		"setting up and configuring Windows and applications, troubleshooting;",
+		"setting up and configuring Windows and applications, troubleshooting.",
 	],
 	"softSkillsTitle": "Soft Skills",
 	"softSkillsList": [
 		"advanced English, basic German and Dutch;",
 		"I like working in a team, and I'm easy-going;",
-		"I have a solid experience of working remotely, well-equipped workplace, and I know how to plan my time",
+		"I have a solid experience of working remotely, well-equipped workplace, and I know how to plan my time.",
 	],
 	"jobsTitle": "Job Experience",
 	"jobsList": [
@@ -53,10 +53,10 @@ export const cvTxt = {
 			"url": "",
 			"date": "(since January, 2021, remote)",
 			"tasks": [
-				"Wordpress sites with custom designs &amp; themes from scratch;",
-				"Tilda sites with a bunch of custom JS scripts;",
 				"building pure layouts for specific tasks using Gulp or Webpack;",
-				"writing small modules &amp; styling for React projects",
+				"writing small modules &amp; styling for React projects;",
+				"Wordpress sites with custom designs &amp; themes from scratch;",
+				"Tilda sites with a bunch of custom JS scripts.",
 			],
 		},
 //////////////////////////
@@ -72,7 +72,7 @@ export const cvTxt = {
 				"interviewing users and composing flow charts and&nbsp;user stories for&nbsp;a&nbsp;new internal product;",
 				"creating landing pages;",
 				"Google Analytics &amp; GTM setup;",
-				"existing web projects support",
+				"existing web projects support.",
 			],
 		},
 //////////////////////////
@@ -84,7 +84,7 @@ export const cvTxt = {
 			"date": "(January, 2015 &ndash; February, 2019)",
 			"tasks": [
 				"working with different clients, participation in&nbsp;large &amp; medium-scale projects;",
-				"making small sites from the idea to&nbsp;implementation",
+				"making small sites from the idea to&nbsp;implementation.",
 			],
 		},
 //////////////////////////
@@ -98,7 +98,7 @@ export const cvTxt = {
 				"developing HTML pages by PSD designs;",
 				"developing marketing email templates;",
 				"existing projects support &amp; content management;",
-				"setting up massmailing, reporting and data analysis, research of user behavior to improve mail design and delivery to inbox",
+				"setting up massmailing, reporting and data analysis, research of user behavior to improve mail design and delivery to inbox.",
 			],
 		},
 //////////////////////////
@@ -111,7 +111,7 @@ export const cvTxt = {
 			"tasks": [
 				"developing HTML pages by PSD designs;",
 				"troubleshooting, optimization and support of the existing site;",
-				"content-management",
+				"content-management.",
 			],
 		},
 //////////////////////////
@@ -125,7 +125,7 @@ export const cvTxt = {
 				"internal clients support;",
 				"answering calls, identifying problems;",
 				"resolving current issues on Windows, Lotus Notes, MS Office; networking;",
-				"operating system &amp; hardware troubleshooting",
+				"operating system &amp; hardware troubleshooting.",
 			],
 		},
 //////////////////////////
@@ -134,11 +134,11 @@ export const cvTxt = {
 			"position": "English Translator at ",
 			"company": "Polyglot &amp; TransLit Translation Agencies",
 			"url": "",
-			"date": "(June, 2006 &ndash; May, 2011)",
+			"date": "(June, 2006 &ndash; May, 2009)",
 			"tasks": [
 				"written translation of documents on various general and technical topics;",
 				"translations and texts editing;",
-				"interpreting",
+				"interpreting.",
 			],
 		},
 //////////////////////////
@@ -150,19 +150,19 @@ export const cvTxt = {
 			"date": "(September, 2004 &ndash; June, 2005; Vladivostok)",
 			"tasks": [
 				"teaching English lessons;",
-				"developing education program for each class individually",
+				"developing education program for each class individually.",
 			],
 		},
 //////////////////////////
 		{
 			"icon": <InlineIcon icon={pencilIcon} />,
-			"position": "Junior English Translator at ",
+			"position": "English Translator at ",
 			"company": "Hydrotex Research Institute",
 			"url": "",
 			"date": "(January, 2003 &ndash; September, 2005; Vladivostok)",
 			"tasks": [
 				"translation of technical documentation on hydraulic engineering and construction, and business letters;",
-				"helping senior translator with their everyday routine",
+				"helping senior translator with their everyday routine.",
 			],
 		},
 	],
@@ -187,7 +187,7 @@ export const cvTxtRu = {
 	"email": "eternalduckie@gmail.com",
 	// "tg": "telegram: @eternalduck",
 	"gitUrl": "https://github.com/eternalduck?tab=repositories",
-	"title": `Frontend-разработчик,<br/>начинающий React-разработчик`,
+	"title": `Начинающий Frontend-разработчик (React),<br/>HTML-верстальщик`,
 	"skillsTitle": "Профессиональные навыки",
 	"skillsList": [
 		"создаю сайты, пишу стройный и валидный код, люблю адаптивную кроссбраузерную вёрстку;",
@@ -206,7 +206,7 @@ export const cvTxtRu = {
 		"есть опыт сборки оборудования, установки/настройка Windows и т. д.;",
 		"свободный английский, базовые немецкий и нидерландский;",
 		"умею работать в команде, легко нахожу общий язык;",
-		"есть опыт работы на удалёнке, могу планировать время и соблюдать баланс",
+		"есть опыт работы на удалёнке, могу планировать время и соблюдать баланс.",
 	],
 	"softSkillsTitle": "",
 	"softSkillsList": [],
@@ -219,10 +219,10 @@ export const cvTxtRu = {
 			"company": "",
 			"url": "",
 			"tasks": [
-				"разработка сайтов на Wordpress с нестандартным дизайном и темами с нуля;",
-				"разработка сайтов на Tilda и написание кастомных JS-скритов под них;",
 				"чистая вёрстка со сборкой на Gulp или Webpack под узкие задачи клиента;",
-				"разработка небольших модулей и стилей для готовых проектов на React",
+				"разработка небольших модулей и стилей для готовых проектов на React;",
+				"разработка сайтов на Wordpress с нестандартным дизайном и темами с нуля;",
+				"сайты на Tilda и написание кастомных JS-скритов под них.",
 			],
 		},
 //////////////////////////
@@ -237,7 +237,7 @@ export const cvTxtRu = {
 				"создание интерактивных прототипов в Figma;",
 				"проведение интервью с пользователями, составление схем и user stories для нового внутреннего продукта;",
 				"создание и поддержка сайтов на Wordpress и остальных проектов;",
-				"настройка Google Analytics и GTM"
+				"настройка Google Analytics и GTM."
 			],
 		},
 //////////////////////////
@@ -249,7 +249,7 @@ export const cvTxtRu = {
 			"url": "",
 			"tasks": [
 				"работа с различными клиентами, участие в больших проектах;",
-				"создание небольших сайтов с нуля"
+				"создание небольших сайтов с нуля."
 			],
 		},
 //////////////////////////
@@ -266,7 +266,7 @@ export const cvTxtRu = {
 				"внесение изменений в существующие сайты;",
 				"публикация различного контента;",
 				"решение текущих вопросов по вёрстке;",
-				"проведение маркетинговых рассылок, составление отчётов и анализ данных, исследование поведения пользователей с целью улучшения дизайна писем и их доставляемости",
+				"проведение маркетинговых рассылок, составление отчётов и анализ данных, исследование поведения пользователей с целью улучшения дизайна писем и их доставляемости.",
 			],
 		},
 //////////////////////////
@@ -280,7 +280,7 @@ export const cvTxtRu = {
 				"вёрстка страниц по psd-макетам;",
 				"исправление в коде работающего сайта;",
 				"наполнение контентом;",
-				"решение текущих вопросов по вёрстке",
+				"решение текущих вопросов по вёрстке.",
 			],
 		},
 //////////////////////////
@@ -297,19 +297,19 @@ export const cvTxtRu = {
 				"настройка WiFi & bluetooth;",
 				"настройка и поддержка LotusNotes, MS Office и других приложений;",
 				"решение проблем с Windows;",
-				"диагностика и сборка оборудования",
+				"диагностика и сборка оборудования.",
 			],
 		},
 //////////////////////////
 		{
 			"icon": <InlineIcon icon={composeIcon} />,
 			"position": "Переводчик: ",
-			"date": "(июнь 2006 &ndash; июль 2009)",
+			"date": "(июнь 2006 &ndash; май 2009)",
 			"company": "Polyglot &amp; TransLit Translation Agencies",
 			"url": "",
 			"tasks": [
 				"письменный перевод и редактирование документов различной тематики;",
-				"устный перевод",
+				"устный перевод.",
 			],
 		},
 //////////////////////////
@@ -321,7 +321,7 @@ export const cvTxtRu = {
 			"url": "",
 			"tasks": [
 				"проведение уроков;",
-				"ведение журнала, составление учебного плана",
+				"ведение журнала, составление учебного плана.",
 			],
 		},
 //////////////////////////
@@ -334,7 +334,7 @@ export const cvTxtRu = {
 			"tasks": [
 				"письменный перевод технических проектов по строительству гидротехнических сооружений, проектам Сахалин I и II, перевод деловой переписки;",
 				"редактирование текстов;",
-				"помощь старшему переводчику в решении текущих вопросов",
+				"помощь старшему переводчику в решении текущих вопросов.",
 			],
 		},
 	],
