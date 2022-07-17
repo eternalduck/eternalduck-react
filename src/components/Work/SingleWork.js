@@ -1,18 +1,18 @@
 import React, { useState, useEffect, useRef } from "react"
-import ContentWidth from "../Layout/ContentWidth"
-import ContentWide from "../Layout/ContentWide"
-import Header from "../header-footer/Header"
-import {useParams} from "react-router-dom"
+import {Outlet, useParams} from "react-router-dom"
 import styled from "styled-components"
-import {colors, mixins} from "../../style/vars-mixins/_index"
-import Page404 from "../service/Page404"
-import Loading from "../service/Loading"
+import {colors, mixins} from "@style/vars-mixins/_index"
+import ContentWidth from "@components/Layout/ContentWidth"
+import ContentWide from "@components/Layout/ContentWide"
+import Loading from "@components/service/Loading"
+import Page404 from "@pages/Page404"
+// import Header from "@components/header-footer/Header"
 import WorksNav from "./WorksNav"
 import {InlineIcon} from "@iconify/react"
 import exiticon from "@iconify/icons-openmoji/exit"
 
 const SingleWork = (props) => {
-	const worksList = props.data//sitesList or uxList expected
+	const worksList = props.data// sitesList or uxList expected
 	const {itemSlug} = useParams()
 	// Get data for the current work
 	const currentWork = worksList.find(item => item.slug === itemSlug)
@@ -23,6 +23,8 @@ const SingleWork = (props) => {
 	const [mainImgTitle, setMainImgTitle] = useState("")
 	// set main image on first page load
 	useEffect(() => {
+		console.info("currentWork:")
+		console.info(currentWork)
 		work && setMainImgSrc(work.images[0].src)
 		work && setMainImgTitle(work.images[0].title)
 	}, [work])
@@ -51,8 +53,8 @@ const SingleWork = (props) => {
 		!work ?
 		<Page404/> :
 		<Work bg={props.bg}>
-			<Header/>
-			<WorksNav worksList={worksList} work={work}/>
+			{/* <Header/> */}
+			{<WorksNav worksList={worksList} work={work}/>}
 
 			<ContentWidth>
 				<Title>{work.title}</Title>
@@ -89,7 +91,7 @@ const SingleWork = (props) => {
 				</MainImgWrap>
 			</ContentWide>
 
-			<WorksNav worksList={worksList} work={work}/>
+			{/* <WorksNav worksList={worksList} work={work}/> */}
 		</Work>
 	)
 }

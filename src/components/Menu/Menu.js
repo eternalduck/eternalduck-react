@@ -1,22 +1,22 @@
 import React, {useState} from "react"
-import {Link, NavLink} from "react-router-dom"
+import {Link} from "react-router-dom"
 import styled from "styled-components"
-import {colors, mixins, media} from "../../style/vars-mixins/_index"
+import {colors, mixins, media} from "@style/vars-mixins/_index"
 import {Icon} from "@iconify/react"
 import hamburgerIcon from "@iconify/icons-openmoji/hamburger"
 import multiplyIcon from "@iconify/icons-openmoji/multiply"
-import {menuItems} from "../data/menuItems"
+import {menuItems} from "@data/menuItems"
 
 const MenuItems = (props) => {
 	return (
 		<>
 		{menuItems.map(item => (
-			<NavLink key={item.id}
+			<Link key={item.id}
 				to={item.url}
-				exact={true}
+				// exact={true}
 			>
 				{item.txt}
-			</NavLink>
+			</Link>
 		))}
 		</>
 	)
@@ -26,6 +26,7 @@ export const Menu = (props) => {
 	return (
 		<MenuSc>
 			<MenuItems/>
+			<Link to="/test/test2">test2</Link>
 		</MenuSc>
 	)
 }//Menu

@@ -1,17 +1,18 @@
 import React, {useState, useEffect, useCallback} from "react"
-import {Link, useRouteMatch} from "react-router-dom"
+import {Link, matchRoutes, useLocation} from "react-router-dom"
 import styled from "styled-components"
-import {media, colors, mixins} from "../../style/vars-mixins/_index"
+import {media, colors, mixins} from "@style/vars-mixins/_index"
 import {Icon, InlineIcon} from "@iconify/react"
 import exiticon from "@iconify/icons-openmoji/exit"
 
 const WorkItem = (props) => {
-	let {url} = useRouteMatch()
+	let currentURL = useLocation().pathname
+
 	return (
 		<Item bg={props.bg}>
 			<Txt>
 				<Title>
-					<Link to={`${url}/${props.item.slug}`}>
+					<Link to={`${currentURL}/${props.item.slug}`}>
 						<span>{props.item.title}</span>
 					</Link>
 				</Title>
@@ -37,7 +38,7 @@ const WorkItem = (props) => {
 			<Descr dangerouslySetInnerHTML={{__html: props.item.description}}/>
 			</Txt>
 			<ImgWrap>
-				<Link to={`${url}/${props.item.slug}`}>
+				<Link to={`${currentURL}/${props.item.slug}`}>
 					<Img src={props.item.thumb} alt={props.item.title}/>
 				</Link>
 			</ImgWrap>

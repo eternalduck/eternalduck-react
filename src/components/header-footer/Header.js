@@ -1,11 +1,11 @@
 import React from "react"
 import {Link} from "react-router-dom"
-import {Menu, MobMenu} from "../Menu/Menu"
 import styled from "styled-components"
-import {media, colors, mixins} from "../../style/vars-mixins/_index"
-import ContentWidth from "../Layout/ContentWidth"
-import ToggleTheme from "../ToggleTheme/ToggleTheme"
-import {isMobile} from "../helpers/responsive"
+import {Menu, MobMenu} from "@components/Menu/Menu"
+import {media, colors, mixins} from "@style/vars-mixins/_index"
+import ContentWidth from "@components/Layout/ContentWidth"
+import ToggleTheme from "@components/ToggleTheme/ToggleTheme"
+import {isMobile} from "@components/helpers/responsive"
 
 const Header = (props) => {
 	const {isMob} = isMobile()

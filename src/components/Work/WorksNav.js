@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react"
 import styled, {keyframes} from "styled-components"
-import {Link, useRouteMatch} from "react-router-dom"
-import {colors, mixins, media} from "../../style/vars-mixins/_index"
-import ContentWidth from "../Layout/ContentWidth"
+import {Link, matchRoutes, useLocation} from "react-router-dom"
+import {colors, mixins, media} from "@style/vars-mixins/_index"
+import ContentWidth from "@components/Layout/ContentWidth"
 import {InlineIcon} from "@iconify/react"
 import previousIcon from "@iconify/icons-flat-color-icons/previous"
 import nextIcon from "@iconify/icons-flat-color-icons/next"
@@ -16,8 +16,8 @@ const WorksNav = (props) => {
 	const worksList = props.worksList
 	const work = props.work
 	// Get url of parent page with all works
-	let {url} = useRouteMatch()
-	const parentUrl = url.slice(0, url.lastIndexOf("/"))
+	const currentURL = useLocation().pathname
+	const parentUrl = currentURL.slice(0, currentURL.lastIndexOf("/"))// TODO?
 
 	// Toggle nav links description
 	const [isPrevDescrShown, setIsPrevDescrShown] = useState(false)

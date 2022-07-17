@@ -7,11 +7,11 @@ export const menuItems =
 		"url": "/sites",
 		"id": "sites"
 	},
-	{
-		"txt": "ux",
-		"url": "/ux",
-		"id": "ux"
-	},
+	// {
+	// 	"txt": "ux",
+	// 	"url": "/ux",
+	// 	"id": "ux"
+	// },
 	{
 		"txt": "cv",
 		"url": "/cv",

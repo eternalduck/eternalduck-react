@@ -74,7 +74,7 @@ export const sitesList = [
 		"urlTxt2": "Behance",
 		"txt2": "Behance",
 		"keywords": "html, sass, js, responsive, gulp",
-		"year": "2019",//2018?
+		"year": "2019",
 		"description": `<p>A third site for a door factory that year :) I've done all html layout and js effects including door design selection.</p><p>All that then was adapted for Birtix CMS by a backend team.</p>`,
 		"descriptionRu": "",
 	},
