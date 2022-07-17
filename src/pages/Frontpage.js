@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 import ReactDOM from "react-dom"
 import styled from "styled-components"
 import {colors, media} from "@style/vars-mixins/_index"
-import Header from "@components/header-footer/Header"
 
 const Frontpage = (props, theme) => {
 	// useEffect(() => {
@@ -11,9 +10,7 @@ const Frontpage = (props, theme) => {
 	//TODO make random song search
 	//https://medium.com/@perryjanssen/getting-random-tracks-using-the-spotify-api-61889b0c0c27
 	return(
-		<FrontpageSC>
-			{/* <Header isFront={true}/> */}
-		</FrontpageSC>
+		<FrontpageSC/>
 	)
 }
 

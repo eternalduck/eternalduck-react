@@ -6,7 +6,6 @@ import ContentWidth from "@components/Layout/ContentWidth"
 import ContentWide from "@components/Layout/ContentWide"
 import Loading from "@components/service/Loading"
 import Page404 from "@pages/Page404"
-// import Header from "@components/header-footer/Header"
 import WorksNav from "./WorksNav"
 import {InlineIcon} from "@iconify/react"
 import exiticon from "@iconify/icons-openmoji/exit"
@@ -53,7 +52,6 @@ const SingleWork = (props) => {
 		!work ?
 		<Page404/> :
 		<Work bg={props.bg}>
-			{/* <Header/> */}
 			{<WorksNav worksList={worksList} work={work}/>}
 
 			<ContentWidth>

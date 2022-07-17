@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import {media, colors, mixins} from "@style/vars-mixins/_index"
-import Header from "@components/header-footer/Header"
 import ContentLimitedWidth from "@components/Layout/ContentLimitedWidth"
 import {cvTxt, cvTxtRu} from "@data/cvTxt"
 import {InlineIcon} from "@iconify/react"
@@ -13,12 +12,12 @@ const CvPage = (props) => {
 	const [isLastJobsShown, setIsLastJobsShown] = useState(false)
 	return(
 		<Cv>
-		<Header>
+		{/* <Header> */}
 			<LangSwitch onClick={switchLang}>
 				<span>{data.lang === "en" ? "Ru" : "En"}</span>
 				<InlineIcon icon={globeShowingAmericas}/>
 			</LangSwitch>
-		</Header>
+		{/* </Header> */}
 
 		<ContentLimitedWidth>
 			<Top>

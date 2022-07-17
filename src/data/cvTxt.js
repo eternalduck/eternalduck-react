@@ -18,7 +18,7 @@ export const cvTxt = {
 	"email": "eternalduckie@gmail.com",
 	// "tg": "telegram: @eternalduck",
 	"gitUrl": "https://github.com/eternalduck?tab=repositories",
-	"title": `UI Developer<br/>Junior Front-end Developer (React)`,
+	"title": `UI Developer<br/>Front-end Developer (React)`,
 	"skillsTitle": "Skills",
 	"skillsList": [
 		"Extensive knowledge of HTML/CSS: clean, valid and well-commented code, I turn designers' prototypes into valid cross-browser interactive pages;",
