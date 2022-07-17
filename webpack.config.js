@@ -77,21 +77,22 @@ module.exports = {
 		],//rules
 	},//module
 
-	// resolve: {//?
+	resolve: {
 	//   extensions: ['*', '.js', '.jsx'],
-	// },
-
-	// resolve: {//may be needed later
-  //   alias: {
-  //     Utilities: path.resolve(__dirname, 'src/utilities/'),
-  //     Templates: path.resolve(__dirname, 'src/templates/')
-  //   }
-  // }
-	//then use in js: import Utility from 'Utilities/utility';
-
+	alias: {
+		"@": path.resolve(__dirname, 'src'),
+		"@data": path.resolve(__dirname, 'src/data'),
+		"@style": path.resolve(__dirname, 'src/style'),
+		"@components": path.resolve(__dirname, 'src/components'),
+		"@pages": path.resolve(__dirname, 'src/pages')
+	}
+  },
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
-		new ESLintPlugin(),
+		new ESLintPlugin({
+			// emitWarning: false,
+			quiet: true
+		}),
 		new htmlWebpackPlugin(
 			{template: './src/public/index.html'}
 		),
@@ -116,24 +117,43 @@ module.exports = {
 
 	output: {
 		path: path.resolve(__dirname, './build'),
-		filename: 'index.js',
-		publicPath: '/'//!!! react nested routes fail without it
+		publicPath: '/',//!!! react nested routes fail without it
+		filename: 'index.js'
 	},
 
 	devServer: {
 		port: 9900,
 		historyApiFallback: true,//!!!
-		contentBase: path.resolve(__dirname, './build'),
-		watchContentBase: true,
-		hot: true,//fail
+		compress: true,
+		hot: "only",//??
 		// publicPath: '/build/',
 		// liveReload: true,//fail
-		inline: true,
-		overlay: true,
+		// inline: true,
+		// overlay: true,
 		headers: {
 			"Access-Control-Allow-Origin": "*",
 			"Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
 			"Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+		},
+		// devMiddleware: {
+
+		// },
+		static: {
+			directory: path.resolve(__dirname, "./build"),
+			publicPath: "/",
+			// contentBase: path.resolve(__dirname, './build'),
+			watch: true
 		}
+		// Provide an array of objects in case you have multiple static folders:
+		// static: [
+		// 	{
+		// 		directory: path.join(__dirname, "assets"),
+		// 		publicPath: "/serve-public-path-url",
+		// 	},
+		// 	{
+		// 		directory: path.join(__dirname, "css"),
+		// 		publicPath: "/other-serve-public-path-url",
+		// 	},
+		// ],
 	},
 };
