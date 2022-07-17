@@ -9,7 +9,6 @@ import {sitesList} from "@data/sitesList"
 import {Link, matchRoutes, useLocation} from "react-router-dom"
 
 const WorksPage = (props) => {
-	// sitesList hardcoded - TMP!!
 	const currentURL = useLocation().pathname
 	const worksList = props.data//sitesList or uxList expected, TODO add check
 	const [bg, setBg] = useState("#333")
@@ -27,15 +26,16 @@ const WorksPage = (props) => {
 				<WorksWrap>
 					{worksList && worksList.map((item, i) =>
 
-						<p key={item.slug}>
-							<Link to={`${currentURL}/${item.slug}`}>
-								<span>{item.title}</span>
-							</Link>
-						</p>
-						// <WorkItem key={item.slug}
-						// 	item={item}
-						// 	bg={bg[i]}
-						// />
+						// <p key={item.slug}>
+						// 	<Link to={`${currentURL}/${item.slug}`}>
+						// 		<span>{item.title}</span>
+						// 	</Link>
+						// </p>
+
+						<WorkItem key={item.slug}
+							item={item}
+							bg={bg[i]}
+						/>
 					)}
 				</WorksWrap>
 			</ContentWidth>
@@ -49,6 +49,8 @@ const Works = styled.div`
 const WorksWrap = styled.div`
 	margin-top: 50px;
 	padding-bottom: 100px;
+	/* display: flex;
+	flex-flow: row wrap; */
 `
 
 export default WorksPage

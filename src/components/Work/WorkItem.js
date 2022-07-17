@@ -49,10 +49,10 @@ const WorkItem = (props) => {
 export default WorkItem
 
 const Item = styled.div`
+	/* flex: 0 0 45%; */
 	width: 100%;
-	max-width: 500px;
 	position: relative;
-	margin: 0 auto 60px;
+	margin: 0 auto 40px;
 	padding: 20px 15px 15px 25px;
 	background: ${colors.almostWhite};
 	border-radius: 2px;
@@ -62,10 +62,10 @@ const Item = styled.div`
 		background: ${props => props.bg};
 	}
 	${media.md`
-		max-width: 800px;
 		display: grid;
 		grid-template: "txt img" auto / 1fr 1fr;
-		padding: 40px 30px 30px 40px;
+		max-width: 800px;
+		padding: 30px 15px 15px 35px;
 		&:after {
 			${mixins.defaultPseudo("20px", "100%")};
 		}
@@ -127,7 +127,7 @@ const Descr = styled.div`
 	`}
 `
 const ImgWrap = styled.div`
-	//outline: 1px dotted red;
+	outline: 1px dotted red;
 	width: 60%;
 	margin: 0 auto;
 	${media.md`
