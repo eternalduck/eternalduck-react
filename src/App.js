@@ -3,9 +3,10 @@ import {BrowserRouter, Routes, Route, useParams, Outlet} from "react-router-dom"
 import styled, {ThemeProvider, useTheme} from "styled-components"
 
 import {dark, light} from "@style/vars-mixins/_index"
-import GlobalStyle from "@style/GlobalStyle"
-import DebugStyle from "@style/utils/DebugStyle"
+// import GlobalStyle from "@style/GlobalStyle"
+// import DebugStyle from "@style/utils/DebugStyle"
 import "@style/fouc-fix.css"
+import "@style/global.scss"
 
 import Preloader from "@components/service/Preloader"
 // import Header from "@components/header-footer/Header"
@@ -42,9 +43,9 @@ export default function App(props){
 	// 	setLightTheme: toggleTheme
 	// }}>
 	// 	<ThemeProvider theme={isLightTheme ? light : dark}>
-		<ThemeProvider theme={dark}>{/*tmp hardcoded*/}
-			<GlobalStyle/>
-			<DebugStyle/>
+		<ThemeProvider theme={dark}>{/*scss used partly, tmp hardcoded*/}
+			{/* <GlobalStyle/> */}
+			{/* <DebugStyle/> */}
 			{/*<Preloader/>*/}
 			{/* <Header isFront={true}/> */}
 			<BrowserRouter>

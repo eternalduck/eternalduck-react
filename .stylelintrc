@@ -3,7 +3,7 @@
 		"./node_modules/**/*.*",
 		"./build/**/*.*",
 		"./src/scss/utils/**/*.*",
-		"./_public/**/*.*",
+		"./_assets/**/*.*",
 		"**/*.js"
 	],
 	"plugins": [

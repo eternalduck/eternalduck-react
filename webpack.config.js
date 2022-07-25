@@ -42,10 +42,17 @@ module.exports = {
 				}
 			},//js
 			{//styled-components are used  + tiny css for fouc-fix
-				// test: /\.(scss|css)$/,
-				test: /\.(css)$/,
+				test: /\.(scss|css)$/,
+				// test: /\.(css)$/,
 				exclude: /node_modules/,
 				use: [
+					// "style-loader",// Creates `style` nodes from JS strings
+					// "css-loader",// Translates CSS into CommonJS
+					// "sass-loader",// Compiles Sass to CSS
+					// miniCssExtractPlugin.loader
+
+					//////////
+
 					{
 						loader: miniCssExtractPlugin.loader,
 					},
@@ -60,7 +67,7 @@ module.exports = {
 						// 	importLoaders: 1,//num of loaders after css-loader
 						// },
 					},
-					// 'sass-loader',//!
+					'sass-loader'//!
 				],//use
 			},//css
 			{
@@ -84,7 +91,8 @@ module.exports = {
 		"@data": path.resolve(__dirname, 'src/data'),
 		"@style": path.resolve(__dirname, 'src/style'),
 		"@components": path.resolve(__dirname, 'src/components'),
-		"@pages": path.resolve(__dirname, 'src/pages')
+		"@pages": path.resolve(__dirname, 'src/pages'),
+		"@assets": path.resolve(__dirname, 'src/assets')
 	}
   },
 	plugins: [
@@ -94,11 +102,11 @@ module.exports = {
 			quiet: true
 		}),
 		new htmlWebpackPlugin(
-			{template: './src/public/index.html'}
+			{template: './src/assets/index.html'}
 		),
 		// new stylelintPlugin(),
 		new miniCssExtractPlugin(
-			{filename: 'style.css',}
+			{filename: 'style.css'}
 		),
 		new copyPlugin({
 			patterns: [
@@ -108,7 +116,7 @@ module.exports = {
 						dot: true,
 						ignore: "**/*.html",
 					},
-					from: path.resolve(__dirname, './src/public/'),
+					from: path.resolve(__dirname, './src/assets/'),
 					to: path.resolve(__dirname, './build/')
 				},
 			],
@@ -117,7 +125,7 @@ module.exports = {
 
 	output: {
 		path: path.resolve(__dirname, './build'),
-		publicPath: '/',//!!! react nested routes fail without it
+		// publicPath: '/',//!!! react nested routes fail without it
 		filename: 'index.js'
 	},
 
@@ -131,7 +139,7 @@ module.exports = {
 		// inline: true,
 		// overlay: true,
 		headers: {
-			"Access-Control-Allow-Origin": "*",
+			"Access-Control-Allow-Origin": "*",// security?
 			"Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
 			"Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
 		},

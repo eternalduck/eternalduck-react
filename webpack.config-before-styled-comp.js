@@ -38,7 +38,7 @@ module.exports = {
 					{
 						loader: miniCssExtractPlugin.loader, 
 						// options: {
-						// 	publicPath: path.resolve(__dirname, './src/public/')
+						// 	publicPath: path.resolve(__dirname, './src/assets/')
 						// }
 					},
 					{
@@ -58,7 +58,7 @@ module.exports = {
 						loader: 'postcss-loader',
 						options: {
 							postcssOptions: {
-								// publicPath: path.resolve(__dirname, './src/public/'),
+								// publicPath: path.resolve(__dirname, './src/assets/'),
 								plugins: [
 									'postcss-preset-env',
 									env_prod &&
@@ -103,7 +103,7 @@ module.exports = {
 		new webpack.HotModuleReplacementPlugin(),
 		new ESLintPlugin(),
 		new htmlWebpackPlugin(
-			{template: './src/public/index.html'}
+			{template: './src/assets/index.html'}
 		),
 		new stylelintPlugin(),
 		new miniCssExtractPlugin(
@@ -117,7 +117,7 @@ module.exports = {
 						dot: true,
 						ignore: "**/*.html",
 					},
-					from: path.resolve(__dirname, './src/public/'),
+					from: path.resolve(__dirname, './src/assets/'),
 					to: path.resolve(__dirname, './build/')
 				},
 			],

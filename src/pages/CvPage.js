@@ -122,8 +122,8 @@ const LangSwitch = styled.div`
 	}
 `
 const Cv = styled.div`
-	background: ${props => props.theme.cvBg};
-	color: ${props => props.theme.txtClr};
+	/* background: ${props => props.theme.cvBg}; */
+	/* color: ${props => props.theme.txtClr}; */
 	padding-bottom: 100px;
 	${mixins.biggerFont};
 	& a {
