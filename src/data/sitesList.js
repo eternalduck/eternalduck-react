@@ -295,19 +295,6 @@ export const sitesList = [
 		"descriptionRu": "",
 	},
 	{
-		"slug": "27-maru",
-		"title": "Designer's Homepage",
-		"thumb": "/images/work/sites/thumbs/27-maru.jpg",
-		"images": [{
-			"src": "/images/work/sites/27-maru.jpg",
-			"title": "",
-		}],
-		"keywords": "html, sass, wordpress, php, jquery, bootstrap, responsive",
-		"year": "2015",
-		"description": `<p>I helped a designer to customize and implement a WordPress theme for her needs.</p><p>The site was live for several years and then replaced by a Behance portfolio.</p>`,
-		"descriptionRu": "",
-	},
-	{
 		"slug": "25-bloganastasiadate",
 		"title": "AnastasiaDate's Blog",
 		"thumb": "/images/work/sites/thumbs/25-bloganastasiadate.jpg",
