@@ -17,17 +17,13 @@ const WorkItem = (props) => {
 					</Link>
 				</Title>
 				<>
-				{props.item.url &&
+				{props.item.urls &&
+				// Show only one url for brevity
 					<Url>
-						<a href={props.item.url} target={"_blank"} rel={"noreferrer"}>
-							<span>{props.item.urlTxt}</span>
+						<a href={props.item.urls[0].url} target={"_blank"} rel={"noreferrer"}>
+							<span>{props.item.urls[0].txt}</span>
 							{/*<Icon icon={exiticon}/>*/}
 						</a>
-						{props.item.url2 &&
-							<a href={props.item.url2} target={"_blank"} rel={"noreferrer"}>
-								<span>{props.item.urlTxt2}</span>
-							</a>
-						}
 					</Url>
 				}
 					<Info>
@@ -35,7 +31,7 @@ const WorkItem = (props) => {
 						<p>{props.item.keywords}</p>
 					</Info>
 				</>
-			<Descr dangerouslySetInnerHTML={{__html: props.item.description}}/>
+			{/* <Descr dangerouslySetInnerHTML={{__html: props.item.description}}/> */}
 			</Txt>
 			<ImgWrap>
 				<Link to={`${currentURL}/${props.item.slug}`}>
@@ -50,10 +46,10 @@ export default WorkItem
 
 const Item = styled.div`
 	/* flex: 0 0 45%; */
-	width: 100%;
+	width: 96%;
 	position: relative;
 	margin: 0 auto 40px;
-	padding: 20px 15px 15px 25px;
+	padding: 15px 10px 10px 20px;
 	background: ${colors.almostWhite};
 	border-radius: 2px;
 	${mixins.boxShadowSmall(colors.almostBlack)};
@@ -62,21 +58,22 @@ const Item = styled.div`
 		background: ${props => props.bg};
 	}
 	${media.md`
-		display: grid;
-		grid-template: "txt img" auto / 1fr 1fr;
-		max-width: 800px;
-		padding: 30px 15px 15px 35px;
+		/* display: grid;
+		grid-template: "txt img" auto / 1fr 1fr; */
+		max-width: 280px;
+		padding: 20px 10px 10px 25px;
 		&:after {
-			${mixins.defaultPseudo("20px", "100%")};
+			${mixins.defaultPseudo("15px", "100%")};
 		}
 	`}
 	${media.lg`
-		grid-template-columns: 3fr 2fr;
+		max-width: 350px;
+		/* grid-template-columns: 3fr 2fr; */
 	`}
 `
 const Txt = styled.div`
 	color: ${colors.almostBlack};
-	margin-bottom: 12px;
+	margin-bottom: 10px;
 	${media.md`
 		grid-area: txt;
 		margin-bottom: 0;
@@ -91,23 +88,22 @@ const Title = styled.h3`
 const Url = styled.p`
 	${mixins.borderUnderline};
 	font-weight: bold;
-	margin-bottom: 15px;
+	margin-bottom: 10px;
 	${media.md`
-		margin: 20px 0;
-		font-size: 18px;
+		margin: 15px 0;
+		font-size: 14px;
 	`}
 	& a {
 		color: ${colors.dustBlue};
 		display: inline-block;
 		&:first-child {
-			margin-right: 20px;
+			margin-right: 15px;
 		}
 	}
 	& svg {//icon
 		font-size: 20px;
 		margin-bottom: -5px;
 		margin-left: 3px;
-		
 	}
 `
 const Info = styled.div`
@@ -118,22 +114,22 @@ const Info = styled.div`
 		margin-bottom: 20px;
 	`}
 `
-const Descr = styled.div`
+/* const Descr = styled.div`
 	//outline: 1px dashed magenta;
 	color: ${colors.almostBlack};
 	margin-bottom: 15px;
 	${media.md`
 		margin-bottom: 0;
 	`}
-`
+` */
 const ImgWrap = styled.div`
-	outline: 1px dotted red;
-	width: 60%;
-	margin: 0 auto;
+	/* outline: 1px dotted red; */
+	width: 98%;
+	margin: 0;
 	${media.md`
-		grid-area: img;
+		/* grid-area: img; */
 		width: calc(100% - 30px);
-		margin: 0 0 0 30px;
+		/* margin: 0 0 0 30px; */
 		${mixins.flexCenterContentVertically};
 	`}
 	& a {

@@ -49,8 +49,8 @@ const Works = styled.div`
 const WorksWrap = styled.div`
 	margin-top: 50px;
 	padding-bottom: 100px;
-	/* display: flex;
-	flex-flow: row wrap; */
+	display: flex;
+	flex-flow: row wrap;
 `
 
 export default WorksPage

@@ -58,10 +58,12 @@ const SingleWork = (props) => {
 				<Title>{work.title}</Title>
 				<Info>
 					<p><b>{work.year}</b></p>
-					<Url href={work.url} target="_blank">
-						<span>{work.urlTxt}</span>
-						{/*<InlineIcon icon={exiticon}/>*/}
-					</Url>
+					{work.urls.map(url =>
+						<Url key={url.url} href={url.url} target="_blank" rel={"noreferrer"}>
+							<span>{url.txt}</span>
+							{/*<InlineIcon icon={exiticon}/>*/}
+						</Url>
+					)}{/*urls.map*/}
 				</Info>
 				<Description dangerouslySetInnerHTML={{__html: work.description}}></Description>
 				<TabWrap>
