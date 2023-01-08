@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1673108231815" clover="3.2.0">
+  <project timestamp="1673108231815" name="All files">
+    <metrics statements="6" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1" elements="9" coveredelements="4" complexity="0" loc="6" ncloc="6" packages="1" files="1" classes="1"/>
+    <file name="TestPage2.js" path="D:\HTML\eternalduck-react\src\pages\TestPage2.js">
+      <metrics statements="6" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="9" count="0" type="stmt"/>
+      <line num="10" count="0" type="stmt"/>
+      <line num="13" count="0" type="stmt"/>
+    </file>
+  </project>
+</coverage>
