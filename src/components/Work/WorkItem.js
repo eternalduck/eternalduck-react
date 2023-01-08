@@ -47,24 +47,25 @@ export default WorkItem
 const Item = styled.div`
 	/* flex: 0 0 45%; */
 	width: 96%;
+	max-width: 320px;
 	position: relative;
 	margin: 0 auto 40px;
-	padding: 15px 10px 10px 20px;
+	padding: 30px 15px 15px;
 	background: ${colors.almostWhite};
 	border-radius: 2px;
 	${mixins.boxShadowSmall(colors.almostBlack)};
 	&:after {//small color stripe
-		${mixins.defaultPseudo("15px", "100%")};
+		${mixins.defaultPseudo("100%", "15px")};
 		background: ${props => props.bg};
 	}
 	${media.md`
 		/* display: grid;
 		grid-template: "txt img" auto / 1fr 1fr; */
 		max-width: 280px;
-		padding: 20px 10px 10px 25px;
-		&:after {
+		padding: 35px 15px 25px;
+		/* &:after {
 			${mixins.defaultPseudo("15px", "100%")};
-		}
+		} */
 	`}
 	${media.lg`
 		max-width: 350px;
@@ -123,13 +124,12 @@ const Info = styled.div`
 	`}
 ` */
 const ImgWrap = styled.div`
-	/* outline: 1px dotted red; */
-	width: 98%;
+	width: 100%;
 	margin: 0;
 	${media.md`
 		/* grid-area: img; */
-		width: calc(100% - 30px);
 		/* margin: 0 0 0 30px; */
+		/* width: calc(100% - 30px); */
 		${mixins.flexCenterContentVertically};
 	`}
 	& a {
@@ -138,7 +138,7 @@ const ImgWrap = styled.div`
 `
 const Img = styled.img`
 	${mixins.boxShadowSmall()};
+	width: 100%;
 	object-fit: contain;
 	object-position: center bottom;
-	width: 100%;
 `

@@ -26,7 +26,6 @@ export const Menu = (props) => {
 	return (
 		<MenuSc>
 			<MenuItems/>
-			<Link to="/test/test2">test2</Link>
 		</MenuSc>
 	)
 }//Menu

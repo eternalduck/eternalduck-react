@@ -9,8 +9,8 @@
 import {css} from "styled-components"
 import {default as media} from "./_media"
 export {default as media} from "./_media"
-import {colors} from "./_theme"
-export {colors} from "./_theme"
+import {colors, gradients} from "./_theme"
+export {colors, gradients} from "./_theme"
 export {dark as dark} from "./_theme"
 export {light as light} from "./_theme"
 // end export point

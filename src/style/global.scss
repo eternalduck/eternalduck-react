@@ -1,6 +1,6 @@
-// @import "./utils/reset.css";
-@import "./vars-mixins";
-@import "./debug";
+@import "./utils/reset";
+@import "./vars-mixins/vars-mixins";
+@import "./vars-mixins/debug";
 
 :root {// dark
 	--body-bg: #222;
@@ -22,6 +22,7 @@
 // 1. General
 // font can be here or in index.html
 //@import url('https://fonts.googleapis.com/css2?family=Cousine:wght@400;700&family=Open+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+
 body {
 	background-color: var(--body-bg);
 	color: var(--body-txt-color);
@@ -29,8 +30,6 @@ body {
 	font-weight: 300;
 	font-size: 16px;
 	line-height: 1.5;
-	margin: 0;// TMP
-	padding: 0;// TMP
 	// &:after {
 	// 	content: "${props => props.theme.name}";
 	// 	display: block;

@@ -1,22 +1,22 @@
 import React, {useEffect, useState} from "react"
-import {media, colors, mixins} from "../../style/vars-mixins/_index"
+import {media, colors, gradients, mixins} from "../../style/vars-mixins/_index"
 
 // Generates an array with randomized colors for items backgrounds, receiving their number as arg
 export const generateRandomBg = (itemsNum) => {
 	const bgrounds = [
-		colors.gradientBlueMint,
-		colors.gradientBlue,
-		colors.gradientVioPink,
-		colors.gradientMintVio,
-		colors.gradientBluePink,
-		colors.gradientPinkBlue,
-		colors.gradientOrangeVio,
-		colors.gradientVioPistachio,
-		colors.gradientPearl,
-		colors.gradientRedGreen,
-		colors.gradientOrangeTurq,
-		colors.gradientCrimsonTurq,
-		colors.gradientTurgGreen,
+		gradients.blueMint,
+		gradients.blue,
+		gradients.vioPink,
+		gradients.mintVio,
+		gradients.bluePink,
+		gradients.pinkBlue,
+		gradients.orangeVio,
+		gradients.vioPistachio,
+		gradients.pearl,
+		gradients.redGreen,
+		gradients.orangeTurq,
+		gradients.crimsonTurq,
+		gradients.turqGreen,
 	]
 	const bg = []
 	for(let i = 0; i < itemsNum; i++) {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react"
-import {Outlet, useParams} from "react-router-dom"
+import {Outlet, useParams, useLocation} from "react-router-dom"
 import styled from "styled-components"
 import {colors, mixins} from "@style/vars-mixins/_index"
 import ContentWidth from "@components/Layout/ContentWidth"
@@ -11,6 +11,7 @@ import {InlineIcon} from "@iconify/react"
 import exiticon from "@iconify/icons-openmoji/exit"
 
 const SingleWork = (props) => {
+	const currentURL = useLocation().pathname// TMP
 	const worksList = props.data// sitesList or uxList expected
 	const {itemSlug} = useParams()
 	// Get data for the current work
@@ -22,6 +23,7 @@ const SingleWork = (props) => {
 	const [mainImgTitle, setMainImgTitle] = useState("")
 	// set main image on first page load
 	useEffect(() => {
+		console.info(`SingleWork: current path: ${currentURL}`)
 		console.info("currentWork:")
 		console.info(currentWork)
 		work && setMainImgSrc(work.images[0].src)
@@ -51,7 +53,7 @@ const SingleWork = (props) => {
 	return (
 		!work ?
 		<Page404/> :
-		<Work bg={props.bg}>
+		<Work>
 			{<WorksNav worksList={worksList} work={work}/>}
 
 			<ContentWidth>
@@ -98,7 +100,7 @@ const SingleWork = (props) => {
 export default SingleWork
 
 const Work = styled.div`
-	background: ${props => props.bg};
+	background: ${props => props.theme.bodyBg};	
 	color: ${props => props.theme.txtClr};
 `
 

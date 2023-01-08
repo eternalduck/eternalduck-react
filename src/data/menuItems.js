@@ -22,6 +22,11 @@ export const menuItems =
 		"url": "/test",
 		"id": "test"
 	},
+	{
+		"txt": "test2",
+		"url": "/test2",
+		"id": "test2"
+	},
 	// {
 	// 	"txt": "art",
 	// 	"url": "/art",

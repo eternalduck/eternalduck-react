@@ -1,4 +1,6 @@
 // Dec  30, 2020 (4 Aug, 2020)
+// Usage:
+// ${media.sm``}
 import { css } from 'styled-components'
 
 const breakpoints = {
@@ -30,5 +32,3 @@ export default Object.keys(breakpoints).reduce((accumulator, label) => {
 	return accumulator
 }, {})
 
-// Usage:
-// ${media.sm``}

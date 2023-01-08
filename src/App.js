@@ -1,6 +1,6 @@
 import React, {useEffect, useState, createContext, useContext} from "react"
 import {BrowserRouter, Routes, Route, useParams, Outlet} from "react-router-dom"
-import styled, {ThemeProvider, useTheme} from "styled-components"
+import styled, {ThemeProvider, ThemeContext, useTheme} from "styled-components"
 
 import {dark, light} from "@style/vars-mixins/_index"
 // import GlobalStyle from "@style/GlobalStyle"
@@ -22,64 +22,46 @@ import SingleWork from "@components/Work/SingleWork"
 import {sitesList} from "@data/sitesList"
 import {uxList} from "@data/uxList"
 
-export const ThemeContext = createContext({
-	isLightTheme: false,
-	setLightTheme: () => {}
-})
+// export const ThemeContext = createContext({
+// 	isLightTheme: false,
+// 	setLightTheme: () => {}
+// })
 
 export default function App(props){
 	// let {path, url} = useMatch()
-
+	const theme = dark;
 	useEffect(() => {
 		//class for fouc-fix.css
 		document.body.className = "loaded"
+		console.log('Current theme: ', theme.name)
 	}, [])
 
 //// toggleTheme logic was here
 
 	return(
-	// <ThemeContext.Provider value={{
-	// 	isLightTheme: isLightTheme,
-	// 	setLightTheme: toggleTheme
-	// }}>
-	// 	<ThemeProvider theme={isLightTheme ? light : dark}>
-		<ThemeProvider theme={dark}>{/*scss used partly, tmp hardcoded*/}
+		<ThemeProvider theme={theme}>
 			{/* <GlobalStyle/> */}
 			{/* <DebugStyle/> */}
 			{/*<Preloader/>*/}
-			{/* <Header isFront={true}/> */}
 			<BrowserRouter>
 				{/* <Header/>
 				<Outlet/> */}
 
 				<Routes>
-					<Route path="/" element={<RootPage/>}>
-						<Route path="/" element={<Frontpage/>}/>
-						<Route path="/sites" element={<WorksPage data={sitesList}/>}/>
-								{/* <WorksPage data={sitesList}
-									bg={props => props.theme.sitesPageBg}
-								/> */}
-							<Route path={`/sites/:itemSlug`} element={<SingleWork data={sitesList}/>}/>
-								{/* <SingleWork data={sitesList}
-									bg={props => props.theme.singleSiteBg}
-								/> */}
-						<Route path="/cv" element={<CvPage/>}/>
-						<Route path="/test" element={<TestPage/>}>
-							<Route path="test2" element={<TestPage2/>}/>
-						</Route>
-						<Route path="*" element={<Page404/>}/>
+					<Route path="/" element={ <RootPage/> }>
+						<Route path="/" element={ <Frontpage/> }/>
+						<Route path="sites" element={ <WorksPage data={sitesList}/> }/>
+						<Route path={"sites/:itemSlug"} element={ <SingleWork data={sitesList}/> }/>
+						<Route path="cv" element={ <CvPage/> }/>
+						<Route path="test" element={ <TestPage/> }/>
+						<Route path="test2" element={ <TestPage2/> }/>
+						<Route path="*" element={ <Page404/> }/>
 					</Route>
 				</Routes>
 			</BrowserRouter>
-		</ThemeProvider>
-	// </ThemeContext.Provider>
+		</ThemeProvider >
 	)
 }
-const Anchor = styled.a.attrs(
-	props => ({className: "primary"})
-)`
-	color: red;
-`
 
 // <Route path="/ux">
 // 	<Route path="/ux" element={<WorksPage data={uxList}/>} />
