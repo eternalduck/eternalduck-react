@@ -1,0 +1,15 @@
+{
+	"verbose": true,
+	"moduleDirectories": [
+		"node_modules",
+		"src"
+	],
+	"testEnvironment": "jsdom",
+	"moduleNameMapper": {
+		"\\.(css|scss)$": "identity-obj-proxy",
+		"@components/(.*)": "<rootDir>/src/components/$1",
+		"@pages/(.*)": "<rootDir>/src/pages/$1",
+		"@data/(.*)": "<rootDir>/src/data/$1",
+		"@style/(.*)": "<rootDir>/src/style/$1"
+	}
+}

@@ -3,7 +3,7 @@ const path = require('path')
 const webpack = require('webpack')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 const miniCssExtractPlugin = require('mini-css-extract-plugin')
-const cssnano = require('cssnano')
+// const cssnano = require('cssnano')
 const copyPlugin = require('copy-webpack-plugin')
 // const stylelintPlugin = require('stylelint-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
@@ -134,12 +134,12 @@ module.exports = {
 		historyApiFallback: true,//!!!
 		compress: true,
 		hot: "only",//??
-		// publicPath: '/build/',
-		// liveReload: true,//fail
+		watchFiles: ["src/**/*.*"],
+		liveReload: true,
 		// inline: true,
 		// overlay: true,
 		headers: {
-			"Access-Control-Allow-Origin": "*",// security?
+			"Access-Control-Allow-Origin": "*",// TMP, security
 			"Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
 			"Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
 		},
@@ -148,7 +148,8 @@ module.exports = {
 		// },
 		static: {
 			directory: path.resolve(__dirname, "./build"),
-			publicPath: "/",
+			publicPath: path.resolve(__dirname, "./build"),
+			// publicPath: "/",// /build/
 			// contentBase: path.resolve(__dirname, './build'),
 			watch: true
 		}
