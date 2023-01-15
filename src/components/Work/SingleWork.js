@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from "react"
-import {Outlet, useParams, useLocation} from "react-router-dom"
+import {useParams, useLocation} from "react-router-dom"
 import styled from "styled-components"
-import {colors, mixins} from "@style/vars-mixins/_index"
-import ContentWidth from "@components/Layout/ContentWidth"
-import ContentWide from "@components/Layout/ContentWide"
-import Loading from "@components/service/Loading"
-import Page404 from "@pages/Page404"
+import {colors, mixins} from "../../style/vars-mixins/_index"
+import ContentWidth from "../Layout/ContentWidth"
+import ContentWide from "../Layout/ContentWide"
+import Loading from "../service/Loading"
+import Page404 from "../service/Page404"
 import WorksNav from "./WorksNav"
 import {InlineIcon} from "@iconify/react"
 import exiticon from "@iconify/icons-openmoji/exit"
@@ -24,7 +24,7 @@ const SingleWork = (props) => {
 	// set main image on first page load
 	useEffect(() => {
 		console.info(`SingleWork: current path: ${currentURL}`)
-		console.info("currentWork:")
+		console.info("SingleWork - currentWork:")
 		console.info(currentWork)
 		work && setMainImgSrc(work.images[0].src)
 		work && setMainImgTitle(work.images[0].title)

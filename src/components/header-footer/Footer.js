@@ -1,18 +1,29 @@
-import React from "react"
+import React,{forwardRef} from "react"
 import styled from "styled-components"
-// import {media, colors, mixins} from "@style/vars-mixins/_index"
-// import {Link} from "react-router-dom"
-// import ContentWidth from "@components/Layout/ContentWidth"
+import ContentWidth from "../Layout/ContentWidth"
 
-const Footer = (props) => {
+const Footer = forwardRef((props, ref) => {
 	return (
-		<FooterSc>
-			{/* GTM here */}
+		<FooterSc ref={ref}>
+			<ContentWidth>
+			<FooterInner>
+				<p>...footer</p>
+				{/* GTM here */}
+			</FooterInner>
+			</ContentWidth>
 		</FooterSc>
 	)
-}
-const FooterSc = styled.div`
-	margin-top: 50px;
+})
+// for forwardRef:
+// Another option is to just disable that particular linter, using a comment with this or similar just above the declaration of your component:
+// "eslint-disable-next-line react/display-name"
+Footer.displayName = "Footer"
+
+const FooterSc = styled.footer`
+	margin: 0;
+	/* outline: 2px dashed red */
+`
+const FooterInner = styled.div`
 	padding: 15px 0;
 `
 

@@ -25,7 +25,7 @@ body:before {
 		color: lime;
 	}
 	@include mediaUp(xxl){
-		content:"XXL (min-width: 1600)";
+		content:"XXL (min-width: 1500)";
 		color: magenta;
 	}
 }

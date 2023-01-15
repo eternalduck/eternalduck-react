@@ -1,13 +1,11 @@
 import React, {useState, useEffect, useCallback} from "react"
 import {Link, matchRoutes, useLocation, Outlet} from "react-router-dom"
 import styled, {css, createGlobalStyle } from "styled-components"
-import {colors, mixins, media} from "@style/vars-mixins/_index"
-// import {dark, light} from "@style/vars-mixins/_theme"
-import ContentWidth from "@components/Layout/ContentWidth"
-import WorkItem from "@components/Work/WorkItem"
-import {generateRandomBg} from "@components/helpers/generateRandomBg"
-import {sitesList} from "@data/sitesList"
-// tmp
+import {colors, mixins, media} from "../style/vars-mixins/_index"
+import ContentWidth from "../components/Layout/ContentWidth"
+import WorkItem from "../components/Work/WorkItem"
+import {generateRandomBg} from "../components/helpers/generateRandomBg"
+import {sitesList} from "../data/sitesList"
 
 const WorksPage = (props) => {
 	const currentURL = useLocation().pathname
@@ -51,6 +49,11 @@ const WorksWrap = styled.div`
 	padding-bottom: 100px;
 	display: flex;
 	flex-flow: row wrap;
+	justify-content: center;
+	${media.md`
+		justify-content: flex-start;
+		/* column-gap: 50px; */
+	`}
 `
 
 export default WorksPage

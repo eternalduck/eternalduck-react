@@ -17,7 +17,7 @@ const Page404 = (props) => {
 			<ErrorTxt>
 				<h1>not found</h1><br/>
 				<p>A fatal exception 0E has occured at 0x000000FF: 42954C6A<br/>the current page will be terminated.</p>
-				<p>* Press <Back onClick={goBack()}><span>any link</span></Back> to go to another page.<br/>
+				<p>* Press <Back onClick={goBack()}><span>here</span></Back> to go to another page.<br/>
 				* Press CTRL+ALT+DELETE again to restart your computer.<br/>
 				You will lose any unsaved information in all applications.</p>
 				<p>Press <Back onClick={goBack()}><span>any link</span></Back> to continue.</p>
@@ -29,18 +29,21 @@ const Page404 = (props) => {
 export default Page404
 
 const Error = styled.div`
-	width: 100vw;
-	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 	display: flex;
+	justify-content: center;
+	align-items: center;
 	background: navy;
 `
 const ErrorTxt = styled.div`
+	max-width: 600px;
 	text-align: center;
 	color: #fff;
 	font: bold 17px/1.3 "Courier New", monospace;
-	flex: 0 0 80%;
-	max-width: 600px;
-	margin: auto;
 	& h1 {
 		display: inline-block;
 		padding: 0 10px;
@@ -60,8 +63,7 @@ const ErrorTxt = styled.div`
 		}
 	}
 `
-
-const Back = styled.span`
+const Back = styled.a`
 	color: #fff;
 	cursor: pointer;
 	${mixins.borderUnderline}

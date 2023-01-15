@@ -28,14 +28,11 @@ export const mixins = {
 		padding: 0 15px;
 		margin-right: auto;
 		margin-left: auto;
-		${media.sm`
-			max-width: 500px;
-			padding: 0;
-		`}
-		${media.md`max-width: 720px;`}
-		${media.lg`max-width: 940px;`}
-		${media.xl`max-width: 1100px;`}
-		${media.xxl`max-width: 1400px;`}
+		${media.sm`width: 500px`}
+		${media.md`width: 700px`}
+		${media.lg`width: 900px`}
+		${media.xl`width: 1100px`}
+		${media.xxl`width: 1300px`}
 	`,
 	contentLimitedWidth: css`
 		width: 100%;
@@ -58,21 +55,6 @@ export const mixins = {
 			width: 96%;
 			padding: 0;
 		`}
-		${media.xxl`
-			max-width: 1500px;
-		`}
-	`,
-	strictContentWidth: css`
-		width: 100%;
-		padding: 0 15px;
-		${media.sm`
-			width: 500px;
-			padding: 0;
-		`}
-		${media.md`width: 720px;`}
-		${media.lg`width: 940px;`}
-		${media.xl`width: 1100px;`}
-		${media.xxl`width: 1400px;`}
 	`,
 	flexCenterContent: css`//used for a container with a single item, usually txt
 		display: flex;

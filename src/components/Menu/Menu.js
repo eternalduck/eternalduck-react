@@ -1,11 +1,11 @@
 import React, {useState} from "react"
 import {Link} from "react-router-dom"
 import styled from "styled-components"
-import {colors, mixins, media} from "@style/vars-mixins/_index"
+import {colors, mixins, media} from "../../style/vars-mixins/_index"
 import {Icon} from "@iconify/react"
 import hamburgerIcon from "@iconify/icons-openmoji/hamburger"
 import multiplyIcon from "@iconify/icons-openmoji/multiply"
-import {menuItems} from "@data/menuItems"
+import {menuItems} from "../../data/menuItems"
 
 const MenuItems = (props) => {
 	return (

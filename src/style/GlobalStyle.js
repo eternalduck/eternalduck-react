@@ -1,10 +1,13 @@
 import React from "react"
 import {css, createGlobalStyle} from "styled-components"
+import {default as resetCss} from "./utils/_resetCss"
+import {default as debugStyle} from "./utils/_debugStyle"
 import {media, colors, mixins} from "./vars-mixins/_index"
-import {resetCss} from "./utils/_reset"
 
 const GlobalStyle = createGlobalStyle`
 	${resetCss}
+	${debugStyle}
+
 	// 1. General
 	// font can be here or in index.html
 	//@import url('https://fonts.googleapis.com/css2?family=Cousine:wght@400;700&family=Open+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap');

@@ -1,47 +1,52 @@
-import React from "react"
+import React, {forwardRef} from "react"
 import {Link} from "react-router-dom"
 import styled from "styled-components"
-import {Menu, MobMenu} from "@components/Menu/Menu"
-import {media, colors, mixins} from "@style/vars-mixins/_index"
-import ContentWidth from "@components/Layout/ContentWidth"
-import ToggleTheme from "@components/ToggleTheme/ToggleTheme"
-import {isMobile} from "@components/helpers/responsive"
+import {media, colors, mixins} from "../../style/vars-mixins/_index"
+import ToggleTheme from "../ToggleTheme/ToggleTheme"
+import ContentWidth from "../Layout/ContentWidth"
+import {Menu, MobMenu} from "../Menu/Menu"
+import {isMobile} from "../helpers/responsive"
 
-const Header = (props) => {
+const Header = forwardRef((props, ref) => {
 	const {isMob} = isMobile()
 
 	return (
-		<ContentWidth>
-			<HeaderSc>
-				{props.isFront ? <Logo/> : <Link to={"/"}><Logo/></Link>}
-				<MenuWrap>
-					{isMob ? <MobMenu/> : <Menu/>}
-				</MenuWrap>
-				{props.children && <Extra>{props.children}</Extra>}
-				{!props.isFront &&
-					<ToggleThemeWrap>
-						<ToggleTheme/>
-					</ToggleThemeWrap>
-				}
-			</HeaderSc>
-		</ContentWidth>
+		<HeaderSc ref={ref}>
+			<ContentWidth>
+				<HeaderInner>
+					{props.isFront ? <Logo/> : <Link to={"/"}><Logo/></Link>}
+					<MenuWrap>
+						{isMob ? <MobMenu/> : <Menu/>}
+					</MenuWrap>
+					{props.children && <Extra>{props.children}</Extra>}
+					{!props.isFront &&
+						<ToggleThemeWrap>
+							<ToggleTheme/>
+						</ToggleThemeWrap>
+					}
+				</HeaderInner>
+			</ContentWidth>
+		</HeaderSc>
 	)
-}
-const HeaderSc = styled.div`
-	margin-bottom: 30px;
-	padding-top: 15px;
+})
+// for forwardRef:
+// Another option is to just disable that particular linter, using a comment with this or similar just above the declaration of your component:
+// "eslint-disable-next-line react/display-name"
+Header.displayName = "Header"
+
+const HeaderSc = styled.header`
+	${mixins.printHidden};
+	/* outline: 2px dashed red */
+`
+const HeaderInner = styled.div`
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: space-between;
 	align-items: center;
+	padding: 15px 0;
 	z-index: 100;
-	${mixins.printHidden}
-	${media.md`
-		margin-bottom: 50px;
-	`}
 `
 const Logo = styled.div`
-	//outline: 1px dashed red;
 	order: 1;
 	flex: 0 0 60px;
 	width: 60px;
@@ -59,7 +64,6 @@ const Logo = styled.div`
 	}
 `
 const Extra = styled.div`
-	//outline: 1px dashed yellow;
 	flex: 4;
 	order: 2;
 	display: flex;
@@ -69,7 +73,6 @@ const Extra = styled.div`
 	`}
 `
 const MenuWrap = styled.div`
-	//outline: 1px dashed cyan;
 	display: flex;
 	justify-content: flex-end;
 	flex: 0 0 50px;
@@ -83,7 +86,6 @@ const MenuWrap = styled.div`
 	`}
 `
 const ToggleThemeWrap = styled.div`
-	//outline: 1px dashed red;
 	flex: 2;
 	order: 3;
 	display: flex;

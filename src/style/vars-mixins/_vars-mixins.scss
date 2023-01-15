@@ -4,9 +4,9 @@ $breakPoints: (
 	"xs": "500px", //no need?
 	"sm": "576px",
 	"md": "750px",
-	"lg": "992px",
-	"xl": "1400px",
-	"xxl": "2200px"
+	"lg": "990px",
+	"xl": "1200px",
+	"xxl": "1500px"
 );
 
 @mixin mediaUp($breakpoint) {
@@ -19,8 +19,9 @@ $breakDownPoints: (
 	//max-width
 	"xs": "575px",
 	"sm": "749px",
-	"md": "991px",
+	"md": "989px",
 	"lg": "1199px",
+	"xl": "1499px",
 );
 
 @mixin mediaDown($breakpoint) {
@@ -30,10 +31,11 @@ $breakDownPoints: (
 }
 
 $breakOnlyPoints: (
-	"xxs": "(max-width: 400px)",
+	"xxs": "(max-width: 575px)",
 	"sm": "(min-width: 576px) and (max-width: 749px)",
-	"md": "(min-width: 750px) and (max-width: 991px)",
-	"lg": "(min-width: 992px) and (max-width: 1199px)"
+	"md": "(min-width: 750px) and (max-width: 989px)",
+	"lg": "(min-width: 991px) and (max-width: 1199px)",
+	"xl": "(min-width: 1200px) and (max-width: 1499px)"
 );
 
 @mixin mediaOnly($breakpoint) {

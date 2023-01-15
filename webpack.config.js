@@ -1,18 +1,18 @@
-const isProductionMode = process.env.NODE_ENV === 'production'
-const path = require('path')
-const webpack = require('webpack')
-const htmlWebpackPlugin = require('html-webpack-plugin')
-const miniCssExtractPlugin = require('mini-css-extract-plugin')
-// const cssnano = require('cssnano')
-const copyPlugin = require('copy-webpack-plugin')
-// const stylelintPlugin = require('stylelint-webpack-plugin')
-const ESLintPlugin = require('eslint-webpack-plugin')
+const isProductionMode = process.env.NODE_ENV === "production";
+const path = require("path")
+const webpack = require("webpack")
+const htmlWebpackPlugin = require("html-webpack-plugin")
+const miniCssExtractPlugin = require("mini-css-extract-plugin")
+// const cssnano = require("cssnano")
+const copyPlugin = require("copy-webpack-plugin")
+// const stylelintPlugin = require("stylelint-webpack-plugin")
+const ESLintPlugin = require("eslint-webpack-plugin")
 
-const env_prod = process.env.NODE_ENV === 'production'
+const env_prod = process.env.NODE_ENV === "production"
 
 module.exports = {
 	// context: path.resolve(__dirname),
-	entry: path.resolve(__dirname, './src/index.js'),
+	entry: path.resolve(__dirname, "./src/index.js"),
 	watch: true,
 	module: {
 		rules: [
@@ -20,21 +20,21 @@ module.exports = {
 				test: /\.(js|jsx)$/,
 				exclude: [/node_modules/, /\.html$/],
 				use: {
-					loader: 'babel-loader',
+					loader: "babel-loader",
 					options: {
-						'presets': [
-							'@babel/preset-env',
-							'@babel/preset-react'
+						"presets": [
+							"@babel/preset-env",
+							"@babel/preset-react"
 						],
-						'plugins': [
+						"plugins": [
 							//make readable classes
-							['babel-plugin-styled-components',
+							["babel-plugin-styled-components",
 								{
-									'displayName': true,
-									'fileName': false,
-									'ssr': true,
-									'transpileTemplateLiterals': true,
-									'preprocess': false,//experimental feature turned off explicitly
+									"displayName": true,
+									"fileName": false,
+									"ssr": true,
+									"transpileTemplateLiterals": true,
+									"preprocess": false,//experimental feature turned off explicitly
 								}
 							]
 						]
@@ -44,7 +44,7 @@ module.exports = {
 			{//styled-components are used  + tiny css for fouc-fix
 				test: /\.(scss|css)$/,
 				// test: /\.(css)$/,
-				exclude: /node_modules/,
+				exclude: "/node_modules/",
 				use: [
 					// "style-loader",// Creates `style` nodes from JS strings
 					// "css-loader",// Translates CSS into CommonJS
@@ -57,26 +57,26 @@ module.exports = {
 						loader: miniCssExtractPlugin.loader,
 					},
 					{
-						loader: 'css-loader',
+						loader: "css-loader",
 						// options: {
 						// 	modules: {
-						// 		localIdentName: '[name]_[local]-[hash:base64:3]',
-						// 		exportLocalsConvention: 'camelCase',
+						// 		localIdentName: "[name]_[local]-[hash:base64:3]",
+						// 		exportLocalsConvention: "camelCase",
 						// 	},
 						// 	url: false,//!!!
 						// 	importLoaders: 1,//num of loaders after css-loader
 						// },
 					},
-					'sass-loader'//!
+					"sass-loader"//!
 				],//use
 			},//css
 			{
 				test: /\.(png|svg|jpg|jpeg|gif)$/i,
-				type: 'asset/resource',
+				type: "asset/resource",
 				// use: [
 				// 	{
-				// 		// loader: 'url-loader',
-				// 		loader: 'file-loader',
+				// 		// loader: "url-loader",
+				// 		loader: "file-loader",
 				// 	},
 				// ],
 			},//img
@@ -85,14 +85,14 @@ module.exports = {
 	},//module
 
 	resolve: {
-	//   extensions: ['*', '.js', '.jsx'],
+	//   extensions: ["*", ".js", ".jsx"],
 	alias: {
-		"@": path.resolve(__dirname, 'src'),
-		"@data": path.resolve(__dirname, 'src/data'),
-		"@style": path.resolve(__dirname, 'src/style'),
-		"@components": path.resolve(__dirname, 'src/components'),
-		"@pages": path.resolve(__dirname, 'src/pages'),
-		"@assets": path.resolve(__dirname, 'src/assets')
+		"@": path.resolve(__dirname, "src"),
+		"@data": path.resolve(__dirname, "src/data"),
+		"@style": path.resolve(__dirname, "src/style"),
+		"@components": path.resolve(__dirname, "src/components"),
+		"@pages": path.resolve(__dirname, "src/pages"),
+		"@assets": path.resolve(__dirname, "src/assets")
 	}
   },
 	plugins: [
@@ -102,11 +102,11 @@ module.exports = {
 			quiet: true
 		}),
 		new htmlWebpackPlugin(
-			{template: './src/assets/index.html'}
+			{template: "./src/assets/index.html"}
 		),
 		// new stylelintPlugin(),
 		new miniCssExtractPlugin(
-			{filename: 'style.css'}
+			{filename: "style.css"}
 		),
 		new copyPlugin({
 			patterns: [
@@ -116,17 +116,17 @@ module.exports = {
 						dot: true,
 						ignore: "**/*.html",
 					},
-					from: path.resolve(__dirname, './src/assets/'),
-					to: path.resolve(__dirname, './build/')
+					from: path.resolve(__dirname, "./src/assets/"),
+					to: path.resolve(__dirname, "./build/")
 				},
 			],
 		}),//copyPlugin
 	],//plugins
 
 	output: {
-		path: path.resolve(__dirname, './build'),
-		// publicPath: '/',//!!! react nested routes fail without it
-		filename: 'index.js'
+		path: path.resolve(__dirname, "./build"),
+		// publicPath: "/",//!!! react nested routes fail without it
+		filename: "index.js"
 	},
 
 	devServer: {
@@ -147,11 +147,10 @@ module.exports = {
 
 		// },
 		static: {
-			directory: path.resolve(__dirname, "./build"),
-			publicPath: path.resolve(__dirname, "./build"),
-			// publicPath: "/",// /build/
-			// contentBase: path.resolve(__dirname, './build'),
-			watch: true
+			watch: true,
+			// directory: path.resolve(__dirname, "./"),//path.resolve(__dirname, "./build"),
+			// publicPath: "/",
+			serveIndex: true,//
 		}
 		// Provide an array of objects in case you have multiple static folders:
 		// static: [

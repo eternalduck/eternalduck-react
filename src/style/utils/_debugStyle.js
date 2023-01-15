@@ -1,7 +1,7 @@
-import {createGlobalStyle} from "styled-components"
+import {css} from "styled-components"
 import {media} from "../vars-mixins/_index"
 
-const DebugStyle = createGlobalStyle`
+const debugStyle = css`
 	body:before {
 		content: "XS";
 		color: yellow;
@@ -11,30 +11,30 @@ const DebugStyle = createGlobalStyle`
 		font-size: 14px;
 		z-index: 999999;
 		${media.sm`
-			content:"SM (min-width: 576)";
+			content: "SM (min-width: 576)";
 			color: red;
 		`}
 		${media.md`
-			content:"MD (min-width: 750)";
+			content: "MD (min-width: 750)";
 			color: cyan;
 		`}
 		${media.lg`
-			content:"LG (min-width: 990)";
+			content: "LG (min-width: 990)";
 			color: orange;
 		`}
 		${media.xl`
-			content:"XL (min-width: 1200)";
+			content: "XL (min-width: 1200)";
 			color: lime;
 		`}
 		${media.xxl`
-			content:"XXL (min-width: 1600)";
+			content: "XXL (min-width: 1500)";
 			color: magenta;
 		`}
 	}
 
 `
 
-export default DebugStyle
+export default debugStyle
 
 //$bodyTxt: (
 //	[0, "XS", black],

@@ -70,3 +70,17 @@ export const isDeskXL = () => {
 	const isXL = winWidth > breakpoint
 	return {isXL, winWidth}
 }
+
+// export const headerHeight = () => {
+// 	const [headHeight, setHeadHeight] = useState()
+// 	useEffect(() => {
+// 		// const handleWindowResize = () => {
+// 			let he = document.getElementById("header")
+// 			let h = he ? he.clientHeight : 0
+// 			setHeadHeight(h)
+// 		// }
+// 		// resizeWatcher(handleWindowResize)
+// 	}, [])
+// 	console.info(`header height (resp.js): ${headHeight}`)
+// 	return headHeight
+// }
