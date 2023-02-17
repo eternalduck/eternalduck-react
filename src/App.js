@@ -3,7 +3,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom"
 import styled, {ThemeProvider, ThemeContext, useTheme} from "styled-components"
 
 import "@style/fouc-fix.css"
-import "@style/global.scss"
+// import "@style/global.scss"
 import {dark, light} from "./style/vars-mixins/_index"
 import GlobalStyle from "./style/GlobalStyle"
 import Preloader from "./components/service/Preloader"
@@ -16,9 +16,6 @@ import WorksPage from "./pages/WorksPage"
 import CvPage from "./pages/CvPage"
 import Page404 from "./components/service/Page404"
 import SingleWork from "./components/Work/SingleWork"
-
-import {sitesList} from "./data/sitesList"
-// import {uxList} from "./data/uxList"
 
 // export const ThemeContext = createContext({
 // 	isLightTheme: false,
@@ -65,8 +62,8 @@ export default function App(props){
 				<Routes>
 					<Route path="/" element={ <Frontpage/> }/>
 					<Route path="/sites">
-						<Route index element={ <WorksPage data={sitesList}/> }/>
-						<Route path=":itemSlug" element={ <SingleWork data={sitesList}/> }/>
+						<Route index element={ <WorksPage/> }/>
+						<Route path=":itemSlug" element={ <SingleWork/> }/>
 					</Route>
 					<Route path="/cv" element={ <CvPage/> }/>
 					<Route path="/test" element={ <TestPage/> }/>

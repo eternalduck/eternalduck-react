@@ -30,8 +30,8 @@ const GlobalStyle = createGlobalStyle`
 	}
 	// 2. Typography
 	h1, h2, h3, h4 {
-		// font-family: "Roboto Slab", serif;
-		font-family: "Cousine", monospace;
+		font-family: "Roboto Slab", serif;
+		/* font-family: "Cousine", monospace; */
 		font-weight: 700;
 	}
 	h1 {
@@ -48,7 +48,7 @@ const GlobalStyle = createGlobalStyle`
 	}
 	h2 {
 		font-size: 24px;
-		line-height: 1.5;
+		line-height: 1.2;
 		margin-bottom: 15px;
 		${media.md`
 			font-size: 30px;
@@ -60,13 +60,13 @@ const GlobalStyle = createGlobalStyle`
 	}
 	h3 {
 		font-size: 22px;
-		line-height: 1.5;
+		line-height: 1.2;
 		margin-bottom: 15px;
 		${media.md`
-			font-size: 26px;
+			font-size: 24px;
 		`}
 		${media.lg`
-			font-size: 30px;
+			font-size: 28px;
 			margin-bottom: 20px;
 		`}
 	}

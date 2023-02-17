@@ -9,13 +9,14 @@ import Page404 from "../service/Page404"
 import WorksNav from "./WorksNav"
 import {InlineIcon} from "@iconify/react"
 import exiticon from "@iconify/icons-openmoji/exit"
+import {sitesList} from "../../data/sitesList"
 
 const SingleWork = (props) => {
 	const currentURL = useLocation().pathname// TMP
-	const worksList = props.data// sitesList or uxList expected
+	// const worksList = sitesList;//props.data// sitesList or uxList expected
 	const {itemSlug} = useParams()
 	// Get data for the current work
-	const currentWork = worksList.find(item => item.slug === itemSlug)
+	const currentWork = sitesList.find(item => item.slug === itemSlug)
 	const [work, setWork] = useState(w => w = currentWork)
 
 	// Image changing tabs
@@ -54,7 +55,7 @@ const SingleWork = (props) => {
 		!work ?
 		<Page404/> :
 		<Work>
-			{<WorksNav worksList={worksList} work={work}/>}
+			{<WorksNav worksList={sitesList} work={work}/>}
 
 			<ContentWidth>
 				<Title>{work.title}</Title>
@@ -93,7 +94,7 @@ const SingleWork = (props) => {
 				</MainImgWrap>
 			</ContentWide>
 
-			{/* <WorksNav worksList={worksList} work={work}/> */}
+			{/* <WorksNav worksList={sitesList} work={work}/> */}
 		</Work>
 	)
 }

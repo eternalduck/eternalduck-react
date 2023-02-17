@@ -23,7 +23,6 @@ const WorkItem = (props) => {
 						<Url>
 							<a href={props.item.urls[0].url} target={"_blank"} rel={"noreferrer"}>
 								<span>{props.item.urls[0].txt}</span>
-								{/*<Icon icon={exiticon}/>*/}
 							</a>
 						</Url>
 					}
@@ -47,76 +46,74 @@ const WorkItem = (props) => {
 export default WorkItem
 
 const Item = styled.article`
-	outline: 2px dashed magenta;
+	/* outline: 1px dashed magenta; */
 	flex: 1 0 100%;
 	display: flex;
 	justify-content: center;
-	margin-bottom: 40px;
+	margin-bottom: 30px;
 	${media.md`
+		padding-right: 15px;
+		padding-left: 15px;
 		flex: 0 1 50%;
-		/* &:nth-child(2n){
-			justify-content: flex-end;
-		}
-		&:nth-child(2n+1){
-			justify-content: flex-start;
-		} */
 	`}
 	${media.xl`
 		flex: 0 1 33.33%;
-		/* justify-content: flex-start;
-		&:nth-child(3n){
-			justify-content: flex-end;
-		} */
+	`}
+	${media.xxl`
+		flex: 0 1 25%;
 	`}
 `
 
 const ItemInner = styled.div`
-	/* flex: 0 0 45%; */
-	/* display: grid;
-	grid-template: "txt" 0.7fr "img" 2fr;// TODO */
-	width: 96%;
-	max-width: 320px;
 	position: relative;
+	display: flex;
+	flex-direction: row;
 	padding: 30px 15px 15px;
 	background: ${colors.almostWhite};
 	border-radius: 2px;
 	${mixins.boxShadowSmall(colors.almostBlack)};
-	/* &:last-child {
-		margin-right: auto;
-	}
-	&:nth-last-child(2) {
-		margin-right: 50px;
-	} */
 	&:after {//small color stripe
 		${mixins.defaultPseudo("100%", "15px")};
 		background: ${props => props.bg};
 	}
 	${media.md`
-		max-width: 300px;
-		padding: 20px 15px 25px;
-	`}
-	${media.lg`
-		max-width: 310px;
-		padding: 35px 15px 25px;
-		/* grid-template-columns: 3fr 2fr; */
-	`}
-	${media.xl`
-		max-width: 320px;
-		/* grid-template-columns: 3fr 2fr; */
-	`}
-	${media.xxl`
-		max-width: 310px;
-		/* grid-template-columns: 3fr 2fr; */
+		flex-direction: column;
+		padding: 20px 15px 15px;
 	`}
 	
 `
-const Txt = styled.div`
-	color: ${colors.almostBlack};
-	margin-bottom: 10px;
-	min-height: 260px;
-	/* grid-area: txt; */
+const ImgWrap = styled.div`
+	/* outline: 1px dashed green; */
+	/* width: 100%; */
+	flex: 0 0 40%;
 	${media.md`
-		margin-bottom: 0;
+		flex: 1;
+		${mixins.flexCenterContentVertically};
+	`}
+	& a {
+		${mixins.hoverOpacity};
+	}
+`
+const Img = styled.img`
+	${mixins.boxShadowSmall()};
+	width: 100%;
+	object-fit: contain;
+	object-position: center bottom;
+	border-radius: 2px;
+	${media.md`
+		display: block;
+		width: 94%;
+		margin: 0 auto;
+	`}
+`
+const Txt = styled.div`
+	/* outline: 1px dashed red; */
+	color: ${colors.almostBlack};
+	padding-right: 10px;
+	flex: 0 0 60%;
+	${media.md`
+		flex: 1;
+		margin-bottom: 15px;
 	`}
 	& a {color: ${colors.almostBlack};
 `
@@ -130,7 +127,7 @@ const Url = styled.p`
 	font-weight: bold;
 	margin-bottom: 10px;
 	${media.md`
-		margin: 15px 0;
+		margin: 10px 0;
 		font-size: 14px;
 	`}
 	& a {
@@ -140,44 +137,9 @@ const Url = styled.p`
 			margin-right: 15px;
 		}
 	}
-	& svg {//icon
-		font-size: 20px;
-		margin-bottom: -5px;
-		margin-left: 3px;
-	}
 `
 const Info = styled.div`
 	font-size: 15px;
 	color: ${colors.dustBlue};
-	margin-bottom: 15px;
-	${media.md`
-		margin-bottom: 20px;
-	`}
 `
-/* const Descr = styled.div`
-	//outline: 1px dashed magenta;
-	color: ${colors.almostBlack};
-	margin-bottom: 15px;
-	${media.md`
-		margin-bottom: 0;
-	`}
-` */
-const ImgWrap = styled.div`
-	grid-area: img;
-	width: 100%;
-	margin: 0;
-	${media.md`
-		/* margin: 0 0 0 30px; */
-		/* width: calc(100% - 30px); */
-		${mixins.flexCenterContentVertically};
-	`}
-	& a {
-		${mixins.hoverOpacity};
-	}
-`
-const Img = styled.img`
-	${mixins.boxShadowSmall()};
-	width: 100%;
-	object-fit: contain;
-	object-position: center bottom;
-`
+

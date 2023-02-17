@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from "react"
 import styled, {keyframes} from "styled-components"
 import {Link, matchRoutes, useLocation} from "react-router-dom"
-import {colors, mixins, media} from "@style/vars-mixins/_index"
-import ContentWidth from "@components/Layout/ContentWidth"
+import {colors, mixins, media} from "../../style/vars-mixins/_index"
+import ContentWidth from "../../components/Layout/ContentWidth"
+
 import {InlineIcon} from "@iconify/react"
 import previousIcon from "@iconify/icons-flat-color-icons/previous"
 import nextIcon from "@iconify/icons-flat-color-icons/next"
@@ -25,21 +26,23 @@ const WorksNav = (props) => {
 
 	// Get data for prev/next nav based on current work index
 	const lastIndex = worksList.length - 1
-	const [navLinks, setNavLinks] = useState({prev: {slug: "", title: ""}, next: {slug: "", title: ""}})
+	const [navLinks, setNavLinks] = useState({prev: {}, next: {}})
 	useEffect(() => {
 		const populateNav = () => {
 			const workIndex = worksList.indexOf(work)
 			const prevIndex = (workIndex - 1) >= 0 ? workIndex - 1 : lastIndex
 			const nextIndex = (workIndex + 1) < worksList.length ? workIndex + 1 : 0
-			const prevSlug = worksList[prevIndex].slug
-			const prevTitle = worksList[prevIndex].title
-			const prevYear = worksList[prevIndex].year
-			const nextSlug = worksList[nextIndex].slug
-			const nextTitle = worksList[nextIndex].title
-			const nextYear = worksList[nextIndex].year
 			return {
-				prev: {slug: prevSlug, title: prevTitle, year: prevYear},
-				next: {slug: nextSlug, title: nextTitle, year: nextYear},
+				prev: {
+					slug: worksList[prevIndex].slug,
+					title: worksList[prevIndex].title,
+					year: worksList[prevIndex].year
+				},
+				next: {
+					slug: worksList[nextIndex].slug,
+					title: worksList[nextIndex].title,
+					year: worksList[nextIndex].year
+				}
 			}
 		}//populateNav
 		setNavLinks(n => n = populateNav())

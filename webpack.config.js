@@ -138,6 +138,9 @@ module.exports = {
 		liveReload: true,
 		// inline: true,
 		// overlay: true,
+		client: {
+			logging: "error",
+		},
 		headers: {
 			"Access-Control-Allow-Origin": "*",// TMP, security
 			"Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",

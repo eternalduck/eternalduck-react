@@ -9,7 +9,7 @@ import {sitesList} from "../data/sitesList"
 
 const WorksPage = (props) => {
 	const currentURL = useLocation().pathname
-	const worksList = props.data// sitesList or uxList expected, TODO add check
+	const worksList = sitesList;//props.data// sitesList or uxList expected, TODO add check
 	const [bg, setBg] = useState("#333")
 
 	useEffect(() => {
