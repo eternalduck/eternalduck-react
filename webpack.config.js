@@ -125,7 +125,7 @@ module.exports = {
 
 	output: {
 		path: path.resolve(__dirname, "./build"),
-		// publicPath: "/",//!!! react nested routes fail without it
+		publicPath: "/",//!!! react nested routes fail without it
 		filename: "index.js"
 	},
 
@@ -152,8 +152,8 @@ module.exports = {
 		static: {
 			watch: true,
 			// directory: path.resolve(__dirname, "./"),//path.resolve(__dirname, "./build"),
-			// publicPath: "/",
-			serveIndex: true,//
+			publicPath: "/",
+			serveIndex: true//
 		}
 		// Provide an array of objects in case you have multiple static folders:
 		// static: [
