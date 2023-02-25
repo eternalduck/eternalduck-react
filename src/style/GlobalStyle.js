@@ -1,8 +1,8 @@
-import React from "react"
-import {css, createGlobalStyle} from "styled-components"
-import {default as resetCss} from "./utils/_resetCss"
-import {default as debugStyle} from "./utils/_debugStyle"
-import {media, colors, mixins} from "./vars-mixins/_index"
+import React from "react";
+import {css, createGlobalStyle} from "styled-components";
+import {default as resetCss} from "./utils/_resetCss";
+import {default as debugStyle} from "./utils/_debugStyle";
+import {media, colors, mixins} from "./vars-mixins/_index";
 
 const GlobalStyle = createGlobalStyle`
 	${resetCss}
@@ -117,6 +117,6 @@ const GlobalStyle = createGlobalStyle`
 			height: 42px;
 		}
 	}
-`//createGlobalStyle
+`;//createGlobalStyle
 
-export default GlobalStyle
+export default GlobalStyle;

@@ -1,36 +1,36 @@
-import React, {useState, useEffect} from "react"
-import styled, {keyframes} from "styled-components"
-import {Link, matchRoutes, useLocation} from "react-router-dom"
-import {colors, mixins, media} from "../../style/vars-mixins/_index"
+import React, {useState, useEffect} from "react";
+import styled, {keyframes} from "styled-components";
+import {Link, matchRoutes, useLocation} from "react-router-dom";
+import {colors, mixins, media} from "../../style/vars-mixins/_index";
 
-import {InlineIcon} from "@iconify/react"
-import previousIcon from "@iconify/icons-flat-color-icons/previous"
-import nextIcon from "@iconify/icons-flat-color-icons/next"
-import signpostIcon from "@iconify/icons-openmoji/signpost"
+import {InlineIcon} from "@iconify/react";
+import previousIcon from "@iconify/icons-flat-color-icons/previous";
+import nextIcon from "@iconify/icons-flat-color-icons/next";
+import signpostIcon from "@iconify/icons-openmoji/signpost";
 
 // expects nav prop object:
 // {prev: {"slug": "", "title": ""},
 // 	next: {"slug": "", "title": ""}}
 
 const WorksNav = (props) => {
-	const worksList = props.worksList
-	const work = props.work
+	const worksList = props.worksList;
+	const work = props.work;
 	// Get url of parent page with all works
-	const currentURL = useLocation().pathname
-	const parentUrl = currentURL.slice(0, currentURL.lastIndexOf("/"))// TODO?
+	const currentURL = useLocation().pathname;
+	const parentUrl = currentURL.slice(0, currentURL.lastIndexOf("/"));// TODO?
 
 	// Toggle nav links description
-	const [isPrevDescrShown, setIsPrevDescrShown] = useState(false)
-	const [isNextDescrShown, setIsNextDescrShown] = useState(false)
+	const [isPrevDescrShown, setIsPrevDescrShown] = useState(false);
+	const [isNextDescrShown, setIsNextDescrShown] = useState(false);
 
 	// Get data for prev/next nav based on current work index
-	const lastIndex = worksList.length - 1
-	const [navLinks, setNavLinks] = useState({prev: {}, next: {}})
+	const lastIndex = worksList.length - 1;
+	const [navLinks, setNavLinks] = useState({prev: {}, next: {}});
 	useEffect(() => {
 		const populateNav = () => {
-			const workIndex = worksList.indexOf(work)
-			const prevIndex = (workIndex - 1) >= 0 ? workIndex - 1 : lastIndex
-			const nextIndex = (workIndex + 1) < worksList.length ? workIndex + 1 : 0
+			const workIndex = worksList.indexOf(work);
+			const prevIndex = (workIndex - 1) >= 0 ? workIndex - 1 : lastIndex;
+			const nextIndex = (workIndex + 1) < worksList.length ? workIndex + 1 : 0;
 			return {
 				prev: {
 					slug: worksList[prevIndex].slug,
@@ -42,10 +42,10 @@ const WorksNav = (props) => {
 					title: worksList[nextIndex].title,
 					year: worksList[nextIndex].year
 				}
-			}
-		}//populateNav
-		setNavLinks(n => n = populateNav())
-	}, [work])
+			};
+		};//populateNav
+		setNavLinks(n => n = populateNav());
+	}, [work]);
 	// end get prev/next
 
 //TODO replace <a> with Link, debug Router
@@ -87,8 +87,8 @@ const WorksNav = (props) => {
 			}
 			</NavItem>
 		</NavContainer>
-	)
-}
+	);
+};
 
 
 const NavContainer = styled.div`
@@ -100,7 +100,7 @@ const NavContainer = styled.div`
 		flex-wrap: nowrap;
 		margin-bottom: 50px;
 	`}
-`
+`;
 const NavItem = styled.div`//TODO Link or a?? Link failed, check router
 	//outline: 1px dashed peachpuff;
 	position: relative;
@@ -119,7 +119,7 @@ const NavItem = styled.div`//TODO Link or a?? Link failed, check router
 			fill: ${colors.almostWhite};
 		}
 	}
-`
+`;
 const Descr = styled.div`
 	//outline: 1px dashed hotpink;
 	visibility: ${props => props.shown ? "visibile" : "hidden"};
@@ -148,7 +148,7 @@ const Descr = styled.div`
 			right: 45px;
 		`}
 	}
-`
+`;
 const Back = styled.div`
 	//outline: 1px dashed hotpink;
 	flex: 0 1 30%;
@@ -165,6 +165,6 @@ const Back = styled.div`
 		height: 28px;
 		margin-bottom: -5px;
 	}
-`
+`;
 
-export default WorksNav
+export default WorksNav;

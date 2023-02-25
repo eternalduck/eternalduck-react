@@ -1,12 +1,12 @@
-import React, {useState, useEffect, useCallback} from "react"
-import {Link, matchRoutes, useLocation} from "react-router-dom"
-import styled from "styled-components"
-import {media, colors, mixins} from "@style/vars-mixins/_index"
-import {Icon, InlineIcon} from "@iconify/react"
-import exiticon from "@iconify/icons-openmoji/exit"
+import React, {useState, useEffect, useCallback} from "react";
+import {Link, matchRoutes, useLocation} from "react-router-dom";
+import styled from "styled-components";
+import {media, colors, mixins} from "@style/vars-mixins/_index";
+import {Icon, InlineIcon} from "@iconify/react";
+import exiticon from "@iconify/icons-openmoji/exit";
 
 const WorkItem = (props) => {
-	let currentURL = useLocation().pathname
+	let currentURL = useLocation().pathname;
 
 	return (
 		<Item>
@@ -40,10 +40,10 @@ const WorkItem = (props) => {
 				</ImgWrap>
 			</ItemInner>
 		</Item>
-	)
-}
+	);
+};
 
-export default WorkItem
+export default WorkItem;
 
 const Item = styled.article`
 	/* outline: 1px dashed magenta; */
@@ -62,7 +62,7 @@ const Item = styled.article`
 	${media.xxl`
 		flex: 0 1 25%;
 	`}
-`
+`;
 
 const ItemInner = styled.div`
 	position: relative;
@@ -81,7 +81,7 @@ const ItemInner = styled.div`
 		padding: 20px 15px 15px;
 	`}
 	
-`
+`;
 const ImgWrap = styled.div`
 	/* outline: 1px dashed green; */
 	/* width: 100%; */
@@ -93,7 +93,7 @@ const ImgWrap = styled.div`
 	& a {
 		${mixins.hoverOpacity};
 	}
-`
+`;
 const Img = styled.img`
 	${mixins.boxShadowSmall()};
 	width: 100%;
@@ -105,7 +105,7 @@ const Img = styled.img`
 		width: 94%;
 		margin: 0 auto;
 	`}
-`
+`;
 const Txt = styled.div`
 	/* outline: 1px dashed red; */
 	color: ${colors.almostBlack};
@@ -116,11 +116,11 @@ const Txt = styled.div`
 		margin-bottom: 15px;
 	`}
 	& a {color: ${colors.almostBlack};
-`
+`;
 const Title = styled.h3`
 	${mixins.borderUnderline};
 	margin-bottom: 15px;
-`
+`;
 
 const Url = styled.p`
 	${mixins.borderUnderline};
@@ -137,9 +137,9 @@ const Url = styled.p`
 			margin-right: 15px;
 		}
 	}
-`
+`;
 const Info = styled.div`
 	font-size: 15px;
 	color: ${colors.dustBlue};
-`
+`;
 

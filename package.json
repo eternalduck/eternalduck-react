@@ -7,7 +7,8 @@
 		"start": "webpack serve --mode development",
 		"build": "webpack --mode production",
 		"test": "jest",
-		"lint": "eslint"
+		"lint": "eslint src/**/*.js",
+		"fix": "eslint src/**/*.js --fix"
 	},
 	"browserslist": [
 		">0.2%",

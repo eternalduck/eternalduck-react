@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from "react"
-import {media, colors, gradients, mixins} from "../../style/vars-mixins/_index"
+import React, {useEffect, useState} from "react";
+import {media, colors, gradients, mixins} from "../../style/vars-mixins/_index";
 
 // Generates an array with randomized colors for items backgrounds, receiving their number as arg
 export const generateRandomBg = (itemsNum) => {
@@ -17,11 +17,11 @@ export const generateRandomBg = (itemsNum) => {
 		gradients.orangeTurq,
 		gradients.crimsonTurq,
 		gradients.turqGreen,
-	]
-	const bg = []
+	];
+	const bg = [];
 	for(let i = 0; i < itemsNum; i++) {
-		const randomIndex = Math.floor(Math.random() * bgrounds.length)
-		bg.push(bgrounds[randomIndex])
+		const randomIndex = Math.floor(Math.random() * bgrounds.length);
+		bg.push(bgrounds[randomIndex]);
 	}
-	return bg
-}
+	return bg;
+};

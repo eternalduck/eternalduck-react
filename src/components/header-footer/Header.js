@@ -1,14 +1,14 @@
-import React, {forwardRef} from "react"
-import {Link} from "react-router-dom"
-import styled from "styled-components"
-import {media, colors, mixins} from "../../style/vars-mixins/_index"
-import ToggleTheme from "../ToggleTheme/ToggleTheme"
-import ContentWidth from "../Layout/ContentWidth"
-import {Menu, MobMenu} from "../Menu/Menu"
-import {isMobile} from "../helpers/responsive"
+import React, {forwardRef} from "react";
+import {Link} from "react-router-dom";
+import styled from "styled-components";
+import {media, colors, mixins} from "../../style/vars-mixins/_index";
+import ToggleTheme from "../ToggleTheme/ToggleTheme";
+import ContentWidth from "../Layout/ContentWidth";
+import {Menu, MobMenu} from "../Menu/Menu";
+import {isMobile} from "../helpers/responsive";
 
 const Header = forwardRef((props, ref) => {
-	const {isMob} = isMobile()
+	const {isMob} = isMobile();
 
 	return (
 		<HeaderSc ref={ref}>
@@ -27,17 +27,17 @@ const Header = forwardRef((props, ref) => {
 				</HeaderInner>
 			</ContentWidth>
 		</HeaderSc>
-	)
-})
+	);
+});
 // for forwardRef:
 // Another option is to just disable that particular linter, using a comment with this or similar just above the declaration of your component:
 // "eslint-disable-next-line react/display-name"
-Header.displayName = "Header"
+Header.displayName = "Header";
 
 const HeaderSc = styled.header`
 	${mixins.printHidden};
 	/* outline: 2px dashed red */
-`
+`;
 const HeaderInner = styled.div`
 	display: flex;
 	flex-flow: row nowrap;
@@ -45,7 +45,7 @@ const HeaderInner = styled.div`
 	align-items: center;
 	padding: 15px 0;
 	z-index: 100;
-`
+`;
 const Logo = styled.div`
 	order: 1;
 	flex: 0 0 60px;
@@ -62,7 +62,7 @@ const Logo = styled.div`
 	&:hover {
 		background-position: 0 -60px;
 	}
-`
+`;
 const Extra = styled.div`
 	flex: 4;
 	order: 2;
@@ -71,7 +71,7 @@ const Extra = styled.div`
 		order: 3;
 		justify-content: flex-end;
 	`}
-`
+`;
 const MenuWrap = styled.div`
 	display: flex;
 	justify-content: flex-end;
@@ -84,7 +84,7 @@ const MenuWrap = styled.div`
 		margin-left: 0;
 		justify-content: flex-start;
 	`}
-`
+`;
 const ToggleThemeWrap = styled.div`
 	flex: 2;
 	order: 3;
@@ -93,6 +93,6 @@ const ToggleThemeWrap = styled.div`
 	${media.md`
 		order: 4;
 	`}
-`
+`;
 
-export default Header
+export default Header;

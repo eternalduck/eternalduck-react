@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from "react"
+import React, {useEffect, useState} from "react";
 
 export const ConditionalWrapper = ({ condition, wrapper, children }) =>
-  condition ? wrapper(children) : children
+  condition ? wrapper(children) : children;
 
 
 //usage:

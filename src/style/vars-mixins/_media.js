@@ -1,7 +1,7 @@
 // Dec  30, 2020 (4 Aug, 2020)
 // Usage:
 // ${media.sm``}
-import { css } from 'styled-components'
+import { css } from 'styled-components';
 
 const breakpoints = {
 	sm: "min-width: 576px",
@@ -22,13 +22,13 @@ const breakpoints = {
 	mdOnly: "(min-width: 750px) and (max-width: 989px)",
 	lgOnly: "(min-width: 991px) and (max-width: 1199px)",
 	xlOnly: "(min-width: 1200px) and (max-width: 1499px)",
-}
+};
 
 export default Object.keys(breakpoints).reduce((accumulator, label) => {
 	accumulator[label] = (...args) => css`
 		@media(${breakpoints[label]}) {
 			${css(...args)}
-	}`
-	return accumulator
-}, {})
+	}`;
+	return accumulator;
+}, {});
 

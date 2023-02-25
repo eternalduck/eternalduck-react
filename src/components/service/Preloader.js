@@ -1,12 +1,12 @@
-import React from "react"
-import styled, {keyframes} from "styled-components"
-import {colors} from "../../style/vars-mixins/_index"
+import React from "react";
+import styled, {keyframes} from "styled-components";
+import {colors} from "../../style/vars-mixins/_index";
 
 const Preloader = (props) => {
 	return (
 		<Slide/>
-	)
-}
+	);
+};
 const slide = keyframes`
 	0% {
 		height: 0;
@@ -29,7 +29,7 @@ const slide = keyframes`
 		opacity: 0;
 		z-index: -5;
 	}
-`
+`;
 const Slide = styled.div`
 	background: ${colors.gradientBlueMint};
 	position: fixed;
@@ -37,6 +37,6 @@ const Slide = styled.div`
 	height: 0;
 	bottom: 0;
 	animation: ${slide} 1.5s ease-in;
-`
+`;
 
-export default Preloader
+export default Preloader;

@@ -49,5 +49,5 @@ export const resetCss = `
 		border-collapse: collapse;
 		border-spacing: 0;
 	}
-`
-export default resetCss
+`;
+export default resetCss;

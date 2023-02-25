@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react"
-import {InlineIcon} from "@iconify/react"
-import mobileMessage from "@iconify/icons-openmoji/mobile-message"
-import wireframesIcon from "@iconify/icons-openmoji/wireframes"
-import hotBeverage from "@iconify/icons-openmoji/hot-beverage"
-import tabletIcon from "@iconify/icons-openmoji/tablet"
-import codeEditor from "@iconify/icons-openmoji/code-editor"
-import ledIcon from "@iconify/icons-openmoji/led"
-import composeIcon from "@iconify/icons-openmoji/compose"
-import greenBook from "@iconify/icons-openmoji/green-book"
-import pencilIcon from "@iconify/icons-openmoji/pencil"
+import React, { useState, useEffect } from "react";
+import {InlineIcon} from "@iconify/react";
+import mobileMessage from "@iconify/icons-openmoji/mobile-message";
+import wireframesIcon from "@iconify/icons-openmoji/wireframes";
+import hotBeverage from "@iconify/icons-openmoji/hot-beverage";
+import tabletIcon from "@iconify/icons-openmoji/tablet";
+import codeEditor from "@iconify/icons-openmoji/code-editor";
+import ledIcon from "@iconify/icons-openmoji/led";
+import composeIcon from "@iconify/icons-openmoji/compose";
+import greenBook from "@iconify/icons-openmoji/green-book";
+import pencilIcon from "@iconify/icons-openmoji/pencil";
 
 export const cvTxt = {
 	"lang": "en",
@@ -176,7 +176,7 @@ export const cvTxt = {
 		`<a href="https://www.facebook.com/moscoding/videos/%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D1%8B-%D1%81%D0%BE%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE-uiux-%D1%81-%D1%81%D0%B0%D1%88%D0%B5%D0%B9-%D0%B5%D1%80%D0%BC%D0%BE%D0%BB%D0%B5%D0%BD%D0%BA%D0%BE-%D0%B8-%D0%BB%D0%B5%D0%BD%D0%BE%D0%B9-%D0%BB%D0%B8%D1%81%D0%B5%D0%B5%D0%B2%D0%BE%D0%B9-ramblerco/1239093149568401/" target="_blank">Basics of a Modern UI/UX Design</a> by Rambler, Moscow Coding School (April, 2019, offline course);`
 	],
 	"extra": "I live in Kaliningrad;<br/>I was born in 1984.",
-}//cvTxt
+};//cvTxt
 
 
 export const cvTxtRu = {
@@ -348,5 +348,5 @@ export const cvTxtRu = {
 		`<a href="https://www.facebook.com/moscoding/videos/%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D1%8B-%D1%81%D0%BE%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE-uiux-%D1%81-%D1%81%D0%B0%D1%88%D0%B5%D0%B9-%D0%B5%D1%80%D0%BC%D0%BE%D0%BB%D0%B5%D0%BD%D0%BA%D0%BE-%D0%B8-%D0%BB%D0%B5%D0%BD%D0%BE%D0%B9-%D0%BB%D0%B8%D1%81%D0%B5%D0%B5%D0%B2%D0%BE%D0%B9-ramblerco/1239093149568401/" target="_blank">Основы современного UI/UX</a> от Rambler, Moscow Coding School (апрель 2019, очный курс);`
 	],
 	"extra": "Живу в Калининграде;<br/>год рождения &mdash; 1984.",
-}//cvTxtRu
+};//cvTxtRu
 

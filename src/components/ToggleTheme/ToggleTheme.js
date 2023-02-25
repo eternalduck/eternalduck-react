@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from "react"
-import styled, {css, keyframes, createGlobalStyle} from "styled-components"
-import {media, colors, mixins} from "../../style/vars-mixins/_index"
-import {Icon, InlineIcon} from "@iconify/react"
-import crescentMoon from "@iconify/icons-noto/crescent-moon"
-import smilingFaceWithSunglasses from "@iconify/icons-noto/smiling-face-with-sunglasses"
+import React, {useState, useEffect} from "react";
+import styled, {css, keyframes, createGlobalStyle} from "styled-components";
+import {media, colors, mixins} from "../../style/vars-mixins/_index";
+import {Icon, InlineIcon} from "@iconify/react";
+import crescentMoon from "@iconify/icons-noto/crescent-moon";
+import smilingFaceWithSunglasses from "@iconify/icons-noto/smiling-face-with-sunglasses";
 // import brightButton from "@iconify/icons-noto/bright-button"
 // import {ThemeContext} from "../../Root"
 
@@ -37,8 +37,8 @@ const ToggleTheme = (props) => {
 // 	}
 //////////////////////////////
 	//controlled checkbox
-	const [checked, setChecked] = useState(false)
-	const toggle = () => setChecked(prev => !prev)
+	const [checked, setChecked] = useState(false);
+	const toggle = () => setChecked(prev => !prev);
 	return (
 		<SwitchWrap htmlFor="theme-switch">
 			{/*FAIL: Warning: Received `true` for a non-boolean attribute `$shake`*/}
@@ -53,17 +53,17 @@ const ToggleTheme = (props) => {
 				<Switch/>
 			<IconSC icon={smilingFaceWithSunglasses}/> {/*$shake={checked}*/}
 		</SwitchWrap>
-	)
-}
+	);
+};
 
-export default ToggleTheme
+export default ToggleTheme;
 
 const SwitchWrap = styled.label`
 	width: 120px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-`
+`;
 const Switch = styled.div`
 	position: relative;
 	width: 45px;
@@ -91,10 +91,10 @@ const Switch = styled.div`
 		transform: translate(20px);
 	}
 	
-`
+`;
 const Checkbox = styled.input`
 	display: none;
-`
+`;
 //TODO disable shake on page load
 const shaking = keyframes`
 	0% {transform: translateX(0)}
@@ -102,7 +102,7 @@ const shaking = keyframes`
 	50% {transform: translateX(0) rotate(0)}
 	75% {transform: translateX(-1px) rotate(-1deg)}
 	100% {transform: translateX(0) rotate(0) scale(1)}
-`
+`;
 const IconSC = styled(Icon)`
 	font-size: 20px;
 	transiton: transform .3s ease-in;
@@ -116,4 +116,4 @@ const IconSC = styled(Icon)`
 	${media.md`
 		font-size: 24px;
 	`}
-`
+`;

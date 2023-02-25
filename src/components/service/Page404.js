@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react";
 import {
 	Route,
 	useMatch,
 	useParams,
 	useNavigate
-} from "react-router-dom"
-import styled from "styled-components"
-import {colors, mixins} from "@style/vars-mixins/_index"
+} from "react-router-dom";
+import styled from "styled-components";
+import {colors, mixins} from "@style/vars-mixins/_index";
 
 const Page404 = (props) => {
-	const history = useNavigate()
-	const goBack = () => history.goBack
+	const history = useNavigate();
+	const goBack = () => history.goBack;
 
 	return(
 		<Error>
@@ -23,10 +23,10 @@ const Page404 = (props) => {
 				<p>Press <Back onClick={goBack()}><span>any link</span></Back> to continue.</p>
 			</ErrorTxt>
 		</Error>
-	)
-}
+	);
+};
 
-export default Page404
+export default Page404;
 
 const Error = styled.div`
 	position: absolute;
@@ -38,7 +38,7 @@ const Error = styled.div`
 	justify-content: center;
 	align-items: center;
 	background: navy;
-`
+`;
 const ErrorTxt = styled.div`
 	max-width: 600px;
 	text-align: center;
@@ -62,9 +62,9 @@ const ErrorTxt = styled.div`
 			text-align: center;
 		}
 	}
-`
+`;
 const Back = styled.a`
 	color: #fff;
 	cursor: pointer;
 	${mixins.borderUnderline}
-`
+`;

@@ -1,5 +1,5 @@
-import {css} from "styled-components"
-import {media} from "../vars-mixins/_index"
+import {css} from "styled-components";
+import {media} from "../vars-mixins/_index";
 
 const debugStyle = css`
 	body:before {
@@ -32,9 +32,9 @@ const debugStyle = css`
 		`}
 	}
 
-`
+`;
 
-export default debugStyle
+export default debugStyle;
 
 //$bodyTxt: (
 //	[0, "XS", black],

@@ -362,4 +362,4 @@ export const sitesList = [
 		"description": `<p>This was my second commercial site, and it's still live (the first one is luckily gone :))</p><p>I was moving their old site to a new installation of Joomla, applying a new design from a free template, and developing the content structure.</p>`,
 		"descriptionRu": "",
 	}
-]
+];

@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 export const menuItems =
 [
@@ -32,4 +32,4 @@ export const menuItems =
 	// 	"url": "/art",
 	// 	"id": "art"
 	// },
-]
+];

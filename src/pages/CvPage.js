@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react"
-import styled from "styled-components"
-import {media, colors, mixins} from "@style/vars-mixins/_index"
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import {media, colors, mixins} from "@style/vars-mixins/_index";
 // import ContentLimitedWidth from "@components/Layout/ContentLimitedWidth"
 // import {cvTxt, cvTxtRu} from "@data/cvTxt"
 // import {InlineIcon} from "@iconify/react"
@@ -92,10 +92,10 @@ const CvPage = (props) => {
 		// 	<p className={"txt_small"} dangerouslySetInnerHTML={{__html: data.extra}}></p>
 		// </ContentLimitedWidth>
 		// </Cv>
-	)
-}
+	);
+};
 
-export default CvPage
+export default CvPage;
 
 
 const Cv = styled.div`
@@ -106,11 +106,11 @@ const Cv = styled.div`
 	bottom: 0;
 	left: 1vw;
 	right: 1vw;
-`
+`;
 const Iframe = styled.iframe`
 	width: 100%;
 	height: 100%;
-`
+`;
 
 // const Cv = styled.div`
 	/* background: ${props => props.theme.cvBg}; */

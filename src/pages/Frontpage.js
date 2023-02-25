@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react"
-import ReactDOM from "react-dom"
-import styled from "styled-components"
-import {colors, media} from "@style/vars-mixins/_index"
+import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
+import styled from "styled-components";
+import {colors, media} from "@style/vars-mixins/_index";
 
 const Frontpage = (props, theme) => {
 	// useEffect(() => {
@@ -11,14 +11,14 @@ const Frontpage = (props, theme) => {
 	//https://medium.com/@perryjanssen/getting-random-tracks-using-the-spotify-api-61889b0c0c27
 	return(
 		<FrontpageSC/>
-	)
-}
+	);
+};
 
 const FrontpageSC = styled.div`
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	background: url("/images/index-table.png") center bottom/cover no-repeat;
-`
+`;
 
-export default Frontpage
+export default Frontpage;

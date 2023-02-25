@@ -37,7 +37,7 @@ export const colors = {
 	transpWhite: "rgba(255, 255, 255, .6)",
 	transpPastelPink: "rgba(207, 181, 212, .5)",
 	transpPastelBlue: "rgba(1, 170, 200, .5)",
-}
+};
 
 export const gradients = {
 	// blueMint: "linear-gradient(90deg, #07B464 0%, #018FA8 100%)",
@@ -54,7 +54,7 @@ export const gradients = {
 	orangeTurq: "linear-gradient(110.78deg, rgba(180, 58, 1, 0.5) 1.24%, rgba(154, 24, 63, 0.5) 55.94%, rgba(4, 114, 121, 0.5) 93.86%), linear-gradient(48.93deg, #FF004D -36.47%, #CA6435 19.62%, #00686F 70.16%)",
 	crimsonTurq: "linear-gradient(92deg, rgba(154, 24, 63, 0.5) 6.33%, rgba(0, 176, 187, 0.5) 69.57%), linear-gradient(351.63deg, rgba(151, 0, 45, 0.6) -15.69%, rgba(0, 25, 27, 0.6) 81.95%), linear-gradient(22.62deg, #E168D5 -21.03%, rgba(222, 0, 133, 0) 41%)",
 	turqGreen: "linear-gradient(92deg, rgba(0, 93, 99, 0.5) 6.33%, rgba(66, 91, 42, 0.5) 69.57%), linear-gradient(351.63deg, #C0023B -15.69%, #00191B 81.95%)",
-}
+};
 // 2. Theme-related colors
 export const dark = {
 	name: "dark",
@@ -68,7 +68,7 @@ export const dark = {
 	uxPageBg: colors.blueishBlack,
 	singleUxBg: colors.blueishBlack,
 	cvBg: colors.almostBlack,
-}
+};
 export const light = {
 	name: "light",
 	bodyBg: colors.almostWhite,
@@ -81,4 +81,4 @@ export const light = {
 	uxPageBg: colors.pastelYellow,
 	singleUxBg: colors.pastelYellow,
 	cvBg: colors.almostWhite,
-}
+};

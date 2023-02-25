@@ -8,8 +8,8 @@
 // babel-jest
 // identity-obj-proxy
 
-import {sumUp} from "../pages/TestPage2"
+import {sumUp} from "../pages/TestPage2";
 
 test("a sum is correct", () => {
-	expect(sumUp(2,3)).toBe(5)
-})
+	expect(sumUp(2, 3)).toBe(5);
+});

@@ -22,11 +22,15 @@
 			"version": "detect"
 		}
 	},
+	"ignorePatterns": [
+		"src/assets/**", "**/vendor/*.js"
+	],
 	"rules": {
 		"no-debugger": "off",
 		"react/prop-types": 0,
 		"react/no-unescaped-entities": 0,
-		"semi": ["warn", "never"],
+		"semi": ["warn", "always", { "omitLastInOneLineBlock": true}],
+		"no-extra-semi": "warn",
 		"padded-blocks": ["warn", "never"],
 		"spaced-comment": ["off", "never"],
 		"space-before-function-paren": ["warn", "never"],
@@ -43,8 +47,8 @@
 		"comma-spacing": "warn",
 		"operator-linebreak": ["off", "after"],
 		"keyword-spacing": ["off", {
-		"before": false,
-		"after": false
+			"before": false,
+			"after": false
 		}],
 		"no-mixed-spaces-and-tabs": ["off"],
 		"brace-style": ["off", "stroustrup"],

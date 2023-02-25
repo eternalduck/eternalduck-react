@@ -1,11 +1,11 @@
-import React, {useState} from "react"
-import {Link} from "react-router-dom"
-import styled from "styled-components"
-import {colors, mixins, media} from "../../style/vars-mixins/_index"
-import {Icon} from "@iconify/react"
-import hamburgerIcon from "@iconify/icons-openmoji/hamburger"
-import multiplyIcon from "@iconify/icons-openmoji/multiply"
-import {menuItems} from "../../data/menuItems"
+import React, {useState} from "react";
+import {Link} from "react-router-dom";
+import styled from "styled-components";
+import {colors, mixins, media} from "../../style/vars-mixins/_index";
+import {Icon} from "@iconify/react";
+import hamburgerIcon from "@iconify/icons-openmoji/hamburger";
+import multiplyIcon from "@iconify/icons-openmoji/multiply";
+import {menuItems} from "../../data/menuItems";
 
 const MenuItems = (props) => {
 	return (
@@ -19,24 +19,24 @@ const MenuItems = (props) => {
 			</Link>
 		))}
 		</>
-	)
-}
+	);
+};
 
 export const Menu = (props) => {
 	return (
 		<MenuSc>
 			<MenuItems/>
 		</MenuSc>
-	)
-}//Menu
+	);
+};//Menu
 
 
 export const MobMenu = (props) => {
-	const [isMenuVisible, setMenuVisible] = useState(false)
+	const [isMenuVisible, setMenuVisible] = useState(false);
 
 	const toggleMobMenu = () => {
-		setMenuVisible(prev => !prev)
-	}
+		setMenuVisible(prev => !prev);
+	};
 	return (
 		<>
 			<MobMenuToggle onClick={toggleMobMenu}>
@@ -49,8 +49,8 @@ export const MobMenu = (props) => {
 			<MenuItems/>
 		</MenuMob>
 		</>
-	)
-}//Menu
+	);
+};//Menu
 
 const MenuSc = styled.nav`
 	display: flex;
@@ -84,7 +84,7 @@ const MenuSc = styled.nav`
 			}
 		}
 	}
-`
+`;
 const MenuMob = styled(MenuSc)`
 	transform: ${props => props.visible ? "translateY(0)" : "translateY(-100%)"};
 	transition: transform .3s ease-in;
@@ -95,7 +95,7 @@ const MenuMob = styled(MenuSc)`
 	padding: 25px 0 5px;
 	background-color: ${props => props.theme.mobMenuBg};
 	z-index: 200;
-`
+`;
 const MobMenuToggle = styled.div`
 	position: relative;
 	cursor: pointer;
@@ -103,4 +103,4 @@ const MobMenuToggle = styled.div`
 	& svg {
 		font-size: 46px;
 	}
-`
+`;

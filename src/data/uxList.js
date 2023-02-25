@@ -46,4 +46,4 @@ export const uxList = [
 		"description": `<p>//TODO</p>`,
 		// "descriptionRu": "",
 	},
-]
+];
