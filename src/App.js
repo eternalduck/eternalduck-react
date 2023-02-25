@@ -44,7 +44,7 @@ export default function App(props){
 
 	const Content = styled.main`
 		position: relative;
-		margin-bottom: -${footerHeight}px;
+		/* margin-bottom: -${footerHeight}px; */
 		/* margin-top: -${headerHeight}px; */
 		/* padding-bottom: ${footerHeight}px; */
 		min-height: calc(100vh - ${headerHeight}px)

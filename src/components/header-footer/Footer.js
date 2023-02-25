@@ -20,7 +20,7 @@ const Footer = forwardRef((props, ref) => {
 Footer.displayName = "Footer"
 
 const FooterSc = styled.footer`
-	margin: 0;
+	margin: 40px 0 0;
 	/* outline: 2px dashed red */
 `
 const FooterInner = styled.div`

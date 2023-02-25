@@ -7,12 +7,12 @@ import ContentWide from "../Layout/ContentWide"
 import Loading from "../service/Loading"
 import Page404 from "../service/Page404"
 import WorksNav from "./WorksNav"
-import {InlineIcon} from "@iconify/react"
-import exiticon from "@iconify/icons-openmoji/exit"
 import {sitesList} from "../../data/sitesList"
+// import {InlineIcon} from "@iconify/react"
+// import exiticon from "@iconify/icons-openmoji/exit"
 
 const SingleWork = (props) => {
-	const currentURL = useLocation().pathname// TMP
+	// const currentURL = useLocation().pathname// TMP
 	// const worksList = sitesList;//props.data// sitesList or uxList expected
 	const {itemSlug} = useParams()
 	// Get data for the current work
@@ -24,9 +24,11 @@ const SingleWork = (props) => {
 	const [mainImgTitle, setMainImgTitle] = useState("")
 	// set main image on first page load
 	useEffect(() => {
-		console.info(`SingleWork: current path: ${currentURL}`)
+		// console.info(`SingleWork: current path: ${currentURL}`)
 		console.info("SingleWork - currentWork:")
 		console.info(currentWork)
+		console.info("SingleWork - itemSlug:")
+		console.info(itemSlug)
 		work && setMainImgSrc(work.images[0].src)
 		work && setMainImgTitle(work.images[0].title)
 	}, [work])
@@ -55,13 +57,13 @@ const SingleWork = (props) => {
 		!work ?
 		<Page404/> :
 		<Work>
-			{<WorksNav worksList={sitesList} work={work}/>}
 
 			<ContentWidth>
+				{<WorksNav worksList={sitesList} work={work}/>}
 				<Title>{work.title}</Title>
 				<Info>
 					<p><b>{work.year}</b></p>
-					{work.urls.map(url =>
+					{work.urls && work.urls.map(url =>
 						<Url key={url.url} href={url.url} target="_blank" rel={"noreferrer"}>
 							<span>{url.txt}</span>
 							{/*<InlineIcon icon={exiticon}/>*/}
@@ -94,7 +96,10 @@ const SingleWork = (props) => {
 				</MainImgWrap>
 			</ContentWide>
 
-			{/* <WorksNav worksList={sitesList} work={work}/> */}
+			{/* <ContentWidth>
+				<WorksNav worksList={sitesList} work={work}/>
+			</ContentWidth> */}
+
 		</Work>
 	)
 }

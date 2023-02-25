@@ -2,7 +2,6 @@ import React, {useState, useEffect} from "react"
 import styled, {keyframes} from "styled-components"
 import {Link, matchRoutes, useLocation} from "react-router-dom"
 import {colors, mixins, media} from "../../style/vars-mixins/_index"
-import ContentWidth from "../../components/Layout/ContentWidth"
 
 import {InlineIcon} from "@iconify/react"
 import previousIcon from "@iconify/icons-flat-color-icons/previous"
@@ -52,44 +51,42 @@ const WorksNav = (props) => {
 //TODO replace <a> with Link, debug Router
 
 	return (
-		<ContentWidth>
-			<NavContainer>
-				<NavItem
-					onMouseEnter={() => setIsPrevDescrShown(true)}
-					onMouseLeave={() => setIsPrevDescrShown(false)}>
-				{navLinks.prev.slug &&
-					<>
-					<a href={`${navLinks.prev.slug}`}>
-						<InlineIcon icon={previousIcon}/>
-					</a>
-					<Descr shown={isPrevDescrShown}>
-						{navLinks.prev.title} ({navLinks.prev.year})
-					</Descr>
-					</>
-				}
-				</NavItem>
-				<Back>
-					<Link to={parentUrl}>
-						<InlineIcon icon={signpostIcon}/>
-						<span>back to the list</span>
-					</Link>
-				</Back>
-				<NavItem
-					onMouseEnter={() => setIsNextDescrShown(true)}
-					onMouseLeave={() => setIsNextDescrShown(false)}>
-				{navLinks.next.slug &&
-					<>
-					<a href={`${navLinks.next.slug}`}>
-						<InlineIcon icon={nextIcon}/>
-					</a>
-					<Descr shown={isNextDescrShown}>
-						{navLinks.next.title} ({navLinks.next.year})
-					</Descr>
-					</>
-				}
-				</NavItem>
-			</NavContainer>
-		</ContentWidth>
+		<NavContainer>
+			<NavItem
+				onMouseEnter={() => setIsPrevDescrShown(true)}
+				onMouseLeave={() => setIsPrevDescrShown(false)}>
+			{navLinks.prev.slug &&
+				<>
+				<a href={`${navLinks.prev.slug}`}>
+					<InlineIcon icon={previousIcon}/>
+				</a>
+				<Descr shown={isPrevDescrShown}>
+					{navLinks.prev.title} ({navLinks.prev.year})
+				</Descr>
+				</>
+			}
+			</NavItem>
+			<Back>
+				<Link to={parentUrl}>
+					<InlineIcon icon={signpostIcon}/>
+					<span>back to the list</span>
+				</Link>
+			</Back>
+			<NavItem
+				onMouseEnter={() => setIsNextDescrShown(true)}
+				onMouseLeave={() => setIsNextDescrShown(false)}>
+			{navLinks.next.slug &&
+				<>
+				<a href={`${navLinks.next.slug}`}>
+					<InlineIcon icon={nextIcon}/>
+				</a>
+				<Descr shown={isNextDescrShown}>
+					{navLinks.next.title} ({navLinks.next.year})
+				</Descr>
+				</>
+			}
+			</NavItem>
+		</NavContainer>
 	)
 }
 
