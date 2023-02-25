@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from "react";
 import styled, {css, keyframes, createGlobalStyle} from "styled-components";
-import {media, colors, mixins} from "../../style/vars-mixins/_index";
+import {colors} from "../../style/vars-mixins/_index";
+import {media} from "../../style/vars-mixins/_media";
+import {mixins} from "../../style/vars-mixins/_mixins";
 import {Icon, InlineIcon} from "@iconify/react";
 import crescentMoon from "@iconify/icons-noto/crescent-moon";
 import smilingFaceWithSunglasses from "@iconify/icons-noto/smiling-face-with-sunglasses";
@@ -113,7 +115,7 @@ const IconSC = styled(Icon)`
 			animation-iteration-count: 2;`
 		: null
 	};
-	${media.md`
+	@media ${media.md}{
 		font-size: 24px;
-	`}
+	}
 `;

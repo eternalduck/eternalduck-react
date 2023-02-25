@@ -2,7 +2,9 @@ import React from "react";
 import {css, createGlobalStyle} from "styled-components";
 import {default as resetCss} from "./utils/_resetCss";
 import {default as debugStyle} from "./utils/_debugStyle";
-import {media, colors, mixins} from "./vars-mixins/_index";
+import {colors} from "./vars-mixins/_index";
+import {media} from "./vars-mixins/_media";
+import {mixins} from "./vars-mixins/_mixins";
 
 const GlobalStyle = createGlobalStyle`
 	${resetCss}
@@ -38,37 +40,37 @@ const GlobalStyle = createGlobalStyle`
 		font-size: 26px;
 		line-height: 1.3;
 		margin-bottom: 20px;
-		${media.md`
+		@media ${media.md}{
 			font-size: 36px;
-		`}
-		${media.lg`
+		}
+		@media ${media.lg}{
 			font-size: 42px;
 			margin-bottom: 25px;
-		`}
+		}
 	}
 	h2 {
 		font-size: 24px;
 		line-height: 1.2;
 		margin-bottom: 15px;
-		${media.md`
+		@media ${media.md}{
 			font-size: 30px;
-		`}
-		${media.lg`
+		}
+		@media ${media.lg}{
 			font-size: 36px;
 			margin-bottom: 20px;
-		`}
+		}
 	}
 	h3 {
 		font-size: 22px;
 		line-height: 1.2;
 		margin-bottom: 15px;
-		${media.md`
+		@media ${media.md}{
 			font-size: 24px;
-		`}
-		${media.lg`
+		}
+		@media ${media.lg}{
 			font-size: 28px;
 			margin-bottom: 20px;
-		`}
+		}
 	}
 	p {
 		font-size: 100%;

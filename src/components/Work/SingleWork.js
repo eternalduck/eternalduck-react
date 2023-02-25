@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import {useParams, useLocation} from "react-router-dom";
 import styled from "styled-components";
-import {colors, mixins} from "../../style/vars-mixins/_index";
+import {colors} from "../../style/vars-mixins/_index";
+import {mixins} from "../../style/vars-mixins/_mixins";
 import ContentWidth from "../Layout/ContentWidth";
 import ContentWide from "../Layout/ContentWide";
 import Loading from "../service/Loading";

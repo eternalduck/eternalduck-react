@@ -6,7 +6,8 @@ import {
 	useNavigate
 } from "react-router-dom";
 import styled from "styled-components";
-import {colors, mixins} from "@style/vars-mixins/_index";
+import {colors} from "../../style/vars-mixins/_index";
+import {mixins} from "../../style/vars-mixins/_mixins";
 
 const Page404 = (props) => {
 	const history = useNavigate();

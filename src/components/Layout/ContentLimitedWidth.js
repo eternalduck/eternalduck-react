@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
-import {mixins} from "../../style/vars-mixins/_index";
+import {mixins} from "../../style/vars-mixins/_mixins";
 
 const ContentLimitedWidth = (props) => {
 	return (

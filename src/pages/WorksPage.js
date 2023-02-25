@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useCallback} from "react";
 import {Link, matchRoutes, useLocation, Outlet} from "react-router-dom";
 import styled, {css, createGlobalStyle } from "styled-components";
-import {colors, mixins, media} from "../style/vars-mixins/_index";
+import {media} from "../style/vars-mixins/_media";
 import ContentWidth from "../components/Layout/ContentWidth";
 import WorkItem from "../components/Work/WorkItem";
 import {generateRandomBg} from "../components/helpers/generateRandomBg";
@@ -50,10 +50,10 @@ const WorksWrap = styled.div`
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;
-	${media.md`
+	@media ${media.md}{
 		justify-content: flex-start;
 		/* column-gap: 50px; */
-	`}
+	}
 `;
 
 export default WorksPage;

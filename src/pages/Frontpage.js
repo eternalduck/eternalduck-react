@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
-import {colors, media} from "@style/vars-mixins/_index";
+import {colors} from "@style/vars-mixins/_index";
+import {media} from "@style/vars-mixins/_media";
 
 const Frontpage = (props, theme) => {
 	// useEffect(() => {

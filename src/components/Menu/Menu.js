@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import styled from "styled-components";
-import {colors, mixins, media} from "../../style/vars-mixins/_index";
+import {media} from "../../style/vars-mixins/_media";
+import {mixins} from "../../style/vars-mixins/_mixins";
 import {Icon} from "@iconify/react";
 import hamburgerIcon from "@iconify/icons-openmoji/hamburger";
 import multiplyIcon from "@iconify/icons-openmoji/multiply";
@@ -57,9 +58,9 @@ const MenuSc = styled.nav`
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-	${media.md`
+	@media ${media.md}{
 		flex-flow: row nowrap;
-	`}
+	};
 	a {//item
 		position: relative;
 		margin-bottom: 30px;
@@ -72,10 +73,10 @@ const MenuSc = styled.nav`
 		transition: color 0.3s ease-in;
 		${mixins.noUnderline};
 		${mixins.hoverBg};
-		${media.md`
+		@media ${media.md}{
 			margin-right: 45px;
 			margin-bottom: 0;
-		`}
+		};
 		&.active {
 			cursor: default;
 			pointer-events: none;

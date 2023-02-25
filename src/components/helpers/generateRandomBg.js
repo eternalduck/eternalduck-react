@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {media, colors, gradients, mixins} from "../../style/vars-mixins/_index";
+import {gradients} from "../../style/vars-mixins/_index";
 
 // Generates an array with randomized colors for items backgrounds, receiving their number as arg
 export const generateRandomBg = (itemsNum) => {

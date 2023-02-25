@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from "react";
 import styled, {keyframes} from "styled-components";
 import {Link, matchRoutes, useLocation} from "react-router-dom";
-import {colors, mixins, media} from "../../style/vars-mixins/_index";
+import {colors} from "../../style/vars-mixins/_index";
+import {media} from "../../style/vars-mixins/_media";
+import {mixins} from "../../style/vars-mixins/_mixins";
 
 import {InlineIcon} from "@iconify/react";
 import previousIcon from "@iconify/icons-flat-color-icons/previous";
@@ -96,10 +98,10 @@ const NavContainer = styled.div`
 	flex-wrap: wrap;
 	justify-content: space-between;
 	margin-bottom: 40px;
-	${media.lg`
+	@media ${media.lg}{
 		flex-wrap: nowrap;
 		margin-bottom: 50px;
-	`}
+	}
 `;
 const NavItem = styled.div`//TODO Link or a?? Link failed, check router
 	//outline: 1px dashed peachpuff;
@@ -107,10 +109,10 @@ const NavItem = styled.div`//TODO Link or a?? Link failed, check router
 	flex: 0 1 32px;
 	color: ${colors.almostWhite};
 	position: relative;
-	${media.lg`
+	@media ${media.lg}{
 		order: unset;
 		width: 37%;
-	`}
+	}
 	& svg {//icon
 		font-size: 32px;
 		transiton: transform .3s ease-in;
@@ -131,22 +133,22 @@ const Descr = styled.div`
 	font-size: 15px;
 	user-select: none;
 	${mixins.borderUnderline}
-	${media.lg`
+	@media ${media.lg}{
 		top: 6px;
 		font-size: 16px;
-	`}
+	}
 	${NavItem}:first-child & {
 		left: 0;
-		${media.lg`
+		@media ${media.lg}{
 			left: 45px;
-		`}
+		}
 	}
 	${NavItem}:last-child & {
 		right: 0;
 		text-align: right;
-		${media.lg`
+		@media ${media.lg}{
 			right: 45px;
-		`}
+		}
 	}
 `;
 const Back = styled.div`
@@ -157,9 +159,9 @@ const Back = styled.div`
 	text-align: center;
 	white-space: nowrap;
 	${mixins.borderUnderline}
-	${media.lg`
+	@media ${media.lg}{
 		font-size: 15px;
-	`}
+	}
 	& svg {
 		width: 28px;
 		height: 28px;

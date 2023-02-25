@@ -1,7 +1,8 @@
 import React, {forwardRef} from "react";
 import {Link} from "react-router-dom";
 import styled from "styled-components";
-import {media, colors, mixins} from "../../style/vars-mixins/_index";
+import {mixins} from "../../style/vars-mixins/_mixins";
+import {media} from "../../style/vars-mixins/_media";
 import ToggleTheme from "../ToggleTheme/ToggleTheme";
 import ContentWidth from "../Layout/ContentWidth";
 import {Menu, MobMenu} from "../Menu/Menu";
@@ -36,7 +37,6 @@ Header.displayName = "Header";
 
 const HeaderSc = styled.header`
 	${mixins.printHidden};
-	/* outline: 2px dashed red */
 `;
 const HeaderInner = styled.div`
 	display: flex;
@@ -56,9 +56,9 @@ const Logo = styled.div`
 	margin-right: 15px;
 	border-radius: 50%;
 	${mixins.boxShadowSmall()};
-	${media.md`
+	@media ${media.md}{
 		margin-right: 40px;
-	`}
+	}
 	&:hover {
 		background-position: 0 -60px;
 	}
@@ -67,10 +67,10 @@ const Extra = styled.div`
 	flex: 4;
 	order: 2;
 	display: flex;
-	${media.md`
+	@media ${media.md}{
 		order: 3;
 		justify-content: flex-end;
-	`}
+	}
 `;
 const MenuWrap = styled.div`
 	display: flex;
@@ -78,21 +78,22 @@ const MenuWrap = styled.div`
 	flex: 0 0 50px;
 	order: 4;
 	margin-left: 20px;
-	${media.md`
+	@media ${media.md}{
 		flex: 1;
 		order: 2;
 		margin-left: 0;
 		justify-content: flex-start;
-	`}
+	}
 `;
+
 const ToggleThemeWrap = styled.div`
 	flex: 2;
 	order: 3;
 	display: flex;
 	justify-content: flex-end;
-	${media.md`
+	@media ${media.md}{
 		order: 4;
-	`}
+	}
 `;
 
 export default Header;

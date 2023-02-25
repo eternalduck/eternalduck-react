@@ -1,7 +1,9 @@
 import React, {useState, useEffect, useCallback} from "react";
 import {Link, matchRoutes, useLocation} from "react-router-dom";
 import styled from "styled-components";
-import {media, colors, mixins} from "@style/vars-mixins/_index";
+import {colors} from "../../style/vars-mixins/_index";
+import {media} from "../../style/vars-mixins/_media";
+import {mixins} from "../../style/vars-mixins/_mixins";
 import {Icon, InlineIcon} from "@iconify/react";
 import exiticon from "@iconify/icons-openmoji/exit";
 
@@ -51,17 +53,17 @@ const Item = styled.article`
 	display: flex;
 	justify-content: center;
 	margin-bottom: 30px;
-	${media.md`
+	@media ${media.md}{
 		padding-right: 15px;
 		padding-left: 15px;
 		flex: 0 1 50%;
-	`}
-	${media.xl`
+	}
+	@media ${media.xl}{
 		flex: 0 1 33.33%;
-	`}
-	${media.xxl`
+	}
+	@media ${media.xxl}{
 		flex: 0 1 25%;
-	`}
+	}
 `;
 
 const ItemInner = styled.div`
@@ -76,20 +78,20 @@ const ItemInner = styled.div`
 		${mixins.defaultPseudo("100%", "15px")};
 		background: ${props => props.bg};
 	}
-	${media.md`
+	@media ${media.md}{
 		flex-direction: column;
 		padding: 20px 15px 15px;
-	`}
+	}
 	
 `;
 const ImgWrap = styled.div`
 	/* outline: 1px dashed green; */
 	/* width: 100%; */
 	flex: 0 0 40%;
-	${media.md`
+	@media ${media.md}{
 		flex: 1;
 		${mixins.flexCenterContentVertically};
-	`}
+	}
 	& a {
 		${mixins.hoverOpacity};
 	}
@@ -100,21 +102,21 @@ const Img = styled.img`
 	object-fit: contain;
 	object-position: center bottom;
 	border-radius: 2px;
-	${media.md`
+	@media ${media.md}{
 		display: block;
 		width: 94%;
 		margin: 0 auto;
-	`}
+	}
 `;
 const Txt = styled.div`
 	/* outline: 1px dashed red; */
 	color: ${colors.almostBlack};
 	padding-right: 10px;
 	flex: 0 0 60%;
-	${media.md`
+	@media ${media.md}{
 		flex: 1;
 		margin-bottom: 15px;
-	`}
+	}
 	& a {color: ${colors.almostBlack};
 `;
 const Title = styled.h3`
@@ -126,10 +128,10 @@ const Url = styled.p`
 	${mixins.borderUnderline};
 	font-weight: bold;
 	margin-bottom: 10px;
-	${media.md`
+	@media ${media.md}{
 		margin: 10px 0;
 		font-size: 14px;
-	`}
+	}
 	& a {
 		color: ${colors.dustBlue};
 		display: inline-block;
