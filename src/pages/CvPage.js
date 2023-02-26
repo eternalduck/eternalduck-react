@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-// import {media, colors, mixins} from "@style/vars-mixins/_index";
+// import {colors} from "@style/vars-mixins/colors";
 // import ContentLimitedWidth from "@components/Layout/ContentLimitedWidth"
 // import {cvTxt, cvTxtRu} from "@data/cvTxt"
 // import {InlineIcon} from "@iconify/react"

@@ -1,5 +1,5 @@
 import {css} from "styled-components";
-import {media} from "../vars-mixins/_media";
+import {media} from "../vars-mixins/media";
 
 const debugStyle = css`
 	body:before {

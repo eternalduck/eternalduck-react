@@ -1,5 +1,5 @@
 import React from 'react';
-import {Header} from "../components/header-footer/Header";
+import {Header} from "../components/Header/Header";
 
 const Template = (args) => <Header {...args} />;
 

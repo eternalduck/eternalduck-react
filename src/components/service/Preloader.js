@@ -1,6 +1,6 @@
 import React from "react";
 import styled, {keyframes} from "styled-components";
-import {colors} from "../../style/vars-mixins/_index";
+import {colors} from "../../style/vars-mixins/colors";
 
 const Preloader = (props) => {
 	return (

@@ -1,21 +1,18 @@
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import styled from "styled-components";
-import {media} from "../../style/vars-mixins/_media";
-import {mixins} from "../../style/vars-mixins/_mixins";
+import {media} from "../../style/vars-mixins/media";
+import {mixins} from "../../style/vars-mixins/mixins";
 import {Icon} from "@iconify/react";
 import hamburgerIcon from "@iconify/icons-openmoji/hamburger";
 import multiplyIcon from "@iconify/icons-openmoji/multiply";
 import {menuItems} from "../../data/menuItems";
 
-const MenuItems = (props) => {
+const MenuItems = () => {
 	return (
 		<>
 		{menuItems.map(item => (
-			<Link key={item.id}
-				to={item.url}
-				// exact={true}
-			>
+			<Link key={item.id} to={item.url}>
 				{item.txt}
 			</Link>
 		))}
@@ -23,7 +20,7 @@ const MenuItems = (props) => {
 	);
 };
 
-export const Menu = (props) => {
+export const Menu = () => {
 	return (
 		<MenuSc>
 			<MenuItems/>
@@ -32,7 +29,7 @@ export const Menu = (props) => {
 };//Menu
 
 
-export const MobMenu = (props) => {
+export const MobMenu = () => {
 	const [isMenuVisible, setMenuVisible] = useState(false);
 
 	const toggleMobMenu = () => {

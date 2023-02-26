@@ -12,7 +12,6 @@ const ContentFullWidth = (props) => {
 const Content = styled.div`
 	width: 100%;
 	padding: 0 30px;
-	position: relative;
 `;
 
 export default ContentFullWidth;

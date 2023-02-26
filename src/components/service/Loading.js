@@ -1,6 +1,6 @@
 import React from "react";
 import styled, {keyframes} from "styled-components";
-import {colors} from "../../style/vars-mixins/_index";
+import {colors} from "../../style/vars-mixins/colors";
 
 // add watched data to watchLoaded var in a component and pass it as "loaded" props
 // <Loading loaded={watchLoaded}/>

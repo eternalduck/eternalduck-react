@@ -4,18 +4,17 @@ import styled, {ThemeProvider, ThemeContext, useTheme} from "styled-components";
 
 import "@style/fouc-fix.css";
 // import "@style/global.scss"
-import {dark, light} from "./style/vars-mixins/_index";
+import {darkTheme, lightTheme} from "./style/vars-mixins/theme";
 import GlobalStyle from "./style/GlobalStyle";
 import Preloader from "./components/service/Preloader";
-import Header from "./components/header-footer/Header";
-import Footer from "./components/header-footer/Footer";
-import TestPage from "./pages/TestPage";
-import TestPage2 from "./pages/TestPage2";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 import Frontpage from "./pages/Frontpage";
 import WorksPage from "./pages/WorksPage";
 import CvPage from "./pages/CvPage";
-import Page404 from "./components/service/Page404";
-import SingleWork from "./components/Work/SingleWork";
+import Page404 from "./pages/Page404";
+import WorkSingle from "./pages/WorkSingle";
+import TestPage from "./pages/TestPage/TestPage";
 
 // export const ThemeContext = createContext({
 // 	isLightTheme: false,
@@ -24,7 +23,7 @@ import SingleWork from "./components/Work/SingleWork";
 
 export default function App(props){
 	// let {path, url} = useMatch()
-	const theme = dark;
+	const theme = darkTheme;
 	useEffect(() => {
 		// Class for fouc-fix.css
 		document.body.className = "loaded";
@@ -55,23 +54,22 @@ export default function App(props){
 	return(
 		<ThemeProvider theme={theme}>
 			<BrowserRouter>
-			<GlobalStyle/>
-			{/* <Preloader/> */}
-			<Header ref={headerRef}/>
-			<Content>
-				<Routes>
-					<Route path="/" element={ <Frontpage/> }/>
-					<Route path="/sites">
-						<Route index element={ <WorksPage/> }/>
-						<Route path=":itemSlug" element={ <SingleWork/> }/>
-					</Route>
-					<Route path="/cv" element={ <CvPage/> }/>
-					<Route path="/test" element={ <TestPage/> }/>
-					<Route path="/test2" element={ <TestPage2/> }/>
-					<Route path="*" element={ <Page404/> }/>
-				</Routes>
-			</Content>
-			<Footer ref={footerRef}/>
+				<GlobalStyle/>
+				{/* <Preloader/> */}
+				<Header ref={headerRef}/>
+				<Content>
+					<Routes>
+						<Route path="/" element={ <Frontpage/> }/>
+						<Route path="/sites">
+							<Route index element={ <WorksPage/> }/>
+							<Route path=":itemSlug" element={ <WorkSingle/> }/>
+						</Route>
+						<Route path="/cv" element={ <CvPage/> }/>
+						<Route path="/test" element={ <TestPage/> }/>
+						<Route path="*" element={ <Page404/> }/>
+					</Routes>
+				</Content>
+				<Footer ref={footerRef}/>
 			</BrowserRouter>
 		</ThemeProvider >
 	);

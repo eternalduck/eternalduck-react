@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react";
 import styled, {css, keyframes, createGlobalStyle} from "styled-components";
-import {colors} from "../../style/vars-mixins/_index";
-import {media} from "../../style/vars-mixins/_media";
-import {mixins} from "../../style/vars-mixins/_mixins";
+import {colors} from "../../style/vars-mixins/colors";
+import {media} from "../../style/vars-mixins/media";
+import {mixins} from "../../style/vars-mixins/mixins";
 import {Icon, InlineIcon} from "@iconify/react";
 import crescentMoon from "@iconify/icons-noto/crescent-moon";
 import smilingFaceWithSunglasses from "@iconify/icons-noto/smiling-face-with-sunglasses";

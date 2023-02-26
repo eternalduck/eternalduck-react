@@ -1,9 +1,9 @@
 import React, {useState, useEffect, useCallback} from "react";
 import {Link, matchRoutes, useLocation, Outlet} from "react-router-dom";
 import styled, {css, createGlobalStyle } from "styled-components";
-import {media} from "../style/vars-mixins/_media";
-import ContentWidth from "../components/Layout/ContentWidth";
-import WorkItem from "../components/Work/WorkItem";
+import {media} from "../style/vars-mixins/media";
+import ContentWidth from "../components/layout/ContentWidth";
+import WorkItem from "../components/WorkItem/WorkItem";
 import {generateRandomBg} from "../components/helpers/generateRandomBg";
 import {sitesList} from "../data/sitesList";
 

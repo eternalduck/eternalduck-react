@@ -1,0 +1,6 @@
+:root {
+  --txt-color: red;
+}
+#subj {
+    color: var(--txt-color, orange);
+}

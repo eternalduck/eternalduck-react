@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import {media} from "./_media";
+import {media} from "./media";
 
 export const mixins = {
 // 1.1 Grid & structure

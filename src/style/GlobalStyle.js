@@ -1,10 +1,9 @@
-import React from "react";
 import {css, createGlobalStyle} from "styled-components";
 import {default as resetCss} from "./utils/_resetCss";
 import {default as debugStyle} from "./utils/_debugStyle";
-import {colors} from "./vars-mixins/_index";
-import {media} from "./vars-mixins/_media";
-import {mixins} from "./vars-mixins/_mixins";
+import {media} from "./vars-mixins/media";
+import {colors} from "./vars-mixins/colors";
+import {mixins} from "./vars-mixins/mixins";
 
 const GlobalStyle = createGlobalStyle`
 	${resetCss}
@@ -15,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
 	//@import url('https://fonts.googleapis.com/css2?family=Cousine:wght@400;700&family=Open+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap');
 	body {
 		background: ${props => props.theme.bodyBg};
-		color: ${props => props.theme.txtClr};
+		color: ${props => props.theme.textColor};
 		font-family: "Open Sans", sans-serif;
 		font-weight: 300;
 		font-size: 16px;
@@ -80,7 +79,7 @@ const GlobalStyle = createGlobalStyle`
 		font-weight: bold;
 	}
 	a {
-		color: ${props => props.theme.linkClr};
+		color: ${props => props.theme.linkColor};
 		text-decoration: none;
 	}
 	.txt {

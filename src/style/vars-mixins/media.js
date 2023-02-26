@@ -1,25 +1,23 @@
-export const breakpoints = {
-	sm: "576px",
-	md: "750px",
-	lg: "990px",
-	xl: "1200px",
-	xxl: "1500px"
-}
-
-export const media = {
-	sm: `(min-width: ${breakpoints.sm})`,
-	md: `(min-width: ${breakpoints.md})`,
-	lg: `(min-width: ${breakpoints.lg})`,
-	xl: `(min-width: ${breakpoints.xl})`,
-	xxl: `(min-width: ${breakpoints.xxl})`,
-
-	smOnly: `(min-width: ${breakpoints.sm}) and (max-width: ${breakpoints.md})`,//-1
-	mdOnly: `(min-width: ${breakpoints.md}) and (max-width: ${breakpoints.lg})`,
-	lgOnly: `(min-width: ${breakpoints.lg}) and (max-width: ${breakpoints.xl})`,
-	xlOnly: `(min-width: ${breakpoints.xl}) and (max-width: ${breakpoints.xxl})`,
+export const breakpoint = {
+	sm: 576,
+	md: 750,
+	lg: 990,
+	xl: 1200,
+	xxl: 1500
 };
 
-
+export const media = {
+	sm: `(min-width: ${breakpoint.sm}px)`,
+	md: `(min-width: ${breakpoint.md}px)`,
+	lg: `(min-width: ${breakpoint.lg}px)`,
+	xl: `(min-width: ${breakpoint.xl}px)`,
+	xxl: `(min-width: ${breakpoint.xxl}px)`,
+	smOnly: `(max-width: ${breakpoint.md}px)`,
+	mdOnly: `(min-width: ${breakpoint.md}px) and (max-width: ${breakpoint.lg}px)`,
+	lgOnly: `(min-width: ${breakpoint.lg}px) and (max-width: ${breakpoint.xl}px)`,
+	xlOnly: `(min-width: ${breakpoint.xl}px) and (max-width: ${breakpoint.xxl}px)`,
+	xxlOnly: `(min-width: ${breakpoint.xxl}px)`
+};
 
 // Dec  30, 2020 (4 Aug, 2020)
 // Usage:
@@ -46,9 +44,9 @@ export const media = {
 // 	xlOnly: "(min-width: 1200px) and (max-width: 1499px)",
 // };
 
-// export default Object.keys(breakpoints).reduce((accumulator, label) => {
+// export default Object.keys(breakpoint).reduce((accumulator, label) => {
 // 	accumulator[label] = (...args) => css`
-// 		@media(${breakpoints[label]}) {
+// 		@media(${breakpoint[label]}) {
 // 			${css(...args)}
 // 	}`;
 // 	return accumulator;
