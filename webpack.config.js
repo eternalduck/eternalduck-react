@@ -4,12 +4,9 @@ const htmlWebpackPlugin = require("html-webpack-plugin");
 const miniCssExtractPlugin = require("mini-css-extract-plugin");
 const copyPlugin = require("copy-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
-// const cssnano = require("cssnano");
-// const stylelintPlugin = require("stylelint-webpack-plugin");
 const isProductionMode = process.env.NODE_ENV === "production";
 
 module.exports = {
-	// context: path.resolve(__dirname),
 	entry: path.resolve(__dirname, "./src/index.js"),
 	watch: true,
 	module: {
@@ -25,24 +22,23 @@ module.exports = {
 							"@babel/preset-react"
 						],
 						"plugins": [
-							//make readable classes
+							// Make readable classes
 							["babel-plugin-styled-components",
 								{
 									"displayName": true,
 									"fileName": false,
 									"ssr": true,
 									"transpileTemplateLiterals": true,
-									"preprocess": false,//experimental feature turned off explicitly
+									"preprocess": false,// experimental feature turned off explicitly
 								}
 							]
 						]
 					}
 				}
-			},// js
+			}, // js
 
 			{// styled-components + tiny css for fouc-fix
 				test: /\.(scss|css)$/,
-				// test: /\.(css)$/,
 				exclude: "/node_modules/",
 				use: [// order matters!
 					// {
@@ -53,7 +49,7 @@ module.exports = {
 						loader: miniCssExtractPlugin.loader,// OR style-loader
 					},
 					{
-						loader: "css-loader",// 2 - Translates CSS into CommonJS
+						loader: "css-loader", // 2 - Translates CSS into CommonJS
 						// options: {
 						// 	modules: {
 						// 		localIdentName: "[name]_[local]-[hash:base64:3]",
@@ -63,9 +59,9 @@ module.exports = {
 						// 	importLoaders: 1//num of loaders after css-loader
 						// }
 					},
-					"sass-loader",// 3
+					"sass-loader"// 3
 				],
-			},// css
+			}, // css
 
 			{
 				test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
@@ -78,19 +74,17 @@ module.exports = {
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
 		new ESLintPlugin({
-			// emitWarning: false,
 			quiet: true
 		}),
 		new htmlWebpackPlugin(
 			{template: "./src/assets/index.html"}
 		),
-		// new stylelintPlugin(),
 		new miniCssExtractPlugin(
 			{filename: "style.css"}
 		),
 		new copyPlugin({
 			patterns: [
-				{//don't copy *html to avoid index.html rewriting
+				{// Don't copy *html to avoid index.html rewriting
 					globOptions: {
 						dot: true,
 						ignore: "**/*.html",
@@ -103,7 +97,6 @@ module.exports = {
 	],//plugins
 
 	resolve: {
-	//   extensions: ["*", ".js", ".jsx"],
 		alias: {
 			"@": path.resolve(__dirname, "src"),
 			"@data": path.resolve(__dirname, "src/data"),
@@ -116,7 +109,7 @@ module.exports = {
 
 	output: {
 		path: path.resolve(__dirname, "./build"),
-		publicPath: "/",//!!! otherwise react nested routes fail
+		publicPath: "/",// otherwise react nested routes fail
 		filename: "index.js"
 	},
 
