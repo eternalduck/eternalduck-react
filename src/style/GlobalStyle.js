@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
 	${debugStyle}
 
 	// 1. General
-	// font can be here or in index.html
+	// Font may be here or in index.html
 	//@import url('https://fonts.googleapis.com/css2?family=Cousine:wght@400;700&family=Open+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap');
 	body {
 		background: ${props => props.theme.bodyBg};
@@ -19,15 +19,6 @@ const GlobalStyle = createGlobalStyle`
 		font-weight: 300;
 		font-size: 16px;
 		line-height: 1.5;
-		// &:after {
-		// 	content: "${props => props.theme.name}";
-		// 	display: block;
-		// 	position: absolute;
-		// 	top: 40%;
-		// 	left: 5px;
-		// 	font-size: 40px;
-		// 	color: mediumvioletred;
-		// }
 	}
 	// 2. Typography
 	h1, h2, h3, h4 {
@@ -103,7 +94,8 @@ const GlobalStyle = createGlobalStyle`
 		}
 	}
 	// end typo
-	//Icons
+
+	// Icons
 	// .icon {//fail
 	// 	// width: ${props => props.big ? "52px" : "32px"};
 	// 	// height: ${props => props.big ? "52px" : "32px"};
@@ -118,6 +110,6 @@ const GlobalStyle = createGlobalStyle`
 			height: 42px;
 		}
 	}
-`;//createGlobalStyle
+`;// createGlobalStyle
 
 export default GlobalStyle;

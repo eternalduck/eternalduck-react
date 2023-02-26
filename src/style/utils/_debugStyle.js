@@ -35,22 +35,3 @@ const debugStyle = css`
 `;
 
 export default debugStyle;
-
-//$bodyTxt: (
-//	[0, "XS", black],
-//	[576px, "SM (min-width: 576)", red],
-//	[750px, "MD (min-width: 750)", cyan],
-//	[990px, "LG (min-width: 990)", blue],
-//	[1200px, "XL (min-width: 1200)", lime],
-//	[1600px, "XXL (min-width: 1600)", magenta],
-//);
-//
-//
-//@each $br, $txt, $clr in $bodyTxt {
-//	@media (min-width: $br) {
-//		body:before {
-//			content: $txt;
-//			color: $clr;
-//		}
-//	}
-//}

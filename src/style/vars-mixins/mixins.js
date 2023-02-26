@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import {css} from 'styled-components';
 import {media} from "./media";
 
 export const mixins = {
@@ -52,13 +52,17 @@ export const mixins = {
 			padding: 0;
 		}
 	`,
-	flexCenterContent: css`//used for a container with a single item, usually txt
+
+	// Used for a container with a single item, usually txt
+	flexCenterContent: css`
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 	`,
-	flexCenterContentVertically: css`//used for a container with a single item, usually txt
+
+	// Used for a container with a single item, usually txt
+	flexCenterContentVertically: css`
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -68,8 +72,8 @@ export const mixins = {
 		display: flex;
 		flex-flow: row wrap;
 		justify-content: space-between;
-		flex-basis: auto;//ie height fix
 	`,
+
 //// 1.2 Helpers
 	out: (type, clr) => css`
 		outline: 1px ${type || "dashed"} ${clr || "red"};
@@ -81,15 +85,7 @@ export const mixins = {
 	printHidden: css`
 		@media print {display: none;}
 	`,
-	biggerFont: css`//bigger body font on desk
-		font-size: 16px;
-		@media ${media.md}{
-			font-size: 17px;
-		}
-		@media ${media.lg}{
-			font-size: 18px;
-		}
-	`,
+
 //// 1.3 Common Elements
 	defaultPseudo: (width, height) => css`
 		content: "";
@@ -112,7 +108,7 @@ export const mixins = {
 	txtShadow: css`
 		text-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
 	`,
-	//added to <a> that should contain a span!
+	// Added to <a> that should contain a span!
 	borderUnderline: css`
 		text-decoration: none;
 		&:hover {
@@ -141,7 +137,7 @@ export const mixins = {
 			}
 		}
 	`,
-	//added to <a> that should contain a span!
+	// Added to <a> that should contain a span!
 	borderUnderlineOnHover: css`
 		text-decoration: none;
 		&:hover {
@@ -176,7 +172,7 @@ export const mixins = {
 			z-index: -1;
 			//transform: skewX(-1deg) skewY(-1deg);
 			transition: background .1s ease-in;
-			opacity: .5;//additional opacity
+			opacity: .5;
 		}
 		&:hover:after {
 			background: ${props => props.theme.menuActiveItemBg};
@@ -187,4 +183,4 @@ export const mixins = {
 		&:hover {opacity: .9}
 	`,
 
-};//mixins
+};

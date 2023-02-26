@@ -1,4 +1,4 @@
-import {colors, gradients} from "./colors";
+import {colors} from "./colors";
 
 export const darkTheme = {
 	name: "dark",

@@ -39,7 +39,6 @@ export const colors = {
 };
 
 export const gradients = {
-	// blueMint: "linear-gradient(90deg, #07B464 0%, #018FA8 100%)",
 	blueMint: "linear-gradient(117.84deg, rgba(9, 134, 76, 0.5) 9.43%, rgba(8, 106, 123, 0.5) 73.34%), linear-gradient(66.13deg, rgba(33, 157, 100, 0.7) 34.33%, rgba(7, 96, 112, 0.7) 89.83%), radial-gradient(48.54% 63.75% at 53.2% 82.5%, #000000 0%, rgba(0, 0, 0, 0) 100%)",
 	blue: "linear-gradient(258.81deg, rgba(0, 6, 10, 0.5) 22.41%, rgba(17, 85, 123, 0.5) 60.19%), linear-gradient(100.19deg, #0C2DA0 20.38%, #408C9A 64.64%)",
 	vioPink: "linear-gradient(263.18deg, rgba(43, 30, 64, 0.5) 17.46%, rgba(128, 83, 136, 0.5) 62.47%), linear-gradient(94.41deg, rgba(31, 18, 54, 0.37) 21.16%, rgba(133, 92, 140, 0.37) 66.34%), radial-gradient(53.35% 130.75% at 50% 145.75%, #078091 0%, #855C8C 100%)",

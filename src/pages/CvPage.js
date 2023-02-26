@@ -116,7 +116,6 @@ const Iframe = styled.iframe`
 	/* background: ${props => props.theme.cvBg}; */
 	/* color: ${props => props.theme.txtClr}; */
 	/* padding-bottom: 100px;
-	${mixins.biggerFont};
 	& a {
 		color: ${theme => theme.txtClr};
 		${mixins.borderUnderline};
