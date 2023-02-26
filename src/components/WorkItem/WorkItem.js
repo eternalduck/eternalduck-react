@@ -71,11 +71,10 @@ const ItemInner = styled.div`
 	display: flex;
 	flex-direction: row;
 	padding: 30px 15px 15px;
-	/* background: ${colors.almostWhite}; */ //TMP
-	background: ${colors.darkDustBlue};
+	background: ${colors.almostWhite};
 	border-radius: 2px;
 	${mixins.boxShadowSmall(colors.almostBlack)};
-	&:after {//small color stripe
+	&:after {// small color stripe
 		${mixins.defaultPseudo("100%", "15px")};
 		background: ${props => props.bg};
 	}
@@ -88,7 +87,7 @@ const ItemInner = styled.div`
 const ImgWrap = styled.div`
 	/* outline: 1px dashed green; */
 	/* width: 100%; */
-	display: none !important; // TMP
+	/* display: none !important; // TMP */
 	flex: 0 0 40%;
 	@media ${media.md}{
 		flex: 1;
