@@ -1,11 +1,10 @@
 import React, {useEffect, useState, createContext, useContext, useLayoutEffect, useRef} from "react";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import styled, {ThemeProvider, ThemeContext, useTheme} from "styled-components";
 
-import "@style/fouc-fix.css";
-// import "@style/global.scss"
-import {darkTheme, lightTheme} from "./style/vars-mixins/theme";
-import GlobalStyle from "./style/GlobalStyle";
+import "./style/fouc-fix.css";
+import "./style/vars-mixins/_vars-index.scss"
+import "./style/global.scss";
+import {darkTheme, lightTheme} from "./style/vars-mixins/theme";// TODO del
 import Preloader from "./components/service/Preloader";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -40,38 +39,26 @@ export default function App(props){
 		setFooterHeight(footerRef.current.clientHeight);
 	}, []);
 
-
-	const Content = styled.main`
-		position: relative;
-		/* margin-bottom: -${footerHeight}px; */
-		/* margin-top: -${headerHeight}px; */
-		/* padding-bottom: ${footerHeight}px; */
-		min-height: calc(100vh - ${headerHeight}px)
-	`;
-
 //// toggleTheme logic was here
 
 	return(
-		<ThemeProvider theme={theme}>
-			<BrowserRouter>
-				<GlobalStyle/>
-				{/* <Preloader/> */}
-				<Header ref={headerRef}/>
-				<Content>
-					<Routes>
-						<Route path="/" element={ <Frontpage/> }/>
-						<Route path="/sites">
-							<Route index element={ <WorksPage/> }/>
-							<Route path=":itemSlug" element={ <WorkSingle/> }/>
-						</Route>
-						<Route path="/cv" element={ <CvPage/> }/>
-						<Route path="/test" element={ <TestPage/> }/>
-						<Route path="*" element={ <Page404/> }/>
-					</Routes>
-				</Content>
-				<Footer ref={footerRef}/>
-			</BrowserRouter>
-		</ThemeProvider >
+		<BrowserRouter>
+			{/* <Preloader/> */}
+			<Header ref={headerRef}/>
+			<main>
+				<Routes>
+					<Route path="/" element={ <Frontpage/> }/>
+					<Route path="/sites">
+						<Route index element={ <WorksPage/> }/>
+						<Route path=":itemSlug" element={ <WorkSingle/> }/>
+					</Route>
+					<Route path="/cv" element={ <CvPage/> }/>
+					<Route path="/test" element={ <TestPage/> }/>
+					<Route path="*" element={ <Page404/> }/>
+				</Routes>
+			</main>
+			<Footer ref={footerRef}/>
+		</BrowserRouter>
 	);
 }
 

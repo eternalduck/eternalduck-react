@@ -1,0 +1,77 @@
+// 2. Typography
+body {
+	font-family: "Open Sans", sans-serif;
+}
+h1, h2, h3, h4 {
+	font-family: "Roboto Slab", serif;
+	// font-family: "Cousine", monospace;
+	font-weight: 700;
+}
+h1 {
+	font-size: 20px;
+	line-height: 1.2;
+	margin-bottom: 20px;
+	@include mediaUp(md){
+		font-size: 22px;
+	}
+	@include mediaUp(lg){
+		font-size: 24px;
+		margin-bottom: 25px;
+	}
+}
+h2 {
+	font-size: 18px;
+	line-height: 1.2;
+	margin-bottom: 15px;
+	@include mediaUp(md){
+		font-size: 20px;
+	}
+	@include mediaUp(lg){
+		font-size: 22px;
+		margin-bottom: 20px;
+	}
+}
+h3 {
+	font-size: 16px;
+	line-height: 1.1;
+	margin-bottom: 15px;
+	@include mediaUp(md){
+		font-size: 17px;
+	}
+	@include mediaUp(lg){
+		font-size: 18px;
+		margin-bottom: 20px;
+	}
+}
+p {
+	font-size: 100%;
+	margin: 0 0 8px;
+}
+b, strong {
+	font-weight: bold;
+}
+a {
+	color: var(--link-color);
+	text-decoration: none;
+}
+.txt {
+	&_tiny {
+		font-size: 11px;
+	}
+	&_small {
+		font-size: 14px;
+	}
+	&_mid {
+		font-size: 18px;
+	}
+	&_big {
+		font-size: 20px;
+	}
+	&_extra {
+		font-size: 24px;
+	}
+	&_bold {
+		font-weight: bold;
+	}
+}
+// end typo

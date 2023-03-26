@@ -1,8 +1,6 @@
 import React, {useState, useEffect, useCallback} from "react";
 import {Link, matchRoutes, useLocation, Outlet} from "react-router-dom";
-import styled, {css, createGlobalStyle } from "styled-components";
-import {media} from "../style/vars-mixins/media";
-import ContentWidth from "../components/layout/ContentWidth";
+import styles from "./WorksPage.module.scss";
 import WorkItem from "../components/WorkItem/WorkItem";
 import {generateRandomBg} from "../components/helpers/generateRandomBg";
 import {sitesList} from "../data/sitesList";
@@ -19,41 +17,24 @@ const WorksPage = (props) => {
 
 
 	return (
-		<Works>{/*  theme={props.theme} */}
-			<ContentWidth>
-				<WorksWrap>
-					{worksList && worksList.map((item, i) =>
+		<section className={styles.worksPage}>{/*  theme={props.theme} */}
+			<div className={styles.worksPage__inner + " content-width no-padding"}>
+				{worksList && worksList.map((item, i) =>
 
-						// <p key={item.slug}>
-						// 	<Link to={`${currentURL}/${item.slug}`}>
-						// 		<span>{item.title}</span>
-						// 	</Link>
-						// </p>
+					// <p key={item.slug}>
+					// 	<Link to={`${currentURL}/${item.slug}`}>
+					// 		<span>{item.title}</span>
+					// 	</Link>
+					// </p>
 
-						<WorkItem key={item.slug}
-							item={item}
-							bg={bg[i]}
-						/>
-					)}
-				</WorksWrap>
-			</ContentWidth>
-		</Works>
+					<WorkItem key={item.slug}
+						item={item}
+						bg={bg[i]}
+					/>
+				)}
+			</div>
+		</section>
 	);
-};//WorksPage
-
-const Works = styled.div`
-	background: ${props => props.theme.bodyBg} url("/images/circle.png") right bottom no-repeat;
-`;
-const WorksWrap = styled.div`
-	margin-top: 50px;
-	padding-bottom: 100px;
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: center;
-	@media ${media.md}{
-		justify-content: flex-start;
-		/* column-gap: 50px; */
-	}
-`;
+};
 
 export default WorksPage;

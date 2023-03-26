@@ -1,21 +1,13 @@
 import React from "react";
-import styled from "styled-components";
-import {mixins} from "../../style/vars-mixins/mixins";
 
 const ContentWide = (props) => {
 	return (
-		<Container>
-			<Content>
+		<section>
+			<div className={"content-wide"}>
 				{props.children}
-			</Content>
-		</Container>
+			</div>
+		</section>
 	);
 };
 
-const Container = styled.div`
-	width: 100%;
-`;
-const Content = styled.div`
-	${mixins.contentWide}
-`;
 export default ContentWide;

@@ -1,0 +1,16 @@
+@import "../style/vars-mixins/vars-index";
+
+.worksPage {// TODO add theme css-vars
+	background: #333 url("../assets/images/circle.png") right bottom no-repeat;
+	&__inner {
+		outline: 2px dashed red;
+		margin-top: 50px;
+		padding-bottom: 100px;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		@include mediaUp(md){
+			justify-content: flex-start;
+		}
+	}
+}

@@ -1,10 +1,6 @@
 import React, {useState, useEffect} from "react";
-import styled, {keyframes} from "styled-components";
+import styles from "./WorksNav.modules.scss";
 import {Link, matchRoutes, useLocation} from "react-router-dom";
-import {colors} from "../../style/vars-mixins/colors";
-import {media} from "../../style/vars-mixins/media";
-import {mixins} from "../../style/vars-mixins/mixins";
-
 import {InlineIcon} from "@iconify/react";
 import previousIcon from "@iconify/icons-flat-color-icons/previous";
 import nextIcon from "@iconify/icons-flat-color-icons/next";
@@ -53,120 +49,47 @@ const WorksNav = (props) => {
 //TODO replace <a> with Link, debug Router
 
 	return (
-		<NavContainer>
-			<NavItem
+		<nav className={styles.worksNav}>
+			<div className={styles.worksNav__item}
 				onMouseEnter={() => setIsPrevDescrShown(true)}
 				onMouseLeave={() => setIsPrevDescrShown(false)}>
 			{navLinks.prev.slug &&
 				<>
+				{/* TODO Link or a?? Link failed, check router */}
 				<a href={`${navLinks.prev.slug}`}>
 					<InlineIcon icon={previousIcon}/>
+					<span className={styles.worksNav__descr} shown={isPrevDescrShown}>
+						{navLinks.prev.title} ({navLinks.prev.year})
+					</span>
 				</a>
-				<Descr shown={isPrevDescrShown}>
-					{navLinks.prev.title} ({navLinks.prev.year})
-				</Descr>
 				</>
 			}
-			</NavItem>
-			<Back>
+			</div>
+			<div className={styles.worksNav__back}>
 				<Link to={parentUrl}>
 					<InlineIcon icon={signpostIcon}/>
 					<span>back to the list</span>
 				</Link>
-			</Back>
-			<NavItem
+			</div>
+			<div className={styles.worksNav__item}
 				onMouseEnter={() => setIsNextDescrShown(true)}
 				onMouseLeave={() => setIsNextDescrShown(false)}>
 			{navLinks.next.slug &&
 				<>
 				<a href={`${navLinks.next.slug}`}>
 					<InlineIcon icon={nextIcon}/>
+					<span className={styles.worksNav__descr} shown={isNextDescrShown}>
+						{navLinks.next.title} ({navLinks.next.year})
+					</span>
 				</a>
-				<Descr shown={isNextDescrShown}>
-					{navLinks.next.title} ({navLinks.next.year})
-				</Descr>
 				</>
 			}
-			</NavItem>
-		</NavContainer>
+			</div>
+		</nav>
 	);
 };
 
 
-const NavContainer = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	margin-bottom: 40px;
-	@media ${media.lg}{
-		flex-wrap: nowrap;
-		margin-bottom: 50px;
-	}
-`;
-const NavItem = styled.div`//TODO Link or a?? Link failed, check router
-	//outline: 1px dashed peachpuff;
-	position: relative;
-	flex: 0 1 32px;
-	color: ${colors.almostWhite};
-	position: relative;
-	@media ${media.lg}{
-		order: unset;
-		width: 37%;
-	}
-	& svg {//icon
-		font-size: 32px;
-		transiton: transform .3s ease-in;
-		&:hover {opacity: .9}
-		& path {
-			fill: ${colors.almostWhite};
-		}
-	}
-`;
-const Descr = styled.div`
-	//outline: 1px dashed hotpink;
-	visibility: ${props => props.shown ? "visibile" : "hidden"};
-	opacity: ${props => props.shown ? "1" : "0"};
-	transition: opacity .2s ease-in;
-	position: absolute;
-	top: -40px;
-	width: 300px;
-	font-size: 15px;
-	user-select: none;
-	${mixins.borderUnderline}
-	@media ${media.lg}{
-		top: 6px;
-		font-size: 16px;
-	}
-	${NavItem}:first-child & {
-		left: 0;
-		@media ${media.lg}{
-			left: 45px;
-		}
-	}
-	${NavItem}:last-child & {
-		right: 0;
-		text-align: right;
-		@media ${media.lg}{
-			right: 45px;
-		}
-	}
-`;
-const Back = styled.div`
-	//outline: 1px dashed hotpink;
-	flex: 0 1 30%;
-	min-width: 150px;
-	font-size: 14px;
-	text-align: center;
-	white-space: nowrap;
-	${mixins.borderUnderline}
-	@media ${media.lg}{
-		font-size: 15px;
-	}
-	& svg {
-		width: 28px;
-		height: 28px;
-		margin-bottom: -5px;
-	}
-`;
+
 
 export default WorksNav;

@@ -24,7 +24,6 @@
     "react-dom": "^18.2.0",
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
-    "styled-components": "^5.3.5",
     "web-vitals": "^3.1.0"
   },
   "devDependencies": {
@@ -48,7 +47,6 @@
     "@testing-library/react": "^13.4.0",
     "babel-jest": "^29.3.1",
     "babel-loader": "^8.2.5",
-    "babel-plugin-styled-components": "^2.0.7",
     "classnames": "^2.3.1",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
@@ -73,7 +71,6 @@
     "sass-loader": "^13.2.0",
     "style-loader": "^3.3.1",
     "stylelint": "^14.9.1",
-    "stylelint-config-styled-components": "^0.1.1",
     "stylelint-scss": "^4.3.0",
     "stylelint-webpack-plugin": "^3.3.0",
     "url-loader": "^4.1.1",

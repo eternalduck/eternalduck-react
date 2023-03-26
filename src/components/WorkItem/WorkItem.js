@@ -1,9 +1,6 @@
 import React, {useState, useEffect, useCallback} from "react";
 import {Link, matchRoutes, useLocation} from "react-router-dom";
-import styled from "styled-components";
-import {colors} from "../../style/vars-mixins/colors";
-import {media} from "../../style/vars-mixins/media";
-import {mixins} from "../../style/vars-mixins/mixins";
+import styles from "./WorkItem.module.scss";
 import {Icon, InlineIcon} from "@iconify/react";
 import exiticon from "@iconify/icons-openmoji/exit";
 
@@ -11,138 +8,38 @@ const WorkItem = (props) => {
 	let currentURL = useLocation().pathname;
 
 	return (
-		<Item>
-			<ItemInner bg={props.bg}>
-				<Txt>
-					<Title>
+		<article className={styles.workItem}>
+			<div className={styles.workItem__inner + " INNER"} bg={props.bg}>
+				<div className={styles.workItem__text}>
+					<div className={styles.workItem__title}>
 						<Link to={`${currentURL}/${props.item.slug}`}>
 							<span>{props.item.title}</span>
 						</Link>
-					</Title>
+					</div>
 					<>
 					{props.item.urls &&
 					// Show only one url for brevity
-						<Url>
+						<p className={styles.workItem__links}>
 							<a href={props.item.urls[0].url} target={"_blank"} rel={"noreferrer"}>
 								<span>{props.item.urls[0].txt}</span>
 							</a>
-						</Url>
+						</p>
 					}
-						<Info>
+						<div className={styles.workItem__info}>
 							<p><b>{props.item.year}</b></p>
 							<p>{props.item.keywords}</p>
-						</Info>
+						</div>
 					</>
 				{/* <Descr dangerouslySetInnerHTML={{__html: props.item.description}}/> */}
-				</Txt>
-				<ImgWrap>
+				</div>
+				<div className={styles.workItem__imgWrap}>
 					<Link to={`${currentURL}/${props.item.slug}`}>
-						<Img src={props.item.thumb} alt={props.item.title}/>
+						<img src={props.item.thumb} alt={props.item.title}/>
 					</Link>
-				</ImgWrap>
-			</ItemInner>
-		</Item>
+				</div>
+			</div>
+		</article>
 	);
 };
 
 export default WorkItem;
-
-const Item = styled.article`
-	/* outline: 1px dashed magenta; */
-	flex: 1 0 100%;
-	display: flex;
-	justify-content: center;
-	margin-bottom: 30px;
-	@media ${media.md}{
-		padding-right: 15px;
-		padding-left: 15px;
-		flex: 0 1 50%;
-	}
-	@media ${media.xl}{
-		flex: 0 1 33.33%;
-	}
-	@media ${media.xxl}{
-		flex: 0 1 25%;
-	}
-`;
-
-const ItemInner = styled.div`
-	position: relative;
-	display: flex;
-	flex-direction: row;
-	padding: 30px 15px 15px;
-	background: ${colors.almostWhite};
-	border-radius: 2px;
-	${mixins.boxShadowSmall(colors.almostBlack)};
-	&:after {// small color stripe
-		${mixins.defaultPseudo("100%", "15px")};
-		background: ${props => props.bg};
-	}
-	@media ${media.md}{
-		flex-direction: column;
-		padding: 20px 15px 15px;
-	}
-	
-`;
-const ImgWrap = styled.div`
-	/* outline: 1px dashed green; */
-	/* width: 100%; */
-	/* display: none !important; // TMP */
-	flex: 0 0 40%;
-	@media ${media.md}{
-		flex: 1;
-		${mixins.flexCenterContentVertically};
-	}
-	& a {
-		${mixins.hoverOpacity};
-	}
-`;
-const Img = styled.img`
-	${mixins.boxShadowSmall()};
-	width: 100%;
-	object-fit: contain;
-	object-position: center bottom;
-	border-radius: 2px;
-	@media ${media.md}{
-		display: block;
-		width: 94%;
-		margin: 0 auto;
-	}
-`;
-const Txt = styled.div`
-	/* outline: 1px dashed red; */
-	color: ${colors.almostBlack};
-	padding-right: 10px;
-	flex: 0 0 60%;
-	@media ${media.md}{
-		flex: 1;
-		margin-bottom: 15px;
-	}
-	& a {color: ${colors.almostBlack};
-`;
-const Title = styled.h3`
-	${mixins.borderUnderline};
-	margin-bottom: 15px;
-`;
-
-const Url = styled.p`
-	${mixins.borderUnderline};
-	font-weight: bold;
-	margin-bottom: 10px;
-	@media ${media.md}{
-		margin: 10px 0;
-		font-size: 14px;
-	}
-	& a {
-		color: ${colors.dustBlue};
-		display: inline-block;
-		&:first-child {
-			margin-right: 15px;
-		}
-	}
-`;
-const Info = styled.div`
-	font-size: 15px;
-	color: ${colors.dustBlue};
-`;
-

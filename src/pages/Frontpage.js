@@ -1,20 +1,13 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import "./Frontpage.module.scss";
 
 const Frontpage = (props, theme) => {
 	// useEffect(() => {
 	// 	document.body.className = "frontpage"
 	// })
 	return(
-		<FrontpageSC/>
+		<section className={"frontpage"}></section>
 	);
 };
-
-const FrontpageSC = styled.div`
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	background: url("/images/index-table.png") center bottom/cover no-repeat;
-`;
 
 export default Frontpage;

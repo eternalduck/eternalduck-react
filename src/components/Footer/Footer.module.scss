@@ -1,0 +1,8 @@
+@import "../../style/vars-mixins/vars-index";
+
+.footer {
+	margin: 40px 0 0;
+	&__inner {
+		@include content-width;
+	}
+}

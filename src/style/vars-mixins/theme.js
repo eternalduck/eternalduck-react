@@ -1,4 +1,4 @@
-import {colors} from "./colors";
+import {colors} from "../unused/colors";
 
 export const darkTheme = {
 	name: "dark",

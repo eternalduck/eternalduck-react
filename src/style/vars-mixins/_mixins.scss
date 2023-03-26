@@ -1,0 +1,157 @@
+// Layout
+@mixin content-width {
+	width: 100%;
+	padding: 0 15px;
+	margin-right: auto;
+	margin-left: auto;
+	@include mediaUp(sm){
+		width: 500px;
+	}
+	@include mediaUp(md){
+		width: 700px;
+	}
+	@include mediaUp(lg){
+		width: 900px;
+	}
+	@include mediaUp(xl){
+		width: 1100px;
+	}
+	@include mediaUp(xxl){
+		width: 1300px;
+	}
+}
+@mixin content-wide {
+	width: 100%;
+		padding: 0 15px;
+		max-width: 1700px;
+		margin-right: auto;
+		margin-left: auto;
+		@include mediaUp(md){
+			width: 90%;
+			padding: 0;
+		}
+		@include mediaUp(lg){
+			width: 96%;
+			padding: 0;
+		}
+}
+
+@mixin content-fullwidth {
+	width: 100%;
+	padding: 0 30px;
+}
+
+// Helpers
+@mixin defaultPseudo($width: 100%, $height: 100%){
+	content: "";
+	display: block;
+	position: absolute;
+	width: $width;
+	height: $height;
+	top: 0;
+	left: 0;
+}
+
+@mixin boxShadowSmall($clr: #333) {
+	box-shadow: 0 0 14px -5px $clr;
+}
+
+@mixin boxShadowMid($clr: #333) {
+	box-shadow: 1px 1px 30px -5px $clr;
+}
+
+@mixin boxShadowBig($clr: #333) {
+	box-shadow: 5px 5px 18px 10px $clr;
+}
+@mixin txtShadow{
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+}
+// Added to <a> that should contain a span!
+@mixin borderUnderline {
+	text-decoration: none;
+	&:hover {
+		text-decoration: none;
+	}
+	& span, & h1, & h2, & h3, & h4 {
+		display: inline;
+		transition: border-bottom .1s ease-in;
+		border-bottom: 1px solid;
+		&:hover {
+			border-bottom: 1px solid transparent;
+		}
+	}
+}
+
+@mixin dashedUnderline {
+	text-decoration: none;
+	&:hover {
+		text-decoration: none;
+	}
+	& span, & h1, & h2, & h3, & h4 {
+		display: inline;
+		transition: border-bottom .1s ease-in;
+		border-bottom: 1px dashed;
+		&:hover {
+			border-bottom: 1px dashed transparent;
+		}
+	}
+}
+
+// Added to <a> that should contain a span!
+@mixin borderUnderlineOnHover {
+	text-decoration: none;
+	&:hover {
+		text-decoration: none;
+	}
+	& span, & h1, & h2, & h3, & h4 {
+		display: inline;
+		border-bottom: 1px solid transparent;
+		transition: border-bottom .1s ease-in;
+		&:hover {
+			border-bottom: 1px solid;
+		}
+	}
+}
+
+@mixin noUnderline {
+	border-bottom: none;
+	text-decoration: none;
+	&:hover{
+		border-bottom: none;
+		text-decoration: none;
+	}
+}
+
+@mixin hoverBg {
+	position: relative;
+	&:after {
+		content: "";
+		position: absolute;
+		top: -5px;
+		right: -8px;
+		bottom: -5px;
+		left: -8px;
+		z-index: -1;
+		transition: background .1s ease-in;
+		opacity: .5;
+		//transform: skewX(-1deg) skewY(-1deg);
+	}
+	&:hover:after {
+		background: #fff;// TODO css-var $menuActiveItemBg;
+	}
+}
+
+@mixin hoverOpacity {
+	transition: opacity .2s ease-in;
+	&:hover {
+		opacity: .9
+	}
+}
+
+
+
+
+
+@mixin print-hidden {
+	@media print {display: none;}
+}

@@ -1,0 +1,61 @@
+@import "../../style/vars-mixins/vars-index";
+
+.header {
+	&__inner {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+		padding: 15px 0;
+		z-index: 100;
+	}
+	&__logo {
+		order: 1;
+		flex: 0 0 60px;
+		width: 60px;
+		height: 60px;
+		background: url("../../assets/images/logo-sprite.png") 0 0 no-repeat;
+		background-size: 100%;
+		margin-right: 15px;
+		border-radius: 50%;
+		@include boxShadowSmall();
+		@include mediaUp(md){
+			margin-right: 40px;
+		}
+		&:hover {
+			background-position: 0 -60px;
+		}
+	}
+	&__extra {
+		flex: 4;
+		order: 2;
+		display: flex;
+		@include mediaUp(md){
+			order: 3;
+			justify-content: flex-end;
+		}
+	}
+	&__menuWrap {
+		display: flex;
+		justify-content: flex-end;
+		flex: 0 0 50px;
+		order: 4;
+		margin-left: 20px;
+		@include mediaUp(md){
+			flex: 1;
+			order: 2;
+			margin-left: 0;
+			justify-content: flex-start;
+		}
+	}
+	&__themeToggleWrap {
+		flex: 2;
+		order: 3;
+		display: flex;
+		justify-content: flex-end;
+		@include mediaUp(md){
+			order: 4;
+		}
+	}
+}
+

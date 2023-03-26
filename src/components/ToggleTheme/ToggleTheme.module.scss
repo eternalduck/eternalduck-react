@@ -1,0 +1,62 @@
+@import "../../style/vars-mixins/vars-index";
+
+.theme-switch {
+
+	width: 120px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	&__toggle {// input
+		display: none;//??
+		position: relative;
+		width: 45px;
+		height: 22px;
+		background-color: $midGray;
+		//background-color: ${props => props.theme.name === "dark" ? colors.midGray : colors.litestGray};
+		border-radius: 15px;
+		cursor: pointer;
+		opacity: .9;
+		transition: background-color .3s ease-in, opacity .3s ease-in;
+		&:hover {opacity: 1;}
+		&:before {//handle
+			content: "";
+			display: block;
+			position: absolute;
+			left: 2px;
+			top: 2px;
+			width: 18px;
+			height: 18px;
+			border-radius: 10px;
+			//background-color: ${props => props.theme.name === "dark" ? colors.black3 : colors.liteGray};
+			box-shadow: 1px 1px 2px rgba(0, 0, 0, .35);
+			transition: transform .3s ease-in, background-color .3s ease-in;
+		}
+		&:checked + &:before {
+			transform: translate(20px);
+		}
+	}
+}
+
+//TODO disable shake on page load
+@keyframes shaking {
+	0% {transform: translateX(0)}
+	25% {transform: translateX(1px) rotate(1deg) scale(.97)}
+	50% {transform: translateX(0) rotate(0)}
+	75% {transform: translateX(-1px) rotate(-1deg)}
+	100% {transform: translateX(0) rotate(0) scale(1)}
+
+}
+.IconDarkMode {
+	font-size: 20px;
+	transiton: transform .3s ease-in;
+	cursor: pointer;
+	//${mixins.hoverOpacity};
+	//${props => props.$shake ?//$shake is sc transient prop
+	//	css`animation: ${shaking} .3s ease-in;
+	//		animation-iteration-count: 2;`
+	//	: null
+	//};
+	//@media ${media.md}{
+	//	font-size: 24px;
+	//}
+}

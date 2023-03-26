@@ -1,0 +1,42 @@
+@import "../style/vars-mixins/vars-index";
+
+.page404 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: navy;
+	&__text {
+		max-width: 600px;
+		text-align: center;
+		color: #fff;
+		font: bold 17px/1.3 "Courier New", monospace;
+		& h1 {
+			display: inline-block;
+			padding: 0 10px;
+			margin-bottom: 15px;
+			font-size: 19px;
+			color: navy;
+			background: $almostWhite;
+		}
+		& p {
+			text-align: left;
+			font-weight: normal;
+			line-height: 1.5;
+			margin: 0 0 15px;
+			&:last-child {
+				margin-top: 30px;
+				text-align: center;
+			}
+		}
+	}
+	&__link {
+		color: #fff;
+		cursor: pointer;
+		@include borderUnderline;
+	}
+}

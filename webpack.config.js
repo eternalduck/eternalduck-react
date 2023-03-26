@@ -12,6 +12,10 @@ module.exports = {
 	module: {
 		rules: [
 			{
+				test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
+				type: "asset/resource",
+			},
+			{
 				test: /\.(js|jsx)$/,
 				exclude: [/node_modules/, /\.html$/],
 				use: {
@@ -37,36 +41,32 @@ module.exports = {
 				}
 			}, // js
 
-			{// styled-components + tiny css for fouc-fix
+			{// CSS Modules + + sass + tiny css for fouc-fix
 				test: /\.(scss|css)$/,
 				exclude: "/node_modules/",
 				use: [// order matters!
+					{
+						loader: "style-loader",//1 - Creates `style` from JS OR miniCssExtractPlugin here
+						// options: { injectType: "styleTag" }
+					},
 					// {
-					// 	loader: "style-loader",//1 - Creates `style` from JS OR miniCssExtractPlugin here
-					// 	// options: { injectType: "styleTag" }
+					// 	loader: miniCssExtractPlugin.loader,// OR style-loader
 					// },
 					{
-						loader: miniCssExtractPlugin.loader,// OR style-loader
-					},
-					{
 						loader: "css-loader", // 2 - Translates CSS into CommonJS
-						// options: {
-						// 	modules: {
-						// 		localIdentName: "[name]_[local]-[hash:base64:3]",
-						// 		exportLocalsConvention: "camelCase",
-						// 	},
-						// 	url: false,//!!!
-						// 	importLoaders: 1//num of loaders after css-loader
-						// }
+						options: {
+							modules: {
+								mode: "local",
+								localIdentName: "[local]-[hash:base64:3]",
+								// exportLocalsConvention: "camelCase",
+							},
+							url: false,//!!!
+							importLoaders: 1//num of loaders after css-loader
+						}
 					},
 					"sass-loader"// 3
 				],
 			}, // css
-
-			{
-				test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
-				type: "asset/resource",
-			}//img
 
 		]//rules
 	},//module
@@ -79,9 +79,9 @@ module.exports = {
 		new htmlWebpackPlugin(
 			{template: "./src/assets/index.html"}
 		),
-		new miniCssExtractPlugin(
-			{filename: "style.css"}
-		),
+		// new miniCssExtractPlugin(
+		// 	{filename: "style.css"}
+		// ),
 		new copyPlugin({
 			patterns: [
 				{// Don't copy *html to avoid index.html rewriting

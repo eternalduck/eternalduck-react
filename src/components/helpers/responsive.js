@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {breakpoint} from "../../style/vars-mixins/media";
+// import {breakpoint} from "../../style/vars-mixins/media";
 
 const resizeWatcher = (callback) => {
 	// let delayed = false;
@@ -22,7 +22,7 @@ export const isMobile = () => {
 		resizeWatcher(handleWindowResize);
 	}, [winWidth]);
 
-	const isMob = winWidth < breakpoint.md;
+	const isMob = winWidth < 750;
 	return {isMob, winWidth};
 };
 
