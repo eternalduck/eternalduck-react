@@ -84,10 +84,10 @@ module.exports = {
 		// ),
 		new copyPlugin({
 			patterns: [
-				{// Don't copy *html to avoid index.html rewriting
+				{
 					globOptions: {
 						dot: true,
-						ignore: "**/*.html",
+						ignore: "**/*.html",// Don't copy to avoid index.html rewriting
 					},
 					from: path.resolve(__dirname, "./src/assets/"),
 					to: path.resolve(__dirname, "./build/")

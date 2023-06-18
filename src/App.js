@@ -29,22 +29,13 @@ export default function App(props){
 		console.log('Current theme: ', theme.name);
 	}, []);
 
-	// Pass header height
-	const headerRef = useRef(null);
-	const footerRef = useRef(null);
-	const [headerHeight, setHeaderHeight] = useState(0);
-	const [footerHeight, setFooterHeight] = useState(0);
-	useLayoutEffect(() => {
-		setHeaderHeight(headerRef.current.clientHeight);
-		setFooterHeight(footerRef.current.clientHeight);
-	}, []);
 
 //// toggleTheme logic was here
 
 	return(
 		<BrowserRouter>
 			{/* <Preloader/> */}
-			<Header ref={headerRef}/>
+			<Header/>
 			<main>
 				<Routes>
 					<Route path="/" element={ <Frontpage/> }/>
@@ -57,7 +48,7 @@ export default function App(props){
 					<Route path="*" element={ <Page404/> }/>
 				</Routes>
 			</main>
-			<Footer ref={footerRef}/>
+			<Footer/>
 		</BrowserRouter>
 	);
 }

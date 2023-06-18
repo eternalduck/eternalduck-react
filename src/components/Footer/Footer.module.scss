@@ -1,8 +1,11 @@
 @import "../../style/vars-mixins/vars-index";
 
 .footer {
-	margin: 40px 0 0;
+	height: var(--footerHeight);
 	&__inner {
+		outline: 2px dotted lime;
+		height: 100%;
+		//padding: 15px 0;
 		@include content-width;
 	}
 }

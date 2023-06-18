@@ -1,3 +1,11 @@
+// Layout
+//$headerHeight: 90px;
+//$headerHeightMob: 50px;
+:root {
+	--headerHeight: 90px;// set by passVarsToCss
+	--footerHeight: 50px;// set by passVarsToCss
+}
+
 // Colors
 $black3: #333;
 $almostBlack: #222;
